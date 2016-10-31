@@ -942,12 +942,24 @@
         <li>数据接口</li>
     </ul>
     <div class="optionA showCon">
-        <div class="dataContainerA">
+        <!--<div class="dataContainerA">
             <input type="text" class="connection">
             <span class="downIcon"></span>
             <ul class="optionList">
 
             </ul>
+            <ul class="mainList mainEvent mainList1">
+
+            </ul>
+            <div class="addFoot">
+                <span class="sure">确定</span>
+                <span class="cancel">取消</span>
+            </div>
+        </div>-->
+        <div class="dataContainerA">
+            <select name="" id="" class="connection">
+
+            </select>
             <ul class="mainList mainEvent mainList1">
 
             </ul>
@@ -1400,11 +1412,11 @@
             // data:JSON.stringify({userId:userId}),
             success:function(data) {
                 $(data).each(function(index,item){
-                    str+='<li id='+item["ID"]+'>'+item["NAME"]+'</li>';
+                    str+='<option id='+item["ID"]+'>'+item["NAME"]+'</option>';
                 });
-                str+='<li class="otherwise">other</li>';
+                str+='<option class="otherwise">other</option>';
 
-                $('.optionList').html(str);
+                $('.connection').html(str);
             },
             error : function() {
                 alert("异常！");
@@ -1481,8 +1493,8 @@
         }),
 
         success:function(data) {
-            console.log(data)
-            console.log(data.tableName)
+            //console.log(data)
+            //console.log(data.tableName)
             bindSourceData(data)
         },
         error : function() {
@@ -1492,6 +1504,7 @@
     }
 
     function bindSourceData(data,flowId){
+        flowIdName=0;
         var nameList=data.tableName;
         var data_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
         var data_obj = $(

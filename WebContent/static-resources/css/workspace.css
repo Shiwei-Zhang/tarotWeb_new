@@ -1837,7 +1837,7 @@ tr:nth-child(even) {
     display: block;
 }
 
-.add4-con .dataContainerA .connection{
+/*.add4-con .dataContainerA .connection{
     position: relative;
     width: 669px;
     height: 38px;
@@ -1870,6 +1870,23 @@ tr:nth-child(even) {
 .dataContainerA .optionList li:hover{
     color: #fff;
     background: #56b0e2;
+}*/
+
+.add4-con .dataContainerA .connection{
+    position: relative;
+    width: 669px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 15px;
+    border: 1px solid #b4b4b4;
+    margin: 30px 30px 20px;
+}
+.dataContainerA .connection option{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 15px;
+    cursor: pointer;
 }
 
 .dataContainerA .mainList{

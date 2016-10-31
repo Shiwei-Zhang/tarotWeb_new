@@ -344,9 +344,18 @@ $(function(){
         //点击确定按钮
         sureBtn();
         //input下拉菜单
+        $('.connection').change(function(){
+            //console.log($(this).children('option:selected').val())
+            //console.log($(this).children('option:selected').prop('id'))
+            detailId = $(this).children('option:selected').prop('id')
+            getDataDetail(detailId);
+            if ($('.connection').val() === 'other') {
 
-        $('.connection').focus(function (event) {
+            }
+        })
+        /*$('.connection').focus(function (event) {
             var userId = $("#usersId").val();
+            console.log(userId)
             getDataAdd4(userId);
             $('.optionList').show()
 
@@ -369,7 +378,7 @@ $(function(){
                 $('.optionList').hide()
             })
 
-        });
+        });*/
         $('.mask').show();
         $('.add4-con .closeA,.add4-con .cancel').click(function () {
             $('.add4-con').hide();
