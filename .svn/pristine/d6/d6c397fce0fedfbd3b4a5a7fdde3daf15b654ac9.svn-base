@@ -1,0 +1,1043 @@
+/**
+ * Created by zhang haijun on 2016/9/23.
+ */
+$(function(){
+	//get business list
+	var getBusiness = function(seletedGroup){
+		$('.layer2').show();
+		
+		
+		var promise1 = new Promise(function(resolve, reject){
+			$.ajax({
+				url: getUrl('/manager/config/getBusiness'),
+				type: 'POST',
+				data:{},
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					resolve(data);
+				}
+			});
+		});
+		
+		var promise2 = new Promise(function(resolve, reject){
+			$.ajax({
+				url: getUrl('/manager/config/getAllBusinessType'),
+				type: 'POST',
+				data:{},
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					resolve(data);
+				}
+			});
+		});
+		
+		Promise.all([promise1, promise2]).then(function(resolveAll){
+			var groupRecords =  resolveAll[0];
+			var businessTypes = resolveAll[1];
+			
+			$('.group_records').empty();
+			rendererGroupRecord(groupRecords, seletedGroup);
+			window.businessTypes_ = businessTypes;
+			$('.layer2').hide();
+			
+		});
+	};
+	getBusiness();
+	//
+	
+
+	//group related
+	//start--
+	$('.group_add input[type=button]').on('click', function(e){
+		$('.edit-title span:eq(0)').text("新增业务组");
+    	var table = $('.edit-dialog .d-content table');
+    	table.empty();
+    	var ele = {name: null, code: null, description: null};
+    	for(var e in ele){
+    		table.append($('<tr><td>' + e + '</td><td><input value="" /></td></tr>'));
+    	}
+    	$('.package-edit').show();
+    	
+    	window._callback = function(){
+    		$('.package-edit').hide();
+    		$('.layer2').show();
+    		var $dom = $('.group_records');
+    		var trs = $('.edit-dialog .d-content table tr');
+			var dataPara = {};
+			var flag = true;
+			for(var i = 0; i < trs.length; i++){
+				var tds = $(trs[i]).children();
+				var key = $(tds[0]).text();
+				var value = $(tds[1]).children().val();
+				dataPara[key] = value
+				
+				if(!value){
+					//$(tds[1]).children().css({'border':'1px red solid;'});
+					flag = false;
+					break;
+				}
+			}
+			console.log(dataPara);
+			if(!flag){
+				var fun = function(){
+					$('.package-edit').show();
+		    		$('.layer2').hide();
+				};
+				self_cancelOk_confirm('请检查输入数据。', fun);
+				return ;
+			}
+			
+			$.ajax({
+				url: getUrl('/manager/config/saveBusiness'),
+				type: 'POST',
+				data:dataPara,
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					if(data){
+						/*var ele = data;
+						var dataArr = [];
+						dataArr.push(data);
+						rendererGroupRecord(dataArr);*/
+						//TODO
+						var seletedGroup = $('.group_records .active')[0];
+						getBusiness(seletedGroup);
+						
+					}
+					$('.layer2').hide();
+				}
+			});
+    	};
+	});
+    //end-
+	
+	//type related
+	//start--
+	$('.type_self_add input[type=button]').on('click', function(e){
+		if(!$('.group_records .active') || $('.group_records .active').length < 1){
+			self_confirm('请先选中业务组。');
+			return;
+		}
+		$('.edit-title span:eq(0)').text("新增业务类型");
+    	var table = $('.edit-dialog .d-content table');
+    	table.empty();
+    	var ele = {name: null, code: null, version: null, description: null, icon:null};
+    	for(var e in ele){
+    		if(e == 'icon'){
+    			//TODO
+    			table.append($('<tr><td>' + e + '</td><td><div class="icon"><span>点击上传icon图标</span><input class="file" type="file" /></div></td></tr>'));
+    			$('.file').change(function(e){
+    				{
+        				var filePath = $(this).val();
+        				if(filePath){
+        					$($('.icon').children()[0]).text(filePath);
+        				}
+        			}
+    			});
+    		}else{
+    			table.append($('<tr><td>' + e + '</td><td><input value="" /></td></tr>'));
+    		}
+    	}
+    	$('.package-edit').show();
+    	
+    	window._callback = function(){
+    		$('.package-edit').hide();
+    		$('.layer2').show();
+    		var trs = $('.edit-dialog .d-content table tr');
+			var dataPara = {};
+			var flag = true;
+			for(var i = 0; i < trs.length; i++){
+				var tds = $(trs[i]).children();
+				var key = $(tds[0]).text();
+				var value = $(tds[1]).children().val();
+				//icon div
+				if($(tds[1]).children().hasClass('icon')){
+					value = $($(tds[1]).children()[0]).text();
+				}
+				
+				dataPara[key] = value
+				
+				if(!value){
+					//$(tds[1]).children().css({'border':'1px red solid;'});
+					flag = false;
+					break;
+				}
+			}
+			//icon upload.
+			//TODO
+			var imageUrl = uploadFile();
+			if(!imageUrl){
+				var fun = function(){
+					$('.package-edit').show();
+		    		$('.layer2').hide();
+				};
+				self_cancelOk_confirm('文件上传失败。', fun);
+				return ;
+			}
+			
+			dataPara['bizType'] = $($('.group_records .active').children()[0]).attr('data-code');
+			dataPara['iconDir'] = imageUrl;
+			console.log(dataPara);
+			if(!flag){
+				var fun = function(){
+					$('.package-edit').show();
+		    		$('.layer2').hide();
+				};
+				self_cancelOk_confirm('请检查输入数据。', fun);
+				return ;
+			}
+			
+			$.ajax({
+				url: getUrl('/manager/config/saveBusinessType'),
+				type: 'POST',
+				data:dataPara,
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					if(data){
+						var seletedType = $('.type_self .type_records .active')[0];
+						reloadType(dataPara.bizType, null, seletedType);
+						
+					}
+					$('.layer2').hide();
+				}
+			});
+    	};
+	});
+    //end-
+	
+	//type dependent related
+	//start-
+	$('.type_dep_add input[type=button]').on('click', function(e){
+		if(!$('.group_records .active') || $('.group_records .active').length < 1){
+			self_confirm('请先选中业务组。');
+			return;
+		}
+		/*
+		if(!$('.type_self .type_records .active') || $('.type_self .type_records .active').length < 1){
+			self_confirm('请选中业务类型。');
+			return;
+		}*/
+		$('.edit-title span:eq(0)').text("新增业务类型关系");
+		var table = $('.edit-dialog .d-content table');
+    	table.empty();
+		
+		var groups = $('.group_records>div');
+		var domStr = '<select><option value="">请选择业务组</option>';
+		for(var i=0; i < groups.length; i++){
+			var group = $(groups[i]).children().first();
+			var code = group.attr('data-code');
+			var name = group.attr('data-name');
+			
+			domStr += '<option value="' + code +'">' + name + '</option>';
+		}
+		domStr += '</select>';
+		table.append($('<tr><td>业务组</td><td>' + domStr + '</td></tr>'));
+		
+		var types = window.businessTypes_;
+		var domStr2 = '<select><option value="">请选择业务类型</option>';
+		for(var i=0; i < types.length; i++){
+			var type = types[i];
+			var code = type.code;
+			var name = type.name;
+			
+			domStr2 += '<option value="' + code +'">' + name + '</option>';
+		}
+		domStr2 += '</select>';
+		table.append($('<tr><td>业务类型</td><td>' + domStr2 + '</td></tr>'));
+		
+		table.append($('<tr><td>code</td><td><input value="" /></td></tr>'));
+		$('.package-edit').show();
+		
+		window._callback = function(){
+    		$('.package-edit').hide();
+    		$('.layer2').show();
+    		var trs = $('.edit-dialog .d-content table tr');
+			var group = $(trs[0]).first().children().last().children().first().val();
+			var type = $(trs[1]).first().children().last().children().first().val();
+			var code = $(trs[2]).first().children().last().children().first().val();
+			if(!group || !type || !code){
+				var fun = function(){
+					$('.package-edit').show();
+		    		$('.layer2').hide();
+				};
+				self_cancelOk_confirm('请检查输入数据。', fun);
+				return ;
+			}
+			
+			var dataPara = {};
+			dataPara['group_code'] = group;
+			dataPara['dep_code'] = type;
+			dataPara['code'] = code;
+			$.ajax({
+				url: getUrl('/manager/config/saveDependentType'),
+				type: 'POST',
+				data:dataPara,
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					if(data){
+						reloadDepType(type, group);
+					}
+					$('.layer2').hide();
+				}
+			});
+    	};
+	});
+	//end;
+	
+	//enum related
+	//start--
+	$('.eum_add input[type=button]').on('click', function(e){
+		if(!$('.group_records .active') || $('.group_records .active').length < 1){
+			self_confirm('请先选中业务组。');
+			return;
+		}
+		
+		if(!$('.type_self .active') || $('.type_self .active').length < 1){
+			self_confirm('请选中业务类型。');
+			return;
+		}
+		
+		$('.edit-title span:eq(0)').text("新增业务枚举");
+    	var table = $('.edit-dialog .d-content table');
+    	table.empty();
+    	var ele = {name: null, code: null, type: null, size: null, is_empty: null, regex: null, error_message: null, required: null, version: null, description: null};
+    	for(var e in ele){
+    		if(e == 'is_empty' || e == 'required'){
+    			table.append($('<tr><td>' + e + '</td><td><select><option value="">请选择</option><option value="0">No</option><option value="1">Yes</option></select></td></tr>'));
+    		}else{
+    			table.append($('<tr><td>' + e + '</td><td><input value="" /></td></tr>'));
+    		}
+    	}
+    	$('.package-edit').show();
+    	
+    	window._callback = function(){
+    		$('.package-edit').hide();
+    		$('.layer2').show();
+    		var trs = $('.edit-dialog .d-content table tr');
+			var dataPara = {};
+			var flag = true;
+			for(var i = 0; i < trs.length; i++){
+				var tds = $(trs[i]).children();
+				var key = $(tds[0]).text();
+				var value = $(tds[1]).children().val();
+				//input type = file.
+				if(!value){
+					value = $($(tds[1]).children()[0]).text();
+				}
+				dataPara[key] = value
+				
+				if(!value){
+					flag = false;
+					break;
+				}
+			}
+			dataPara['businessType'] = $($('.type_self .type_records .active').children()[0]).attr('data-code');
+			console.log(dataPara);
+			if(!flag){
+				var fun = function(){
+					$('.package-edit').show();
+		    		$('.layer2').hide();
+				};
+				self_cancelOk_confirm('请检查输入数据。', fun);
+				return ;
+			}
+			
+			$.ajax({
+				url: getUrl('/manager/config/saveBusinessEnum'),
+				type: 'POST',
+				data:dataPara,
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					if(data){
+						reloadEnum(dataPara.businessType);
+					}
+					$('.layer2').hide();
+				}
+			});
+    	};
+	});
+    //end-
+
+
+    //methods
+    var resetChecked = function(){
+        /*$('.eum_records>div').hide();
+        $('.eum').fadeOut();
+        $('.type_records>div').hide();
+        $('.type_dep_add').hide();
+        $('.type').fadeOut();*/
+
+        $('.business_logic .active').removeClass('active');
+    };
+    
+    var rendererGroupRecord = function(data, selectedGroup){
+    	var selectedCode = null;
+    	if(selectedGroup){
+    		selectedCode = $(selectedGroup).children().first().attr('data-code');
+    	}
+    	if(data && data.length > 0){
+    		for(var i= 0; i < data.length; i++){
+    			var ele = data[i];
+    			var dom = 
+    				$('<div>' + 
+    					'<span class="group_child" data-code="'+ ele.code + '" data-name="'+ ele.name + '" data-description="'+ ele.description + '"><storage>'+ ele.name +'</storage></span>' +
+    	                '<span class="edit" data-id="' + ele.id + '"><i class="fa fa-pencil-square-o"></i></span>' + 
+    	                '<span class="close" data-id="' + ele.id + '"></span>' + 
+    	            '</div>');
+    			if(ele.code == selectedCode){
+    				dom = 
+        				$('<div class="active">' + 
+        					'<span class="group_child" data-code="'+ ele.code + '" data-name="'+ ele.name + '" data-description="'+ ele.description + '"><storage>'+ ele.name +'</storage></span>' +
+        	                '<span class="edit" data-id="' + ele.id + '"><i class="fa fa-pencil-square-o"></i></span>' + 
+        	                '<span class="close" data-id="' + ele.id + '"></span>' + 
+        	            '</div>');
+    			}
+    			$('.group_records').append(dom);
+    			
+    			//init event
+    			$('.group_child').on('click', function(e){
+    		        if($(this).parent().hasClass('active')){
+    		            return;
+    		        }else{
+    		            resetChecked();
+    		            $(this).parent().addClass('active');
+    		            $('.eum_records .records').empty();
+    		            $('.eum_records .empty_records').show();
+    		            $('#enum_tip').hide();
+    		        }
+
+    		        $('.layer2').show();
+    		        var $code = $(this).attr('data-code');
+    		        var $id = $(this).next().attr('data-id');
+    		        if($id){
+    		    		reloadType($code);
+    		    		
+    		    		reloadDepType(null, $code);
+    		    	}
+    		    });
+    			
+    			$('.group_records .edit').unbind('click').click(function(){
+    				var dom = $(this);
+    				var id = dom.attr('data-id');
+    				if(id){
+    					var prevTag = dom.prev();
+    					var code = prevTag.attr('data-code');
+    					var description = prevTag.attr('data-description');
+    					var name = prevTag.text();
+    					var ele = {
+    							id: id,
+    							name: name,
+    							code: code,
+    							description: description
+    					};
+    				}
+    		        businessEdit(ele, dom, '业务组信息修改', 'group');
+    		    });
+    		    $('.group_records .close').unbind('click').click(function(){
+    		    	var dom = $(this);
+    		        var id = dom.attr('data-id');
+    		        if(id){
+    		        	 var  deleteOpt = function(){
+    		        		 var callbackFun = function(){
+    		        			 dom.parent().remove();
+    		        			 if($('.group_records>div').length < 1){
+    		        				 $('.group_records .empty_records').show();
+    		        			 }
+    		        		 };
+    		        		 deleteBusiness(id, callbackFun, 'group');
+    		        	 };
+    				     self_confirm('确定删除吗?', deleteOpt);
+    		        }
+    		    });
+    		}
+    	}
+    };
+    
+    var rendererTypeRecords = function(typeData, selectedType){
+    	var selectedCode = null;
+    	if(selectedType){
+    		selectedCode = $(selectedType).children().first().attr('data-code');
+    	}
+    	for(var i= 0; i < typeData.length; i++){
+			var ele = typeData[i];
+			var dom = 
+				$('<div>' + 
+					'<span class="type_child" data-code="'+ ele.code + '" data-name="'+ ele.name + '" data-bizType="'+ ele.bizType + '" data-description="'+ ele.description + '" data-version="'+ ele.version + '" data-icon="'+ ele.iconDir+'"><storage>'+ ele.name +'</storage></span>' +
+	                '<span class="edit" data-id="' + ele.id + '"><i class="fa fa-pencil-square-o"></i></span>' + 
+	                '<span class="close" data-id="' + ele.id + '"></span>' + 
+	            '</div>');
+			$('.type_self .type_records .records').append(dom);
+			
+			//init event.
+			$('.type_self .type_child').on('click', function(e){
+		        if($(this).parent().hasClass('active')){
+		            return;
+		        }else{
+		            $('.type_self .type_records div').removeClass('active');
+		            $(this).parent().addClass('active');
+		        }
+
+		        $('.layer2').show();
+		        var code = $(this).attr('data-code');
+		        $('.eum_records>div').hide();
+		        reloadEnum(code);
+		        $('.eum').fadeIn();
+				//TODO
+		    });
+			
+			$('.type_self .type_records .edit').unbind('click').click(function(){
+				var dom = $(this);
+				var id = dom.attr('data-id');
+				if(id){
+					var prevTag = dom.prev();
+					var code = prevTag.attr('data-code');
+					var name = prevTag.attr('data-name');
+					var bizType = prevTag.attr('data-biztype');
+					var description = prevTag.attr('data-description');
+					var version = prevTag.attr('data-version') && prevTag.attr('data-version') != 'null'?prevTag.attr('data-version'):'';
+					var iconDir = prevTag.attr('data-icon') && prevTag.attr('data-icon') != 'null'?prevTag.attr('data-icon'):'';
+					var ele = {
+							id: id,
+							name: name,
+							code: code,
+							bizType:bizType,
+							version: version,
+							description: description,
+							iconDir: iconDir
+					};
+				}
+		        businessEdit(ele, dom, '业务类型信息修改', 'type');
+		    });
+		    $('.type_self .type_records .close').unbind('click').click(function(){
+		    	var dom = $(this);
+		        var id = dom.attr('data-id');
+		        if(id){
+		        	 var  deleteOpt = function(){
+		        		 var callbackFun = function(){
+		        			 dom.parent().remove();
+		        			 if($('.type_self .type_records .records>div').length < 1){
+		        				 $('.type_self .empty_records').show();
+		        			 }
+		        		 };
+		        		 deleteBusiness(id, callbackFun, 'type');
+		        	 };
+				     self_confirm('确定删除吗?', deleteOpt);
+		        }
+		    });
+    	}
+    };
+    
+    var rendererDepTypeRecords = function(typeData){
+    	for(var i= 0; i < typeData.length; i++){
+			var ele = typeData[i];
+			var dom = 
+				$('<div>' + 
+					'<span class="type_child" data-code="'+ ele.code + '" data-depcode="'+ ele.depCode + '" data-groupcode="'+ ele.groupCode + '"><storage>'+ ele.depCode + ' - ' + ele.groupCode +'</storage></span>' +
+	                '<span class="edit" data-id="' + ele.id + '"><i class="fa fa-pencil-square-o"></i></span>' + 
+	                '<span class="close" data-id="' + ele.id + '"></span>' + 
+	            '</div>');
+			$('.type_dep .type_records .records').append(dom);
+			
+			//init event.
+			$('.type_dep .type_records .edit').unbind('click').click(function(){
+				var dom = $(this);
+				var id = dom.attr('data-id');
+				if(id){
+					var prevTag = dom.prev();
+					var code = prevTag.attr('data-code');
+					var typeCode = prevTag.attr('data-depcode');
+					var groupCode = prevTag.attr('data-groupcode');
+					var ele = {
+							id: id,
+							code: code,
+							typeCode: typeCode,
+							groupCode: groupCode
+					};
+				}
+		        businessEdit4DepType(ele, dom, '业务类型关系修改');
+		    });
+		    $('.type_dep .type_records .close').unbind('click').click(function(){
+		    	var dom = $(this);
+		        var id = dom.attr('data-id');
+		        if(id){
+		        	 var  deleteOpt = function(){
+		        		 var callbackFun = function(){
+		        			 dom.parent().remove();
+		        			 if($('.type_dep .type_records .records>div').length < 1){
+		        				 $('.type_dep .empty_records').show();
+		        			 }
+		        		 };
+		        		 deleteBusiness(id, callbackFun, 'dep');
+		        	 };
+				     self_confirm('确定删除吗?', deleteOpt);
+		        }
+		    });
+    	}
+    };
+    
+    var rendererEnumRecords = function(enumData){
+    	for(var i= 0; i < enumData.length; i++){
+			var ele = enumData[i];
+			var dom = 
+				$('<div>' + 
+					'<span class="eum_child" data-code="'+ ele.code + '" data-name="'+ ele.name + '" data-businesstype="'+ ele.businessType + '" data-description="'+ ele.description + 
+					'" data-version="'+ ele.version + '" data-type="'+ele.type+'" data-size="'+ele.size+'" data-isempty="'+ele.isEmpty+'" data-order_="'+ele.order_+'" data-regex="'+ele.regex+
+					'" data-errormessage="'+ele.errorMessage+'" data-required="'+ele.required+'"><storage>'+ ele.name +'</storage></span>' +
+	                '<span class="edit" data-id="' + ele.id + '"><i class="fa fa-pencil-square-o"></i></span>' + 
+	                '<span class="close" data-id="' + ele.id + '"></span>' + 
+	            '</div>');
+			$('.eum_records .records').append(dom);
+			
+			//init event.
+			$('.eum_records .edit').unbind('click').click(function(){
+				var dom = $(this);
+				var id = dom.attr('data-id');
+				if(id){
+					var prevTag = dom.prev();
+					var code = prevTag.attr('data-code');
+					var name = prevTag.attr('data-name');
+					var businessType = prevTag.attr('data-businesstype');
+					var description = prevTag.attr('data-description')?prevTag.attr('data-description'):'';
+					var version = prevTag.attr('data-version') && prevTag.attr('data-version') != 'null'?prevTag.attr('data-version'):'';
+					var type = prevTag.attr('data-type')?prevTag.attr('data-type'):'';
+					var size = prevTag.attr('data-size')?prevTag.attr('data-size'):'';
+					var isEmpty = prevTag.attr('data-isempty')?prevTag.attr('data-isempty'):'';
+					/*var order_ = prevTag.attr('data-order_')?prevTag.attr('data-order_'):'';*/
+					var regex = prevTag.attr('data-regex')?prevTag.attr('data-regex'):'';
+					var errorMessage = prevTag.attr('data-errormessage')?prevTag.attr('data-errormessage'):'';
+					var required = prevTag.attr('data-required')?prevTag.attr('data-required'):'';
+					var ele = {
+							id: id,
+							name: name,
+							code: code,
+							businessType:businessType,
+							type: type,
+							size:size,
+							isEmpty: isEmpty,
+							/*order_: order_,*/
+							regex: regex,
+							errorMessage: errorMessage,
+							required: required,
+							version: version,
+							description: description
+					};
+				}
+		        businessEdit(ele, dom, '业务枚举信息修改', 'enum');
+		    });
+		    $('.eum_records .close').unbind('click').click(function(){
+		    	var dom = $(this);
+		        var id = dom.attr('data-id');
+		        if(id){
+		        	 var  deleteOpt = function(){
+		        		 var callbackFun = function(){
+		        			 dom.parent().remove();
+		        		 };
+		        		 deleteBusiness(id, callbackFun, 'enum');
+		        	 };
+				     self_confirm('确定删除吗?', deleteOpt);
+		        }
+		    });
+    	}
+    	$('.eum_records .records').show();
+    }
+    
+    var businessEdit = function(ele, dom, title, type){
+    	console.log('edit ... ');
+    	$('.edit-title span:eq(0)').text(title);
+    	var table = $('.edit-dialog .d-content table');
+    	table.empty();
+    	for(var e in ele){
+    		if(e == 'id' || e == 'bizType' || e == 'businessType' || e == 'order_'){
+    			//nothing to do. maybe sometime.
+    		}else if(e == 'iconDir'){
+    			var text = ele[e]?'<img src=' + getUrl(ele[e]) + '/>': '点击上传icon图标';
+    			table.append($('<tr><td>icon</td><td><div class="icon"><span>'+ text + '</span><input class="file" type="file" value="'+ ele[e] + '" /></div></td></tr>'));
+    			$('.file').change(function(e){
+    				{
+        				var filePath = $(this).val();
+        				if(filePath){
+        					$($('.icon').children()[0]).text(filePath);
+        				}
+        			}
+    			});
+    		}else if(e == 'isEmpty' || e == 'required'){
+    			var domStr = '<select><option value="">请选择</option>';
+    			domStr +=  '<option value="0" ' + (ele[e] == '0'?' selected': '') + '>No</option>';
+				domStr +=  '<option value="1" ' + (ele[e] == '1'?' selected': '') + '>Yes</option>';
+    			domStr += '</select>';
+    			//<select><option value="0">No</option><option value="1">Yes</option></select>
+    			table.append($('<tr><td>' + e + '</td><td>' + domStr + '</td></tr>'));
+    		}else{
+    			table.append($('<tr><td>' + e + '</td><td><input value="'+ ele[e] + '" /></td></tr>'));
+    		}
+    	}
+    	$('.package-edit').show();
+    	
+    	window._callback = function(){
+    		$('.package-edit').hide();
+    		$('.layer2').show();
+    		var $id = ele.id;
+    		var $dom = dom;
+    		if($id){
+    			var trs = $('.edit-dialog .d-content table tr');
+    			var dataPara = {id: $id};
+    			for(var i = 0; i < trs.length; i++){
+    				var tds = $(trs[i]).children();
+    				dataPara[$(tds[0]).text()] = $(tds[1]).children().val();
+    			}
+    			dataPara['editType'] = type;
+    			console.log(dataPara);
+    			
+    			var filename = $(".file")[0].files[0].name;
+    			if(filename && ele['iconDir'] != '/static-resources/upload/' + filename){
+    				var imageUrl = uploadFile();
+    				if(!imageUrl){
+    					var fun = function(){
+    						$('.package-edit').show();
+    			    		$('.layer2').hide();
+    					};
+    					self_cancelOk_confirm('文件上传失败。', fun);
+    					return;
+    				}else{
+    					dataPara['icon'] = imageUrl;
+    				}
+    			}else{
+    				dataPara['icon'] = ele['iconDir'];
+    			}
+    			
+    			
+    			$.ajax({
+    				url: getUrl('/manager/config/modifyBusiness'),
+    				type: 'POST',
+    				data:dataPara,
+    				cache:false,
+    				dataType:'json',
+    				success:function(data){
+    					if(data){
+    						if(type == 'group'){
+    							$dom.prev().attr('data-code', dataPara.code).attr('data-name', dataPara.name)
+        						.attr('data-description', dataPara.description).children().text(dataPara.name);
+    						}else if(type == 'type'){
+    							//TODO
+    							//reloadType(ele.bizType, $id);
+    							$dom.prev().attr('data-code', dataPara.code).attr('data-name', dataPara.name)
+    							.attr('data-bizType', dataPara.bizType).attr('data-version', dataPara.name).attr('data-icon', dataPara.icon)
+        						.attr('data-description', dataPara.description).children().text(dataPara.name);
+    						}else if(type == 'enum'){
+    							//TODO
+    							//reloadEnum(ele.businessType);
+    							$dom.prev().attr('data-code', dataPara.code).attr('data-name', dataPara.name)
+    							.attr('data-businessType', dataPara.businessType).attr('data-version', dataPara.name)
+    							.attr('data-type', dataPara.type).attr('data-isEmpty', dataPara.isEmpty)
+    							.attr('data-size', dataPara.size).attr('data-order_', dataPara.order_).attr('data-required', dataPara.required)
+    							.attr('data-regex', dataPara.regex).attr('data-errorMessage', dataPara.errorMessage)
+        						.attr('data-description', dataPara.description).children().text(dataPara.name);
+    						}
+    						
+    					}
+    					$('.layer2').hide();
+    				}
+    			});
+    		}
+    	};
+    };
+    
+    var businessEdit4DepType = function(ele, dom, title){
+    	console.log('edit for dep type ... ');
+    	$('.edit-title span:eq(0)').text(title);
+    	var table = $('.edit-dialog .d-content table');
+    	table.empty();
+    	var groups = $('.group_records>div');
+		var domStr = '<select><option value="">请选择业务组</option>';
+		for(var i=0; i < groups.length; i++){
+			var group = $(groups[i]).children().first();
+			var code = group.attr('data-code');
+			var name = group.attr('data-name');
+			
+			if(code == ele.groupCode){
+				domStr += '<option value="' + code +'" selected>' + name + '</option>';	
+			}else{
+				domStr += '<option value="' + code +'">' + name + '</option>';
+			}
+			
+		}
+		domStr += '</select>';
+		table.append($('<tr><td>业务组</td><td>' + domStr + '</td></tr>'));
+		
+		var types = window.businessTypes_;
+		var domStr2 = '<select><option value="">请选择业务类型</option>';
+		for(var i=0; i < types.length; i++){
+			var type = types[i];
+			var code = type.code;
+			var name = type.name;
+
+			if(code == ele.typeCode){
+				domStr2 += '<option value="' + code +'" selected>' + name + '</option>';
+			}else{
+				domStr2 += '<option value="' + code +'">' + name + '</option>';
+			}
+		}
+		domStr2 += '</select>';
+		table.append($('<tr><td>业务类型</td><td>' + domStr2 + '</td></tr>'));
+		$('.package-edit').show();
+		
+		window._callback = function(){
+    		$('.package-edit').hide();
+    		$('.layer2').show();
+    		var trs = $('.edit-dialog .d-content table tr');
+			var group = $(trs[0]).first().children().last().children().first().val();
+			var type = $(trs[1]).first().children().last().children().first().val();
+			//var code = $(trs[2]).first().children().last().children().first().val();
+			if(!group || !type){
+				var fun = function(){
+					$('.package-edit').show();
+		    		$('.layer2').hide();
+				};
+				self_cancelOk_confirm('请检查输入数据。', fun);
+				return ;
+			}
+			
+			var dataPara = {};
+			dataPara['id'] = ele.id;
+			dataPara['group_code'] = group;
+			dataPara['dep_code'] = type;
+			//dataPara['code'] = code;
+			dataPara['editType'] = 'dep';
+			$.ajax({
+				url: getUrl('/manager/config/modifyBusiness'),
+				type: 'POST',
+				data:dataPara,
+				cache:false,
+				dataType:'json',
+				success:function(data){
+					if(data){
+						reloadDepType(type, group);
+					}
+					$('.layer2').hide();
+				}
+			});
+    	};
+    };
+    
+    
+    var deleteBusiness = function(id, callback, type){
+    	console.log('delete ... ');
+    	var $id = id;
+    	if($id){
+    		$('.layer2').show();
+    		$.ajax({
+    			url: getUrl('/manager/config/deleteBusiness'),
+    			type: 'POST',
+    			data:{id: $id, type: type},
+    			cache:false,
+    			dataType:'json',
+    			success:function(data){
+    				if(data){
+    					callback();
+    					$('.layer2').hide();
+    				}
+    			}
+    		});
+    	}
+    }
+    
+    
+    var reloadType = function($code, $id, $selectedType){
+    	console.log('reload type...');
+    	$.ajax({
+			url: getUrl('/manager/config/getBusinessTypeByCode'),
+			type: 'POST',
+			data:{id: $id, code: $code},
+			cache:false,
+			dataType:'json',
+			success:function(data){
+				if(data && data.length > 0){
+					$('.type_self .type_records .records').empty();
+					rendererTypeRecords(data, $selectedType);
+					$('.type_self .empty_records').hide();
+					$('.type_self .type_records .records').show();
+				}else{
+					$('.type_self .type_records .records').empty();
+					$('.type_self .empty_records').show();
+				}
+				$('.layer2').fadeOut();
+				$('.type').fadeIn();
+			}
+		});
+    }
+    
+    var reloadDepType = function($typeCode, $groupCode){
+    	console.log('reload dependent type...');
+    	$.ajax({
+			url: getUrl('/manager/config/getBusinessDepType'),
+			type: 'POST',
+			data:{typeCode: $typeCode, groupCode: $groupCode},
+			cache:false,
+			dataType:'json',
+			success:function(data){
+				if(data && data.length > 0){
+					$('.type_dep .type_records .records').empty();
+					rendererDepTypeRecords(data);
+					$('.type_dep .empty_records').hide();
+					$('.type_dep .type_records .records').show();
+				}else{
+					$('.type_dep .type_records .records').empty();
+					$('.type_dep .empty_records').show();
+				}
+				$('.layer2').fadeOut();
+				$('.type').fadeIn();
+			}
+		});
+    }
+    
+    var reloadEnum = function($code){
+    	console.log('reload eum...');
+    	$.ajax({
+			url: getUrl('/manager/config/getBusinessEnumByCode'),
+			type: 'POST',
+			data:{code: $code},
+			cache:false,
+			dataType:'json',
+			success:function(data){
+				if(data && data.length > 0){
+					$('.eum_records .records').empty();
+					rendererEnumRecords(data);
+					$('.eum_records .empty_records').hide();
+					$('#enum_tip').show();
+				}else{
+					$('.eum_records .records').empty();
+					$('.eum_records .empty_records').show();
+					$('#enum_tip').hide();
+				}
+				$('.layer2').fadeOut();
+				$('.eum').fadeIn();
+			}
+		});
+    }
+    
+    
+    var uploadFile = function(){
+    	var imageUrl = null;
+    	var formData = new FormData();
+    	var file = $(".file")[0].files[0];
+    	if(!file){
+    		return imageUrl;
+    	}
+    	formData.append("file", file);  
+		 $.ajax({  
+               url : getUrl('/uploadFile'),  
+               type : 'POST',  
+               data : formData, 
+               async: false,
+               processData : false,  
+               contentType : false,  
+               success : function(data) { 
+            	   if(data){
+            		   imageUrl = data;
+                   }
+               } 
+		 });
+		 return imageUrl;
+    };
+    //methods end;
+
+
+
+
+    //API
+    //self dialog config.
+    //start:--
+    var self_confirm = function(tip, callback, cancelCallback){
+        $('.dialog .d-content').text(tip);
+        $('.package-dialog').fadeIn();
+
+        window._callback = callback;
+        window._cancelCallback = cancelCallback;
+    };
+    
+    var self_cancelOk_confirm = function(tip, cancelOkCallback){
+    	$('.dialog .d-content').text(tip);
+        $('.package-dialog').fadeIn();
+
+        window._cancelOkCallback = cancelOkCallback;
+    }
+
+    $('.dialog input[type=button]:eq(0)').on('click', function(e){
+    	if(window._cancelOkCallback){
+    		window._cancelOkCallback();
+    	}
+        $('.package-dialog').fadeOut();
+    });
+    $('.dialog input[type=button]:eq(1)').on('click', function(e){
+    	if(window._cancelOkCallback){
+    		window._cancelOkCallback();
+    		delete window._cancelOkCallback;
+    	}else{
+    		window._callback();
+    	}
+    	
+        $('.package-dialog').fadeOut();
+    });
+    //end.
+
+    //Edit
+    //start--
+    $('.edit-dialog input[type=button]:eq(0), .edit-title span:eq(1)').on('click', function(e){
+        $('.package-edit').fadeOut();
+    });
+    $('.edit-dialog input[type=button]:eq(1)').on('click', function(e){
+        window._callback();
+        $('.package-edit').fadeOut();
+    });
+    //end/
+
+    //config div
+    $('.dialog').css('left', $(document.body).width()/2 - $('.dialog').width()/2 + 'px');
+    $('.edit-dialog').css('left', $(document.body).width()/2 - $('.edit-dialog').width()/2 + 'px');
+    $('.layer2').css('left', $(document.body).width()/2 - $('.layer2').width()/2 + 'px');
+    
+    //sortable
+    $('#enum_sortable').sortable({
+    	placeholder: "ui-state-highlight",
+    	start: function( event, ui ) {
+    		console.log(ui);
+    		ui.item.css('background-color', '#CCEBF8');
+    	},
+    	update: function( event, ui ) {
+    		console.log('sorted and then update the order value in db.');
+    		var listEnum = $('#enum_sortable').children();
+    		var paramArray = new Array();
+    		for(var i = 1; i <= listEnum.length; i++){
+    			var ele = $(listEnum[i-1]);
+    			var id = ele.children().last().attr('data-id');
+    			paramArray.push((id + '_' + i));
+    		}
+    		
+    		if(paramArray.length > 0){
+    			console.log('updating order... ');
+    			$.ajax({
+    				url: getUrl('/manager/config/updateOrder'),
+    				type: 'POST',
+    				data:{paramArray: paramArray},
+    				cache:false,
+    				dataType:'json',
+    				success:function(data){
+    					if(!data){
+    						console.log('sorting failure.');
+    					}
+    				}
+    			});
+    		}
+    	},
+    	stop: function( event, ui ) {
+    		ui.item.css('background-color', '#fff');
+    	}
+    });
+    $('#enum_sortable').disableSelection();
+    $('#enum_tip').hide();
+});

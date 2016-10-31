@@ -1,0 +1,70 @@
+function goPage(pno,psize,id,pageId){
+	$('#'+pageId).empty();
+	var itable = document.getElementById(id);
+	var num = itable.rows.length;//表格所有行数(所有记录数)
+	console.log(num);
+	var totalPage = 0;//总页数
+	var pageSize = psize;//每页显示行数
+	//总共分几页
+	if((num-1)/pageSize > parseInt((num-1)/pageSize)){
+		totalPage=parseInt((num-1)/pageSize)+1;
+	}else{
+		totalPage=parseInt((num-1)/pageSize);
+	}
+	var currentPage = pno;//当前页数
+	console.log('当前页'+currentPage);
+	var startRow = (currentPage - 1) * pageSize+1;//开始显示的行  31
+	console.log('开始行数'+startRow);
+	var endRow = currentPage * pageSize;//结束显示的行   40
+	endRow = (endRow > num)? num : endRow;    40
+	console.log('结束显示的行'+endRow);
+	//遍历显示数据实现分页
+	for(var i=0;i<num;i++){
+		var irow = itable.rows[i];
+		if(i>=startRow && i<=endRow){
+			irow.style.display = "block";
+		}else if(i!=0)
+		{
+			irow.style.display = "none";
+		}
+	}
+	var pageEnd = document.getElementById("pageEnd");
+	var tempStr = "";
+	if(currentPage>1){
+		tempStr += "<button onClick=\"goPage("+(currentPage-1)+","+psize+",'"+id+"' ,'" + pageId + "')\"><上一页</button>&nbsp;"
+	}else{
+		tempStr += "<button class='disabled'><上一页</button>&nbsp;";
+	}
+
+	for(var i=1;i<=totalPage;i++){
+		tempStr += "<button class='numPage' onClick=\"goPage("+(i)+","+psize+",'"+id+"' ,'" + pageId + "')\">"+i+"</button>&nbsp;";
+	}
+	if(currentPage<totalPage){
+		tempStr += "<button onClick=\"goPage("+(currentPage+1)+","+psize+",'"+id+"' ,'" + pageId + "')\">下一页></button>&nbsp;";
+	}else{
+		tempStr += "<button class='disabled'>下一页></button>&nbsp;";
+	}
+	tempStr += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共&nbsp;"+totalPage+"&nbsp;页&nbsp;&nbsp;&nbsp;";
+	tempStr += "&nbsp;&nbsp;&nbsp;&nbsp;到第&nbsp;&nbsp;"
+	+"<input class='changePage' type='text' size='1' maxlength='4'/>&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	console.log("跳转页："+$(".changePage").val()*1);
+	tempStr += "<button class=\"btn-ok\">确定</button>";
+	//onClick=\"goPage("+($(".changePage").val())+","+psize+",'"+id+"' ,'" + pageId + "')\" 
+	//document.getElementById(pageId).innerHTML = tempStr;
+	$('#'+pageId).append($(tempStr));
+	$('#'+id).parent().find('.numPage').eq(pno-1).addClass('active');
+	$('.disabled').prop('disabled','disabled');
+	$('.btn-ok').click(function(e){
+		if(!/^[1-9]\d*$/.test($('#'+pageId + " .changePage").val())){
+			alert("请输入正整数");
+			return ;
+		}
+		if($('#'+pageId + " .changePage").val() > totalPage) {
+			alert("超出数据页面");
+			return ;
+		}else{
+			goPage($('#'+pageId + " .changePage").val()*1, psize, id, pageId);
+		}
+	});
+	/*$("button").addClass('active');*/
+}

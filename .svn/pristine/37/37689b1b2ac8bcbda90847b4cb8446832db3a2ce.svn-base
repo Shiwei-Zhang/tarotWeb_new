@@ -1,0 +1,18 @@
+<#assign app_path>
+<#if Request?? && Request.contextPath??>  
+	${Request.contextPath?trim} 
+<#else>
+	/
+</#if>
+</#assign>
+<#macro formatUrl url>${app_path?trim + url?trim}</#macro>
+
+<script>
+window.hostname='${contextPath}';
+window.getUrl = function(url){
+	if(!window.hostname){
+		return url;
+	}
+	return window.hostname + url;
+}
+</script>

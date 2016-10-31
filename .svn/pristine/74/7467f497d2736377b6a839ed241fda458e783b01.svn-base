@@ -1,0 +1,762 @@
+/**
+ * Created by zhanghaijun on 2016/9/12.
+ */
+$(function(){
+    $('.debug').on('click', function(event){
+        console.log('debug...');
+    });
+
+    $('.run').on('click', function(event){
+        console.log('run...');
+    });
+
+    $('.flow').on('click', function(event){
+        console.log('flow...');
+    });
+
+    $('.manager').on('click', function(event){
+        console.log('manager...');
+    });
+
+    //folder change
+    $('.folder_title').on('click', function(event){
+        if($(this).hasClass('fa-folder-close_')){
+            $(this).removeClass('fa-folder-close_').addClass('fa-folder-open_');
+            $(this).parent().next().show();
+        }else{
+            $(this).removeClass('fa-folder-open_').addClass('fa-folder-close_');
+            $(this).parent().next().hide();
+        }
+    });
+
+    var contextMenu = function(){
+        context.init({preventDoubleContext: false});
+
+        context.attach('.folder .home', [
+            {text: '添加', subMenu:[
+                {text:'添加文件夹', action:function(e){
+                    e.preventDefault();
+                    console.log('添加文件夹');
+                    //modified by tyd
+                    var folderName = '新建文件夹';
+                    addMenu("menuId0",menuTypeEnum[0],folderName);
+                }},
+                {text:'添加逻辑流', action:function(e){
+                    e.preventDefault();
+                    console.log('添加逻辑流');
+                    //modified by tyd
+                    var folderName = '新建逻辑流';
+                    addMenu("menuId0",menuTypeEnum[2],folderName);
+                }},
+                {text:'添加报表', action:function(e){
+                    e.preventDefault();
+                    console.log('添加BI');
+                    //modified by tyd
+                    var folderName = '新建报表';
+                    addMenu("menuId0",menuTypeEnum[3],folderName);
+                }},
+                {text:'添加挖掘模型', action:function(e){
+                    e.preventDefault();
+                    console.log('添加DataMining');
+                    //modified by tyd
+                    var folderName = '新建DataMining';
+                    addMenu("menuId0",menuTypeEnum[4],folderName);
+                }},
+                {text:'添加控制器', action:function(e){
+                    e.preventDefault();
+                    console.log('添加Controller');
+                    //modified by tyd
+                    var folderName = '新建控制器';
+                    addMenu("menuId0",menuTypeEnum[1],folderName);
+                }},
+            ]}
+        ]);
+        context.attach('.folder .folder_self', [
+            {text: '添加', subMenu:[
+                {text:'添加文件夹', action:function(e){
+                    e.preventDefault();
+                    console.log('添加文件夹');
+
+                    //modified by tyd
+                    var folderName = '新建文件夹';
+                    addMenu($currentRightDom.attr("id"),menuTypeEnum[0],folderName);
+                    
+                    /*if($currentRightDom.next()){
+                        $currentRightDom.next().append($('<li data-title="'+ folderName + '"><div class="folder_self"><i class="fa fa-folder-open_ folder_title"></i><span>' + folderName + '</span></div><ul></ul></li>'));
+                        var text = $currentRightDom.next().children().last().children().children().last().text();
+                        $currentRightDom.next().children().last().children().children().last().remove();
+                        $currentRightDom.next().children().last().children().first().append($('<input type="text" value="'+ text + '" />'));
+
+                        window.setTimeout(function(){
+                            $currentRightDom.next().children().last().children().children().last().focus().val(text);
+                        }, 300);
+
+                        $('.folder input').unbind('keydown').keydown(function(e){
+                            if (e.keyCode == "13") {//keyCode=13是回车键
+                                var val =  $currentRightDom.next().children().last().children().children().last().val();
+                                if(/['"#$%&\^*]/.test(val)){
+                                    alert("不能包含特殊字符！");
+                                    return;
+                                }else if(val == ""){
+                                    alert("不能为空！");
+                                    return;
+                                }
+                                $currentRightDom.next().children().last().children().children().last().remove();
+                                $currentRightDom.next().children().last().children().first().append($('<span>' + val + '</span>'));
+
+                                $currentRightDom = null;
+                            }
+                        });
+                    }*/
+                }},
+                {text:'添加逻辑流', action:function(e){
+                    e.preventDefault();
+                    console.log('添加');
+                    //modified by tyd
+                    var folderName = '新建逻辑流';
+                    addMenu($currentRightDom.attr("id"),menuTypeEnum[2],folderName);
+                }},
+                {text:'添加报表', action:function(e){
+                    e.preventDefault();
+                    console.log('添加BI');
+                    //modified by tyd
+                    var folderName = '新建报表';
+                    addMenu($currentRightDom.attr("id"),menuTypeEnum[4],folderName);
+                }},
+                {text:'添加挖掘模型', action:function(e){
+                    e.preventDefault();
+                    console.log('添加DataMining');
+                    //modified by tyd
+                    var folderName = '新建DataMining';
+                    addMenu($currentRightDom.attr("id"),menuTypeEnum[3],folderName);
+                }},
+                {text:'添加控制器', action:function(e){
+                    e.preventDefault();
+                    console.log('添加Controller');
+                    //modified by tyd
+                    var folderName = '新建控制器';
+                    addMenu($currentRightDom.attr("id"),menuTypeEnum[1],folderName);
+                }},
+            ]},
+            {text: '删除', action:function(e){
+                e.preventDefault();
+                console.log('删除当前文件（夹）');
+                //modified by tyd
+                var menuId = $currentRightDom.attr("id");
+                var menuType = $currentRightDom.attr("menuType");
+                deleteMenu(menuId,menuType);
+            }},
+            /*{divider: true},*/
+            {text: '重命名', action:function(e){
+                e.preventDefault();
+                console.log('重命名');
+                
+                if($currentRightDom){
+                    var text = $currentRightDom.children().last().text();
+                    $currentRightDom.children().last().remove();
+                    $currentRightDom.append($('<input type="text" value="'+ text + '" />'));
+
+                    window.setTimeout(function(){
+                        $currentRightDom.children().last().focus().val(text);
+                    }, 300);
+
+                    /*$('.folder input').unbind('blur').blur(function(e){
+                        if($currentRightDom){
+                            var val = $currentRightDom.children().last().val();
+                            $currentRightDom.children().last().remove();
+                            $currentRightDom.append($('<span>' + val + '</span>'));
+
+                            $currentRightDom = null;
+                        }
+                    });*/
+
+                    $('.folder input').unbind('keydown').keydown(function(e){
+                        if (e.keyCode == "13") {//keyCode=13是回车键
+                            var val = $currentRightDom.children().last().val();
+                            if(/['"#$%&\^*]/.test(val)){
+                                alert("不能包含特殊字符！");
+                                return;
+                            }else if(val == ""){
+                                alert("不能为空！");
+                                return;
+                            }
+                            var menuId=$currentRightDom.attr("id");
+                            var name=$currentRightDom.children().last().val();
+                            var type=$currentRightDom.attr("menuType");
+                            updateMenu(menuId,name,type);
+                            $currentRightDom.children().last().remove();
+                            $currentRightDom.append($('<span>' + val + '</span>'));
+                           
+                            $currentRightDom = null;
+                        }
+                    });
+                }
+            }},
+        ]);
+
+        context.attach('.folder .folder_child', [
+            {text: '删除', action:function(e){
+                e.preventDefault();
+                console.log('删除当前文件（夹）');
+                //modified by tyd
+                var menuId = $currentRightDom.attr("id");
+                var menuType = $currentRightDom.attr("menuType");
+                deleteMenu(menuId,menuType);
+            }},
+            /*{divider: true},*/
+            {text: '重命名', action:function(e){
+                e.preventDefault();
+                console.log('重命名');
+                
+                if($currentRightDom){
+                    var text = $currentRightDom.children().last().text();
+                    $currentRightDom.children().last().remove();
+                    $currentRightDom.append($('<input type="text" value="'+ text + '" />'));
+
+                    window.setTimeout(function(){
+                        $currentRightDom.children().last().focus();
+                    }, 300);
+
+                    window.setTimeout(function(){
+                        $currentRightDom.children().last().focus().val(text);
+                    }, 300);
+
+                    /*$('.folder input').unbind('blur').blur(function(e){
+                        if($currentRightDom){
+                            var val = $currentRightDom.children().last().val();
+                            $currentRightDom.children().last().remove();
+                            $currentRightDom.append($('<span>' + val + '</span>'));
+
+                            $currentRightDom = null;
+                        }
+                    });*/
+
+                    $('.folder input').unbind('keydown').keydown(function(e){
+                        if (e.keyCode == "13") {//keyCode=13是回车键
+                            var val = $currentRightDom.children().last().val();
+                            if(/['"#$%&\^*]/.test(val)){
+                                alert("不能包含特殊字符！");
+                                return;
+                            }else if(val == ""){
+                                alert("不能为空！");
+                                return;
+                            }
+                            var id=$currentRightDom.attr("id");
+                            var name=$currentRightDom.children().last().val();
+                            var type=$currentRightDom.attr("menuType");
+                            updateMenu(id,name,type);
+                            $currentRightDom.children().last().remove();
+                            $currentRightDom.append($('<span>' + val + '</span>'));
+                            
+                            $currentRightDom = null;
+                        }
+                    });
+                }
+            }},
+        ]);
+    };
+    context.attach('.folder', [
+        {header: '请选中文件，文件夹或者home'}
+    ]);
+    contextMenu();
+
+
+    window.$currentRightDom = null;
+    $('.root_tree div').unbind('mousedown').mousedown(function(event, a){
+        if(event.which == 3 || a == 'right'){
+            $currentRightDom = $(this);
+            console.log($currentRightDom.html());
+        }
+
+        if($(this).html().indexOf('input') > 0){
+            console.log('is current element.');
+            return;
+        }
+        resetFolder();
+    });
+
+    window.resetFolder = function(){
+        var parentDom = $('.folder input');
+        if(parentDom && parentDom.length > 0){
+            var text = $('.folder input').val();
+            if(/['"#$%&\^*]/.test(text)){
+                alert("不能包含特殊字符！");
+                return;
+            }else if(text == ""){
+                alert("不能为空！");
+                return;
+            }
+            var id=$currentRightDom.attr("id");
+            var name=$currentRightDom.children().last().val();
+            var type=$currentRightDom.attr("menuType");
+            updateMenu(id,name,type);
+            parentDom.parent().append($('<span>' + text + '</span>'));
+            parentDom.remove();
+        }
+    }
+    //
+
+    //property change
+    window.$restClass = function(){
+        $('.panel').hide();
+        $('.fa-caret-down').removeClass('fa-caret-down').addClass('fa-caret-right');
+    }
+    $('.join_').on('click', function(){
+        if($(this).children().hasClass('fa-caret-down')){
+            $restClass();
+        }else{
+            $restClass();
+            $(this).children().removeClass('fa-caret-right').addClass('fa-caret-down');
+            $('.join_panel').show();
+        }
+    });
+    $('.filter_').on('click', function(){
+        if($(this).children().hasClass('fa-caret-down')){
+            $restClass();
+        }else{
+            $restClass();
+            $(this).children().removeClass('fa-caret-right').addClass('fa-caret-down filter_');
+            $('.filter_panel').show();
+        }
+    });
+    $('.group_').on('click', function(){
+        if($(this).children().hasClass('fa-caret-down')){
+            $restClass();
+        }else{
+            $restClass();
+            $(this).children().removeClass('fa-caret-right').addClass('fa-caret-down group_');
+            $('.group_panel').show();
+        }
+    });
+    $('.order_').on('click', function(){
+        if($(this).children().hasClass('fa-caret-down')){
+            $restClass();
+        }else{
+            $restClass();
+            $(this).children().removeClass('fa-caret-right').addClass('fa-caret-down order_');
+            $('.order_panel').show();
+        }
+    });
+    $('.target_').on('click', function(){
+        if($(this).children().hasClass('fa-caret-down')){
+            $restClass();
+        }else{
+            $restClass();
+            $(this).children().removeClass('fa-caret-right').addClass('fa-caret-down target_');
+            $('.target_panel').show();
+        }
+    });
+
+    $('.filter_plus').on('click', function(event){
+        if($(this).parent().prev().children().hasClass('fa-caret-right')){
+
+            $restClass();
+            $('.filter_').children().removeClass('fa-caret-right').addClass('fa-caret-down target_');
+            $('.filter_panel').show();
+        }
+        addFilterRecord();
+    });
+    $('.group_plus').on('click', function(event){
+        if($(this).parent().prev().children().hasClass('fa-caret-right')){
+
+            $restClass();
+            $('.group_').children().removeClass('fa-caret-right').addClass('fa-caret-down target_');
+            $('.group_panel').show();
+        }
+        addGroupRecord();
+    });
+    $('.order_plus').on('click', function(event){
+        if($(this).parent().prev().children().hasClass('fa-caret-right')){
+
+            $restClass();
+            $('.order_').children().removeClass('fa-caret-right').addClass('fa-caret-down target_');
+            $('.order_panel').show();
+        }
+        addOrderRecord();
+    });
+    $('.target_plus').on('click', function(event){
+        if($(this).parent().prev().children().hasClass('fa-caret-right')){
+            $restClass();
+            $('.target_').children().removeClass('fa-caret-right').addClass('fa-caret-down target_');
+            $('.target_panel').show();
+        }
+        addTargetRecord();
+    });
+
+    //target layer --start
+    $('.table_name').on("keyup", function(){
+        $('.name_list ul li.selected').children().text($(this).val());
+    });
+    $('.tl_header .close, .btn_group input:eq(0)').on('click', function(event){
+        $('.target_layer').hide();
+        $('.mask').hide();
+    });
+    $('.btn_group input:eq(1)').on('click', function(event){
+        //TODO
+        var nameListObj = $('.name_list ul li').children();
+        $('.targets').empty();
+        for(var i=0; i< nameListObj.length; i++){
+            var dom = $('<div class="target"><label>' +  nameListObj[i].innerHTML + '</label><span class="edit"><i class="fa fa-pencil-square-o"></i></span> <span class="trash2"><i class="fa fa-trash2"></i></span></div>');
+            $('.targets').append(dom);
+        }
+
+        $('.edit').on('click', function(){
+            if($(this).prev().find('input') && $(this).prev().find('input').length > 0){
+                console.log('need add name firstly.');
+                return;
+            }
+
+            selectedTargetName = $(this).prev().text();
+
+            targetObjs = $('.target label');
+
+            $('.name_list ul').empty();
+            for(var i=0; i < targetObjs.length; i++){
+                if(selectedTargetName == targetObjs[i].innerHTML){
+                    $('.name_list ul').append($('<li class="selected"><a>'+ targetObjs[i].innerHTML + '</a></li>'));
+                }else if(targetObjs[i].innerHTML.indexOf('input') < 0){
+                    $('.name_list ul').append($('<li><a>'+ targetObjs[i].innerHTML + '</a></li>'));
+                }
+            }
+
+            $('.name_list ul li').on('click', function(){
+                $('.name_list ul li').removeClass('selected');
+                $(this).addClass('selected');
+                $('.table_name').val($(this).children().text());
+            });
+
+            $('.table_name').val(selectedTargetName);
+            $('.target_layer').show();
+            $('.mask').show();
+        });
+
+        $('.fa-trash2').on('click', function(e){
+            try{
+                $(e.target.parentElement.parentElement).slideUp('slow',function(){
+                    e.target.parentElement.parentElement.remove();
+                });
+            }catch(e){
+                console.log(e)
+            }
+        });
+
+        $('.target_layer').hide();
+        $('.mask').hide();
+    });
+    //target layer --end
+    //property end.
+
+    $('.save').on('click', function(){
+        console.log('saving...');
+    });
+
+
+    /***
+     * using methods
+     */
+    var addJoinRecord = function(){
+        console.log('join...');
+        $('.join .operations').last().show();
+
+        var dom = $('<div class="join">' +  $('.join')[0].innerHTML + '</div>');
+        $('.joins').append(dom);
+        $('.join .trash').last().show();
+        $('.join .operations').last().hide();
+
+        $('.fa-trash2').on('click', function(e){
+            try{
+                e.target.parentElement.parentElement.remove();
+                $('.join .operations').last().hide();
+            }catch(e){
+                console.log(e)
+            }
+        });
+    };
+
+    var addFilterRecord = function(){
+        console.log('filter...');
+
+        $('.filter').show();
+        $('.filter:eq(0)').hide();
+        var dom = $('<div class="filter">' +  $('.filter')[0].innerHTML + '</div>');
+        $('.filters').append(dom);
+        $('.filter .operations').show();
+        $('.filter .operations').last().hide();
+
+        $('.fa-trash2').on('click', function(e){
+            try{
+                e.target.parentElement.parentElement.remove();
+                $('.filter .operations').last().hide();
+            }catch(e){
+                console.log(e)
+            }
+        });
+    };
+
+    var addGroupRecord = function(){
+        console.log('group...');
+        $('.group').show();
+        $('.group:eq(0)').hide();
+        var dom = $('<div class="group">' +  $('.group')[0].innerHTML + '</div>');
+        $('.groups').append(dom);
+
+        $('.fa-trash2').on('click', function(e){
+            try{
+                e.target.parentElement.parentElement.remove();
+            }catch(e){
+                console.log(e)
+            }
+        });
+    };
+
+    var addOrderRecord = function(){
+        console.log('order...');
+        $('.order').show();
+        $('.order:eq(0)').hide();
+        var dom = $('<div class="order">' +  $('.order')[0].innerHTML + '</div>');
+        $('.orders').append(dom);
+
+        $('.fa-trash2').on('click', function(e){
+            try{
+                e.target.parentElement.parentElement.remove();
+            }catch(e){
+                console.log(e)
+            }
+        });
+    };
+
+    // global variable
+    var targetObjs = [];
+    var addTargetRecord = function(){
+        console.log('target...');
+        targetObjs = $('.target label');
+        /*$("#sjlj option:eq(0) ").attr("selected",true);
+        $("#ms option:eq(0) ").attr("selected",true);*/
+        $('.name_list ul').empty();
+        for(var i=0; i < targetObjs.length; i++){
+            $('.name_list ul').append($('<li><a>'+ targetObjs[i].innerHTML + '</a></li>'));
+        }
+        $('.name_list ul').append($('<li class="selected"><a>Target</a></li>'));
+
+        $('.name_list ul li').on('click', function(){
+            $('.name_list ul li').removeClass('selected');
+            $(this).addClass('selected');
+            $('.table_name').val($(this).children().text());
+        });
+
+        $('.table_name').val('Target');
+        $('.target_layer').show();
+        $('.mask').show();
+            
+            var userId=4;
+        	$.ajax({
+    			type:"POST",
+    			url:"http://localhost:8080/TarotIDE/selectDataConnection?userId="+userId,
+    			dataType:"json",
+    			contentType: "application/json",
+    			//data:{userId:4},
+    			success:function(data){
+    				for(var i=0;i<data.length;i++){
+    	            	$('#sjlj').append("<option value="+data[i].id+">"+data[i].name+"</option>")
+    	            }
+    				//alert(data);
+    				
+    			}
+    		})    
+        
+        
+       
+        
+        $('.fa-trash2').on('click', function(e){
+            try{
+                e.target.parentElement.parentElement.remove();
+            }catch(e){
+                console.log(e)
+            }
+        });
+       /*targetObjs = $('.target label');
+        $('.name_list ul').empty();
+        for(var i=0; i < targetObjs.length; i++){
+            $('.name_list ul').append($('<li><a>'+ targetObjs[i].innerHTML + '</a></li>'));
+        }
+        $('.name_list ul').append($('<li class="selected"><a>Target</a></li>'));
+
+        $('.name_list ul li').on('click', function(){
+            $('.name_list ul li').removeClass('selected');
+            $(this).addClass('selected');
+            $('.table_name').val($(this).children().text());
+        });
+
+        $('.table_name').val('Target');
+        $('.target_layer').show();
+        $('.mask').show();*/
+    };
+
+    var join = function(table1, table2){
+        $('.join_').trigger('click');
+
+        var id = $('.related_table').length;
+        var dom = /*$(
+            '<div class="related_table t_' + id + '"> <div class="tables">' +
+            '<span class="tableA">'+table1.name+'</span>' +
+            '<span><select><option>left join</option> <option>right join</option><option>full join</option><option>inner join</option></select></span>' +
+            '<span class="tableB">'+table2.name+'</span>' +
+            '<span class="join_plus"><i class="fa plus_icon"></i></span>' +
+            '</div></div>');*/
+            $(
+                '<div class="related_table t_' + id + '"> <div class="tables">' +
+                '<span><select class="tableA"><option>'+table1.name+'</option></option></select></span>' +
+                '<span><select><option>left join</option> <option>right join</option><option>full join</option><option>inner join</option></select></span>' +
+                '<span><select class="tableB"><option>'+table2.name+'</option></option></select></span>' +
+                '<span class="join_plus"><i class="fa plus_icon"></i></span>' +
+                '</div></div>');
+        $('.joins').append(dom);
+
+        $('.join_plus').unbind('click').click(function(event){
+            var currentTable = $(this).parent().parent();
+
+            var className = currentTable.attr('class').split(' ')[1];
+
+            if($('.' + className + ' .join').length < 1){
+                var dom = $('<div class="join">' +  $('.template_join')[0].innerHTML + '</div>');
+                currentTable.append(dom);
+            }else{
+                var dom = $('<div class="operations">' +  $('.template_operations')[0].innerHTML + '</div>');
+                currentTable.append(dom);
+                var dom2 =  $('<div class="join">' +  $('.template_join')[0].innerHTML + '</div>');
+                currentTable.append(dom2);
+            }
+
+            $('.fa-trash2').on('click', function(e){
+                try{
+                   if($(this).parent().parent().prev().prev().hasClass('join')){
+                        $(this).parent().parent().prev().remove();
+                    }else{
+                       $(this).parent().parent().next().remove();
+                   }
+                    $(this).parent().parent().remove();
+                }catch(e){
+                    console.log(e)
+                }
+            });
+        });
+    };
+
+    var table1 = {name:'test'};
+    var table2 = {name: 'test2'}
+    join(table1, table2);
+    join(table1, table2);
+    join(table1, table2);
+    join(table1, table2);
+
+
+
+    //*****center
+    $('.category_name').on('click', function(){
+        $('.category_name').addClass('category_disable');
+        $('.category_name').children().children('i').hide();
+        $(this).removeClass('category_disable').addClass('category_active');
+        $(this).children().children('i').show();
+    });
+
+    $('.line_fun').on('click', function(){
+        if( $(this).css("left") =='0px'){
+            var obj = $(this).prev();
+            obj.show();
+            obj.animate({"width":"128px"}, 300, function(){
+                obj.children().fadeIn();
+            });
+            $(this).animate({"left":"128px"}, 300).removeClass('line_disabled').addClass('line_active');
+        }else{
+            var obj = $(this).prev();
+            $(this).prev().children().hide();
+            $(this).prev().animate({"width":"0px"}, 300, function(){
+                obj.fadeOut();
+            });
+            $(this).animate({"left":"0px"}, 300).removeClass('line_active').addClass('line_disabled');
+        }
+    });
+
+    //change tab
+    //start--
+    jQuery.jqtab = function(tabtit,tabcon) {
+        $(tabcon).hide();
+        $(tabtit+" li:first").addClass("thistab").show();
+        $(tabcon+":first").show();
+
+        $(tabtit+" li").click(function() {
+            if( $(this).hasClass("thistab")){
+                return;
+            }
+
+            //
+            if($(this).hasClass("nochangetab")){
+                return ;
+            }
+
+            $(tabtit+" li").removeClass("thistab");
+            $(this).addClass("thistab");
+            $(tabcon).hide();
+            var activeTab = $(this).find("a").attr("tab");
+            $(" ."+activeTab).fadeIn();
+            return false;
+        });
+
+    };
+    $.jqtab(".tabs1",".tab_con1");
+    $.jqtab(".tabs2",".tab_con2");
+
+    $('.close_m').click(function(e){
+        var className = $(this).parent().attr('tab');
+        $(this).parent().parent().hide()//remove();
+        $('.' + className).hide()//remove();
+    });
+    //end--
+
+
+    //flow 滚动
+    //start--
+    var size = 6;  //定义每个面板显示8个菜单
+    var len = $(".tabs1 li").length;  //获得LI元素的个数
+    var pageLi = 1;
+    var maxpage = Math.ceil(len/size);
+    var scrollWidth = $(".scorllCls").width();
+    $(".vright").click(function(e){
+        len = $(".tabs1 li").length;
+        maxpage = Math.ceil(len/size);
+        if(!$(".scorllCls .tabs1").is(":animated")){
+            if(pageLi == maxpage ){
+                $(".scorllCls .tabs1").stop();
+                return;
+            }else{
+                $(".scorllCls .tabs1").animate({left : "-=" + scrollWidth +"px"},2000);
+                pageLi++;
+            }
+        }
+    });
+    $(".vleft").click(function(){
+        len = $(".tabs1 li").length;
+        maxpage = Math.ceil(len/size);
+        if(!$(".scorllCls .tabs1").is(":animated")){
+            if(pageLi == 1){
+                $(".scorllCls .tabs1").stop();
+            }else{
+                $(".scorllCls .tabs1").animate({left : "+=" + scrollWidth +"px"},2000);
+                pageLi--;
+            }
+        }
+    });
+    //end--;
+
+
+    $('#tabbox2 .dtt span').click(function(e){
+        if($(this).hasClass('active_t')){
+            return;
+        }
+        $('#tabbox2 .dtt span').removeClass('active_t');
+        $(this).addClass('active_t');
+        var cls =  $(this).data('cls');
+        $('#tabbox2 .dt_con div').hide();
+        $('.' + cls).show();
+    });
+});

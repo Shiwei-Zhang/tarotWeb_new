@@ -1,0 +1,104 @@
+[
+  {
+    "id": 96,
+    "name": "客户画像",
+    "pid": 0,
+    "createTime": 1475111829000,
+    "updateTime": 1475119978000,
+    "type": 1,
+    "power": "0b11110",
+    "childrens": [
+      {
+        "id": 97,
+        "name": "1111",
+        "pid": 96,
+        "createTime": 1475111844000,
+        "updateTime": null,
+        "type": 1,
+        "power": "0b11110",
+        "childrens": [
+          {
+            "id": 99,
+            "name": "name",
+            "pid": 97,
+            "createTime": 1475111880000,
+            "updateTime": 1475989848000,
+            "type": 2,
+            "power": "0b01111",
+            "childrens": null
+          },
+          {
+            "id": 100,
+            "name": "name",
+            "pid": 97,
+            "createTime": 1475111885000,
+            "updateTime": 1475913833000,
+            "type": 4,
+            "power": "0b11111",
+            "childrens": null
+          },
+          {
+            "id": 102,
+            "name": "name",
+            "pid": 97,
+            "createTime": 1475112986000,
+            "updateTime": 1475113005000,
+            "type": 5,
+            "power": "0b11111",
+            "childrens": null
+          },
+          {
+            "id": 108,
+            "name": "name",
+            "pid": 97,
+            "createTime": 1475993459000,
+            "updateTime": null,
+            "type": 3,
+            "power": "0b11111",
+            "childrens": null
+          },
+          {
+            "id": 109,
+            "name": "name",
+            "pid": 97,
+            "createTime": 1475993466000,
+            "updateTime": 1475993472000,
+            "type": 2,
+            "power": "0b11111",
+            "childrens": null
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "sssss",
+    "pid": 0,
+    "createTime": 1475111854000,
+    "updateTime": null,
+    "type": 1,
+    "power": "0b11100",
+    "childrens": null
+  },
+  {
+    "id": 101,
+    "name": "精准营销",
+    "pid": 0,
+    "createTime": 1475112731000,
+    "updateTime": 1475117299000,
+    "type": 1,
+    "power": "0b11111",
+    "childrens": null
+  },
+  {
+    "id": 103,
+    "name": "决策支持",
+    "pid": 0,
+    "createTime": 1475117955000,
+    "updateTime": 1475117983000,
+    "type": 1,
+    "power": "0b00011",
+    "childrens": null
+  }
+]

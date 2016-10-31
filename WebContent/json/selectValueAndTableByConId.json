@@ -1,0 +1,68 @@
+{
+  "mysqlip": "172.16.6.131",
+  "mysqlusername": "root",
+  "mysqluserpwd": "root",
+  "BusinessEnum": [
+    {
+      "id": 31,
+      "name": "表名",
+      "businessType": "tableName",
+      "size": 100,
+      "createTime": null,
+      "version": "1.0",
+      "code": "tablename",
+      "isEmpty": 0,
+      "order_": 1,
+      "type": "varchar",
+      "regex": null,
+      "errorMessage": null,
+      "required": 1,
+      "description": null
+    },
+    {
+      "id": 32,
+      "name": "表字段名",
+      "businessType": "tableName",
+      "size": 100,
+      "createTime": null,
+      "version": "1.0",
+      "code": "tablecolumnname",
+      "isEmpty": 0,
+      "order_": 2,
+      "type": "varchar",
+      "regex": null,
+      "errorMessage": null,
+      "required": null,
+      "description": null
+    }
+  ],
+  "mysqlport": "3306",
+  "mysqldb": "test",
+  "table": {
+    "tabelName": [
+      "age",
+      "country",
+      "demo1",
+      "demo2_1",
+      "demo2_2",
+      "demo_eatery",
+      "demo_repast",
+      "name",
+      "new_table",
+      "new_test",
+      "pwd",
+      "r7datademo1_1",
+      "r7datademo1_2",
+      "sex",
+      "testdate",
+      "testdate111",
+      "testdemo",
+      "testdouble",
+      "tttttttttt",
+      "tydtest",
+      "tydtest2",
+      "tydtest3",
+      "tydtesttemp"
+    ]
+  }
+}

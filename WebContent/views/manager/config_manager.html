@@ -1,0 +1,176 @@
+<#include "/template/urlTemp.html">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的配置</title>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"  rel="stylesheet">
+    <link href="http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    <link href="<@formatUrl url='/static-resources/css/style.css' />?version=2016.09.27"  rel="stylesheet">
+    <link href="<@formatUrl url='/static-resources/css/menuManage.css' />?version=2016.09.27"  rel="stylesheet">
+    <link href="<@formatUrl url='/static-resources/css/config.css' />?version=2016.09.27"  rel="stylesheet">
+</head>
+<body class="config">
+<!--header start-->
+<div class="f-header">
+    <div class="left-header">
+        <div><div class="logo"></div><div>&nbsp;</div></div>
+        <div><div class="logo_icon"></div><div>&nbsp;</div></div>
+        <div><div class="icon_gap"></div><div>&nbsp;</div></div>
+        <div><div class="debug"></div><div>Debug</div></div>
+        <div><div class="run"></div><div>Test</div></div>
+    </div>
+    <div class="right-header">
+        <div class="flows"><div class="flow"></div><div>Flow</div></div>
+        <div class="managers">
+            <div class="manager"></div><div>Manager</div>
+        </div>
+        <div id="manag">
+            <h6 class="man1">目录管理</h6>
+            <h6 class="man2">数据源管理</h6>
+            <h6 class="man3">用户管理</h6>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<div class="business_logic">
+    <div class="group">
+        <div class="group_add">
+        	<span>业务组</span>
+            <input type="button" value="+"/>
+        </div>
+        <div class="group_records">
+           <!--  <div>
+                <span class="group_child" data-group="BI"><storage>BI</storage></span>
+                <span class="edit"><i class="fa fa-pencil-square-o"></i></span>
+                <span class="close"></span>
+            </div>
+            -->
+        </div>
+    </div>
+    <div class="type">
+        <div class="type_self">
+            <div class="type_self_add">
+            	<span>业务类型</span>
+                <input type="button" value="+"/>
+            </div>
+            <div class="type_records">
+                <div class="records">
+                	<!-- <div>
+                        <span class="type_child" data-eum="two_dim_tbl" data-dep="y"><storage>二维表</storage></span>
+                        <span class="edit"><i class="fa fa-pencil-square-o"></i></span>
+                        <span class="close"></span>
+                    </div> -->
+                </div>
+                <div class="empty_records">
+                	暂无数据
+                </div>
+            </div>
+        </div>
+
+        <div class="type_dep">
+            <div class="type_dep_add">
+                <input type="button" value="+"/>
+            </div>
+            <div class="type_records">
+                <div class="records">
+                	<!-- <div>
+                        <span class="type_child" data-eum="two_dim_tbl" data-dep="y"><storage>二维表</storage></span>
+                        <span class="edit"><i class="fa fa-pencil-square-o"></i></span>
+                        <span class="close"></span>
+                    </div> -->
+                </div>
+                <div class="empty_records">
+                	暂无数据
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="eum">
+        <div class="eum_add">
+        	<span>业务枚举</span>
+            <input type="button" value="+"/>
+        </div>
+        
+        <div class="eum_records">
+            <div class="records" id="enum_sortable">
+                <!-- <div>
+                    <span class="eum_child" data-group="IP">
+                        <span>IP:</span>
+                        <span>192.168.1.122</span>
+                    </span>
+                    <span class="edit"><i class="fa fa-pencil-square-o"></i></span>
+                    <span class="close"></span>
+                </div> -->
+            </div>
+            
+            <div class="empty_records">
+                	暂无数据
+            </div>
+        </div>
+        <div id="enum_tip" class="tip_records" style="display:none;">
+            	*以上内容可拖拽排序
+        	</div>
+    </div>
+</div>
+
+
+
+<!-- Layer start -->
+<div class="package-dialog" style="display:none;">
+    <div class="dialog" >
+        <div class="d-content">确定删除吗？确定删除吗？确定删除吗？</div>
+        <div>
+            <input type="button" value="取消"/>
+            <input type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask"></div>
+</div>
+
+<div class="package-edit" style="display:none;">
+    <div class="edit-dialog">
+        <div class="edit-title">
+            <span>title</span>
+            <span></span>
+        </div>
+        <div class="d-content">
+            <table>
+               <!--  <tr>
+                    <td>IP</td>
+                    <td><input /></td>
+                </tr>
+                <tr>
+                    <td>port</td>
+                    <td><input /></td>
+                </tr>
+                <tr>
+                    <td>username</td>
+                    <td><input /></td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td><input /></td>
+                </tr> -->
+            </table>
+        </div>
+        <div class="btn-group">
+            <input type="button" value="取消"/>
+            <input type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="mask"></div>
+</div>
+
+<div class="layer2" style="display:none;">
+	<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+	<span class="sr-only">Loading...</span>
+	<div class="mask"></div>
+</div>
+<!-- Layer end -->
+<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
+<script src="<@formatUrl url='/static-resources/js/menuManage.js' />?version=2016.09.27"></script>
+<script src="<@formatUrl url='/static-resources/js/config.js' />?version=2016.09.27"></script>
+</body>
+</html>

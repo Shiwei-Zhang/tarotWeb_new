@@ -1,0 +1,114 @@
+<#include "/template/urlTemp.html">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TEST</title>
+<style>
+ul li{cursor:pointer; line-height:30px;}
+</style>
+</head>
+<body>
+TEST INDEXING
+<div style="width:200px; height:300px;">
+	<ul>
+		<li><a onclick="show('bar')">柱状图</a></li>
+		<li><a onclick="show('line')">折线图</a></li>
+		<li><a onclick="show('pie')">饼图</a></li>
+		<li><a onclick="show('chord')">和弦图</a></li>
+		<li><a onclick="show('funnel')">漏斗图</a></li>
+		<li><a onclick="show('k')">K线图</a></li>
+		<li><a onclick="show('map')">地图</a></li>
+		<li><a onclick="show('parallel')">平行坐标图</a></li>
+		<li><a onclick="show('radar')">雷达图</a></li>
+		<li><a onclick="show('sankey')">桑葚图</a></li>
+		<li><a onclick="show('tree')">树图</a></li>
+		<li><a onclick="show('treemap')">矩形树图</a></li>
+	</ul>
+</div>
+<div style="width:700px; height:500px; border:1px red solid; margin-left:140px; margin-top:-300px;" id="main">
+</div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="<@formatUrl url='/static-resources/js/echarts/lib/echarts.min.3.2.3.js' />"></script>
+<script type="text/javascript">
+var $echarts = echarts;
+</script>
+<script src="<@formatUrl url='/static-resources/js/echarts/lib/echarts.min.2.2.7.js' />"></script>
+<script type="text/javascript">
+var $echarts2 = echarts;
+</script>
+<script type="text/javascript" src="/static-resources/js/common.js"></script>
+<script>
+var url = "<@formatUrl url='/static-resources/images/favicon.ico' />";
+var oldChartType = "";
+	addLink( "<@formatUrl url='/static-resources/images/favicon.ico' />", "image/x-icon", "shortcut icon");
+	function　show(chartType){
+		console.log(chartType);
+		if(oldChartType == chartType){
+			return;
+		}
+		
+		oldChartType = chartType;
+		var scriptUrl = '';
+		var dom = document.getElementById('main');
+		var myChart = $echarts.init(dom);
+		
+		switch (chartType) {
+		case "bar":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/bar.js' />";
+			break;
+		case "line":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/line.js' />";
+			break;
+		case "pie":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/pie.js' />";
+			break;
+		case "chord":
+			myChart = $echarts2.init(dom);
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/chord.js' />";
+			break;
+		case "funnel":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/funnel.js' />";
+			break;
+		case "k":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/k.js' />";
+			break;
+		case "map":
+			myChart = $echarts2.init(dom);
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/map.js' />";
+			break;
+		case "parallel":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/parallel.js' />";
+			break;
+		case "radar":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/radar.js' />";
+			break;
+		case "sankey":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/sankey.js' />";
+			break;
+		case "tree":
+			myChart = $echarts2.init(dom);
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/tree.js' />";
+			break;
+		case "treemap":
+			scriptUrl = "<@formatUrl url='/static-resources/js/echarts/treemap.js' />";
+			break;
+		default:
+			break;
+		}
+		
+		if(scriptUrl){
+			jQuery.ajax({
+			      url: scriptUrl,
+			      dataType: "script",
+			      cache: false//测试：true, 生成：false.
+			}).done(function() {
+			  myChart.setOption(option);
+			});
+			
+			
+		}
+	}
+</script>
+</html>

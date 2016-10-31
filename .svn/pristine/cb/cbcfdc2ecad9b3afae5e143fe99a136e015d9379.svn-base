@@ -1,0 +1,271 @@
+/**
+*/
+.f-bg {
+    background-color: #2d3542;
+    margin: 0px;
+}
+
+.cont-ce {
+    width: 350px;
+    height: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.cont-ce h1 {
+    color: #0085ee;
+    font-size: 80px;
+}
+
+.cont-ce h5 {
+    color: #c7c6c6;
+    margin-top: -40px;
+    font-size: 15px;
+    font-weight: 400
+}
+
+.cont-ce a, label {
+    color: #c7c6c6;
+    cursor: pointer;
+}
+
+.cont-ce a:visited {
+    color: #0085ee;
+    text-decoration: underline;
+}
+
+.cont-ce .active {
+    color: #0085ee;
+    text-decoration: underline;
+}
+
+.lg {
+    text-align: center;
+}
+
+.lg-panel, .btn-lg {
+    margin-top: 20px;
+}
+
+.lg-panel input {
+    width: 250px;
+    height: 35px;
+    padding-left: 12px;
+    border: 1px #d5d5d5 solid;
+    margin-top: 2px;
+    border-radius: 3px
+}
+
+.btn-lg button {
+    width: 250px;
+    height: 35px;
+    background-color: #0085ee;
+    border: 1px #0085ee solid;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.tip {
+    width: 250px;
+    margin: 10px auto;
+}
+
+.tip div:first-child {
+    margin-left: -170px;
+}
+
+.tip div:last-child {
+    margin-right: -183px;
+    margin-top: -17px;
+}
+
+.error-tip {
+    color: red;
+    font-size: 13px;
+    margin-left: -100px;
+}
+
+/**
+*浮层
+*/
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #eaeaea;
+    opacity: 0.7;
+    z-index: 100;
+}
+
+.u-layer, .mima {
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: 150px;
+    left: 41%;
+    z-index: 101;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.u-layer .close, .mima .close {
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+/* .u-layer .icon-group div:last-child{margin-top:-17px;} */
+.u-layer .pre {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.u-layer .icon {
+    background-color: #d2d1d1;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.u-layer .u-title p, .mima .u-title p {
+    font-size: 14px;
+    color: gray;
+}
+
+.u-layer .u-body div, .mima .u-body div {
+    margin-top: 20px;
+}
+
+.u-layer button, .mima button {
+    background-color: #428bca;
+    border: 1px #428bca solid;
+    width: 200px;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.u-body button {
+    height: 50px;
+}
+
+.u-layer .u-body input, .mima .u-body input {
+    width: 250px;
+    height: 35px;
+    border: 1px #d5d5d5 solid;
+    margin-top: 2px;
+    border-radius: 3px
+}
+
+#val, #valButton {
+    width: 125px;
+    height: 35px;
+    border: 1px #d5d5d5 solid;
+    margin-top: 2px;
+    border-radius: 3px
+}
+
+.u-foot button {
+    height: 35px;
+    margin-top: 30px;
+}
+
+.f-sl {
+    background-color: #d8d8d8;
+}
+
+.f-sl .worker-ce {
+    background-color: #ffffff;
+    height: 600px;
+    margin-top: 50px;
+}
+
+.worker-header {
+    background-color: #d8d8d8;
+    border-bottom: 1px #948f8f solid;
+}
+
+.worker-header .title {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.worker-header .title .qt {
+    font-size: 25px;
+}
+
+.worker-header .title .logo {
+    font-size: 35px;
+    font-weight: 800;
+    color: #a2a2a2;
+}
+
+.worker-header .title i {
+    cursor: pointer;
+}
+
+.left-icon, .right-icon {
+    background-image: url(./../images/left-icon.png);
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.worker-header .tool {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 20px;
+    color: #a2a2a2;
+    margin-top: -30px;
+    height: 32px;
+}
+
+.worker-header .tool span {
+    cursor: pointer;
+}
+
+.worker-body {
+    border: 1px red solid;
+}
+
+.worker-body div {
+    display: inline-block;
+    height: 555px;
+    border: 1px red solid;
+}
+
+.worker-left {
+    width: 160px;
+}
+
+.worker-center {
+    width: 600px;
+}
+
+.worker-right {
+    width: 310px;
+}
+
+@media screen and (max-width: 1000px) {
+    .f-sl {
+        width: 1100px;
+        margin: 0px auto;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .f-sl {
+        width: 1100px;
+        margin: 0px auto;
+        text-align: center;
+    }
+}

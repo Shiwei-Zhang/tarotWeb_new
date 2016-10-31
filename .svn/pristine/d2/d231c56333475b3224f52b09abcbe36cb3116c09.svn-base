@@ -1,0 +1,381 @@
+$(function(){
+	var baseUrl = 'http://localhost:800/';
+	var conId = '';
+	var tableName = '';
+	var $biMain = $('#bi-main');
+	
+	//TODO
+	var theme = '';
+	
+	var titleShow = false;//标题显示与否, 默认不显示
+	var titlePosition = '';//标题位置
+	
+	var legendShow = true;//图例是否显示,默认显示
+	var legendPosition = '';//图例位置
+	
+	var chartType = '';
+	var oldChartType = '';
+	window.chartJson = null;
+	
+	//初始化BI编辑页面
+	var init = function(){
+		$('.bi-list').empty();//字段列表
+		
+		//所有chart的配置项
+		$.ajax({
+			url: baseUrl + '/bi/getEchartCommonAttr',
+			type: 'POST',
+			dataType: 'json',
+			data:{
+				
+			},
+			success: function(data){
+				if(data){
+					for(var i = 0; i < data.length; i ++){
+						var attribute = data[i];
+						var name = attribute['name'];
+						var code = attribute['code'];
+						
+						//$('.bi-attribute').append( $('<span data-code="'+ code + '">' + name + '</span><input /><br/>') );
+					}
+				}
+			}
+		});
+	};
+	init();
+	
+	//数据源事件
+	$('.addPart').click(function(){
+		//初始化
+		rest4bi();
+		 $('.bi-optionList').empty();//数据连接选择面板
+		 $('.bi-mainList').empty();//数据表选择面板
+		 $('.bi-connection').val('');
+		
+		$('.mask').show().css({"zIndex":"110"});
+		showLoading();
+		
+		//获得连接信息
+        var str='';
+        $.ajax({
+            url:baseUrl+'/selectDataConnectionAndPowerByUserId?userId=4',
+            type:'POST',
+            dataType:'json',
+            success:function(data) {
+                $(data).each(function(index,item){
+                    str+='<li id='+item["ID"]+'>'+item["NAME"]+'</li>';
+                });
+                str+='<li class="otherwise">other</li>';
+
+                $('.optionList').append($(str));
+                
+                //显示数据源选择面板
+                $('.bi-datasource').show().css({"zIndex":"120"});
+        		$('.dataContainerA .mainList').css('overflowY', 'auto');
+        		hideLoading();
+            }
+        });
+	});
+	//
+	$('.bi-choose-connection').mouseover(function(){
+		$('.bi-optionList').show();
+	}).mouseout(function(event){
+		$('.bi-optionList').hide();
+	});
+	//选择数据库并显示表
+	$('.bi-optionList').on('click','li',function(){
+		showLoading();
+		$('.bi-connection').val($(this).html().trim());
+		conId = $(this).prop('id');
+	    $.ajax({
+            url:baseUrl+'/selectValueAndTableByConId'+'?conId=' + conId,
+            type:'POST',
+            dataType:"json",
+            success:function(data) {
+            	$('.bi-optionList').hide();
+            	if(!data.table){//无表数据
+            		$('.bi-mainList').empty();
+            		console.log('暂无表数据');
+            		hideLoading();
+            		return ;
+            	}
+            	var tableName=data.table.tableName;
+                //console.log(tableName)
+            	var str = '';
+                for(var i=0;i<tableName.length;i++){
+                    str+='<li><i class="single"></i><span>'+tableName[i]+'</span></li>';
+                }
+                $('.bi-mainList').empty().html( $( str ) );
+
+                //添加选中事件
+                $('.bi-mainList li').unbind('click').click(function(e){
+                	e=e||window.event;
+            		var tar= e.target|| e.srcElement;
+            		if(tar.tagName.toLowerCase()==='i'&& $(tar).hasClass('single')){
+            			if($(tar).hasClass('singleChecked')){
+            				$(tar).removeClass('singleChecked').removeClass('bi-singleChecked');
+            			}else {
+            				$('.bi-mainList li i').removeClass('singleChecked').removeClass('bi-singleChecked');
+            				$(tar).addClass('singleChecked').addClass('bi-singleChecked');
+            			}
+            		}
+                });
+                
+                hideLoading();
+            }
+        });
+		$('.bi-optionList').hide();
+		if($('.bi-connection').val()==='other'){
+			//nothing to do.
+		}
+	})
+	//编辑面板关闭
+	$('.bi-close1').click(function(){
+		$('.biData').hide();
+		$('.mask').css({"zIndex":"100"}).hide();
+	});
+	//取消或者关闭数据源面板
+	$('.bi-close2, .bi-cancel').click(function(){
+		$('.bi-datasource').hide();
+		$('.mask').show().css({"zIndex":"100"});
+	});
+	//确认选表
+	$('.bi-sure').click(function(){
+		$('.bi-datasource').hide();
+		showLoading();
+		//保存选择的表
+		var nextEle = $('.bi-singleChecked').next();
+		if(nextEle && nextEle.length > 0){
+			tableName = nextEle.html().trim();
+			$.ajax({
+	            url:baseUrl+'/selectTableColumn',
+	            type:'POST',
+	            data:{
+	            	conId: conId,
+	            	tableName:tableName
+	            },
+	            dataType:"json",
+	            success:function(data) {
+	            	if(data){
+	            		//获得column数据
+	            		var columnObjects = data.table[tableName];
+	            		if(columnObjects){
+	            			var columnDom = '';
+	            			for(var i = 0; i < columnObjects.length; i ++){
+	            				var columnObject = columnObjects[i];
+	            				columnDom += '<li>' + columnObject.column + '&nbsp;&nbsp;(' + columnObject.parameter[0]+ ')</li>';
+	            			}
+	            			//渲染 字段
+	            			$('.bi-list').html( $(columnDom) );
+	            			
+	            			
+	            			//绑定拖放事件
+	            			droppable4Columns();
+	            		}
+	            	}
+	            	
+	            	$('.mask').show().css({"zIndex":"100"});
+	            	hideLoading();
+	            }
+	        });
+		}
+	});
+	
+	//选择图例
+	$('.legend').click(function(){
+		$('.legend').removeAttr('style').removeClass('bi-chartSelected');
+		$(this).css({'border':'1px red solid'});
+		$(this).addClass('bi-chartSelected');
+	});
+	//生成图例
+	$('.bi-generator').click(function(){
+		var dimensionality = $('.bi-dimensionality li');
+		var measure = $('.bi-measure li');
+		var legend = $('.legend.bi-chartSelected');//
+		
+		if(dimensionality && dimensionality.length > 0 &&
+				measure && measure.length > 0 && legend){
+			var rowFields = [], colFields = [];
+			dimensionality.each(function(index, item){
+				rowFields.push($(item).text());
+			});
+			
+			measure.each(function(index, item){
+				colFields.push($(item).text());
+			});
+			chartType = legend.data('type');
+			
+			$.ajax({
+	            url:baseUrl+'/bi/getEchartJSONInEdit',
+	            type:'POST',
+	            data:{
+	            	conId: conId,
+	            	tableName:tableName,
+	            	chartType: chartType,
+	            	rowFields: rowFields,
+	            	colFields: colFields
+	            },
+	            dataType:"json",
+	            success:function(data) {
+	            	if(data){
+	            		var myChart = theme?echarts.init($biMain[0], theme):echarts.init($biMain[0]);
+	            		myChart.clear();//清空组件
+	            		oldChartType = chartType;
+	            		//TODO
+	            		chartJson = data['chartJson'];
+	            		
+	            		if(chartType == 'table'){
+	        				Table.buildTable(echartJSON, 'bi-main');
+	        			}else if(chartType == 'droplist'){
+	        				Variable.buildDroplist(echartJSON, 'bi-main');
+	        			}else if(chartType == 'input'){
+	        				Variable.buildInput(data, 'bi-main');
+	        			}else{
+	        				myChart.setOption(chartJson);
+	        				 myChart.on('click', function (params) {
+	        					    
+	        				 });
+	        			}
+	            	}
+	            }
+	        });
+		}
+	});
+	
+	
+	//重置选项
+	$('.bi-reset').click(function(){
+		rest4bi();
+	});
+	
+	//echart 属性配置
+	//1.主题
+	$('.bi-theme select').change(function(){
+		//TODO setting theme
+		theme = $(this).val();
+		if(theme && chartJson){
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}
+	});
+	//2.标题
+	$('.bi-title input[name="show"]').change(function(){
+		//TODO setting title
+		titleShow = $(this).val();
+		if(titleShow == 1 && chartJson){
+			chartJson.title.show = true;
+			chartJson.title.text = 'default title';
+			chartJson.title.left = titlePosition? titlePosition: 'center';
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}else if(titleShow == 0 && chartJson){
+			chartJson.title.show = false;
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}
+	});
+	$('.bi-title select[name="position"]').change(function(){
+		//TODO setting title
+		titlePosition = $(this).val();
+		if(titleShow == 1 && titlePosition && chartJson){
+			chartJson.title.text = 'default title';
+			chartJson.title.left = titlePosition;
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}
+	});
+	
+	//3.图例
+	$('.bi-legend input[name="lshow"]').change(function(){
+		//TODO setting title
+		legendShow = $(this).val();
+		if(legendShow == 1 && chartJson){
+			chartJson.legend.show = true;
+			chartJson.legend.left = legendPosition? legendPosition: 'left';
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}else if(legendShow == 0 && chartJson){
+			chartJson.legend.show = false;
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}
+	});
+	$('.bi-legend select[name="lposition"]').change(function(){
+		//TODO setting title
+		legendPosition = $(this).val();
+		if(legendShow == 1 && legendPosition && chartJson){
+			chartJson.legend.left = legendPosition;
+			echarts.init($biMain[0], theme).setOption(chartJson);
+		}
+	});
+	//end
+	
+	
+	//方法集合
+	var rest4bi = function(){
+		$('.bi-dimensionality').empty();
+		$('.bi-measure').empty();
+		$('.legend').removeAttr('style');
+		//reset order
+		//reset filter
+		
+		//chart reset
+		chartJson = '';
+		theme = '';
+		chartType = '';
+		echarts.init($biMain[0]).clear();
+		
+	};
+	var droppable4Columns = function(){
+		//这里是字段列表, 维度列表, 量度列表
+		var $columnList = $('.bi-list'),
+		$dimensionality = $('.bi-dimensionality'),
+		$measure = $('.bi-measure');
+		
+		 //让字段列表的条目可拖拽
+	    $( "li", $columnList ).draggable({
+	      cancel: "a.ui-icon", // 点击一个图标不会启动拖拽
+	      revert: "invalid", // 当未被放置时，条目会还原回它的初始位置
+	      containment: "document",
+	      helper: "clone",
+	      cursor: "move",
+	      start: function( event, ui ) {
+	    	  //处理拖动的对象的文本,背景颜色
+	    	  ui.helper.text(ui.helper.text().split('(')[0].trim());
+	    	  ui.helper.css({'background-color':'#f3f3f3'});
+	      }
+	    });
+	    
+	    //让 维度列表可放置，接受字段列表的条目
+	    $dimensionality.droppable({
+	      accept: ".bi-list > li",
+	      activeClass: "ui-state-highlight",
+	      drop: function( event, ui ) {
+	    	  //处置被拖动的元素放置时
+	    	  var $item = ui.draggable;
+	    	  var text = $item.text().split('(')[0].trim();
+	    	  $( "<li></li>" ).append( $('<span>'+ text + '</span><i class="closeA bi-column-close"></i>') ).appendTo( this );
+	    	  
+	    	  $( '.bi-column-close' ).unbind( 'click' ).click(function(e){
+	    		  $(this).parent().remove();
+	    	  });
+	      }
+	    });
+	    //让 量度列表可放置，接受字段列表的条目
+	    $measure.droppable({
+	      accept: ".bi-list > li",
+	      activeClass: "ui-state-highlight",
+	      drop: function( event, ui ) {
+	    	  //处置被拖动的元素放置时
+	    	  var $item = ui.draggable;
+	    	  var text = $item.text().split('(')[0].trim();
+	    	  $( "<li></li>" ).append( $('<span>'+ text + '</span><i class="closeA bi-column-close"></i>') ).appendTo( this );
+	    	  
+	    	  $('.bi-column-close').unbind('click').click(function(e){
+	    		  $(this).parent().remove();
+	    	  });
+	      }
+	    });
+	};
+	
+	var showLoading = function(){
+		$('.u-layer2').show().css({'top':'300px', 'left':$(window).width()/2 + 'px'});
+	};
+	var hideLoading = function(){
+		$('.u-layer2').hide();
+	}
+});
