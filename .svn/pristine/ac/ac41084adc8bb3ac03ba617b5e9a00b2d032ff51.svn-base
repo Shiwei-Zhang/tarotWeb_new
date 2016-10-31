@@ -910,7 +910,7 @@
     var urlId='http://172.16.1.227:8080/TarotIDE';
     
     //TODO deleting 
-    //urlId = 'http://localhost:800/';
+    urlId = 'http://localhost:800/';
     
     //初始化目录
     $(function(){
