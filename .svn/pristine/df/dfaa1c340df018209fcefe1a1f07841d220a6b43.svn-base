@@ -129,7 +129,7 @@
 						</ul>
 					</div>
 
-					<div class="module-flow clearFix" style="display: none">
+					<div class="module-flow clearFix" style="">
 						<!-- flow start-->
 						<div class="module-core">
 							<div class="cav_body" id="tabbox1">
@@ -1253,7 +1253,7 @@
                 $(data).each(function(index,item){
                     var tableNames=item.tableName;
                     sourceType=item.sourceType;
-                    //console.log(tableNames)
+                    console.log(tableNames)
                     for(var i=0;i<tableNames.length;i++){
                         str+='<li><i class="single"></i><span>'+tableNames[i]+'</span></li>';
                     }
@@ -1280,6 +1280,15 @@
         source_entity.enumCode="sourcetable";
         source_entity.value=interfaceName;
         arr.push(source_entity);
+
+        /*var source_column=JSON.stringify(sourceColumn);
+        var source_data=JSON.stringify(source_data);
+        var source_entity=JSON.stringify(source_entity);
+        var model = new Object();
+        model.source_data = source_data;
+        model.source_column = source_column;
+        model.source_entity = source_entity;*/
+
         $.ajax({
             url:urlId+'/addSourceDataAndAll',
             type:'POST',
@@ -1289,11 +1298,13 @@
                 source_column:JSON.stringify(sourceColumn),
                 source_data:JSON.stringify(source_data),
                 source_entity:JSON.stringify(arr)
+                //JSON.stringify(model),
         }),
 
         success:function(data) {
-            bindSourceData(data);
-			initDragable();
+            //console.log(data)
+            //console.log(data.tableName)
+            bindSourceData(data)
         },
         error : function() {
             alert("异常！");
@@ -1301,83 +1312,15 @@
     })
     }
 
-
-	function initDragable(){
-		$( ".draggable" ).draggable({
-			drag: function(event) {
-			},
-			cursor: "move",
-			cursorAt: { top: 5, left: 5 },
-			helper: function( event ) {
-				var textValue = event.target.getAttribute('textValue');
-				var jmType = event.target.getAttribute('jmType');
-				var level = event.target.getAttribute('level');
-				var flowid = event.target.getAttribute('flowid');
-				var sourceid = event.target.getAttribute('sourceid');
-				var line_color = event.target.getAttribute('line_color');
-				var border_color = "#0080ff;";
-				if(jmType=='2'){
-					border_color = "#1abc9c;";
-				}
-				return $( "<jmnode id='jmnodeModel' style='border-color:"+border_color+"' jm ='"+jmType+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
-			}
-		});
-	}
     function bindSourceData(data,flowId){
-        var flowIdName=0;
+        flowIdName=0;
         var nameList=data.tableName;
+        var data_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
         var data_obj = $(
-				"<p jmType = '1' textValue = '"+nameList+"' level='2' flowId='"+flowIdName+"' sourceId='0' line_color='#0080ff' class='draggable'>"+nameList+"</p>"
+                "<p jm = '1' textValue = 'Logic_Node' level='1' flowId='"+flowIdName+"' sourceId='0' draggable='true' ondragstart='drag(event)'>"+nameList+"</p>"
         );
-        $('.dt_conL').append(data_obj);
+        $('.dt_conL').append(data_obj)
     }
-
-	function getSelectAllFlowId(){
-		flowId=1231;
-		$.ajax({
-			url:urlId+'/selectAllByFlowId?flowId='+flowId,
-			type:'POST',
-			dataType:"json",
-			contentType: "application/json",
-			success:function(data) {
-				//bindSourceData(data)
-				$(data).each(function(index,item){
-					//console.log(item)
-					console.log(item.tableName)
-					console.log(item.sourceDataId)
-					console.log(item.columns
-					)
-				})
-				//console.log(data)
-				bindSourceData1(data,flowId);
-				initDragable();
-			},
-			error : function() {
-				alert("异常！");
-			}
-		})
-	}
-
-	//TODO
-	//点击flow的时候调用
-	getSelectAllFlowId()
-
-	function bindSourceData1(data,flowId){
-		var flowIdName=0;
-		var tableName;
-		var sourceDataId;
-		var data_obj;
-		$(data).each(function(index,item){
-			//console.log(item)
-			tableName=item.tableName;
-			sourceDataId=item.sourceDataId;
-			data_obj = $(
-					"<p jmType = '1' textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='#0080ff' class='draggable'>"+tableName+"</p>"
-			);
-			$('.dt_conL').append(data_obj)
-		})
-		$('.dt_conL').append(data_obj)
-	}
 
 
 
@@ -1566,7 +1509,6 @@
             }
         })
     }
-
 </script>
 </body>
 

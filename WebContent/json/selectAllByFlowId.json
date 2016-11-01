@@ -1,0 +1,994 @@
+[
+  {
+    "sourceDataId": 359,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 22,
+        "name": "conusme_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "ID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "demo1"
+  },
+  {
+    "sourceDataId": 360,
+    "columns": [
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_1"
+  },
+  {
+    "sourceDataId": 361,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 22,
+        "name": "conusme_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "ID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "demo1"
+  },
+  {
+    "sourceDataId": 362,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "country",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      }
+    ],
+    "tableName": "country"
+  },
+  {
+    "sourceDataId": 363,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "country",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      }
+    ],
+    "tableName": "country"
+  },
+  {
+    "sourceDataId": 364,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "country",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      }
+    ],
+    "tableName": "country"
+  },
+  {
+    "sourceDataId": 365,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "country",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      }
+    ],
+    "tableName": "country"
+  },
+  {
+    "sourceDataId": 366,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 22,
+        "name": "conusme_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "ID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "demo1"
+  },
+  {
+    "sourceDataId": 367,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 368,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 369,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 370,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 371,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 372,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 373,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 374,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 375,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 376,
+    "columns": [
+      {
+        "precision": 65535,
+        "name": "coreName",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      },
+      {
+        "precision": 19,
+        "name": "consume_count",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 22,
+        "name": "consume_sum",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 10,
+        "name": "eateryID",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 22,
+        "name": "datetime_15",
+        "length": 22,
+        "scale": 0,
+        "type": "DOUBLE"
+      },
+      {
+        "precision": 19,
+        "name": "datetime",
+        "length": 19,
+        "scale": 0,
+        "type": "TIMESTAMP"
+      },
+      {
+        "precision": 65535,
+        "name": "xq",
+        "length": 65535,
+        "scale": 0,
+        "type": "TEXT"
+      }
+    ],
+    "tableName": "demo2_2"
+  },
+  {
+    "sourceDataId": 377,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 378,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 379,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 380,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 381,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "age",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 10,
+        "name": "money",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      }
+    ],
+    "tableName": "age"
+  },
+  {
+    "sourceDataId": 382,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "sex",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      }
+    ],
+    "tableName": "sex"
+  },
+  {
+    "sourceDataId": 383,
+    "columns": [
+      {
+        "precision": 10,
+        "name": "id",
+        "length": 10,
+        "scale": 0,
+        "type": "INT"
+      },
+      {
+        "precision": 45,
+        "name": "sex",
+        "length": 45,
+        "scale": 0,
+        "type": "VARCHAR"
+      }
+    ],
+    "tableName": "sex"
+  },
+  {
+    "sourceDataId": 384,
+    "columns": [
+      {
+        "precision": 20,
+        "name": "studentid",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 20,
+        "name": "subject",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 53,
+        "name": "score",
+        "length": 53,
+        "scale": 0,
+        "type": "float"
+      }
+    ],
+    "tableName": "score"
+  },
+  {
+    "sourceDataId": 385,
+    "columns": [
+      {
+        "precision": 20,
+        "name": "studentid",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 20,
+        "name": "subject",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 53,
+        "name": "score",
+        "length": 53,
+        "scale": 0,
+        "type": "float"
+      }
+    ],
+    "tableName": "score"
+  },
+  {
+    "sourceDataId": 386,
+    "columns": [
+      {
+        "precision": 20,
+        "name": "studentid",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 20,
+        "name": "subject",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 53,
+        "name": "score",
+        "length": 53,
+        "scale": 0,
+        "type": "float"
+      }
+    ],
+    "tableName": "score"
+  },
+  {
+    "sourceDataId": 387,
+    "columns": [
+      {
+        "precision": 20,
+        "name": "studentid",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 20,
+        "name": "subject",
+        "length": 20,
+        "scale": 0,
+        "type": "nvarchar"
+      },
+      {
+        "precision": 53,
+        "name": "score",
+        "length": 53,
+        "scale": 0,
+        "type": "float"
+      }
+    ],
+    "tableName": "score"
+  },
+  {
+    "sourceDataId": 388,
+    "columns": [
+      {
+        "precision": 19,
+        "name": "ID",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 19,
+        "name": "BLACK_LIST_ID",
+        "length": 19,
+        "scale": 0,
+        "type": "BIGINT"
+      },
+      {
+        "precision": 255,
+        "name": "BEGIN_IP",
+        "length": 255,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 255,
+        "name": "END_IP",
+        "length": 255,
+        "scale": 0,
+        "type": "VARCHAR"
+      },
+      {
+        "precision": 19,
+        "name": "CREATE_TIME",
+        "length": 19,
+        "scale": 0,
+        "type": "DATETIME"
+      }
+    ],
+    "tableName": "black_item"
+  }
+]

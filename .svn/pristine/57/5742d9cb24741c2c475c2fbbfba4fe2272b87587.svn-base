@@ -25,8 +25,13 @@ $(function(){
     $('.flows').unbind('click').click(function () {
         $('.managers').removeClass('header_active');
         $('.flows').addClass('header_active');
-        $('.module-data,.module-data-navigation,.module-data-all,.content').show();
-        $('.module-manager,.dataManager,#manag').hide();
+        $('.module-data').show();
+        $('.module-data-navigation').show();
+        $('.module-data-all').show();
+        $('.module-manager').hide();
+        $('.content').show();
+        $('.dataManager').hide();
+        $('#manag').hide();
         console.log('flow...');
         // add by tyd
         refreshMenu(refreshEnum[0]);
@@ -35,11 +40,19 @@ $(function(){
 
     //目录管理点击事件
     $('.man1').unbind('click').click(function () {
-        $('.module-data,.dataManager').hide();
-        $('.module-data-navigation,.module-manager').show();
+        $('.module-data-navigation').show();
+        $('.module-data').hide();
+        $('.dataManager').hide();
+        $('.module-manager').show();
+
         refreshMenu(refreshEnum[1]);
-        $('.manager-bodyer,.center-table1').show();
-        $('.center-table2,.power-detail,.task,#manag').hide();
+
+        $('.manager-bodyer').show();
+        $('.center-table2').hide();
+        $('.center-table1').show();
+        $('.power-detail').hide();
+        $('.task').hide();
+        $('#manag').hide();
         goPage(1, 10, 'table1', 'barcon1');
     });
 
@@ -48,10 +61,19 @@ $(function(){
     //数据源管理点击事件
     var conId;
     $('.man2').unbind('click').click(function () {
-        $('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1').hide();
-        $('.dataManager,.center-table2').show();
+        $('.module-data-navigation').hide();
+        $('.module-data-all').hide();
+        $('.manager-bodyer').hide();
+        $('.content').hide();
+        $('.dataManager').show();
+        $('.center-table1').hide();
+        $('.center-table2').show();
 
-        $('.task,#manag').hide();
+
+        $('.task').hide();
+        $('#manag').hide();/*
+        $('.BI-bodyer').hide();
+        $('.controll-bodyer').hide();*/
         var user = $("#userId").val();
         $('#table2').html('');
         /*alert(user);*/
@@ -209,7 +231,8 @@ $(function(){
 
     //数据源管理页面---添加按钮
     $('.add2').click(function(){
-        $('.add2-f,.mask').show();
+        $('.add2-f').show();
+        $('.mask').show();
         $('.add2-input').html('');
         $('.conAdd').html('');
         $.ajax({
@@ -328,9 +351,7 @@ $(function(){
         $('.controll-bodyer').hide();
         $('.dataMining-bodyer').hide();
         $('.module-flow').show();*/
-
-        //dt_conL 选择数据源区域数据获取及绑定
-        getSelectAllFlowId();
+        
         $('.module-data-navigation').show();
         $('.module-manager').hide();
         var flowClassName = 'flow-' + $idName;
@@ -369,19 +390,7 @@ $(function(){
     });
 
 
-   /* //数据源页面单选
-    singleCheck()
-    function singleCheck(){
-        $('.mainEvent .single').each(function(){
-            console.log($(this))
-        })
-    }*/
-
     //数据源、数据接口弹出框
-    function closeAdd4(){
-        $('.add4-con').hide();
-        $('.mask').hide();
-    }
     var detailId;
     $('.add4').off('click').click(function () {
         getDataAdd4();
@@ -433,7 +442,8 @@ $(function(){
         });*/
         $('.mask').show();
         $('.add4-con .closeA,.add4-con .cancel').click(function () {
-            closeAdd4();
+            $('.add4-con').hide();
+            $('.mask').hide();
         })
     });
 
@@ -484,7 +494,7 @@ $(function(){
                 sourceColumn.push(source)
             }
 
-            closeAdd4();
+
             if (paren.attr('class') === 'dataContainerA') {
                 console.log(0);
                 isInterface=0;

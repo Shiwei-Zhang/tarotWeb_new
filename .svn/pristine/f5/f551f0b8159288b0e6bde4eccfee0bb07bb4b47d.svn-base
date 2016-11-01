@@ -961,11 +961,6 @@ ul.root_tree li div {
     color: #1e1e1e;
     margin-top: 5px;
     padding-left: 10px;
-    height: 20px;
-    cursor: pointer;
-}
-.dt_d .dt_con p:hover{
-    background: #CCEBF8;
 }
 .dt_d .dt_fun p.dtt {
     height: 26px;
@@ -1117,7 +1112,7 @@ ul.root_tree li div {
 /**
 right style
 */
-.prop,.prop1{
+prop,.prop1{
     font-size: 0;
 }
 .module-prop{
@@ -1352,8 +1347,6 @@ right style
 .target label {
     display: inline-block;
     width: 252px;
-    height: 20px;
-    font-size: 14px;
 }
 
 .target label input {

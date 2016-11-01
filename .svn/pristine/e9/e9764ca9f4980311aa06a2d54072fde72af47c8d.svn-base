@@ -328,9 +328,7 @@ $(function(){
         $('.controll-bodyer').hide();
         $('.dataMining-bodyer').hide();
         $('.module-flow').show();*/
-
-        //dt_conL 选择数据源区域数据获取及绑定
-        getSelectAllFlowId();
+        
         $('.module-data-navigation').show();
         $('.module-manager').hide();
         var flowClassName = 'flow-' + $idName;
@@ -369,19 +367,7 @@ $(function(){
     });
 
 
-   /* //数据源页面单选
-    singleCheck()
-    function singleCheck(){
-        $('.mainEvent .single').each(function(){
-            console.log($(this))
-        })
-    }*/
-
     //数据源、数据接口弹出框
-    function closeAdd4(){
-        $('.add4-con').hide();
-        $('.mask').hide();
-    }
     var detailId;
     $('.add4').off('click').click(function () {
         getDataAdd4();
@@ -433,7 +419,8 @@ $(function(){
         });*/
         $('.mask').show();
         $('.add4-con .closeA,.add4-con .cancel').click(function () {
-            closeAdd4();
+            $('.add4-con').hide();
+            $('.mask').hide();
         })
     });
 
@@ -484,7 +471,7 @@ $(function(){
                 sourceColumn.push(source)
             }
 
-            closeAdd4();
+
             if (paren.attr('class') === 'dataContainerA') {
                 console.log(0);
                 isInterface=0;
