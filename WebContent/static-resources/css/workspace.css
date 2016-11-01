@@ -190,9 +190,9 @@ p{
 .folder div {
     width: 100%;
 }
-.folder .folder_self {
+/*.folder .folder_self {
     margin-top: -5px;
-}
+}*/
 .folder div:hover {
     background-color: #f6f6f6;
     cursor: pointer;
@@ -203,23 +203,31 @@ p{
     padding-left: 20px;
 }
 .folder li {
-    width: 160px;
-    margin: 0px 0px;
+   /* width: 160px;
+    margin: 0px 0px;*/
 }
 .folder ul li ul {
     margin-top: 0px;
 }
-
+.folder_self i.fa.controllerIcon {
+    margin-right: 5px;
+}
 .folder ul li ul li {
     line-height: 25px;
 }
 .folder ul li ul li span {
-    font-size: 14px;
+    font-size: 12px;
     margin-left: 5px;
 }
 .folder input {
     width: 120px;
 }
+ul.root_tree li div {
+    /*height: 28px;*/
+    line-height: 28px;
+}
+
+
 /*end folder style*/
 
 

@@ -513,7 +513,7 @@ $(function(){
 	getSelect();
 	//获取mainEvent下选中的内容
 	function getSelect() {
-		console.log($('.mainEvent li .singleChecked'))
+		//console.log($('.mainEvent li .singleChecked'))
 		$('.mainEvent li .singleChecked').each(function (index, item) {
 			console.log(item)
 			for (var i = 0; i < $('.mainEvent li .singleChecked').length; i++) {
