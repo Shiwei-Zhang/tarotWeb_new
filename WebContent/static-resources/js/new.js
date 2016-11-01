@@ -1140,3 +1140,28 @@ function powerList(conId,content){
 		}  
 	})
 }
+showList()
+function showList(){
+    var $menu = $(".menu"),
+        $h2 = $menu.find("h2"),
+        $detail = $menu.find(".detail");
+    $h2.on("click", function () {
+        //->this:H2
+        //->index获取的是当前元素在HTML结构中的排行索引,并不是得到集合中的排序索引
+        var $curIndex = $(this).parent().index();
+
+        $detail.each(function (index, item) {
+            //->this:UL
+            if ($curIndex === index) {
+                $(this).stop().slideToggle(200);
+                return;
+            }
+            $(this).stop().slideUp(200);
+        });
+    });
+}
+
+
+
+
+

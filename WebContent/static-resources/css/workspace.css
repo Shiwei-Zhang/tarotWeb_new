@@ -370,6 +370,7 @@ p{
     height: 33px;
     line-height: 33px;
     padding-left: 10px;
+    text-align: center;
     font-size: 12px;
     background: #f8f8f8;
     border-bottom: 1px solid #ddd;
@@ -394,8 +395,8 @@ p{
     /*margin-left: 10px;*/
 }
 .biDataL .biList li{
-    height: 30px;
-    line-height: 30px;
+    height: 22px;
+    line-height: 22px;
     padding-left: 10px;
     font-size: 12px;
     cursor: pointer;
@@ -403,6 +404,59 @@ p{
 .biDataL .biList li:hover{
     background: #f8f8f8;
 }
+
+
+.biDataL .biDataLbottom .biDataLbottom_t{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    background: #f8f8f8;
+    text-align: center;
+    font-size: 14px;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+
+.biDataL .biDataLbottom .menu {
+    width: 100%;
+    border-top: none;
+}
+
+.biDataL .biDataLbottom .menu h2 {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: normal;
+
+    background: #fff;
+    border-top: 1px solid #F0F0F0;
+    /*border-bottom: 1px solid #ddd;*/
+    cursor: pointer;
+}
+
+.biDataL .biDataLbottom .detail {
+    display: none;
+    padding-left: 20px;
+}
+
+.biDataL .biDataLbottom .detail.show {
+    display: block;
+}
+
+.biDataL .biDataLbottom .detail li {
+    height: 30px;
+    line-height: 30px;
+}
+
+
+
+
+
+
+
+
+
 .biData-C .biDataC{
     width: 100%;
     height: 600px;
@@ -459,10 +513,29 @@ p{
     padding-left: 15px;
     border:1px solid #d3d3d3;
 }
-.CmainList li.mainSort{
-    position: relative;
+.CmainList li.mapList p{
+    float: right;
+    width: 145px;
+    text-align: center;
 }
-.CmainList li.mainSort span,
+.CmainList li.mapList p span{
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #56b1e0;
+    cursor: pointer;
+    margin-left: 10px;
+    border:1px solid #56b1e0;
+}
+.CmainList li.mapList p span.clicked{
+    color: #fcfef9;
+    background: #56b1e0;
+}
+/*.CmainList li.mainSort{
+    position: relative;
+}*/
+/*.CmainList li.mainSort span,
 .CmainList li.mapList span
 {
     width:58px;
@@ -470,16 +543,16 @@ p{
 }.CmainList li.mainSort select{
      width: 350px;
      height: 30px;
- }
-.CmainList li.mapList span.legend{
+ }*/
+/*.CmainList li.mapList span.legend{
     width: 35px;
     height: 35px;
     background: url(../images/mapList.png)no-repeat left center;
     background-size: 186px 35px;
     background-position: 0 0;
     margin-right: 10px;
-}
-.CmainList li.mapList span.legendIcon2{
+}*/
+/*.CmainList li.mapList span.legendIcon2{
     background-position: -37px 0;
 }
 .CmainList li.mapList span.legendIcon3{
@@ -527,7 +600,7 @@ p{
     top: 12px;
     right: 17px;
     z-index: 106;
-}
+}*/
 .biDataCmain .CmainT span{
     width: 92px;
     height: 32px;
