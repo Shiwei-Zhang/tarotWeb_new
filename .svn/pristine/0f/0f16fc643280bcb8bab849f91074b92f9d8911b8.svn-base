@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,  initial-scale=1.0">
+    <title>工作区</title>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"  rel="stylesheet">
+    <link href="../../static-resources/css/context.standalone.css?version=2016.09.18"  rel="stylesheet">
+    <link href="../../static-resources/css/workspace.css?version=2016.10.26"  rel="stylesheet">
+    <link href="../../static-resources/css/jsmind.css"  rel="stylesheet">
+    <style type="text/css">
+        #jsmind_container{
+            height: 100%;
+            overflow-y:hidden;
+        }
+        #jsmind_container2{
+            height: 77%;
+            width: 99.7%;
+            overflow-y:hidden;
+        }
+        .intro
+		{
+			background-color:yellow;
+		}
+    </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,  initial-scale=1.0">
 <title>工作区</title>
@@ -24,23 +47,9 @@
 	width: 99.7%;
 	overflow-y: hidden;
 }
-.intro
-	{
-		background-color:yellow;
-	}
-
-
 </style>
-
 </head>
 <body>
-
-<<<<<<< HEAD
-	<button class="btn_bi" style="position: absolute;left:500px;width:50px;height:30px">bi</button>
-
-
-=======
->>>>>>> be1e0409eb4242ad2546d7754e3b278dcf565c0e
 	<!--header start-->
 	<div class="f-header">
 		<div class="left-header">
@@ -106,7 +115,31 @@
 						</ul>
 					</div>
 
-					<div class="module-flow clearFix flow-template" style="display: none">
+                <div class="module-flow clearFix" style="">
+                    <!-- flow start-->
+                    <div class="module-core">
+                        <div class="cav_body" id="tabbox1">
+                            <ul class="tab_conbox">
+                                <li class="tab1_1 tab_con1">
+                                    <div class="dt_d">
+                                        <div class="dt_fun">
+                                            <p class="dtt">数据源</p>
+                                            <p class="dts add4">+ 选择数据源</p>
+                                            <input type="text" placeholder="搜索"/>
+                                        </div>
+                                        <div  class="dt_con">
+                            <!-- <p jm = "1" textValue = "Logic_Node" level="2" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">KPI</p> -->
+                            <p jmType = "1" textValue = "KPI" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">KPI</p>
+                            <p jmType = "1" textValue = "考勤记录文件" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">考勤记录文件</p>
+                            <p jmType = "1" textValue = "月份" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">月份</p>
+                            <p jmType = "1" textValue = "员工合同" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">员工合同</p>
+                            <p jmType = "1" textValue = "离职报告" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">离职报告</p>
+                            <p jmType = "1" textValue = "员工基本信息" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">员工基本信息</p>
+                        </div>
+                                    </div>
+
+                                    <div class="line_fun line_active">
+					<div class="module-flow clearFix" style="display: none;">
 						<!-- flow start-->
 						<div class="module-core">
 							<div class="cav_body" id="tabbox1">
@@ -130,8 +163,14 @@
 
 										<div class="line_fun line_active"></div>
 
-					                    <div id="jsmind_container" class="cav_flow">
-					                    </div>
+                                    <!-- <div id="jsmind_container" ondrop="drop(event)"	ondragover="allowDrop(event)"  class="cav_flow"> -->
+				                    <div id="jsmind_container" class="cav_flow">
+				                    </div>
+                                </li>
+                            </ul>
+                        </div>
+										<div id="jsmind_container" ondrop="drop(event)"
+											ondragover="allowDrop(event)" class="cav_flow"></div>
 									</li>
 								</ul>
 							</div>
@@ -148,6 +187,50 @@
 											class="stop"></span> <span class="wait"></span> <span
 											class="next"></span> <!-- <span class="next1"></span>
                                         <span class="prev"></span> -->
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="tab_conbox">
+                                <li class="tab2_1 tab_con2">
+                                    <div style="position:relative;">
+                                        <div class="dt_d">
+                                            <div class="dt_fun">
+                                                <p class="dtt">
+                                                    <span data-cls="col_con">字段</span>
+                                                    <span data-cls="syb_con" class="active_t">函数</span>
+                                                </p>
+                                                <input type="text" placeholder="搜索"/>
+                                            </div>
+                                            <div  class="dt_con">
+                                                <div class="col_con" style="display:none;">
+				                                    <!-- <p jm = "2" textValue = "id" level="3" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">id</p> -->
+				                                    <p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
+				                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
+				                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
+				                                    <p jmType = "2" textValue = "value" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">value</p>
+				                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
+				                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p>
+				                                </div>
+				                                <div class="syb_con">
+				                                    <!-- <p jm = "2" textValue = "?+?" level="4" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">加</p> -->
+				                                    <p jmType = "2" textValue = "?+?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">加</p>
+				                                    <p jmType = "2" textValue = "?-?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">减</p>
+				                                    <p jmType = "2" textValue = "?*?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">乘</p>
+				                                    <p jmType = "2" textValue = "?/?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">除</p>
+				                                    <p jmType = "2" textValue = "sin(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sin</p>
+				                                    <p jmType = "2" textValue = "cos(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">cos</p>
+				                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="line_fun line_active">
+
+                                        </div>
+                                    </div>
+
+                                    <!-- <div id="jsmind_container2" ondrop="drop(event)"	ondragover="allowDrop(event)"  class="cav_flow" class="cav_flow"> -->
+                    				<div id="jsmind_container2" class="cav_flow">
+                                    </div>
+                                </li>
 									</a></li>
 								</ul>
 								<ul class="tab_conbox">
@@ -163,28 +246,41 @@
 												</div>
 												<div class="dt_con">
 													<div class="col_con" style="display: none;">
-														<p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
-					                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
-					                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
-					                                    <p jmType = "2" textValue = "value" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">value</p>
-					                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
-					                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p>
+														<p jm="2" textValue="id" level="3" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">id</p>
+														<p jm="2" textValue="name" level="3" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">name</p>
+														<p jm="2" textValue="sex" level="3" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">sex</p>
+														<p jm="2" textValue="value" level="3" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">value</p>
+														<p jm="2" textValue="email" level="3" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">email</p>
+														<p jm="2" textValue="phone" level="3" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">phone</p>
 													</div>
 													<div class="syb_con">
-														<p jmType = "2" textValue = "?+?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">加</p>
-				                                    	<p jmType = "2" textValue = "?-?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">减</p>
-				                                    	<p jmType = "2" textValue = "?*?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">乘</p>
-				                                    	<p jmType = "2" textValue = "?/?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">除</p>
-				                                    	<p jmType = "2" textValue = "sin(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sin</p>
-				                                    	<p jmType = "2" textValue = "cos(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">cos</p>
+														<p jm="2" textValue="?+?" level="4" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">加</p>
+														<p jm="2" textValue="?-?" level="4" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">减</p>
+														<p jm="2" textValue="?*?" level="4" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">乘</p>
+														<p jm="2" textValue="?/?" level="4" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">除</p>
+														<p jm="2" textValue="sin(?)" level="4" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">sin</p>
+														<p jm="2" textValue="cos(?)" level="4" flowId="'+flowId+'"
+															sourceId="0" draggable="true" ondragstart="drag(event)">cos</p>
 													</div>
 												</div>
 											</div>
 											<div class="line_fun line_active"></div>
 										</div>
 
-										<div id="jsmind_container2" class="cav_flow">
-				                    	</div>
+										<div id="jsmind_container2" ondrop="drop(event)"
+											ondragover="allowDrop(event)" class="cav_flow"
+											class="cav_flow"></div>
 									</li>
 
 									<li class="tab2_2 tab_con2">
@@ -269,7 +365,64 @@
 								</div>
 							</div>
 
+                        <div class="prop1">
+                            <div class="title">
+                                <span class="filter_"><i class="fa fa-caret-right"></i> Filter</span>
+                                <span><i class="fa plus_icon filter_plus"></i></span>
+                            </div>
+                            <div class="panel filter_panel" style="display:none;">
+                                <div class="filters">
+                                    <!-- first filter is as a template. others are same.-->
+                                    <div class="filter" style="display:none;">
+                                        <select class="condition1">
+                                            <option value="ID"> ID</option>
+                                        </select>
+                                        <select class="condition2">
+                                            <option value="=">=</option>
+                                            <option value=">">&gt;</option>
+                                            <option value="<">&lt;</option>
+                                            <option value=">=">&gt;=</option>
+                                            <option value="<=">&lt;=</option>
+                                        </select>
+                                        <input type="text" class="condition3"/>
+                                        <span class="trash"><i class="fa fa-trash2"></i></span>
+                                        <div class="operations">
+                                            <select class="condition4">
+                                                <option value="OR">OR</option>
+                                                <option value="AND">AND</option>
+                                            </select>
+                                            <select class="condition5">
+                                                <option value="0">  - </option>
+                                                <option value="1">  升 </option>
+                                                <option value="-1"> 降 </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="prop1">
+                            <div class="title">
+                                <span class="group_"><i class="fa fa-caret-right"></i> Group</span>
+                                <span><i class="fa plus_icon group_plus"></i></span>
+                            </div>
+                            <div class="panel group_panel" style="display:none;">
+                                <div class="groups">
+                                    <div class="group" style="display:none;">
+                                        <select>
+                                            <option value="NAME">NAME</option>
+                                            <option value="AGE">AGE</option>
+                                            <option value="GENDER">GENDER</option>
+                                            <option value="TYPE">TYPE</option>
+                                        </select>
+			                            <span class="trash">
+			                                <i class="fa fa-trash2"></i>
+			                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 							<div class="prop1">
 								<div class="title">
 									<span class="filter_"><i class="fa fa-caret-right"></i>
@@ -304,6 +457,30 @@
 								</div>
 							</div>
 
+                        <div class="prop1">
+                            <div class="title">
+                                <span class="order_"><i class="fa fa-caret-right"></i> Order</span>
+                                <span><i class="fa plus_icon order_plus"></i></span>
+                            </div>
+                            <div class="panel order_panel" style="display:none;">
+                                <div class="orders">
+                                    <div class="order" style="display:none;">
+                                        <select>
+                                            <option value="ID"> ID</option>
+                                            <option value="ID"> ID1</option>
+                                            <option value="ID"> ID2</option>
+                                        </select>
+                                        <select>
+                                            <option value="ASC"> ASC</option>
+                                            <option value="DESC"> DESC</option>
+                                        </select>
+			                            <span class="trash">
+			                                <i class="fa fa-trash2"></i>
+			                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 							<div class="prop1">
 								<div class="title">
 									<span class="group_"><i class="fa fa-caret-right"></i>
@@ -369,7 +546,7 @@
 
 
 					<!--BI start-->
-					<div class="BI-bodyer bi-template" style="display: none">
+					<div class="BI-bodyer" style="display: none">
 						<div class="BI-right">
 							<div class="title">属性</div>
 							<div class="topIf">
@@ -398,7 +575,7 @@
 
 					<!--dataMining start-->
 
-					<div class="dataMining-bodyer datamining-template" style="display: none">
+					<div class="dataMining-bodyer" style="display: none">
 						dataMining-bodyer</div>
 
 
@@ -406,7 +583,7 @@
 					<!--dataMining end-->
 
 					<!--Controller start-->
-					<div class="center-bodyer controll-bodyer controller-template" style="display: none">
+					<div class="center-bodyer controll-bodyer" style="display: none">
 
 						<!--content部分-->
 						<div class="content1">
@@ -769,15 +946,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!--listSet start-->
-
-	<div class="listSet" style="display: none">
-
-	</div>
-	<!--listSet end-->
-
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
@@ -800,17 +968,16 @@
 								<span>列：</span><i class="columnIcon"></i>
 							</p> <input type="text">
 						</li>
-						<li class="mapList clearFix"><!--<span>图例：</span> <span
+						<li class="mapList clearFix"><span>图例：</span> <span
 							class="legend legendIcon1"></span> <span
 							class="legend legendIcon2"></span> <span
 							class="legend legendIcon3"></span> <span
 							class="legend legendIcon4"></span> <span
-							class="legend legendIcon5"></span>-->
+							class="legend legendIcon5"></span>
 							<p>
 								<span>重置</span> <span class="clicked">生成</span>
-							</p>
-						</li>
-						<!--<li class="mainSort"><span>排序：</span> <select name=""
+							</p></li>
+						<li class="mainSort"><span>排序：</span> <select name=""
 							placeholder="请选择字段">
 								<option value="1" selected>1</option>
 								<option value="2">2</option>
@@ -823,79 +990,27 @@
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
-						</select></li>-->
+						</select></li>
 					</ul>
 				</div>
 			</div>
 			<div class="biDataL">
-				<div class="biDataLtop">
-					<p class="biPart">数据字段</p>
-					<p class="addPart">
-						<i class="addIcon"></i><span>添加数据</span>
-					</p>
-					<ul class="biList">
-						<li>订单号</li>
-						<li>发货厂库</li>
-						<li>发货日期</li>
-						<li>邮寄方式</li>
-						<li>货物种类</li>
-						<li>货物名称</li>
-						<li>收货地区</li>
-						<li>ID</li>
-						<li>货物数量</li>
-						<li>货物总价</li>
-					</ul>
-				</div>
-				<div class="biDataLbottom">
-					<p class="biDataLbottom_t">图例</p>
-					<ul class="menu">
-						<li>
-							<h2>二维表</h2>
-							<ul class="detail show">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>圆形图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>力向图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>变量图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>其他</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+				<p class="biPart">数据字段</p>
+				<p class="addPart">
+					<i class="addIcon"></i><span>添加数据</span>
+				</p>
+				<ul class="biList">
+					<li>订单号</li>
+					<li>发货厂库</li>
+					<li>发货日期</li>
+					<li>邮寄方式</li>
+					<li>货物种类</li>
+					<li>货物名称</li>
+					<li>收货地区</li>
+					<li>ID</li>
+					<li>货物数量</li>
+					<li>货物总价</li>
+				</ul>
 			</div>
 			<div class="biDataR">
 				<p>过滤条件</p>
@@ -964,16 +1079,13 @@
 	<script src="../../static-resources/js/page.js"></script>
 	<!--<script src="../../static-resources/js/menuManage.js"></script>-->
 	<script src="../../static-resources/js/new.js"></script>
-	<!-- by tyd -->
 	<script src="../../static-resources/js/jsmind.js"></script>
 	<script src="../../static-resources/js/jsmind.draggable.js"></script>
-	<script src="../../static-resources/js/jsMind.draggable.tyd.js"></script>
-	<script src="../../static-resources/js/logicNode.js"></script>
-	<script src="../../static-resources/js/test.js"></script>
+	<!--<script src="../../static-resources/js/test.js"></script>-->
 	<script type="text/javascript">
     var detailId;
     var userId = 4;
-    var urlId='http://localhost:8080/TarotIDE';
+    var urlId='http://172.16.1.166:8080/TarotIDE';
     
     //TODO deleting 
     //urlId = 'http://localhost:800/';
@@ -1020,13 +1132,13 @@
                 //console.log(data);
                 var isShow = showType(maxPower);
                 if(menuId==0&&menuType==menuTypeEnum[0]){
-                    $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+                    $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
                 }else if(menuId==0&&menuType!=menuTypeEnum[0]){
-                    $('.root_tree').append($('<li><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
+                    $('.root_tree').append($('<li><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
                 }else if(menuId!=0&&menuType==menuTypeEnum[0]){
-                    $currentRightDom.next().append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+                    $currentRightDom.next().append($('<li data-title="'+ name + '"><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
                 }else{
-                    $currentRightDom.next().append($('<li><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
+                    $currentRightDom.next().append($('<li><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
                 }
                 initRightEvent();
                 initFolderClick();
@@ -1079,147 +1191,142 @@
             }
         });
     }
-    var mType;
-	function getUserPower(menuId,menuType){
-		selectedMenuId = menuId;
-		mType=menuType;
-		UserPowerList(selectedMenuId,menuType,null);
-	}
-	function searchItem(){
-		var str = $('#itemValue').val();
-		console.log(mType);
-		UserPowerList(selectedMenuId,mType,str);
-	}
-	function UserPowerList(menuId,menuType,content){
-		$.ajax({
-		     url:''+urlId+'/selectByMenuId',
-		     type:'POST',
-		     data:{menuId: menuId, content:content, userId:$("#userId").val()},
-		     dataType:"json",
-		     success:function(data) {
-		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-		         var tablestr="";
+    function getUserPower(menuId){
+        selectedMenuId = menuId;
+        $.ajax({
+            //url:'../../json/selectUserPowerByMenuId.json',
+            url:urlId + '/selectUserPowerByMenuId',
+            type:'POST',
+            data:{menuId:selectedMenuId},
+            dataType:"json",
+            success:function(data) {
+                //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
+                var tablestr="";
                 //目录管理
-		    	 for(var i=0;i<data.length;i++){
-		        	 var power = data[i].POWER;
-		        	 //console.log(data[i]);
-		        	 var checkboxStr = "";
-		        	 /*for(var j=0;j<powerEnum.length;j++){
-					     if(powerConjunction(power,powerEnum[j])){
-					    	 checkboxStr+='<td class="w50" ><input type=checkbox name=checkbox checked=true /></td>';
-					     }else{
-					    	 checkboxStr+='<td class="w50"><input type=checkbox name=checkbox /></td>';
-					     }
-					 }*/
-					 
+                for(var i=0;i<data.length;i++){
+                    var power = data[i].POWER;
+                    //console.log(data[i]);
+                    var checkboxStr = "";
+                    /*for(var j=0;j<powerEnum.length;j++){
+                     if(powerConjunction(power,powerEnum[j])){
+                     checkboxStr+='<td class="w50" ><input type=checkbox name=checkbox checked=true /></td>';
+                     }else{
+                     checkboxStr+='<td class="w50"><input type=checkbox name=checkbox /></td>';
+                     }
+                     }*/
                     for(var j=0;j<powerEnum.length;j++){
-                   	 if(j==0){
-                   	 if(menuType==1){
-                   		checkboxStr+='<td class="w50"><i name=checkbox class="fa fa-square" aria-hidden="true"></i>';
-                   	 }else{
-                   		 if(powerConjunction(power,powerEnum[0])){
-                                checkboxStr+='<td class="w50" ><i name=checkbox class="single singleChecked"></i>';
-                            }else{
-                                checkboxStr+='<td class="w50"><i name=checkbox class="single"></i>';
-                            }
-                   	 }
-                    }else{
                         if(powerConjunction(power,powerEnum[j])){
-                            checkboxStr+='<td class="w50" ><i name=checkbox class="single singleChecked"></i>';
+                            checkboxStr+='<td class="w50" ><i class="single singleChecked"></i>';
                         }else{
-                            checkboxStr+='<td class="w50"><i name=checkbox class="single"></i>';
+                            checkboxStr+='<td class="w50"><i class="single"></i>';
                         }
                     }
+                    var birthday = new Date(data[i].UPDATE_DATA).toLocaleString();
+                    //1是add，0是update
+                    var isAdd = 0;
+                    if(!power){
+                        isAdd = 1;
                     }
-		        	 var birthday = new Date(data[i].UPDATE_DATA).toLocaleString();
-		        	 //1是add，0是update
-		        	 var isAdd = 0;
-		        	 if(!power){
-		        		 isAdd = 1;
-		        	 }
-		        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'+
-						'<td class="w180" value="'+data[i].NAME+'">'+data[i].NAME+'</td>'+
-						'<td class="w180" value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'+
-						'<td class="w180">'+data[i].E_MAIL+'</td>'+
-						'<td class="w180">'+birthday+'</td>'+
-						'<td class="w180">'+data[i].SECRET_KEY+'</td>'+
-						'<td class="w180">'+data[i].IS_ACTIVATION+'</td>'+
-						checkboxStr+
-						'</tr>';
-		        	
-		         }
-		    	 $("#table1 tr[name='powerData']").remove();
-		         $('#table1').append($(tablestr));
-		      },
-		      error : function() {
-		           alert("异常！");
-		      }
-	 	})
-	}
-	function savePower(){
-		var powerArray = new Array();
-		for(var i=0;i<signArray.length;i++){
-			var id = signArray[i];
-			var powerStr = "0b";
-			$("#userPower"+id).find("i[name='checkbox']").each(
-					 function(){
-					 if($(this).hasClass('singleChecked')){
-						 powerStr+="1";
-					 }else{
-						 powerStr+="0";
-					 }
-				 }
-		 	);
-			var isAdd = $("#userPower"+id).attr("isadd");
-			//console.log(powerStr);
-			 	var Obj = new Object();
-			 	Obj.userId=id;
-			 	Obj.power=powerStr;
-			 	Obj.isadd=isAdd;
-			 	powerArray.push(Obj);
-		}
-		var jsonObj = new Object();
-		jsonObj.menuId=selectedMenuId;
-		jsonObj.powerArray=powerArray;
-		$.ajax({
-		     url:''+urlId+'/editUserPower',
-		     type:'POST',
-		     dataType:"json",
-		     contentType: "application/json",
-             data:JSON.stringify(jsonObj),
-		     success:function(data) {
-		    	 for(var i=0;i<signArray.length;i++){
-		    		 var id = signArray[i];
-		    		 $("#userPower"+id).attr("isadd","0");
-		    	 }
-		    	 //及时修改当前用户该菜单的权限
-		    	 var currentUserPowerStr = "0b";
-		    	 var currentUserId = $("#userId").val();
-    			 $("#userPower"+currentUserId).find("i[name='checkbox']").each(
-   					 function(){
-						 if($(this).hasClass('singleChecked')){
-							 currentUserPowerStr+="1";
-						 }else{
-							 currentUserPowerStr+="0";
-						 }
-					 }
-			 	 );
-    			 var isShow = showType(currentUserPowerStr);
-    			 $("#"+selectedMenuId).attr("name",isShow);
-		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr);
-		    	 //清空signArray
-	    		 signArray = [];
-		         alert("修改成功！");
-		     },
-		     error : function() {
-		    	 //清空signArray
-	    		 signArray = [];
-	          	 alert("异常！");
-		     }
-	 	})
+                    tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'+
+                            '<td class="w180" value="'+data[i].NAME+'">'+data[i].NAME+'</td>'+
+                            '<td class="w180" value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'+
+                            '<td class="w180">'+data[i].E_MAIL+'</td>'+
+                            '<td class="w180">'+birthday+'</td>'+
+                            '<td class="w180">'+data[i].SECRET_KEY+'</td>'+
+                            '<td class="w180">'+data[i].IS_ACTIVATION+'</td>'+
+                            checkboxStr+
+                            '</tr>';
+                }
+                $("#table1 tr[name='powerData']").remove();
+                $('#table1').append($(tablestr));
+            },
+            error : function() {
+                alert("异常！");
+            }
+        })
+    }
+    function savePower(){
+        var powerArray = new Array();
+        for(var i=0;i<signArray.length;i++){
+            var id = signArray[i];
+            var powerStr = "0b";
+            $("#userPower"+id).find("input[name='checkbox']").each(
+                    function(){
+                        if($(this).is(':checked')){
+                            powerStr+="1";
+                        }else{
+                            powerStr+="0";
+                        }
+                    }
+            );
+            var isAdd = $("#userPower"+id).attr("isadd");
+            //console.log(powerStr);
+            var Obj = new Object();
+            Obj.userId=id;
+            Obj.power=powerStr;
+            Obj.isadd=isAdd;
+            powerArray.push(Obj);
+        }
+        var jsonObj = new Object();
+        jsonObj.menuId=selectedMenuId;
+        jsonObj.powerArray=powerArray;
+        $.ajax({
+            url:urlId + '/editUserPower',
+            type:'POST',
+            dataType:"json",
+            contentType: "application/json",
+            data:JSON.stringify(jsonObj),
+            success:function(data) {
+                for(var i=0;i<signArray.length;i++){
+                    var id = signArray[i];
+                    $("#userPower"+id).attr("isadd","0");
+                }
+                //及时修改当前用户该菜单的权限
+                var currentUserPowerStr = "0b";
+                var currentUserId = $("#userId").val();
+                $("#userPower"+currentUserId).find("input[name='checkbox']").each(
+                        function(){
+                            if($(this).is(':checked')){
+                                currentUserPowerStr+="1";
+                            }else{
+                                currentUserPowerStr+="0";
+                            }
+                        }
+                );
+                var isShow = showType(currentUserPowerStr);
+                $("#"+menuIdPre+selectedMenuId).attr("name",isShow);
+                $("#"+menuIdPre+selectedMenuId).attr("power",currentUserPowerStr);
+                //清空signArray
+                signArray = [];
+                alert("修改成功！");
+            },
+            error : function() {
+                //清空signArray
+                signArray = [];
+                alert("异常！");
+            }
+        })
 
-	}
-   
+    }
+    function searchItem(){
+        if($("#itemValue").val()!=""){
+            $("#table1 tr[name='powerData']").hide();
+            var itemValue = $("#itemValue").val();
+            $("td[value='"+itemValue+"']").parent().show();
+        }else{
+            $("#table1 tr[name='powerData']").show();
+        }
+    }
+    function searchItem2(){
+        if($("#itemValue2").val()!=""){
+            $("#table2 tr[name='powerData']").hide();
+            var itemValue = $("#itemValue2").val();
+            $("td[value='"+itemValue+"']").parent().show();
+        }else{
+            $("#table2 tr[name='powerData']").css("display","block");
+            goPage(1,10,'table2','barcon2');
+        }
+    }
     function abccc(){
         $(".root_tree").show();
     }
@@ -1292,7 +1399,7 @@
                 $(data).each(function(index,item){
                     var tableNames=item.tableName;
                     sourceType=item.sourceType;
-                    //console.log(tableNames)
+                    console.log(tableNames)
                     for(var i=0;i<tableNames.length;i++){
                         str+='<li><i class="single"></i><span>'+tableNames[i]+'</span></li>';
                     }
@@ -1311,14 +1418,23 @@
         var source_column=new Object;
         var source_entity=new Object;
         var arr=new Array();
-        source_data.flowId=flowIdName;
-        //source_data.flowId='1231';
+//        source_data.flowId=flowIdName;
+        source_data.flowId='1231';
         source_data.conId=detailId;
         source_data.sourceDataType=sourceType;
         source_data.isInterface=isInterface;
         source_entity.enumCode="sourcetable";
         source_entity.value=interfaceName;
         arr.push(source_entity);
+
+        /*var source_column=JSON.stringify(sourceColumn);
+        var source_data=JSON.stringify(source_data);
+        var source_entity=JSON.stringify(source_entity);
+        var model = new Object();
+        model.source_data = source_data;
+        model.source_column = source_column;
+        model.source_entity = source_entity;*/
+
         $.ajax({
             url:urlId+'/addSourceDataAndAll',
             type:'POST',
@@ -1328,11 +1444,13 @@
                 source_column:JSON.stringify(sourceColumn),
                 source_data:JSON.stringify(source_data),
                 source_entity:JSON.stringify(arr)
+                //JSON.stringify(model),
         }),
 
         success:function(data) {
-            bindSourceData(data);
-			initDragable();
+            //console.log(data)
+            //console.log(data.tableName)
+            bindSourceData(data)
         },
         error : function() {
             alert("异常！");
@@ -1340,72 +1458,15 @@
     })
     }
 
-
-	function initDragable(){
-		$( ".draggable" ).draggable({
-			drag: function(event) {
-			},
-			cursor: "move",
-			cursorAt: { top: 5, left: 5 },
-			helper: function( event ) {
-				var textValue = event.target.getAttribute('textValue');
-				var jmType = event.target.getAttribute('jmType');
-				var level = event.target.getAttribute('level');
-				var flowid = event.target.getAttribute('flowid');
-				var sourceid = event.target.getAttribute('sourceid');
-				var line_color = event.target.getAttribute('line_color');
-				var border_color = "#0080ff;";
-				if(jmType=='2'){
-					border_color = "#1abc9c;";
-				}
-				return $( "<jmnode id='jmnodeModel' style='border-color:"+border_color+"' jm ='"+jmType+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
-			}
-		});
-	}
-    function bindSourceData(data,flowIdName){
+    function bindSourceData(data,flowId){
+        flowIdName=0;
         var nameList=data.tableName;
+        var data_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
         var data_obj = $(
-				"<p jmType = '1' textValue = '"+nameList+"' level='2' flowId='"+flowIdName+"' sourceId='0' line_color='#0080ff' class='draggable'>"+nameList+"</p>"
+                "<p jm = '1' textValue = 'Logic_Node' level='1' flowId='"+flowIdName+"' sourceId='0' draggable='true' ondragstart='drag(event)'>"+nameList+"</p>"
         );
-        $('.dt_conL').append(data_obj);
+        $('.dt_conL').append(data_obj)
     }
-
-	function getSelectAllFlowId(flowIdName){
-		$.ajax({
-			url:urlId+'/selectAllByFlowId?flowId='+flowIdName,
-			type:'POST',
-			dataType:"json",
-			contentType: "application/json",
-			success:function(data) {
-				bindSourceData1(data,flowIdName);
-				initDragable();
-			},
-			error : function() {
-				alert("异常！");
-			}
-		})
-	}
-
-	//TODO
-	//点击flow的时候调用
-	//getSelectAllFlowId()
-
-	function bindSourceData1(data,flowIdName){
-		//var flowIdName=0;
-		var tableName;
-		var sourceDataId;
-		var data_obj;
-		$(data).each(function(index,item){
-			//console.log(item)
-			tableName=item.tableName;
-			sourceDataId=item.sourceDataId;
-			data_obj = $(
-					"<p jmType = '1' textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='#0080ff' class='draggable'>"+tableName+"</p>"
-			);
-			$('.dt_conL').append(data_obj)
-		})
-		//$('.dt_conL').append(data_obj)
-	}
 
 
 
@@ -1437,8 +1498,8 @@
             var isShow = showType(data[i].power);
             if(type==1){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
-	            '<ul>';
+                        '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
+                        '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
                     htmlstr+='</ul></li>';
@@ -1447,8 +1508,8 @@
                 }
             }else if (type==2){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
-	            '<ul>';
+                        '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
+                        '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
                     htmlstr+='</ul></li>';
@@ -1457,8 +1518,8 @@
                 }
             }else if (type==3){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
-	            '<ul>';
+                        '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
+                        '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
                     htmlstr+='</ul></li>';
@@ -1467,8 +1528,8 @@
                 }
             }else if (type==4){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
-	            '<ul>';
+                        '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
+                        '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
                     htmlstr+='</ul></li>';
@@ -1477,8 +1538,8 @@
                 }
             }else if (type==5){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
-	            '<ul>';
+                        '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
+                        '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
                     htmlstr+='</ul></li>';
@@ -1486,9 +1547,8 @@
                     htmlstr+='</ul></li>';
                 }
             }else{
-            	htmlstr+='<li><div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-file-o"></i><span>'+data[i].name+'</span></div></li>';
-   		 }
-            
+                htmlstr+='<li><div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+');" ><i class="fa fa-file-o"></i><span>'+data[i].name+'</span></div></li>';
+            }
 
         }
         return htmlstr;
@@ -1551,7 +1611,7 @@
         }
         return isShow;
     }
-    //var menuIdPre = "menuId";
+    var menuIdPre = "menuId";
     //公共对象：标记选中的菜单id
     var selectedMenuId = 0;
     //公共对象：刷新类型枚举，1是工作区目录刷新，2是管理目录刷新
@@ -1594,19 +1654,9 @@
             }
         })
     }
-
 </script>
 </body>
 
 
-<<<<<<< HEAD
-<script>
-	$(document).ready(function(){
-		$('.btn_bi').click(function(){
-			$('.biData').show()
-		})
-	})
-</script>
-=======
->>>>>>> be1e0409eb4242ad2546d7754e3b278dcf565c0e
+
 </html>

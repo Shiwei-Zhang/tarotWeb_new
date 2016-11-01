@@ -30,17 +30,40 @@
 	}
 
 
+	/*test*/
+	#test{
+		position: relative;
+		top:0;
+		left: 200px;
+	}
+	#test .testList li{
+		float: left;
+		height: 30px;
+		width: 60px;
+		margin-right: 20px;
+		background: green;
+		color: #fff;
+		cursor: pointer;
+	}
+
 </style>
 
 </head>
 <body>
 
-<<<<<<< HEAD
-	<button class="btn_bi" style="position: absolute;left:500px;width:50px;height:30px">bi</button>
+	<!--test-->
+	<div id="test">
+		<ul class="testList">
+			<li class="flowTest">flow</li>
+			<li class="conTest">controller</li>
+			<li class="biTest">bi</li>
+		</ul>
+	</div>
 
 
-=======
->>>>>>> be1e0409eb4242ad2546d7754e3b278dcf565c0e
+
+
+
 	<!--header start-->
 	<div class="f-header">
 		<div class="left-header">
@@ -106,7 +129,7 @@
 						</ul>
 					</div>
 
-					<div class="module-flow clearFix flow-template" style="display: none">
+					<div class="module-flow clearFix" style="display: none">
 						<!-- flow start-->
 						<div class="module-core">
 							<div class="cav_body" id="tabbox1">
@@ -369,7 +392,7 @@
 
 
 					<!--BI start-->
-					<div class="BI-bodyer bi-template" style="display: none">
+					<div class="BI-bodyer" style="display: none">
 						<div class="BI-right">
 							<div class="title">属性</div>
 							<div class="topIf">
@@ -398,7 +421,7 @@
 
 					<!--dataMining start-->
 
-					<div class="dataMining-bodyer datamining-template" style="display: none">
+					<div class="dataMining-bodyer" style="display: none">
 						dataMining-bodyer</div>
 
 
@@ -406,7 +429,7 @@
 					<!--dataMining end-->
 
 					<!--Controller start-->
-					<div class="center-bodyer controll-bodyer controller-template" style="display: none">
+					<div class="center-bodyer controll-bodyer" style="display: none">
 
 						<!--content部分-->
 						<div class="content1">
@@ -769,15 +792,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!--listSet start-->
-
-	<div class="listSet" style="display: none">
-
-	</div>
-	<!--listSet end-->
-
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
@@ -800,17 +814,16 @@
 								<span>列：</span><i class="columnIcon"></i>
 							</p> <input type="text">
 						</li>
-						<li class="mapList clearFix"><!--<span>图例：</span> <span
+						<li class="mapList clearFix"><span>图例：</span> <span
 							class="legend legendIcon1"></span> <span
 							class="legend legendIcon2"></span> <span
 							class="legend legendIcon3"></span> <span
 							class="legend legendIcon4"></span> <span
-							class="legend legendIcon5"></span>-->
+							class="legend legendIcon5"></span>
 							<p>
 								<span>重置</span> <span class="clicked">生成</span>
-							</p>
-						</li>
-						<!--<li class="mainSort"><span>排序：</span> <select name=""
+							</p></li>
+						<li class="mainSort"><span>排序：</span> <select name=""
 							placeholder="请选择字段">
 								<option value="1" selected>1</option>
 								<option value="2">2</option>
@@ -823,79 +836,27 @@
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
-						</select></li>-->
+						</select></li>
 					</ul>
 				</div>
 			</div>
 			<div class="biDataL">
-				<div class="biDataLtop">
-					<p class="biPart">数据字段</p>
-					<p class="addPart">
-						<i class="addIcon"></i><span>添加数据</span>
-					</p>
-					<ul class="biList">
-						<li>订单号</li>
-						<li>发货厂库</li>
-						<li>发货日期</li>
-						<li>邮寄方式</li>
-						<li>货物种类</li>
-						<li>货物名称</li>
-						<li>收货地区</li>
-						<li>ID</li>
-						<li>货物数量</li>
-						<li>货物总价</li>
-					</ul>
-				</div>
-				<div class="biDataLbottom">
-					<p class="biDataLbottom_t">图例</p>
-					<ul class="menu">
-						<li>
-							<h2>二维表</h2>
-							<ul class="detail show">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>圆形图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>力向图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>变量图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>其他</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+				<p class="biPart">数据字段</p>
+				<p class="addPart">
+					<i class="addIcon"></i><span>添加数据</span>
+				</p>
+				<ul class="biList">
+					<li>订单号</li>
+					<li>发货厂库</li>
+					<li>发货日期</li>
+					<li>邮寄方式</li>
+					<li>货物种类</li>
+					<li>货物名称</li>
+					<li>收货地区</li>
+					<li>ID</li>
+					<li>货物数量</li>
+					<li>货物总价</li>
+				</ul>
 			</div>
 			<div class="biDataR">
 				<p>过滤条件</p>
@@ -1020,13 +981,13 @@
                 //console.log(data);
                 var isShow = showType(maxPower);
                 if(menuId==0&&menuType==menuTypeEnum[0]){
-                    $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+                    $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
                 }else if(menuId==0&&menuType!=menuTypeEnum[0]){
-                    $('.root_tree').append($('<li><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
+                    $('.root_tree').append($('<li><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
                 }else if(menuId!=0&&menuType==menuTypeEnum[0]){
-                    $currentRightDom.next().append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+                    $currentRightDom.next().append($('<li data-title="'+ name + '"><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
                 }else{
-                    $currentRightDom.next().append($('<li><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
+                    $currentRightDom.next().append($('<li><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
                 }
                 initRightEvent();
                 initFolderClick();
@@ -1205,8 +1166,8 @@
 					 }
 			 	 );
     			 var isShow = showType(currentUserPowerStr);
-    			 $("#"+selectedMenuId).attr("name",isShow);
-		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr);
+    			 $("#"+menuIdPre+selectedMenuId).attr("name",isShow);
+		    	 $("#"+menuIdPre+selectedMenuId).attr("power",currentUserPowerStr);
 		    	 //清空signArray
 	    		 signArray = [];
 		         alert("修改成功！");
@@ -1311,8 +1272,8 @@
         var source_column=new Object;
         var source_entity=new Object;
         var arr=new Array();
-        source_data.flowId=flowIdName;
-        //source_data.flowId='1231';
+//        source_data.flowId=flowIdName;
+        source_data.flowId='1231';
         source_data.conId=detailId;
         source_data.sourceDataType=sourceType;
         source_data.isInterface=isInterface;
@@ -1362,7 +1323,8 @@
 			}
 		});
 	}
-    function bindSourceData(data,flowIdName){
+    function bindSourceData(data,flowId){
+        var flowIdName=0;
         var nameList=data.tableName;
         var data_obj = $(
 				"<p jmType = '1' textValue = '"+nameList+"' level='2' flowId='"+flowIdName+"' sourceId='0' line_color='#0080ff' class='draggable'>"+nameList+"</p>"
@@ -1370,14 +1332,24 @@
         $('.dt_conL').append(data_obj);
     }
 
-	function getSelectAllFlowId(flowIdName){
+	function getSelectAllFlowId(){
+		flowId=1231;
 		$.ajax({
-			url:urlId+'/selectAllByFlowId?flowId='+flowIdName,
+			url:urlId+'/selectAllByFlowId?flowId='+flowId,
 			type:'POST',
 			dataType:"json",
 			contentType: "application/json",
 			success:function(data) {
-				bindSourceData1(data,flowIdName);
+				//bindSourceData(data)
+				$(data).each(function(index,item){
+					//console.log(item)
+					console.log(item.tableName)
+					console.log(item.sourceDataId)
+					console.log(item.columns
+					)
+				})
+				//console.log(data)
+				bindSourceData1(data,flowId);
 				initDragable();
 			},
 			error : function() {
@@ -1388,10 +1360,10 @@
 
 	//TODO
 	//点击flow的时候调用
-	//getSelectAllFlowId()
+	getSelectAllFlowId()
 
-	function bindSourceData1(data,flowIdName){
-		//var flowIdName=0;
+	function bindSourceData1(data,flowId){
+		var flowIdName=0;
 		var tableName;
 		var sourceDataId;
 		var data_obj;
@@ -1404,7 +1376,7 @@
 			);
 			$('.dt_conL').append(data_obj)
 		})
-		//$('.dt_conL').append(data_obj)
+		$('.dt_conL').append(data_obj)
 	}
 
 
@@ -1437,7 +1409,7 @@
             var isShow = showType(data[i].power);
             if(type==1){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1447,7 +1419,7 @@
                 }
             }else if (type==2){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1457,7 +1429,7 @@
                 }
             }else if (type==3){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1467,7 +1439,7 @@
                 }
             }else if (type==4){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1477,7 +1449,7 @@
                 }
             }else if (type==5){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1486,7 +1458,7 @@
                     htmlstr+='</ul></li>';
                 }
             }else{
-            	htmlstr+='<li><div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-file-o"></i><span>'+data[i].name+'</span></div></li>';
+            	htmlstr+='<li><div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-file-o"></i><span>'+data[i].name+'</span></div></li>';
    		 }
             
 
@@ -1551,7 +1523,7 @@
         }
         return isShow;
     }
-    //var menuIdPre = "menuId";
+    var menuIdPre = "menuId";
     //公共对象：标记选中的菜单id
     var selectedMenuId = 0;
     //公共对象：刷新类型枚举，1是工作区目录刷新，2是管理目录刷新
@@ -1598,15 +1570,19 @@
 </script>
 </body>
 
-
-<<<<<<< HEAD
 <script>
 	$(document).ready(function(){
-		$('.btn_bi').click(function(){
-			$('.biData').show()
-		})
-	})
+		$(".flowTest").click(function(){
+			$('.module-flow').show()
+		});
+		$(".conTest").click(function(){
+			$('.controll-bodyer').show()
+		});
+		$(".biTest").click(function(){
+
+			$('.BI-bodyer').show()
+		});
+	});
 </script>
-=======
->>>>>>> be1e0409eb4242ad2546d7754e3b278dcf565c0e
+
 </html>

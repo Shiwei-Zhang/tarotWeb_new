@@ -197,10 +197,6 @@ p{
     background-color: #f6f6f6;
     cursor: pointer;
 }
-.folder{
-    height: 96%;
-    overflow: auto;
-}
 .folder ul {
     list-style: none;
     margin-top: -5px;
@@ -382,7 +378,6 @@ ul.root_tree li div {
     height: 33px;
     line-height: 33px;
     padding-left: 10px;
-    text-align: center;
     font-size: 12px;
     background: #f8f8f8;
     border-bottom: 1px solid #ddd;
@@ -407,8 +402,8 @@ ul.root_tree li div {
     /*margin-left: 10px;*/
 }
 .biDataL .biList li{
-    height: 22px;
-    line-height: 22px;
+    height: 30px;
+    line-height: 30px;
     padding-left: 10px;
     font-size: 12px;
     cursor: pointer;
@@ -416,59 +411,6 @@ ul.root_tree li div {
 .biDataL .biList li:hover{
     background: #f8f8f8;
 }
-
-
-.biDataL .biDataLbottom .biDataLbottom_t{
-    width: 100%;
-    height: 36px;
-    line-height: 36px;
-    background: #f8f8f8;
-    text-align: center;
-    font-size: 14px;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-}
-
-.biDataL .biDataLbottom .menu {
-    width: 100%;
-    border-top: none;
-}
-
-.biDataL .biDataLbottom .menu h2 {
-    padding: 0 10px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-    font-weight: normal;
-
-    background: #fff;
-    border-top: 1px solid #F0F0F0;
-    /*border-bottom: 1px solid #ddd;*/
-    cursor: pointer;
-}
-
-.biDataL .biDataLbottom .detail {
-    display: none;
-    padding-left: 20px;
-}
-
-.biDataL .biDataLbottom .detail.show {
-    display: block;
-}
-
-.biDataL .biDataLbottom .detail li {
-    height: 30px;
-    line-height: 30px;
-}
-
-
-
-
-
-
-
-
-
 .biData-C .biDataC{
     width: 100%;
     height: 600px;
@@ -525,29 +467,10 @@ ul.root_tree li div {
     padding-left: 15px;
     border:1px solid #d3d3d3;
 }
-.CmainList li.mapList p{
-    float: right;
-    width: 145px;
-    text-align: center;
-}
-.CmainList li.mapList p span{
-    width: 60px;
-    height: 24px;
-    line-height: 24px;
-    font-size: 14px;
-    color: #56b1e0;
-    cursor: pointer;
-    margin-left: 10px;
-    border:1px solid #56b1e0;
-}
-.CmainList li.mapList p span.clicked{
-    color: #fcfef9;
-    background: #56b1e0;
-}
-/*.CmainList li.mainSort{
+.CmainList li.mainSort{
     position: relative;
-}*/
-/*.CmainList li.mainSort span,
+}
+.CmainList li.mainSort span,
 .CmainList li.mapList span
 {
     width:58px;
@@ -555,16 +478,16 @@ ul.root_tree li div {
 }.CmainList li.mainSort select{
      width: 350px;
      height: 30px;
- }*/
-/*.CmainList li.mapList span.legend{
+ }
+.CmainList li.mapList span.legend{
     width: 35px;
     height: 35px;
     background: url(../images/mapList.png)no-repeat left center;
     background-size: 186px 35px;
     background-position: 0 0;
     margin-right: 10px;
-}*/
-/*.CmainList li.mapList span.legendIcon2{
+}
+.CmainList li.mapList span.legendIcon2{
     background-position: -37px 0;
 }
 .CmainList li.mapList span.legendIcon3{
@@ -612,7 +535,7 @@ ul.root_tree li div {
     top: 12px;
     right: 17px;
     z-index: 106;
-}*/
+}
 .biDataCmain .CmainT span{
     width: 92px;
     height: 32px;
@@ -1038,11 +961,6 @@ ul.root_tree li div {
     color: #1e1e1e;
     margin-top: 5px;
     padding-left: 10px;
-    height: 20px;
-    cursor: pointer;
-}
-.dt_d .dt_con p:hover{
-    background: #CCEBF8;
 }
 .dt_d .dt_fun p.dtt {
     height: 26px;
@@ -1194,7 +1112,7 @@ ul.root_tree li div {
 /**
 right style
 */
-.prop,.prop1{
+prop,.prop1{
     font-size: 0;
 }
 .module-prop{
@@ -2341,29 +2259,6 @@ button, input, select {
 }
 
 /*target_layer end*/
-
-/*listSet start*/
-
-.listSet{
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom: 0;
-    margin:auto;
-    z-index: 107;
-    width: 86%;
-    height: 90%;
-   /* width: 1000px;
-    height: 730px;*/
-    background: #fff;
-    box-shadow: 0 3px 2px 3px #e7e7e7;
-}
-
-
-
-/*listSet end*/
-
 
 /*mask layer*/
 .mask {
