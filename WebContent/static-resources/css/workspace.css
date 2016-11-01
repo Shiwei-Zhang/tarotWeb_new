@@ -197,6 +197,10 @@ p{
     background-color: #f6f6f6;
     cursor: pointer;
 }
+.folder{
+    height: 96%;
+    overflow: auto;
+}
 .folder ul {
     list-style: none;
     margin-top: -5px;
@@ -2264,6 +2268,29 @@ button, input, select {
 }
 
 /*target_layer end*/
+
+/*listSet start*/
+
+.listSet{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin:auto;
+    z-index: 107;
+    width: 86%;
+    height: 90%;
+   /* width: 1000px;
+    height: 730px;*/
+    background: #fff;
+    box-shadow: 0 3px 2px 3px #e7e7e7;
+}
+
+
+
+/*listSet end*/
+
 
 /*mask layer*/
 .mask {

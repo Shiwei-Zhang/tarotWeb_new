@@ -244,6 +244,7 @@ $(function(){
         var dataType=$(this).attr('menutype');
         var fileName = $(this).children().last().text();
         flowIdName=idName;
+        console.log(flowIdName)
         if(dataType == 1){//文件夹
         	return;
         }
@@ -330,7 +331,9 @@ $(function(){
         $('.module-flow').show();*/
 
         //dt_conL 选择数据源区域数据获取及绑定
-        getSelectAllFlowId();
+        getSelectAllFlowId(flowIdName);//flowIdName
+
+
         $('.module-data-navigation').show();
         $('.module-manager').hide();
         var flowClassName = 'flow-' + $idName;
@@ -399,38 +402,13 @@ $(function(){
         $('.connection').change(function(){
             //console.log($(this).children('option:selected').val())
             //console.log($(this).children('option:selected').prop('id'))
-            detailId = $(this).children('option:selected').prop('id')
+            detailId = $(this).children('option:selected').prop('id');
             getDataDetail(detailId);
             if ($('.connection').val() === 'other') {
 
             }
-        })
-        /*$('.connection').focus(function (event) {
-            var userId = $("#usersId").val();
-            console.log(userId)
-            getDataAdd4(userId);
-            $('.optionList').show()
+        });
 
-        }).blur(function (event) {
-            event.stopPropagation ? event.stopPropagation() : event.cancelBubble = true;
-            $('.optionList').mouseover(function () {
-                $('.optionList').show().on('click', 'li', function () {
-                    $('.connection').val($(this).html());
-                    detailId = $(this).prop('id');
-
-                    console.log(detailId)
-                    getDataDetail(detailId);
-
-                    $('.optionList').hide();
-                    if ($('.connection').val() === 'other') {
-
-                    }
-                })
-            }).mouseout(function () {
-                $('.optionList').hide()
-            })
-
-        });*/
         $('.mask').show();
         $('.add4-con .closeA,.add4-con .cancel').click(function () {
             closeAdd4();
@@ -652,7 +630,16 @@ $(function(){
             $('.module-flow, .module-bi, .module-datamining, .module-controller').hide();
         	$('.tabsEvent li').removeClass('thistab');
         	$('.tabs-' + $idName).addClass('thistab').show();
-            showType($idName, $dataType)
+
+            if($dataType==2){
+                $('.controller-' + $idName).show();
+            }else if($dataType==3){
+                $('.flow-' + $idName).show();
+            }else if($dataType==4){
+                $('.datamining-' + $idName).show();
+            }else if(objDataType==5){
+                $('.bi-' + $idName).show();
+            }
         }
     }
 	
