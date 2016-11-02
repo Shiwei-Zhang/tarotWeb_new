@@ -757,7 +757,7 @@
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
-			<span>数据分析</span> <i class="closeA closeR"></i>
+			<span>数据分析</span> <i class="closeA"></i>
 		</div>
 		<div class="biData-C clearFix">
 			<div class="biDataC">
@@ -841,7 +841,7 @@
 					<ul class="menu">
 						<li>
 							<h2>二维表</h2>
-							<ul class="detail">
+							<ul class="detail show">
 								<li>图形一</li>
 								<li>图形二</li>
 								<li>图形三</li>
@@ -892,7 +892,7 @@
 				<ul class="menuRight">
 					<li>
 						<h2>过滤</h2>
-						<ul class="detail">
+						<ul class="detail show">
 							<li>图形一</li>
 							<li>图形二</li>
 							<li>图形三</li>
@@ -1434,7 +1434,6 @@
 			dataType:"json",
 			contentType: "application/json",
 			success:function(data) {
-				//console.log(data)
 				bindSourceData1(data,flowIdName);
 				initDragable();
 			},
@@ -1449,13 +1448,11 @@
 	//getSelectAllFlowId()
 
 	function bindSourceData1(data,flowIdName){
-		console.log(flowIdName)
 		//var flowIdName=0;
 		var tableName;
 		var sourceDataId;
 		var data_obj;
-		$('.dt_conL').empty();
-		$(data.sourceData).each(function(index,item){
+		$(data).each(function(index,item){
 			//console.log(item)
 			tableName=item.tableName;
 			sourceDataId=item.sourceDataId;

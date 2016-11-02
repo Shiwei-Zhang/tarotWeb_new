@@ -9,14 +9,14 @@ var maxPower2 = "0b11";
 var dbtype;
 var detailId;
 var interfaceName;
-var flowIdName;
+
 $(function(){
+
     $('.paramMain:before').click(function () {
         console.log('ok')
     });
     //目录树点击事件
     //TODO
-
     $('.folder').unbind('click').on('click', 'li div', function () {
         console.log($(this).attr('menutype'));
         $('.module-data-right-navigation').show();
@@ -31,14 +31,13 @@ $(function(){
         	return;
         }
         //other files
-        getSelectAllFlowId(flowIdName);
         tabCheck(idName, dataType, fileName);
         //初始化事件
     });
 
+
     //module-data-right-navigation
     $('.tabsEvent').off('click').on('click','li', function (e) {
-        getSelectAllFlowId(flowIdName);
         if($(this).hasClass('thistab')){
         	return ;
         }
@@ -54,7 +53,7 @@ $(function(){
         showType($idName, $dataType)
     });
 
-
+    var flowIdName;
     //工作区管理按钮点击事件
     $('.managers').off('click').on('click', function (e) {
         e.stopPropagation();
@@ -78,23 +77,40 @@ $(function(){
 
 
 
+    //数据源管理页面---添加按钮
+    $('.add2').click(function(){
+        $('.add2-f,.mask').show();
+        $('.add2-input').html('');
+        $('.conAdd').html('');
+        $.ajax({
+            type:"POST",
+            url:"http://localhost:8080/TarotIDE/selectBusinessTypeAll",
+            dataType:"json",
+            success:function(data){
+                $('#result').html('');
+                //console.log(data);
+                var optionStr='';
+                for(var i=0;i<data.length;i++){
+                    //console.log(data[i].code);
+                    optionStr+='<option value="'+data[i].code+'">'+data[i].name+'</option>';
+                }
+                $('.add2-input').append('<tr><th>数据库类型</th><td><select name = "sel" class="add2-sel" id="selectType" '
+                    +'onchange="show_detail(this);"><option  selected=""  value="">- - - - - - Type</option>'+ optionStr +'</select></td></tr>');
 
-    //biData
-    $('.biData-T .closeR').off('click').click(function () {
-        $('.biData').hide();
-        $('.mask').hide();
+            }
+        });
     });
 
-    /*$('.Rtitle input').off('click').click(function () {
+    //biData
+    $('.Rtitle input').off('click').click(function () {
         console.log($('.biData'));
         $('.biData').show();
         $('.mask').show();
-        $('.biData-T .closeR').off('click').click(function () {
+        $('.biData-T .closeA').off('click').click(function () {
             $('.biData').hide();
             $('.mask').hide();
         });
-    });*/
-
+    });
 
 
 
@@ -194,6 +210,8 @@ $(function(){
                 console.log($($('.mainEvent li .singleChecked')[i]).next())
             }
         })
+
+
     }
 
     //controller
@@ -244,6 +262,8 @@ $(function(){
         $('.mask').hide();
     });
 
+
+
     $('.add4').off('click').click(function () {
         getDataAdd4();
         //console.log('add4');
@@ -272,6 +292,12 @@ $(function(){
             closeAdd4();
         })
     });
+
+
+
+
+
+
 
     function tabCheck($idName, $dataType, $fileName){
         //TODO
@@ -336,7 +362,6 @@ $(function(){
                             i++
                         }
                         $($('.tabsEvent li')[i]).addClass('thistab');
-
                         var needShowObj = $($('.tabsEvent li')[i]);
                         showType(needShowObj.attr('idName'), needShowObj.attr('data_type'))
                     }
@@ -385,6 +410,167 @@ $(function(){
         $('.manager-bodyer,.center-table1').show();
         $('.center-table2,.power-detail,.task,#manag').hide();
         goPage(1, 10, 'table1', 'barcon1');
+    });
+
+    //数据源管理点击事件
+    var conId;
+    $('.man2').unbind('click').click(function () {
+        $('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1').hide();
+        $('.dataManager,.center-table2').show();
+
+        $('.task,#manag').hide();
+        var user = $("#userId").val();
+        $('#table2').html('');
+        /*alert(user);*/
+        $.ajax({
+            type: "POST",
+            url: "../../json/selectDataConnection.json",
+            dataType: "json",
+            data: {
+                userId: user
+            },
+            success: function (data) {
+                $('#table2').append('<tr class="firTr"><th>SourceType</th><th>Name</th><th>Ip</th><th>CreateTime</th><th>UpdateTime</th><th class="w100"></th></tr>');
+                for (var i = 0; i < data.length; i++) {
+                    var createTime = new Date(data[i].createTime).toLocaleString();
+                    var updateTime = new Date(data[i].updateTime).toLocaleString();
+                    $('#table2').append('<tr name="powerData"><td>' + data[i].sourceType + '</td><td value="' + data[i].name + '">' + data[i].name + '</td><td>' + data[i].ip + '</td><td>'
+                        + createTime + '</td><td>' + updateTime + '</td><td class="w100"><span class="presh"><span class="mark"/></span>'
+                        + '<div class="task"><div class="look" data-id=' + data[i].id + '>查看</div><div class="power">权限管理</div></div></div>' + '</td></tr>');
+                    $('.mark').click(function () {
+                        //console.log($(this).next());
+                        $('.task').hide();
+                        $(this).parent().next().show();
+                    });
+                }
+                goPage(1, 10, 'table2', 'barcon2');
+                $('.look').click(function () {
+                    $('.look-input').html('');
+                    $('.lookTable').html('');
+                    $('.look-button').show();
+                    $('.edit-button').hide();
+                    var conId = $(this).data('id');
+                    $('.look-detail').show();
+                    $('.task').hide();
+                    $('.mask').show();
+
+                    $.ajax({
+                        type: "POST",
+                        url: "../../json/selectValueById.json",
+                        dataType: "json",
+                        data: {
+                            id: conId
+                        },
+                        success: function (shuju) {
+                            $('.look-input').append('<tr><th>数据库类型</th><td>' + shuju.businessType.name + '</td></tr>');
+                            $('.lookTable').append('<tr><th>' + shuju.businessEnum[0].name + '</th><td>' + shuju.dataConnectEnumValue[0].value + '</td></tr>');
+                            $('.lookTable').append('<tr><th>' + shuju.businessEnum[1].name + '</th><td>' + shuju.dataConnectEnumValue[1].value + '</td></tr>');
+                            $('.lookTable').append('<tr><th>' + shuju.businessEnum[2].name + '</th><td>' + shuju.dataConnectEnumValue[2].value + '</td></tr>');
+                            $('.lookTable').append('<tr><th>' + shuju.businessEnum[3].name + '</th><td>' + shuju.dataConnectEnumValue[3].value + '</td></tr>');
+                            $('.lookTable').append('<tr><th>' + shuju.businessEnum[4].name + '</th><td>' + shuju.dataConnectEnumValue[4].value + '</td></tr>');
+                            $('.save2').click(function () {
+                                $('.look-detail').hide();
+                                $('.mask').hide();
+                            });
+                            $('.edit2').click(function () {
+                                /*$('.edit-conn').show();
+                                 $('.look-detail').hide();*/
+                                $('.mask').show();
+                                $('.edit-button').show();
+                                $('.look-button').hide();
+                                $('.look-input tr td').empty();
+                                $('.lookTable tr td').empty();
+                                $($('.look-input tr td')[0]).append($('<select class="add2-sel" id="selectType1">'
+                                    + '<option  selected=""  value="">- - - - - - Type'
+                                    + '</option><option value="My SQL">Mysql</option><option value="Oracle">Oracle</option>'
+                                    + '<option value="SqlServer">SqlServer</option></select>'));
+                                $($('.lookTable tr td')[0]).append($('<input  value=' + shuju.dataConnectEnumValue[0].value + ' />'));
+                                $($('.lookTable tr td')[1]).append($('<input  value=' + shuju.dataConnectEnumValue[1].value + ' />'));
+                                $($('.lookTable tr td')[2]).append($('<input  value=' + shuju.dataConnectEnumValue[2].value + ' />'));
+                                $($('.lookTable tr td')[3]).append($('<input  value=' + shuju.dataConnectEnumValue[3].value + ' />'));
+                                $($('.lookTable tr td')[4]).append($('<input  value=' + shuju.dataConnectEnumValue[4].value + ' />'));
+                                console.log(shuju.businessType.name);
+                                $("#selectType1 option[value='" + shuju.businessType.name + "']").attr("selected", true);
+                                $('.edit-save').click(function () {
+                                    var dbtype = $('#selectType1').val();
+                                    var user = $($(".lookTable tr td input")[0]).val();
+                                    var password = $($(".lookTable tr td input")[1]).val();
+                                    var ip = $($(".lookTable tr td input")[2]).val();
+                                    var port = $($(".lookTable tr td input")[3]).val();
+                                    var dbName = $($(".lookTable tr td input")[4]).val();
+                                    console.log(dbtype);
+                                    console.log(user);
+                                    console.log(password);
+                                    console.log(ip);
+                                    console.log(port);
+                                    console.log(dbName);
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "upDateDataConnection",
+                                        dataType: "json",
+                                        data: {
+                                            id: conId,
+                                            user: user,
+                                            password: password,
+                                            conType: dbtype,
+                                            ip: ip,
+                                            port: port,
+                                            dbName: dbName
+                                        },
+                                        success: function (data) {
+                                            $('.look-detail').hide();
+                                            $('.mask').hide();
+                                            alert('修改成功！');
+                                        }
+                                    });
+                                });
+                                $('.edit-test').click(function () {
+                                    var dbtype = $('#selectType1').val();
+                                    var conName = $("#conName").val();
+                                    var ip = $($(".lookTable tr td input")[2]).val();
+                                    var port = $($(".lookTable tr td input")[3]).val();
+                                    var databaseName = $($(".lookTable tr td input")[4]).val();
+                                    var user = $($(".lookTable tr td input")[0]).val();
+                                    var pwd = $($(".lookTable tr td input")[1]).val();
+                                    var uid = $("#userId").val();
+                                    console.log(dbtype + '-----' + conName + '-----' + ip + '-----' + port + '-----' + databaseName + '-----' +
+                                        user + '-----' + pwd + '-----' + uid + '-----')
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "testConnection",
+                                        dataType: "json",
+                                        data: {
+                                            uid: uid,
+                                            connectionName: null,
+                                            ip: ip,
+                                            port: port,
+                                            dbname: databaseName,
+                                            user: user,
+                                            pwd: pwd,
+                                            dbtype: dbtype
+                                        },
+                                        success: function (data) {
+                                            $('#result2').html('');
+                                            if (data == true) {
+                                                $('#result2').append("连接成功");
+                                            } else {
+                                                $('#result2').append("连接失败");
+                                            }
+                                        }
+                                    })
+                                })
+                            });
+                        }
+                    });
+                });
+                $('.power').unbind('click').click(function () {
+                    $('.power-detail').show();
+                    $('.center-table2').hide();
+                    goPage(1, 10, 'table3', 'barcon3');
+                });
+
+            }
+        });
     });
 
 	//数据连接管理
@@ -533,9 +719,17 @@ function searchItem2(){
 }
 
 function ceshi(userId,content){
-	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1').hide();
-    $('.dataManager,.center-table2').show();
-    $('.task,#manag').hide();
+	$('.module-data-navigation').hide();   //菜单
+	$('.module-data').hide();   //菜单右侧页面
+	$('.module-manager').hide();  //目录管理
+	$('.dataManager').show();  //数据连接管理
+	$('.content ').hide();
+	$('.center-table2').show();
+	$('.power-detail').hide();
+	$('.task').hide();
+	$('#manag').hide();
+	$('.BI-bodyer').hide();
+	$('.controll-bodyer').hide();
 
 	$('#table2').html('');
 	if(content!=null){
@@ -853,3 +1047,9 @@ function powerList(conId,content){
 		}  
 	});
 }
+
+
+
+
+
+

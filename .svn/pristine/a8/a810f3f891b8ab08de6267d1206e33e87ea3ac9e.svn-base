@@ -115,7 +115,12 @@
 												<input type="text" placeholder="搜索" />
 											</div>
 											<div class="dt_con dt_conL">
-
+												<!-- <p jm = "1" textValue = "Logic_Node" level="1" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">KPI</p>
+                                            <p jm = "1" textValue = "Logic_Node" level="1" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">考勤记录文件</p>
+                                            <p jm = "1" textValue = "Logic_Node" level="1" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">月份</p>
+                                            <p jm = "1" textValue = "Logic_Node" level="1" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">员工合同</p>
+                                            <p jm = "1" textValue = "Logic_Node" level="1" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">离职报告</p>
+                                            <p jm = "1" textValue = "Logic_Node" level="1" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">员工基本信息</p>-->
 											</div>
 										</div>
 
@@ -361,12 +366,27 @@
 
 					<!--BI start-->
 					<div class="BI-bodyer module-bi bi-template" style="display: none">
-						<div class="biLeft">
-							<p>+ 添加图表</p>
-						</div>
-						<div class="line_fun line_active"></div>
-						<div class="biContainer">
-
+						<div class="BI-right">
+							<div class="title">属性</div>
+							<div class="topIf">
+								<p>
+									<span>Width</span><input type="text">
+								</p>
+								<p>
+									<span>Height</span><input type="text">
+								</p>
+							</div>
+							<div class="right-con">
+								<div class="Rtitle" id="Rtitle">
+									<span class="ChartName"><i class="fa fa-caret-down"></i>ChartName</span>
+									<span><i class="fa plus_icon"></i></span>
+									<div class="chartOne">
+										<!--<span>chart name1</span>
+                                    <i class="single"></i>-->
+										<input type="button" value="编辑">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<!--BI end-->
@@ -757,7 +777,7 @@
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
-			<span>数据分析</span> <i class="closeA closeR"></i>
+			<span>数据分析</span> <i class="closeA"></i>
 		</div>
 		<div class="biData-C clearFix">
 			<div class="biDataC">
@@ -841,7 +861,7 @@
 					<ul class="menu">
 						<li>
 							<h2>二维表</h2>
-							<ul class="detail">
+							<ul class="detail show">
 								<li>图形一</li>
 								<li>图形二</li>
 								<li>图形三</li>
@@ -892,7 +912,7 @@
 				<ul class="menuRight">
 					<li>
 						<h2>过滤</h2>
-						<ul class="detail">
+						<ul class="detail show">
 							<li>图形一</li>
 							<li>图形二</li>
 							<li>图形三</li>
@@ -1056,7 +1076,7 @@
 		if(menuType==2){
 			iconType='controllerIcon';
 		}else if(menuType==3){
-			iconType='flowIcon';
+			iconType='flow';
 		}else if(menuType==4){
 			iconType='DataMicon';
 		}else if(menuType==5){
@@ -1434,7 +1454,6 @@
 			dataType:"json",
 			contentType: "application/json",
 			success:function(data) {
-				//console.log(data)
 				bindSourceData1(data,flowIdName);
 				initDragable();
 			},
@@ -1449,21 +1468,18 @@
 	//getSelectAllFlowId()
 
 	function bindSourceData1(data,flowIdName){
-		console.log(flowIdName)
 		//var flowIdName=0;
 		var tableName;
 		var sourceDataId;
 		var data_obj;
-		$('.dt_conL').empty();
-		$(data.sourceData).each(function(index,item){
+		$(data).each(function(index,item){
 			//console.log(item)
 			tableName=item.tableName;
 			sourceDataId=item.sourceDataId;
 			data_obj = $(
 					"<p jmType = '1' textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='#0080ff' class='draggable'>"+tableName+"</p>"
 			);
-			$('.dt_conL').append(data_obj);
-			tableColumnsMap.put(sourceDataId,item.columns);
+			$('.dt_conL').append(data_obj)
 		})
 		//$('.dt_conL').append(data_obj)
 	}

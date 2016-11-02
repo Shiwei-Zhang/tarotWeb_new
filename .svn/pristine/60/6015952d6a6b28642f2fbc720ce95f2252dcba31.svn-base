@@ -297,7 +297,7 @@ ul.root_tree li div {
     bottom: 0;
     z-index: 105;
     margin: auto;
-    height: 700px;
+    height: 806px;
     width:87%;
     margin-top: 22px;
     background: #fff;
@@ -331,7 +331,6 @@ ul.root_tree li div {
     width: 198px;
     float: left;
     height: 600px;
-    overflow: auto;
     margin-left: -100%;
     border:1px solid #ddd;
     border-bottom: none;
@@ -362,9 +361,6 @@ ul.root_tree li div {
     background-size: 15px 15px;
 }
 .biDataL .biList{
-    height: 220px;
-    max-height: 220px;
-    overflow: auto;
     /*margin-left: 10px;*/
 }
 .biDataL .biList li{
@@ -397,8 +393,8 @@ ul.root_tree li div {
 
 .biDataL .biDataLbottom .menu h2 ,.biDataR .menuRight h2{
     padding: 0 10px;
-    height: 36px;
-    line-height: 36px;
+    height: 30px;
+    line-height: 30px;
     font-size: 14px;
     font-weight: normal;
 
@@ -488,8 +484,8 @@ ul.root_tree li div {
 }
 .CmainList .listContainer{
     display: inline-block;
-    width: 727px;
-    max-width: 727px;
+    width: 735px;
+    max-width: 735px;
     /*height: 28px;*/
     vertical-align: -10px;
     padding-left: 10px;

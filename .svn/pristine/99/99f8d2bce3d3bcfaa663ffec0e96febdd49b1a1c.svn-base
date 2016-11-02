@@ -1434,7 +1434,6 @@
 			dataType:"json",
 			contentType: "application/json",
 			success:function(data) {
-				//console.log(data)
 				bindSourceData1(data,flowIdName);
 				initDragable();
 			},
@@ -1449,13 +1448,11 @@
 	//getSelectAllFlowId()
 
 	function bindSourceData1(data,flowIdName){
-		console.log(flowIdName)
 		//var flowIdName=0;
 		var tableName;
 		var sourceDataId;
 		var data_obj;
-		$('.dt_conL').empty();
-		$(data.sourceData).each(function(index,item){
+		$(data).each(function(index,item){
 			//console.log(item)
 			tableName=item.tableName;
 			sourceDataId=item.sourceDataId;

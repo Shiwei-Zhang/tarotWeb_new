@@ -16,7 +16,6 @@ $(function(){
     });
     //目录树点击事件
     //TODO
-
     $('.folder').unbind('click').on('click', 'li div', function () {
         console.log($(this).attr('menutype'));
         $('.module-data-right-navigation').show();
@@ -31,14 +30,12 @@ $(function(){
         	return;
         }
         //other files
-        getSelectAllFlowId(flowIdName);
         tabCheck(idName, dataType, fileName);
         //初始化事件
     });
 
     //module-data-right-navigation
     $('.tabsEvent').off('click').on('click','li', function (e) {
-        getSelectAllFlowId(flowIdName);
         if($(this).hasClass('thistab')){
         	return ;
         }
@@ -336,7 +333,6 @@ $(function(){
                             i++
                         }
                         $($('.tabsEvent li')[i]).addClass('thistab');
-
                         var needShowObj = $($('.tabsEvent li')[i]);
                         showType(needShowObj.attr('idName'), needShowObj.attr('data_type'))
                     }
