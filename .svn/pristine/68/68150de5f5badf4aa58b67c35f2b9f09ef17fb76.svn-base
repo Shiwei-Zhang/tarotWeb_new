@@ -382,7 +382,6 @@ ul.root_tree li div {
     height: 33px;
     line-height: 33px;
     padding-left: 10px;
-    text-align: center;
     font-size: 12px;
     background: #f8f8f8;
     border-bottom: 1px solid #ddd;
@@ -407,8 +406,8 @@ ul.root_tree li div {
     /*margin-left: 10px;*/
 }
 .biDataL .biList li{
-    height: 22px;
-    line-height: 22px;
+    height: 30px;
+    line-height: 30px;
     padding-left: 10px;
     font-size: 12px;
     cursor: pointer;
@@ -416,59 +415,6 @@ ul.root_tree li div {
 .biDataL .biList li:hover{
     background: #f8f8f8;
 }
-
-
-.biDataL .biDataLbottom .biDataLbottom_t{
-    width: 100%;
-    height: 36px;
-    line-height: 36px;
-    background: #f8f8f8;
-    text-align: center;
-    font-size: 14px;
-    border-top:1px solid #ddd;
-    border-bottom:1px solid #ddd;
-}
-
-.biDataL .biDataLbottom .menu,.biDataR .menuRight{
-    width: 100%;
-    border-top: none;
-}
-
-.biDataL .biDataLbottom .menu h2 ,.biDataR .menuRight h2{
-    padding: 0 10px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-    font-weight: normal;
-
-    background: #fff;
-    border-top: 1px solid #F0F0F0;
-    /*border-bottom: 1px solid #ddd;*/
-    cursor: pointer;
-}
-
-.biDataL .biDataLbottom .detail ,.biDataR .detail{
-    display: none;
-    padding-left: 20px;
-}
-
-.biDataL .biDataLbottom .detail.show ,.biDataR .detail.show{
-    display: block;
-}
-
-.biDataL .biDataLbottom .detail li ,.biDataR .detail li{
-    height: 30px;
-    line-height: 30px;
-}
-
-
-
-
-
-
-
-
-
 .biData-C .biDataC{
     width: 100%;
     height: 600px;
@@ -503,7 +449,7 @@ ul.root_tree li div {
     background-size: 16px 18px;
 }
 .biDataCmain .CmainList li{
-    /*height: 35px;*/
+    height: 35px;
     line-height: 35px;
     font-size: 0;
     margin-bottom: 5px;
@@ -525,56 +471,10 @@ ul.root_tree li div {
     padding-left: 15px;
     border:1px solid #d3d3d3;
 }
-.CmainList .listContainer{
-    display: inline-block;
-    width: 735px;
-    max-width: 735px;
-    /*height: 28px;*/
-    vertical-align: -10px;
-    padding-left: 10px;
-    padding-top: 3px;
-    border: 1px solid #d3d3d3;
-
-}
-.CmainList .listContainer li{
-    float: left;
-    width:80px;
-    height: 25px;
-    line-height: 25px;
-    background: #f0f0f0;
-    padding-left: 10px;
-    margin-right:10px;
-}
-.CmainList .listContainer li .closeA{
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background-size: 15px 15px;
-    vertical-align: -9px;
-}
-.CmainList li.mapList p{
-    float: right;
-    width: 145px;
-    text-align: center;
-}
-.CmainList li.mapList p span{
-    width: 60px;
-    height: 24px;
-    line-height: 24px;
-    font-size: 14px;
-    color: #56b1e0;
-    cursor: pointer;
-    margin-left: 10px;
-    border:1px solid #56b1e0;
-}
-.CmainList li.mapList p span.clicked{
-    color: #fcfef9;
-    background: #56b1e0;
-}
-/*.CmainList li.mainSort{
+.CmainList li.mainSort{
     position: relative;
-}*/
-/*.CmainList li.mainSort span,
+}
+.CmainList li.mainSort span,
 .CmainList li.mapList span
 {
     width:58px;
@@ -582,16 +482,16 @@ ul.root_tree li div {
 }.CmainList li.mainSort select{
      width: 350px;
      height: 30px;
- }*/
-/*.CmainList li.mapList span.legend{
+ }
+.CmainList li.mapList span.legend{
     width: 35px;
     height: 35px;
     background: url(../images/mapList.png)no-repeat left center;
     background-size: 186px 35px;
     background-position: 0 0;
     margin-right: 10px;
-}*/
-/*.CmainList li.mapList span.legendIcon2{
+}
+.CmainList li.mapList span.legendIcon2{
     background-position: -37px 0;
 }
 .CmainList li.mapList span.legendIcon3{
@@ -639,7 +539,7 @@ ul.root_tree li div {
     top: 12px;
     right: 17px;
     z-index: 106;
-}*/
+}
 .biDataCmain .CmainT span{
     width: 92px;
     height: 32px;
@@ -1082,7 +982,6 @@ ul.root_tree li div {
     background-color: #269FD6;
     color: #FFF;
     text-align:center;
-    cursor: pointer;
 }
 .dt_d input {
     width: 124px;
@@ -1091,19 +990,18 @@ ul.root_tree li div {
 
 .line_fun {
     position: relative;
-    top: 3px;
-    left: 128px;
+    top: -8px;
+    left: 130px;
     z-index: 100;
-    width: 20px;
-    height: 21px;
+    width: 26px;
+    height: 38px;
     background-repeat: no-repeat;
-    background-position: left 0px;
+    background-position: left 10px;
     background-size: 23px 27px;
 }
 
 .line_active {
     background-image: url('./../images/lineActive.png');
-    background-size: 20px 21px;
 }
 
 .line_disabled {

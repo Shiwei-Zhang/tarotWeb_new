@@ -35,8 +35,6 @@
 </head>
 <body>
 
-	<button class="btn_bi" style="position: absolute;left:500px;width:50px;height:30px">bi</button>
-
 	<!--header start-->
 	<div class="f-header">
 		<div class="left-header">
@@ -789,38 +787,23 @@
 						<li>
 							<p>
 								<span>行：</span><i class="rowIcon"></i>
-							</p>
-							<ul class="listContainer">
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-							</ul>
+							</p> <input type="text">
 						</li>
 						<li>
 							<p>
 								<span>列：</span><i class="columnIcon"></i>
-							</p>
-							<ul class="listContainer">
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-							</ul>
+							</p> <input type="text">
 						</li>
-						<li class="mapList clearFix"><!--<span>图例：</span> <span
+						<li class="mapList clearFix"><span>图例：</span> <span
 							class="legend legendIcon1"></span> <span
 							class="legend legendIcon2"></span> <span
 							class="legend legendIcon3"></span> <span
 							class="legend legendIcon4"></span> <span
-							class="legend legendIcon5"></span>-->
+							class="legend legendIcon5"></span>
 							<p>
 								<span>重置</span> <span class="clicked">生成</span>
-							</p>
-						</li>
-						<!--<li class="mainSort"><span>排序：</span> <select name=""
+							</p></li>
+						<li class="mainSort"><span>排序：</span> <select name=""
 							placeholder="请选择字段">
 								<option value="1" selected>1</option>
 								<option value="2">2</option>
@@ -833,138 +816,30 @@
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
-						</select></li>-->
+						</select></li>
 					</ul>
 				</div>
 			</div>
 			<div class="biDataL">
-				<div class="biDataLtop">
-					<p class="biPart">数据字段</p>
-					<p class="addPart">
-						<i class="addIcon"></i><span>添加数据</span>
-					</p>
-					<ul class="biList">
-						<li>订单号</li>
-						<li>发货厂库</li>
-						<li>发货日期</li>
-						<li>邮寄方式</li>
-						<li>货物种类</li>
-						<li>货物名称</li>
-						<li>收货地区</li>
-						<li>ID</li>
-						<li>货物数量</li>
-						<li>货物总价</li>
-					</ul>
-				</div>
-				<div class="biDataLbottom">
-					<p class="biDataLbottom_t">图例</p>
-					<ul class="menu">
-						<li>
-							<h2>二维表</h2>
-							<ul class="detail show">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>圆形图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>力向图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>变量图</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-						<li>
-							<h2>其他</h2>
-							<ul class="detail">
-								<li>图形一</li>
-								<li>图形二</li>
-								<li>图形三</li>
-								<li>图形四</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+				<p class="biPart">数据字段</p>
+				<p class="addPart">
+					<i class="addIcon"></i><span>添加数据</span>
+				</p>
+				<ul class="biList">
+					<li>订单号</li>
+					<li>发货厂库</li>
+					<li>发货日期</li>
+					<li>邮寄方式</li>
+					<li>货物种类</li>
+					<li>货物名称</li>
+					<li>收货地区</li>
+					<li>ID</li>
+					<li>货物数量</li>
+					<li>货物总价</li>
+				</ul>
 			</div>
 			<div class="biDataR">
-				<p>属性</p>
-				<ul class="menuRight">
-					<li>
-						<h2>过滤</h2>
-						<ul class="detail show">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
-						</ul>
-					</li>
-					<li>
-						<h2>排序</h2>
-						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
-						</ul>
-					</li>
-					<li>
-						<h2>标题</h2>
-						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
-						</ul>
-					</li>
-					<li>
-						<h2>图例</h2>
-						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
-						</ul>
-					</li>
-					<li>
-						<h2>主体</h2>
-						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
-						</ul>
-					</li>
-					<li>
-						<h2>其他</h2>
-						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
-						</ul>
-					</li>
-				</ul>
+				<p>过滤条件</p>
 			</div>
 		</div>
 	</div>
@@ -1071,17 +946,6 @@
     function addMenu(menuId,menuType,name){
         menuId = filterString(menuId);
         //var userId=$("#userId").val();
-		var iconType;
-		//2是controller，3是flow，4是datamining，5是biIcon
-		if($dataType==2){
-			iconType='controllerIcon';
-		}else if($dataType==3){
-			iconType='flow';
-		}else if($dataType==4){
-			iconType='DataMicon';
-		}else if($dataType==5){
-			iconType='biIcon';
-		}
         $.ajax({
             url: urlId + '/addmenu',
             type: "POST",
@@ -1582,7 +1446,6 @@
                 console.log('is current element.');
                 return;
             }
-			window.EventList();
             resetFolder();
         });
     }
@@ -1677,11 +1540,4 @@
 </body>
 
 
-<script>
-	$(document).ready(function(){
-		$('.btn_bi').click(function(){
-			$('.biData').show()
-		})
-	})
-</script>
 </html>
