@@ -38,7 +38,7 @@ $(function(){
 
     //module-data-right-navigation
     $('.tabsEvent').off('click').on('click','li', function (e) {
-        getSelectAllFlowId(flowIdName);
+
         if($(this).hasClass('thistab')){
         	return ;
         }
@@ -51,6 +51,7 @@ $(function(){
         $('.module-flow, .module-bi, .module-datamining, .module-controller').hide();
 
         //2.controller, 3.flow, 4.datamining, 5.bi
+        getSelectAllFlowId($idName);
         showType($idName, $dataType)
     });
 
