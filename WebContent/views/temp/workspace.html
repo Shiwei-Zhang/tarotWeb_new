@@ -887,18 +887,41 @@
 			<div class="biDataR">
 				<p>属性</p>
 				<ul class="menuRight">
-					<li>
+					<li class="filterPart">
 						<h2>过滤</h2>
 						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
+							<li>
+								<div>
+									<select>
+										<option value="" selected>ID</option>
+									</select>
+									<select>
+										<option value="" selected>=</option>
+										<option value="">+</option>
+										<option value="">-</option>
+										<option value="">*</option>
+									</select>
+									<input type="text">
+								</div>
+								<div>
+									<select>
+										<option value="" selected>OR</option>
+									</select>
+									<select>
+										<option value="" selected>升</option>
+										<option value="">降</option>
+									</select>
+								</div>
+							</li>
+							<li class="btnPart">
+								<span class="resetBtn">重置条件</span>
+								<span class="runBtn clicked">执行条件</span>
+							</li>
 						</ul>
 					</li>
 					<li class="sortPart">
 						<h2>排序</h2>
-						<ul class="detail">
+						<div class="detail">
 							<select name=""  >
 								<option value="" selected>请选择字段</option>
 								<option value=""></option>
@@ -908,24 +931,29 @@
 								<option value="">升</option>
 								<option value="">降</option>
 							</select>
-						</ul>
+						</div>
 					</li>
-					<li>
+					<li class="titlePart">
 						<h2>标题</h2>
 						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
+							<li><i class="single singleChecked"></i><span>显示标题</span></li>
+							<li><input type="text"></li>
+							<li class="mapIcon">
+								<span class="showL checked"></span>
+								<span class="showC"></span>
+								<span class="showR"></span>
+							</li>
 						</ul>
 					</li>
-					<li>
+					<li class="showPh">
 						<h2>图例</h2>
 						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
+							<li><i class="single singleChecked"></i><span>显示图例</span></li>
+							<li class="mapIcon">
+								<span class="showL"></span>
+								<span class="showC checked"></span>
+								<span class="showR"></span>
+							</li>
 						</ul>
 					</li>
 					<li>

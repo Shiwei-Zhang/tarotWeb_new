@@ -412,6 +412,7 @@ ul.root_tree li div {
     display: none;
     /*width: 100%;*/
     /*height: 100px;*/
+    overflow: hidden;
 }
 
 .biDataL .biDataLbottom .detail.show ,.biDataR .detail.show{
@@ -586,6 +587,25 @@ ul.root_tree li div {
 
 
 /*右侧部分*/
+.biDataR .filterPart .btnPart{
+    font-size: 0;
+}
+.biDataR .filterPart .btnPart span{
+    display: inline-block;
+    width: 116px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    color: #59b0e5;
+    text-align: center;
+    border:1px solid #57b2e1;
+    background:#fff;
+    margin-right: 10px;
+}
+.biDataR .filterPart .btnPart span.clicked{
+    color: #fff;
+    background: #59b0e5;
+}
 .biDataR .sortPart select{
     width: 116px;
     height: 18px;
@@ -594,6 +614,43 @@ ul.root_tree li div {
 .biDataR .detail{
     padding-left: 26px;
 }
+.biDataR  .titlePart .single,.biDataR  .showPh .single{
+    margin-right: 10px;
+}
+
+.biDataR  .titlePart input{
+    height: 18px;
+    width: 242px;
+}
+.mapIcon span{
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.mapIcon .showL{
+    background: url("../images/showLicon.png")no-repeat;
+}
+.mapIcon .showC{
+    background: url("../images/showCicon.png")no-repeat;
+}
+.mapIcon .showR{
+    background: url("../images/showRicon.png")no-repeat;
+}
+.mapIcon .showL,
+.mapIcon .showR,
+.mapIcon .showC
+{
+    background-size: 25px 20px;
+    background-position: 7px 9px;
+}
+.mapIcon span{
+    margin:0 20px;
+}
+.mapIcon span.checked{
+    border:1px solid #58b0e2;
+}
+
 
 .biData-C .biDataC{
     width: 100%;
@@ -778,7 +835,7 @@ ul.root_tree li div {
     width: 60px;
     height: 24px;
     line-height: 24px;
-    margin: 6px 20px 0 0;
+    margin: 4px 20px 0 0;
     text-align: center;
     font-style: normal;
     color: #fbffff;
@@ -964,7 +1021,7 @@ ul.root_tree li div {
     vertical-align: middle;
     height: 14px;
     width: 14px;
-    display: block;
+    display: inline-block;
 }
 .w50 .single{
     margin-left: 15px;
