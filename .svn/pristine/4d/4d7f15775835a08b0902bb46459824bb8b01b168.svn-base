@@ -312,18 +312,10 @@ $(function(){
         //input下拉菜单
         $('.connectionEvent').change(function(){
             detailId = $(this).children('option:selected').prop('id');
-            if(detailId){
-                getDataDetail(detailId);
-            }else {
-                alert('detailId不存在');
-                //TODO
-                if ($('.connectionEvent').val() === 'other') {
-
-                }
+            getDataDetail(detailId);
+            if ($('.connectionEvent').val() === 'other') {
 
             }
-
-
         });
 
         $('.mask').show();

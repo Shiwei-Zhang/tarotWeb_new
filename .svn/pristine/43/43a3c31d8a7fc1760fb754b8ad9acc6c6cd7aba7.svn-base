@@ -60,7 +60,7 @@
 			</div>
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
-				<h6 class="man2">数据连接管理</h6>
+				<h6 class="man2">数据源管理</h6>
 				<h6 class="man3">用户管理</h6>
 			</div>
 		</div>
