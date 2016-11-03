@@ -188,7 +188,7 @@ p{
 }
 
 .folder div {
-    width: 100%;
+    width: 97%;
 }
 /*.folder .folder_self {
     margin-top: -5px;
@@ -233,6 +233,34 @@ ul.root_tree li div {
 
 
 /*end folder style*/
+
+
+
+/*canvas style start*/
+
+.listContent{
+    width: 80px;
+    border:1px solid #bbbab6;
+    box-shadow: 0 1px 2px 1px #c5c5c5;
+    background: #fff;
+}
+.listContent p{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.listContent p:hover{
+    color: #fff;
+    background: #56b0e2;
+}
+
+
+/*canvas style end*/
+
+
+
+
 
 
 /*dataMining-bodyer start*/
@@ -303,6 +331,15 @@ ul.root_tree li div {
     background: #fff;
     box-shadow: 0 3px 3px 3px #e7e7e7;
 }
+.biData .fa{
+    width: 8px;
+    margin-right: 10px;
+}
+.biData h2{
+    /*display: inline-block;*/
+}
+
+
 .biData .biData-T{
     height: 44px;
     background: #f8f8f8;
@@ -328,7 +365,8 @@ ul.root_tree li div {
 }
 
 .biData-C .biDataL{
-    width: 198px;
+    /*width: 198px;*/
+    width: 14.9%;
     float: left;
     height: 600px;
     /*overflow: auto;*/
@@ -419,7 +457,7 @@ ul.root_tree li div {
     display: block;
 }
 
-.biDataL .biDataLbottom .detail li ,.biDataR .detail li{
+.biDataL .biDataLbottom .detail li {
     height: 30px;
     line-height: 30px;
 }
@@ -432,16 +470,17 @@ ul.root_tree li div {
 {
     float: left;
     width: 30px;
-    height: 30px;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    /*height: 30px;*/
+    margin-left: 27px;
+    margin-top: 7px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 .biDataLbottom .twoMap .zxMap{
     background: url("../images/zxIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .twoMap .zxMaped{
+.biDataLbottom .twoMap .zxMap.selected{
     background: url("../images/zxIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -449,7 +488,7 @@ ul.root_tree li div {
     background: url("../images/zzIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .twoMap .zzMaped{
+.biDataLbottom .twoMap .zzMap.selected{
     background: url("../images/zzIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -457,7 +496,7 @@ ul.root_tree li div {
     background: url("../images/sdIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .twoMap .sdMaped{
+.biDataLbottom .twoMap .sdMap.selected{
     background: url("../images/sdIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -465,7 +504,7 @@ ul.root_tree li div {
     background: url("../images/kxIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .twoMap .kxMaped{
+.biDataLbottom .twoMap .kxMap.selected{
     background: url("../images/kxIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -473,7 +512,7 @@ ul.root_tree li div {
     background: url("../images/xxIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .twoMap .xxMaped{
+.biDataLbottom .twoMap .xxMap.selected{
     background: url("../images/xxIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -484,7 +523,7 @@ ul.root_tree li div {
     background: url("../images/btIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .circleMap .btMaped{
+.biDataLbottom .circleMap .btMap.selected{
     background: url("../images/btIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -492,7 +531,7 @@ ul.root_tree li div {
     background: url("../images/ldIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .circleMap .ldMaped{
+.biDataLbottom .circleMap .ldMap.selected{
     background: url("../images/ldIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -500,7 +539,7 @@ ul.root_tree li div {
     background: url("../images/ybIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .circleMap .ybMaped{
+.biDataLbottom .circleMap .ybMap.selected{
     background: url("../images/ybIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -511,7 +550,7 @@ ul.root_tree li div {
     background: url("../images/gxIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .powerMap .gxMaped{
+.biDataLbottom .powerMap .gxMap.selected{
     background: url("../images/gxIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -519,7 +558,7 @@ ul.root_tree li div {
     background: url("../images/jxIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .powerMap .jxMaped{
+.biDataLbottom .powerMap .jxMap.selected{
     background: url("../images/jxIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -529,7 +568,7 @@ ul.root_tree li div {
     background: url("../images/jxIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .varMap .xlMaped{
+.biDataLbottom .varMap .xlMap.selected{
     background: url("../images/jxIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -537,7 +576,7 @@ ul.root_tree li div {
     background: url("../images/ycIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .varMap .ycMaped{
+.biDataLbottom .varMap .ycMap.selected{
     background: url("../images/ycIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -547,7 +586,7 @@ ul.root_tree li div {
     background: url("../images/dtIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .otherThing .dtMaped{
+.biDataLbottom .otherThing .dtMap.selected{
     background: url("../images/dtIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -555,7 +594,7 @@ ul.root_tree li div {
     background: url("../images/phIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .otherThing .phMaped{
+.biDataLbottom .otherThing .phMap.selected{
     background: url("../images/phIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -563,7 +602,7 @@ ul.root_tree li div {
     background: url("../images/ldtIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .otherThing .ldtMaped{
+.biDataLbottom .otherThing .ldtMap.selected{
     background: url("../images/ldtIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -571,7 +610,7 @@ ul.root_tree li div {
     background: url("../images/sjIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .otherThing .sjMaped{
+.biDataLbottom .otherThing .sjMap.selected{
     background: url("../images/sjIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -579,7 +618,7 @@ ul.root_tree li div {
     background: url("../images/bgIcon.png")no-repeat;
     background-size: 30px 30px;
 }
-.biDataLbottom .otherThing .bgMaped{
+.biDataLbottom .otherThing .bgMap.selected{
     background: url("../images/bgIconed.png")no-repeat;
     background-size: 30px 30px;
 }
@@ -589,6 +628,57 @@ ul.root_tree li div {
 /*右侧部分*/
 .biDataR .filterPart .btnPart{
     font-size: 0;
+}
+.biDataR .filterPart .filterContainer{
+    max-height: 315px;
+    overflow: auto;
+}
+.biDataR .filterMain{
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 0;
+}
+.biDataR .filterMain .plusIcon{
+    position: absolute;
+    right: 3px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/plusA.png)no-repeat;
+    background-size: 10px 11px;
+    background-position: 5px 5px;
+}
+.closeB{
+    width: 20px;
+    height: 20px;
+    background: url(../images/closeB.png)no-repeat;
+    background-size: 10px 11px;
+    background-position: 5px 5px;
+}
+.biDataR .filterMain .closeB{
+    position: absolute;
+    right: 2px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/closeB.png)no-repeat;
+    background-size: 10px 11px;
+    background-position: 5px 5px;
+}
+.biDataR .filterMain .seleIdName{
+    width: 68px;
+    margin-right: 6px;
+    border: 1px solid #dedede;
+}
+.biDataR .filterMain .seleList{
+    width: 45px;
+    margin-right: 6px;
+    border: 1px solid #dedede;
+}
+.biDataR .filterMain input{
+    width: 118px;
+    height: 18px;
+    border: 1px solid #dedede;
 }
 .biDataR .filterPart .btnPart span{
     display: inline-block;
@@ -601,6 +691,7 @@ ul.root_tree li div {
     border:1px solid #57b2e1;
     background:#fff;
     margin-right: 10px;
+    cursor: pointer;
 }
 .biDataR .filterPart .btnPart span.clicked{
     color: #fff;
@@ -608,20 +699,38 @@ ul.root_tree li div {
 }
 .biDataR .sortPart select{
     width: 116px;
-    height: 18px;
+    height: 22px;
     border:1px solid #dedede;
 }
 .biDataR .detail{
     padding-left: 26px;
+    padding-bottom: 20px;
 }
-.biDataR  .titlePart .single,.biDataR  .showPh .single{
+.biDataR  .titlePart .single,
+.biDataR  .showPh .single,
+.biDataR  .otherPart .single{
     margin-right: 10px;
+}
+.biDataR  .titlePart .titlePartT,
+.biDataR  .otherPart .titlePartT
+{
+    margin-bottom: 10px;
+}
+
+.titlePart .mapIcon ,.showPh .mapIcon{
+    margin-top: 10px;
 }
 
 .biDataR  .titlePart input{
     height: 18px;
     width: 242px;
+    margin-bottom: 10px;
 }
+.biDataR .themePart select{
+    width: 190px;
+    height: 22px;
+}
+
 .mapIcon span{
     float: left;
     width: 40px;
@@ -646,6 +755,7 @@ ul.root_tree li div {
 }
 .mapIcon span{
     margin:0 20px;
+    border:1px solid transparent;
 }
 .mapIcon span.checked{
     border:1px solid #58b0e2;
@@ -659,6 +769,7 @@ ul.root_tree li div {
     border-bottom: 1px solid #ddd;
 }
 .biData-C .biDataC .biDataCmain{
+    width: 62.6%;
     padding:0 300px 0 200px;
 }
 .biDataC .biDataCmain .CmainT{
@@ -689,7 +800,7 @@ ul.root_tree li div {
     /*height: 35px;*/
     line-height: 35px;
     font-size: 0;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 .CmainList li p{
     display: inline-block;
@@ -714,26 +825,26 @@ ul.root_tree li div {
     max-width: 727px;
     /*height: 28px;*/
     vertical-align: -10px;
-    padding-left: 10px;
+    padding-left: 4px;
     padding-top: 3px;
     border: 1px solid #d3d3d3;
 
 }
 .CmainList .listContainer li{
     float: left;
-    width:80px;
+    /*width:80px;*/
     height: 25px;
     line-height: 25px;
     background: #f0f0f0;
     padding-left: 10px;
-    margin-right:10px;
+    margin-right: 5px;
 }
-.CmainList .listContainer li .closeA{
+.CmainList .listContainer li .closeB{
     display: inline-block;
     width: 25px;
     height: 25px;
-    background-size: 15px 15px;
-    vertical-align: -9px;
+    background-size: 11px 11px;
+    vertical-align: -11px;
 }
 .CmainList li.mapList p{
     float: right;
@@ -844,7 +955,8 @@ ul.root_tree li div {
 }
 .biData-C .biDataR{
     float: left;
-    width: 298px;
+    /*width: 298px;*/
+    width: 22%;
     height: 600px;
     /*background: #fff;*/
     margin-left: -300px;
@@ -1264,12 +1376,15 @@ ul.root_tree li div {
 .dt_d .dt_fun p.dts {
     background-color: #269FD6;
     color: #FFF;
-    text-align:center;
-    cursor: pointer;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
 }
 .dt_d input {
     width: 124px;
-    margin-top: -10px;
+    height: 18px;
+    padding-left: 2px;
+    border: 1px solid #d8d8d8;
 }
 
 .line_fun {
@@ -1299,7 +1414,7 @@ ul.root_tree li div {
 }
 
 #tabbox1 .dt_d .dt_con {
-    height: 289px;
+    height: 278px;
     overflow-y: auto;
 }
 
@@ -1422,7 +1537,7 @@ right style
     height: 40px;
     line-height: 40px;
     /*padding-left: 5px;*/
-    padding-left: 2%;
+    padding-left: 8%;
     font-size: 16px;
     border-top: 1px #DCDCDC solid;
     background-color: #ededed;
@@ -1433,16 +1548,27 @@ right style
 }
 
 .module-prop .prop span:first-child {
-    /*margin-left: 12px;*/
     margin-left: 3%;
+    font-family: Arial;
+    font-size: 14px;
+    display: inline-block;
+    width: 80px;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: -5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .module-prop .prop input {
     /*width: 180px;*/
     width:46%;
-    height: 18px;
+    height: 20px;
+    line-height: 20px;
     /*padding-left: 8px;*/
     padding-left: 3%;
     border-radius: 3px;
+    vertical-align: 1px;
     /*margin-left: 10px;*/
     margin-left: 3%;
     border: 1px #e3e3e3 solid;

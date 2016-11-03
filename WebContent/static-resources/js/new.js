@@ -81,23 +81,12 @@ $(function(){
 
 
     //biData
-    $('.biData-T .closeR').off('click').click(function () {
-        $('.biData').hide();
-        $('.mask').hide();
+    $('.showbiData').off('click').click(function () {
+        $('.biData,.mask').show();
     });
-
-    /*$('.Rtitle input').off('click').click(function () {
-        console.log($('.biData'));
-        $('.biData').show();
-        $('.mask').show();
-        $('.biData-T .closeR').off('click').click(function () {
-            $('.biData').hide();
-            $('.mask').hide();
-        });
-    });*/
-
-
-
+    $('.biData-T .closeR').off('click').click(function () {
+        $('.biData,.mask').hide();
+    });
 
 
 
@@ -107,23 +96,86 @@ $(function(){
     //bi页面列表
     function showList(main){
         var $menu = $(main),
-            $h2 = $menu.find("h2"),
+            $h2 = $menu.find(".tabT"),
             $detail = $menu.find(".detail");
         $h2.on("click", function () {
-            //->this:H2
-            //->index获取的是当前元素在HTML结构中的排行索引,并不是得到集合中的排序索引
             var $curIndex = $(this).parent().index();
 
             $detail.each(function (index, item) {
-                //->this:UL
                 if ($curIndex === index) {
                     $(this).stop().slideToggle(200);
                     return;
                 }
                 $(this).stop().slideUp(200);
             });
+            function $restClass(){
+                $('.biDataLbottom .fa,.biDataR .fa').removeClass('fa-caret-down').addClass('fa-caret-right');
+            }
+            if($(this).children('.fa').hasClass('fa-caret-down')){
+                $restClass();
+            }else{
+                $restClass();
+                $(this).children('.fa').removeClass('fa-caret-right').addClass('fa-caret-down');
+            }
         });
     }
+
+
+    //bi filter
+    createMenu();
+    //TODO
+    function createMenu(){
+        var obj_temp=$("<li><div class='filterMain'><select class='seleIdName'><option value='' selected>ID</option></select><select class='seleList'><option value='' selected>=</option><option value=''>+</option><option value=''>-</option><option value=''>*</option></select><input type='text'><i class='closeB'></i></div><div class='filterMain'><select class='seleIdName'><option value='' selected>OR</option></select><select class='seleList'><option value='' selected>升</option><option value=''>降</option></select></div></li>");
+
+
+        $('.createMenu').unbind().click(function(e){
+            e = e || window.event;
+            e.stopPropagation?e.stopPropagation():e.cancelBubble = true;
+            console.log('add');
+            $(this).parent().parent().prepend(obj_temp);
+        });
+
+        $('.filterContainer .closeB').unbind().click(function(e){
+            e = e || window.event;
+            e.stopPropagation?e.stopPropagation():e.cancelBubble = true;
+            console.log('close');
+            $(this).parent().parent().remove();
+        })
+        
+    };
+
+    //bi 对齐方式
+    alignEvent();
+    //TODO
+    function alignEvent(){
+        $('.alignIcon').unbind().click(function(){
+            if ($(this).hasClass('checked')) {
+                $(this).removeClass('checked');
+            } else {
+                $(this).addClass('checked').siblings().removeClass('checked')
+            }
+        })
+
+    };
+
+    // 图例
+    //TODO
+    iconStyle();
+    function iconStyle(){
+        $('.iconStyle').unbind().click(function(){
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                $(this).addClass('selected').siblings().removeClass('selected')
+            }
+        })
+
+
+
+
+    };
+
+
 
     //增加参数列表的每一列
     function addList() {
@@ -157,7 +209,7 @@ $(function(){
     function sureBtn() {
         var isInterface;
         var sourceColumn=[];
-        $('.sure').unbind('click').click(function () {
+        $('.sureEvent').unbind('click').click(function () {
             var paren = $(this).parent().parent();
             var interName=$('.partN input').val();
             //console.log($(this).parent().parent().attr('class'));
@@ -171,12 +223,12 @@ $(function(){
             }
 
             closeAdd4();
-            if (paren.attr('class') === 'dataContainerA') {
+            if (paren.attr('class') === 'ContainerAevnet') {
                 console.log(0);
                 isInterface=0;
                 getSelectValue();
                 sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-            } else if (paren.hasClass('optionA')) {
+            } else if (paren.hasClass('optionAevnet')) {
                 console.log(1);
                 isInterface=1;
                 interfaceName=interName;
@@ -209,7 +261,7 @@ $(function(){
     });
 
     //单选框
-    $('.mainEvent,.add3-con,.table1Event').unbind('click').click(function (e) {
+    $('.mainEvent,.add3-con,.table1Event,.biDataR').unbind('click').click(function (e) {
         e = e || window.event;
         var tar = e.target || e.srcElement;
         if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('single')) {
@@ -248,9 +300,9 @@ $(function(){
     $('.add4').off('click').click(function () {
         getDataAdd4();
         //console.log('add4');
-        $('.add4-con').show().find('.add4Nav li').click(function () {
+        $('.add4Event').show().find('.add4NavEvent li').click(function () {
             $(this).addClass('bg').siblings('li').removeClass('bg');
-            $('.add4-con').children('div').eq($(this).index()).addClass('showCon').siblings('div').removeClass('showCon')
+            $('.add4Event').children('div').eq($(this).index()).addClass('showCon').siblings('div').removeClass('showCon')
         });
 
         //增加参数列表的每一列
@@ -258,18 +310,16 @@ $(function(){
         //点击确定按钮
         sureBtn();
         //input下拉菜单
-        $('.connection').change(function(){
-            //console.log($(this).children('option:selected').val())
-            //console.log($(this).children('option:selected').prop('id'))
+        $('.connectionEvent').change(function(){
             detailId = $(this).children('option:selected').prop('id');
             getDataDetail(detailId);
-            if ($('.connection').val() === 'other') {
+            if ($('.connectionEvent').val() === 'other') {
 
             }
         });
 
         $('.mask').show();
-        $('.add4-con .closeA,.add4-con .cancel').click(function () {
+        $('.add4Event .closeA,.add4Event .cancel,.add4Event .sure').click(function () {
             closeAdd4();
         })
     });
@@ -374,7 +424,7 @@ $(function(){
 
     //数据源、数据接口弹出框
     function closeAdd4(){
-        $('.add4-con').hide();
+        $('.add4Event').hide();
         $('.mask').hide();
     }
 
@@ -402,7 +452,7 @@ $(function(){
 		$('.conAdd').html('');
 		$.ajax({
 			type:"POST",
-			url:"http://localhost:8080/TarotIDE/selectBusinessTypeAll",
+			url:urlId+"/selectBusinessTypeAll",
 			dataType:"json",
 			success:function(data){
 				$('#result').html('');
@@ -424,13 +474,13 @@ $(function(){
 //下拉框变化显示不同table
 
 function show_detail(obj){
-	var opt = obj.options[obj.selectedIndex]
+	var opt = obj.options[obj.selectedIndex];
 	//console.log("The option you select is:"+opt.text+"("+opt.value+")");
 	dbtype=opt.value;
 
 	$.ajax({
 		type:"POST",
-		url:"http://localhost:8080/TarotIDE/selectBusinessEnumByBusinessType",
+		url:urlId+"/selectBusinessEnumByBusinessType",
 		dataType:"json",
 		data:{
 			businessType: opt.value
@@ -471,7 +521,7 @@ function addConnection(){
 	console.log(jsonObj);
 	$.ajax({
 		type:"POST",
-		url:"http://localhost:8080/TarotIDE/addDataconnection",
+		url:urlId+"/addDataconnection",
 		dataType:"json",
 		contentType: "application/json",
 		data:JSON.stringify(jsonObj),
@@ -507,7 +557,7 @@ function testConnection(){
 	console.log(jsonObj);
 	$.ajax({
 		type:"POST",
-		url:"http://localhost:8080/TarotIDE/testConnection",
+		url:urlId+"/testConnection",
 		dataType:"json",
 		contentType: "application/json",
 		data:JSON.stringify(jsonObj),
@@ -540,10 +590,10 @@ function ceshi(userId,content){
 
 	$('#table2').html('');
 	if(content!=null){
-		url="http://localhost:8080/TarotIDE/selectByUserIdLikeName";
+		url=urlId+"/selectByUserIdLikeName";
 		data={userId: userId,content:content}
 	}else{
-		url="http://localhost:8080/TarotIDE/selectDataConnection";
+		url=urlId+"/selectDataConnection";
 		data={userId: userId}
 	}
 	/*alert(user);*/
@@ -569,8 +619,7 @@ function ceshi(userId,content){
 						+'<td class="w100"><span class="presh"><span class="mark"/></span>'
 						+'<div class="task"><div class="look" data-id=' + data[i].id +' data-name='+data[i].name+ '>查看</div>'
 						+'<div class="power" data-id=' + data[i].id + '>权限管理</div></div></div>'+'</td></tr>');
-				$('.mark').click(function(){
-					console.log($(this).next());
+				$('.table2 .mark').click(function(){
 					$('.task').hide();
 					$(this).parent().next().show();
 				});
@@ -590,7 +639,7 @@ function ceshi(userId,content){
 
 				$.ajax({
 					type:"POST",
-					url:"http://localhost:8080/TarotIDE/selectValueById",
+					url:urlId+"/selectValueById",
 					dataType:"json",
 					data:{
 						id: conId
@@ -651,7 +700,7 @@ function ceshi(userId,content){
 								/*console.log(jsonObj);*/
 								$.ajax({
 									type:"POST",
-									url:"http://localhost:8080/TarotIDE/upDateDataConnection",
+									url:urlId+"/upDateDataConnection",
 									dataType:"json",
 									contentType: "application/json",
 									data:JSON.stringify(jsonObj),
@@ -682,7 +731,7 @@ function ceshi(userId,content){
 								console.log(jsonObj);
 								$.ajax({
 									type:"POST",
-									url:"http://localhost:8080/TarotIDE/testConnection",
+									url:urlId+"/testConnection",
 									contentType: "application/json",
 									data:JSON.stringify(jsonObj),
 									success:function(data){
@@ -739,7 +788,7 @@ function ceshi(userId,content){
 				jsonObj.powerArray=powerArray;
 				console.log(JSON.stringify(jsonObj));
 				$.ajax({  
-					url:'http://localhost:8080/TarotIDE/updateConnectionPower',
+					url:urlId+'/updateConnectionPower',
 					type:'POST',  
 					dataType:"json",
 					contentType: "application/json",
@@ -807,10 +856,10 @@ function powerList(conId,content){
 	$('.power-detail').show();
 	$('.center-table2').hide();
 	if(content!=null){
-		url="http://localhost:8080/TarotIDE/selectByConIdLike";
+		url=urlId+"/selectByConIdLike";
 		data={conId: conId,content:content,userId:$("#userId").val()}
 	}else{
-		url="http://localhost:8080/TarotIDE/selectUserPowerByConId";
+		url=urlId+"/selectUserPowerByConId";
 		data={conId: conId,userId:$("#userId").val()}
 	}
 	$.ajax({

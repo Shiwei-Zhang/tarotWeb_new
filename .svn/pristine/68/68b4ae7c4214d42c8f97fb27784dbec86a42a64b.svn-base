@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,  initial-scale=1.0">
+    <title>工作区</title>
+    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"  rel="stylesheet">
+    <link href="../../static-resources/css/context.standalone.css?version=2016.09.18"  rel="stylesheet">
+    <link href="../../static-resources/css/style.css?version=2016.09.12"  rel="stylesheet">
+    <link href="../../static-resources/css/menuManage.css?version=2016.09.18"  rel="stylesheet">
+    <link href="../../static-resources/css/jsmind.css"  rel="stylesheet">
+	<style type="text/css">
+	#jsmind_container, #jsmind_container2 {
+		height: 300px;
+	}
+	.intro
+	{
+		background-color:yellow;
+	}
+	</style>
+</head>
+<body>
+    <!--header start-->
+    <div class="f-header">
+        <div class="left-header">
+            <div><div class="logo"></div><div>&nbsp;</div></div>
+            <div><div class="logo_icon"></div><div>&nbsp;</div></div>
+
+            <!-- <div><div class="debug"></div><div>测试</div></div>
+            <div><div class="run"></div><div>运行</div></div> -->
+        </div>
+        <div class="right-header">
+            <div class="flows header_active"><div class="flow"></div><div>工作区</div></div>
+            <div class="managers"><div class="manager"></div><div>管理</div></div>
+            <div id="manag" class="manag">
+                <h6 class="man1">目录管理</h6>
+                <h6 class="man2">数据源管理</h6>
+                <h6 class="man3">用户管理</h6>
+            </div>
+        </div>
+    </div>
+    <!-- header end -->
+	<!-- <input type="hidden" value="${user.id}" id="userId">
+    <input type="hidden" value="${user.name}" id="userName"> -->
+    <input type="hidden" value="4" id="userId">
+    <input type="hidden" value="lsq" id="userName">
+    <!-- border start -->
+    <div class="f-bodyer clearFix">
+    <div class="left-bodyer">
+        <div class="title">目录</div>
+        <div class="folder">
+            <div class="home" id="0"><i class="fa fa-file-o fa-caret-down"></i>Home</div>
+            <ul class="root_tree">
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="scorllCls">
+        <div class="vleft" style="display:none;"><strong>&lt;</strong></div>
+        <ul class="tabs tabs1 tabEvent">
+            <li><a tab="tab1_1"><span class="flow"></span><span class="name_m" title="Co Flow">Co Flow1</span><span class="close_m"><i class="fa  fa-close-m"></i></span></a></li>
+            <li><a tab="tab1_2"><span class="flow"></span><span class="name_m" title="Data2 sfsfasfa">BI</span><span class="close_m"><i class="fa fa-close-m"></i></span></a></li>
+            <li><a tab="tab1_3"><span class="flow"></span><span class="name_m" title="Co Flow">Controller</span><span class="close_m"><i class="fa fa-close-m"></i></span></a></li>
+        </ul>
+        <div class="vright" style="display:none;"><strong>&gt;</strong></div>
+    </div>
+
+
+    <!-- flow start-->
+    <div class="center-bodyer flow-bodyer">
+        <div class="cav_body" id="tabbox1">
+
+            <ul class="tab_conbox">
+                <li class="tab1_1 tab_con1">
+                    <div class="dt_d">
+                        <div class="dt_fun">
+                            <p class="dtt">数据源</p>
+                            <p class="dts add4">+ 选择数据源</p>
+                            <input type="text" placeholder="搜索"/>
+                        </div>
+                        <div  class="dt_con">
+                            <!-- <p jm = "1" textValue = "Logic_Node" level="2" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">KPI</p> -->
+                            <p jmType = "1" textValue = "KPI" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">KPI</p>
+                            <p jmType = "1" textValue = "考勤记录文件" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">考勤记录文件</p>
+                            <p jmType = "1" textValue = "月份" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">月份</p>
+                            <p jmType = "1" textValue = "员工合同" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">员工合同</p>
+                            <p jmType = "1" textValue = "离职报告" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">离职报告</p>
+                            <p jmType = "1" textValue = "员工基本信息" level="2" flowId="0" sourceId="0" line_color="#0080ff" class="draggable">员工基本信息</p>
+                        </div>
+                    </div>
+
+                    <div class="line_fun line_active">
+
+                    </div>
+
+                    <!-- <div id="jsmind_container" ondrop="drop(event)"	ondragover="allowDrop(event)"  class="cav_flow"> -->
+                    <div id="jsmind_container" class="cav_flow">
+                    </div>
+                </li>
+
+                <li class="tab1_2 tab_con1">
+                    <p>
+                        <span>2 DATA</span>
+                    </p>
+                </li>
+
+                <li class="tab1_3 tab_con1">
+                    <p>
+                        <span>3 CO FLOW</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="add4-con">
+            <i class="closeA"></i>
+            <ul class="add4Nav">
+                <li class="bg">数据源</li>
+                <li>数据接口</li>
+            </ul>
+            <div class="optionA showCon">
+                <div class="dataContainerA">
+
+                    <input type="text" class="connection">
+                    <span class="downIcon"></span>
+                    <ul class="optionList">
+                       <!-- <li>connection1</li>
+                        <li>connection2</li>
+                        <li>connection3</li>
+                        <li>connection4</li>
+                        <li>connection5</li>
+                        <li>connection6</li>
+                        <li>connection7</li>
+                        <li>connection8</li>
+                        <li>connection9</li>
+                        <li class="otherwise">other</li>-->
+                    </ul>
+                    <ul class="mainList mainEvent">
+                        <!--<li><i class="single"></i><span>Business_class</span></li>
+                        <li><i class="single"></i><span>Business_type</span></li>
+                        <li><i class="single singleChecked"></i><span>Menu</span></li>
+                        <li><i class="single"></i><span>Data123</span></li>
+                        <li><i class="single"></i><span>Controller</span></li>
+                        <li><i class="single singleChecked"></i><span>Data_connection</span></li>
+                        <li><i class="single"></i><span>Business_class</span></li>
+                        <li><i class="single"></i><span>Business_type</span></li>
+                        <li><i class="single singleChecked"></i><span>Menu</span></li>
+                        <li><i class="single"></i><span>Data123</span></li>
+                        <li><i class="single"></i><span>Controller</span></li>
+                        <li><i class="single singleChecked"></i><span>Data_connection</span></li>-->
+                    </ul>
+                    <div class="addFoot">
+                        <span class="sure">确定</span>
+                        <span class="cancel">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="optionA">
+                <div class="dataContainerB">
+                    <div class="partN">
+                        <span>接口名称</span>
+                        <input type="text">
+                    </div>
+                    <div class="paramL clearFix">
+                        <span class="paramLl">参数列表</span>
+
+                        <ul class="paramMain">
+                            <li><span class="">参数名称</span><span class="">类型</span></li>
+                            <li><span class="" contenteditable="true">column1</span><span contenteditable="true">int</span><i class="closeL"></i></li>
+                            <li><span contenteditable="true">column2</span><span contenteditable="true">int</span><i class="closeL"></i></li>
+                        </ul>
+                        <p class="addBtn clearFix">添加</p>
+                    </div>
+                </div>
+                <div class="addFoot">
+                    <span class="sure">确定</span>
+                    <span class="cancel">取消</span>
+                </div>
+            </div>
+        </div>
+        <!-- bottom tabs-->
+        <div class="cav_body" id="tabbox2">
+            <ul class="tabs tabs2">
+                <li><a tab="tab2_1"><span class="flow"></span>转换</a></li>
+                <li><a tab="tab2_2"><span class="log"></span>日志</a></li>
+                <li><a tab="tab2_3"><span class="debug"></span>调试</a></li>
+                <li><a tab="tab2_4"><span class="mointor"></span>数据监控</a></li>
+                <li class="monitor nochangetab">
+                    <a tab="tab2_4">
+                    	<span class="debug"></span>
+                    	<span class="runing"></span>
+                        <span class="stop"></span>
+                        <span class="wait"></span>
+                        <span class="next"></span>
+                        <!-- <span class="next1"></span>
+                        <span class="prev"></span> -->
+                    </a>
+                </li>
+            </ul>
+            <ul class="tab_conbox">
+                <li class="tab2_1 tab_con2">
+                    <div style="position:relative;">
+                        <div class="dt_d">
+                            <div class="dt_fun">
+                                <p class="dtt">
+                                    <span data-cls="col_con">字段</span>
+                                    <span data-cls="syb_con" class="active_t">函数</span>
+                                </p>
+                                <input type="text" placeholder="搜索"/>
+                            </div>
+                            <div  class="dt_con">
+                                <div class="col_con" style="display:none;">
+                                    <!-- <p jm = "2" textValue = "id" level="3" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">id</p> -->
+                                    <p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
+                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
+                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
+                                    <p jmType = "2" textValue = "value" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">value</p>
+                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
+                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p>
+                                </div>
+                                <div class="syb_con">
+                                    <!-- <p jm = "2" textValue = "?+?" level="4" flowId="'+flowId+'" sourceId="0" draggable="true" ondragstart="drag(event)">加</p> -->
+                                    <p jmType = "2" textValue = "?+?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">加</p>
+                                    <p jmType = "2" textValue = "?-?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">减</p>
+                                    <p jmType = "2" textValue = "?*?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">乘</p>
+                                    <p jmType = "2" textValue = "?/?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">除</p>
+                                    <p jmType = "2" textValue = "sin(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sin</p>
+                                    <p jmType = "2" textValue = "cos(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">cos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line_fun line_active">
+
+                        </div>
+                    </div>
+
+                    <!-- <div id="jsmind_container2" ondrop="drop(event)"	ondragover="allowDrop(event)"  class="cav_flow" class="cav_flow"> -->
+                    <div id="jsmind_container2" class="cav_flow">
+                    </div>
+                </li>
+
+                <li class="tab2_2 tab_con2">
+                    <p>
+                        log1<br/>
+                        log2<br/>
+                        log3<br/>
+                        log4<br/>
+                        log5<br/>
+                        log6<br/>
+                        log7
+                    </p>
+                </li>
+
+                <li class="tab2_3 tab_con2">
+                    <p>
+                        debug<br/>
+                        debug<br/>
+                        debug<br/>
+                        debug<br/>
+                        debug<br/>
+                        debug<br/>
+                        debug<br/>
+                    </p>
+                </li>
+
+                <li class="tab2_4 tab_con2">
+                    <p>
+                        <h5 style="margin-left:10px;">监控数据</h5>
+                    </p>
+                </li>
+            </ul>
+
+            <div class="tab-btn-group">
+                <div class="one-btn">
+                    <input type="button" value="查看原字段"/>
+                </div>
+                <div class="btns">
+                    <input type="button" value="图形" class="selected"/>
+                    <input type="button" value="代码"/>
+                </div>
+            </div>
+        </div>
+        <!-- bottom tabs end-->
+    </div>
+    <!-- flow end-->
+
+    <!--BI start-->
+    <div class="center-bodyer BI-bodyer" style="display: none">
+        <div class="BI-left">
+            <ul class="tabs tabs1">
+                <li>
+                    <a tab="tab1_1">
+                        <span class="flow"></span>
+                        <span class="name_m" title="Co Flow">Co Flow1</span>
+                    </a>
+                </li>
+                <li class="thistab">
+                    <a tab="tab1_2">
+                        <span class="biIcon"></span>
+                        <span class="name_m" title="BI XXX">BI XXX</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="BI-right">
+            <div class="title">属性</div>
+            <div class="topIf">
+                <p>
+                    <span>Width</span><input type="text">
+                </p>
+                <p>
+                    <span>Height</span><input type="text">
+                </p>
+            </div>
+            <div class="right-con">
+                <div class="Rtitle" id="Rtitle">
+                    <span class="ChartName"><i class="fa fa-caret-down"></i>ChartName</span>
+                    <span><i class="fa plus_icon"></i></span>
+                </div>
+                <div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Controller start-->
+    <div class="center-bodyer controll-bodyer" style="display: none">
+        <ul class="tabs tabs1">
+            <li>
+                <a tab="tab1_1">
+                    <span class="flow"></span>
+                    <span class="name_m" title="Co Flow">Co Flow1</span>
+                </a>
+            </li>
+            <li>
+                <a tab="tab1_2">
+                    <span class="biIcon"></span>
+                    <span class="name_m" title="BI XXX">BI XXX</span>
+                </a>
+            </li>
+            <li class="thistab">
+                <a tab="tab1_3">
+                    <span class="controllerIcon"></span>
+                    <span class="name_m" title="CO Controller">CO Controller</span>
+                </a>
+            </li>
+        </ul>
+        <!--content部分-->
+        <div class="content1">
+            <div class="stream">
+                <div class="con-title">
+                    <span>流 / 挖掘组件</span>
+                    <i class="add3"></i>
+                </div>
+                <div class="stream-con">
+                    <ul class="part">
+                        <li>精准营销 / Flow1</li>
+                        <li>精准营销 / Datamining</li>
+                        <li>精准营销 / Flow3</li>
+                    </ul>
+                    <p>Test</p>
+                </div>
+                <div class="add3-con">
+                    <div class="addT">
+                        <span>添加</span>
+                        <i class="closeA"></i>
+                    </div>
+                    <div class="addList">
+                        <div class="addRoot">
+                            <p><i class="downIcon"></i><span>Root</span></p>
+                            <div class="menu1">
+                                <p><i class="downIcon"></i><span>Menu1</span></p>
+                                <ul class="menu1List">
+                                    <li><i class="single"></i><span>Flow1</span></li>
+                                    <li><i class="single"></i><span>Flow2</span></li>
+                                    <li><i class="single singleChecked"></i><span>Flow3</span></li>
+                                    <li><i class="single"></i><span>Flow4</span></li>
+                                    <li><i class="single"></i><span>Flow5</span></li>
+                                    <li><i class="single"></i><span>Flow6</span></li>
+                                </ul>
+                            </div>
+                            <div class="menu2">
+                                <p><i class="rightIcon"></i><span>Menu2</span></p>
+                                <ul class="menu2List">
+                                    <li><i class="single"></i><span>Flow1</span></li>
+                                    <li><i class="single"></i><span>Flow2</span></li>
+                                    <li><i class="single singleChecked"></i><span>Flow3</span></li>
+                                    <li><i class="single"></i><span>Flow4</span></li>
+                                    <li><i class="single"></i><span>Flow5</span></li>
+                                    <li><i class="single"></i><span>Flow6</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="addFoot">
+                        <span class="sure">确定</span>
+                        <span class="cancel">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="provide">
+                <div class="con-con">
+                    <div class="con-title">
+                        <span>依赖项</span>
+                        <i class="add3"></i>
+                    </div>
+                    <div class="con-list">
+                        <ul class="listPart">
+                            <li>Flow1</li>
+                            <li>Flow3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="con-con mar20">
+                    <div class="con-title">
+                        <span>数据接口</span>
+                    </div>
+                    <div class="con-list">
+                        <ul class="listPart">
+                            <li>Flow1</li>
+                            <li>Flow3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="add3-con">
+                    <div class="addT">
+                        <span>添加</span>
+                        <i class="closeA"></i>
+                    </div>
+                    <div class="addList">
+                        <div class="addRoot">
+                            <p><i class="downIcon"></i><span>Root</span></p>
+                            <div class="menu1">
+                                <p><i class="downIcon"></i><span>Menu1</span></p>
+                                <ul class="menu1List">
+                                    <li><i class="single"></i><span>Flow1</span></li>
+                                    <li><i class="single"></i><span>Flow2</span></li>
+                                    <li><i class="single singleChecked"></i><span>Flow3</span></li>
+                                    <li><i class="single"></i><span>Flow4</span></li>
+                                    <li><i class="single singleChecked"></i><span>Flow5</span></li>
+                                    <li><i class="single"></i><span>Flow6</span></li>
+                                </ul>
+                            </div>
+                            <div class="menu2">
+                                <p><i class="rightIcon"></i><span>Menu2</span></p>
+                                <ul class="menu2List">
+                                    <li><i class="single"></i><span>Flow1</span></li>
+                                    <li><i class="single"></i><span>Flow2</span></li>
+                                    <li><i class="single singleChecked"></i><span>Flow3</span></li>
+                                    <li><i class="single"></i><span>Flow4</span></li>
+                                    <li><i class="single singleChecked"></i><span>Flow5</span></li>
+                                    <li><i class="single"></i><span>Flow6</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="addFoot">
+                        <span class="sure">确定</span>
+                        <span class="cancel">取消</span>
+                    </div>
+                </div>
+            </div>
+            <div class="con-right">
+                <div class="con-title">
+                    <span>字段</span>
+                </div>
+                <div class="conList">
+                    <ul class="part">
+                        <li>精准营销 / Flow1</li>
+                        <li>精准营销 / Datamining</li>
+                        <li>精准营销 / Flow3</li>
+                    </ul>
+                    <p>保存</p>
+                </div>
+            </div>
+        </div>
+        <div class="content2">
+            <ul class="tabs tabs2">
+                <li class="thistab"><a tab="tab2_2"><span class="log"></span>日志</a></li>
+            </ul>
+            <ul class="diary">
+                <li>Log80</li>
+                <li>Log81</li>
+                <li>Log82</li>
+                <li>Log83</li>
+                <li>Log84</li>
+                <li>Log85</li>
+                <li>Log86</li>
+                <li>Log87</li>
+                <li>Log88</li>
+            </ul>
+        </div>
+    </div>
+    <!--Controller end-->
+
+    <!-- manager start-->
+    <div class="manager-bodyer" style="display:none;">
+        <div class="center-table1">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input id="itemValue" class="sou1" type="text" placeholder="用户名、真实姓名"/><input type="button" onclick="searchItem();" class="search-text" value="搜索" />
+                <!-- <ul class="searchInfo" id="searchInfo">
+                    <li>data main</li>
+                    <li>data info</li>
+                    <li>data list</li>
+                    <li>data one</li>
+                    <li>data two</li>
+                    <li>data three</li>
+                </ul> -->
+            </div>
+            <table id="table1" class="table1 table1Event">
+                <tr class="firTr">
+                    <th class="w180">Username</th>
+                    <th class="w180">Login_id</th>
+                    <th class="w180">Email</th>
+                    <th class="w180">CreateDate</th>
+                    <th class="w180">Secretkey</th>
+                    <th class="w180">Flag</th>
+                    <th class="w50">增</th>
+                    <th class="w50">删</th>
+                    <th class="w50">改</th>
+                    <th class="w50">查</th>
+                    <th class="w50">赋予</th>
+                </tr>
+
+            </table>
+            <table class="fenye">
+                <tr>
+                    <td><div id="barcon1" class="barcon"></div></td>
+                    <td><input type="button" class="table1-save" onclick="savePower()" value="保存" /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="center-table2">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input id="itemValue2" class="sou1" type="text" placeholder="Name、Date "/><input type="button" onclick="searchItem2();" class="search-text" value="搜索" />
+                <input type="button" class="search-text add2" value="添加" />
+            </div>
+            <table id="table2" class="table2">
+
+            </table>
+            <table  class="fenye">
+                <tr><td><div id="barcon2" class="barcon"></div></td></tr>
+            </table>
+            <div class="add2-f">
+                <div class="h4">添加数据源<i class="fa fa-trash2 pos-left"></i></div>
+                <table class="add2-input"  >
+
+					</table>
+					<div class="add2-table2">
+						<table class="conAdd">
+
+						</table>
+					</div>
+                <div class="tab-button">
+                    <input type="button" class="table2-but" onclick="testConnection()" value="测试" />&nbsp;&nbsp;&nbsp;
+                    <input type="button" class="table2-but" onclick="addConnection()" value="保存" />
+                    <div id="result" style="color:red;"></div>
+                </div>
+            </div>
+            <div class="look-detail">
+                <div class="h4">查看&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-trash2 pos-left"></i></div>
+	                <table class="add2-input look-input"  >
+
+	                </table>
+                <div class="add2-table2">
+                    <table class="lookTable">
+
+                    </table>
+                </div>
+                <div class="look-button">
+                    <input type="button" class="table2-but edit2" value="编辑" />&nbsp;&nbsp;&nbsp;
+                    <input type="button" class="table2-but save2" value="保存"/>
+                </div>
+                <div class="edit-button">
+               		<input type="button" class="table2-but edit-test" value="测试" />&nbsp;&nbsp;&nbsp;
+               		<input type="button" class="table2-but edit-save" value="保存"/>
+               		<div id="result2" style="color:red;"></div>
+            	</div>
+            </div>
+        </div>
+        <div class="power-detail">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input id="itemValue3"  class="sou1" type="text" placeholder="Name "/>&nbsp&nbsp
+                <input type="button" onclick="searchItem3();" class="search-text" value="搜索" />
+            </div>
+            <table id="table3" class="table3 table1Event">
+        <tr style="display: block;">
+            <th>Username</th>
+            <th>Login_id</th>
+            <th>Email</th>
+            <th>CreateTime</th>
+            <th>UpdateTime</th>
+            <th>使用</th>
+            <th>赋予</th>
+        </tr>
+		</table>
+       		<table class="fenye">
+                <tr>
+                    <td><div id="barcon3" class="barcon"></div></td>
+                    <td><input type="button" class="table1-save" onclick="savePower2()"  value="保存" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- manager start-->
+
+    <!-- right bodyer-->
+    <div class="right-bodyer">
+            <div class="title">属性</div>
+            <div class="prop">
+                <span>Tablename as</span>
+                <span>
+                    <input type="text" placeholder="new table name">
+                </span>
+            </div>
+
+            <div class="prop1">
+                <div class="title">
+                    <span class="join_"><i class="fa fa-caret-right"></i> Join</span>
+
+                </div>
+
+                <div class="panel join_panel" style="display: none;">
+                    <div class="joins">
+                        <!-- as template-->
+                        <div class="template_join" style="display:none;">
+                            <select class="condition1">
+                                <option value="id"> table1.ID</option>
+                                <option value="name"> table1.NAME</option>
+                            </select>
+                            <select class="condition2">
+                                <option value="=">=</option>
+                                <option value=">">&gt;</option>
+                                <option value="<">&lt;</option>
+                                <option value=">=">&gt;=</option>
+                                <option value="<=">&lt;=</option>
+                            </select>
+                            <select class="condition3">
+                                <option value="id"> table2.ID</option>
+                                <option value="name"> table2.NAME</option>
+                            </select>
+                            <span class="plus-right"><i class="fa fa-trash2"></i></span>
+                        </div>
+                        <div class="template_operations" style="display:none;">
+                            <select class="condition4">
+                                <option value="OR">OR</option>
+                                <option value="AND">AND</option>
+                            </select>
+                            <select class="condition5">
+                                <option value="0">  - </option>
+                                <option value="1">  升 </option>
+                                <option value="-1"> 降 </option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="prop1">
+                <div class="title">
+                    <span class="filter_"><i class="fa fa-caret-right"></i> Filter</span>
+                    <span><i class="fa plus_icon filter_plus"></i></span>
+                </div>
+                <div class="panel filter_panel" style="display:none;">
+                    <div class="filters">
+                        <!-- first filter is as a template. others are same.-->
+                        <div class="filter" style="display:none;">
+                            <select class="condition1">
+                                <option value=""> ID</option>
+                            </select>
+                            <select class="condition2">
+                                <option value="=">=</option>
+                                <option value=">">&gt;</option>
+                                <option value="<">&lt;</option>
+                                <option value=">=">&gt;=</option>
+                                <option value="<=">&lt;=</option>
+                            </select>
+                            <input type="text" class="condition3"/>
+                            <span class="trash"><i class="fa fa-trash2"></i></span>
+                            <div class="operations">
+                                <select class="condition4">
+                                    <option value="OR">OR</option>
+                                    <option value="AND">AND</option>
+                                </select>
+                                <select class="condition5">
+                                    <option value="0">  - </option>
+                                    <option value="1">  升 </option>
+                                    <option value="-1"> 降 </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prop1">
+                <div class="title">
+                    <span class="group_"><i class="fa fa-caret-right"></i> Group</span>
+                    <span><i class="fa plus_icon group_plus"></i></span>
+                </div>
+                <div class="panel group_panel" style="display:none;">
+                    <div class="groups">
+                        <div class="group" style="display:none;">
+                            <select>
+                                <option value="">NAME</option>
+                                <option value="">AGE</option>
+                                <option value="">GENDER</option>
+                                <option value="">TYPE</option>
+                            </select>
+                            <span class="trash">
+                                <i class="fa fa-trash2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prop1">
+                <div class="title">
+                    <span class="order_"><i class="fa fa-caret-right"></i> Order</span>
+                    <span><i class="fa plus_icon order_plus"></i></span>
+                </div>
+                <div class="panel order_panel" style="display:none;">
+                    <div class="orders">
+                        <div class="order" style="display:none;">
+                            <select>
+                                <option value="ID"> ID</option>
+                                <option value="ID"> ID1</option>
+                                <option value="ID"> ID2</option>
+                            </select>
+                            <select>
+                                <option value="ASC"> ASC</option>
+                                <option value="DESC"> DESC</option>
+                            </select>
+                            <span class="trash">
+                                <i class="fa fa-trash2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prop1">
+                <div class="title">
+                    <span class="target_"><i class="fa fa-caret-right"></i> Save_target</span>
+                    <span><i class="fa plus_icon target_plus"></i></span>
+                </div>
+                <div class="panel target_panel" style="display:none;">
+                    <div class="targets">
+                    
+                    </div>
+                </div>
+            </div>
+
+            <div class="prop bbtm">
+                <span>Columnname as</span>
+                <input type="text" placeholder="new column name" class="col">
+            </div>
+
+            <div class="btn">
+                <input type="button" value="保存" class="save"/>
+            </div>
+        </div>
+    </div>
+
+    <!--BI Data analysis-->
+    <div class="biData" style="display: none">
+        <div class="biData-T">
+            <span>数据分析</span>
+            <i class="closeA bi-close1"></i>
+        </div>
+        <div class="biData-C clearFix">
+            <div class="biDataC">
+                <div class="biDataCmain">
+                    <div class="CmainT clearFix">
+                        <span>拖拽模式</span>
+                        <i class="bi-save">保存</i>
+                    </div>
+                    <ul class="CmainList">
+                        <li>
+                            <p><span>行：</span><i class="rowIcon"></i></p>
+                            <ul class="rowContan bi-dimensionality">
+                            
+                            </ul>
+                        </li>
+                        <li>
+                            <p><span>列：</span><i class="columnIcon"></i></p>
+                            <ul class="rowContan bi-measure">
+                            
+                            </ul>
+                        </li>
+                        <li class="mapList clearFix">
+                            <span>图例：</span>
+                            <span class="legend legendIcon1" data-type="bar"></span>
+                            <span class="legend legendIcon2" data-type="line"></span>
+                            <span class="legend legendIcon3" data-type="pie"></span>
+                            <span class="legend legendIcon4" data-type="pie"></span>
+                            <span class="legend legendIcon5" data-type="pie"></span>
+                            <p>
+                                <span class="bi-reset">重置</span>
+                                <span class="clicked bi-generator">生成</span>
+                            </p>
+                        </li>
+                        <li class="mainSort">
+                            <span>排序：</span>
+                            <i class="downIcon down1"></i>
+                            <i class="downIcon down2"></i>
+                            <input type="text" placeholder="请选择字段">
+                            <input type="text" class="sortR" placeholder="请选择升序降序">
+                        </li>
+                        
+                        <li class="bi-chart" style="border:1px #dddddd solid; width: 808px; height: 375px; position: absolute; z-index:200;">
+							<div id="bi-main" style="width: 800px; height: 370px;">
+							</div>                        
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="biDataL">
+                <p class="biPart">数据字段</p>
+                <p class="addPart"><i class="addIcon"></i><span>添加数据</span></p>
+                <ul class="biList bi-list">
+                    <li>订单号</li>
+                    <li>发货厂库</li>
+                    <li>发货日期</li>
+                    <li>邮寄方式</li>
+                    <li>货物种类</li>
+                    <li>货物名称</li>
+                    <li>收货地区</li>
+                    <li>ID</li>
+                    <li>货物数量</li>
+                    <li>货物总价</li>
+                </ul>
+            </div>
+            <div class="biDataR">
+                <p>过滤条件</p>
+                <form id="bi-form">
+                <div class="bi-attribute">
+	            	<div class="bi-theme">
+	            		<span>主题</span>
+            			<select name="theme">
+            				<option value="">请选择主题</option>
+            				<option value="dark">dark</option>
+            				<option value="shine">shine</option>
+            				<option value="infographic">infographic</option>
+            				<option value="macarons">macarons</option>
+            				<option value="roma">roma</option>
+            				<option value="vintage">vintage</option>
+            			</select>
+	            	</div>
+	            	
+	            	<div class="bi-title">
+	            		<span>标题</span>
+	            		<input type='radio' name='show' value='0'/>
+	            		<input type='radio' name='show' value='1'  checked/>
+	            		<input type='text' name='text' placeholder="名称" value="untitled chart"/>
+	            		<select name="position">
+	            			<option value="left">left</option>
+	            			<option value="center" selected>center</option>
+	            			<option value="right">right</option>
+	            		</select>
+	            	</div>
+	            	
+	            	<div class="bi-legend">
+	            		<span>图例</span>
+	            		<input type='radio' name='lshow' value='0'/>
+	            		<input type='radio' name='lshow' value='1' checked/>
+	            		<select name="lposition">
+	            			<option value="left" selected>left</option>
+	            			<option value="center">center</option>
+	            			<option value="right">right</option>
+	            		</select>
+	            	</div>
+	            	
+	            	<div class="bi-label">
+	            		<span>标签</span>
+	            		<input type='radio' name='lbshow' value='0' checked/>
+	            		<input type='radio' name='lbshow' value='1'/>
+	            		<select name="lbposition">
+	            			<option value="left">left</option>
+	            			<option value="right">right</option>
+	            			<option value="top" selected>top</option>
+	            			<option value="bottom">bottom</option>
+	            			<option value="inside">inside</option>
+	            		</select>
+	            	</div>
+	            	
+	            	<div class="bi-tooltip">
+	            		<span>提示框</span>
+	            		<input type='radio' name='ttshow' value='0'/>
+	            		<input type='radio' name='ttshow' value='1' checked/>
+	            	</div>
+	            	
+	            	<div class="bi-toolbox">
+	            		<span>工具栏</span>
+	            		<input type='radio' name='tbshow' value='0'/>
+	            		<input type='radio' name='tbshow' value='1' checked/>
+	            		<select name="tborient">
+	            			<option value="horizontal" selected>horizontal</option>
+	            			<option value="vertical">vertical</option>
+	            		</select>
+	            	</div>
+	            	
+	            	<div class="bi-datazoom">
+	            		<span>区域缩放</span>
+	            		<input type='radio' name='dzshow' value='0' checked/>
+	            		<input type='radio' name='dzshow' value='1'/>
+	            	</div>
+	            	
+	            	<div class="bi-visualmap">
+	            		<span>视觉映射</span>
+	            		<input type='radio' name='vmshow' value='0' checked/>
+	            		<input type='radio' name='vmshow' value='1'/>
+	            		<br/>
+	            		<span>映射哪组数据</span><input type='number' name='dimension' placeholder="映射哪组数据"/>
+	            		<br/>
+	            		<span>视觉文本</span>
+	            		高：<input style="width:30px;" class='bi-visualmap-text'/>低：<input style="width:30px;" class='bi-visualmap-text'/>
+	            		<br/>
+	            		<span>视觉色系</span>
+	            		<input placeholder="色系，" class="bi-visualmap-inrange"/>
+	            	</div>
+           		 </div>
+           		</form>
+            </div>
+        </div>
+    </div>
+    
+    <div style="border:1px red solid; cursor:pointer;" class="bi-edit" data-chartId="15" data-templateId="1" data-conId="294">编辑一个CHART</div>
+    
+    <!-- bi数据源选择 -->
+    <div class="add4-con bi-datasource" style="display:none;">
+		<i class="closeA bi-close2"></i>
+		<ul class="add4Nav">
+		   
+			<li>数据接口</li>
+		</ul>
+		<div class="optionA showCon">
+			<div class="dataContainerA">
+				<div class="bi-choose-connection">
+				<input type="text" class="connection bi-connection">
+				<span class="downIcon"></span>
+				<ul class="optionList bi-optionList">
+				  
+				</ul>
+				</div>
+				<ul class="mainList bi-mainList">
+				   
+				</ul>
+				<div class="addFoot">
+					<span class="sure bi-sure">确定</span>
+					<span class="cancel bi-cancel">取消</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- data source end -->
+    <!--BI end-->
+
+    <!-- Layers -->
+    <div class="target_layer" style="display:none;">
+        <div class="tl_header">
+            <div class="title2">存储路径</div>
+            <div class="close"><i class="fa fa-close-m"></i></div>
+        </div>
+        <div class="tl_bodyer">
+            <div class="name_list">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="name_conf">
+                <table>
+                    <tr>
+                        <td class="title3">表名</td>
+                        <td><input type="text" class="table_name"/></td>
+                    </tr>
+                    <tr>
+                        <td class="title3">数据源</td>
+                        <td>
+                            <select>
+                                <option>192.168.1.17</option>
+                                <option>192.168.1.18</option>
+                                <option>192.168.1.19</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="title3">模式</td>
+                        <td>
+                            <select>
+                                <option>模式1</option>
+                                <option>模式2</option>
+                                <option>模式3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input value="列设置" type="button" class="setting_col">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="tl_footer">
+            <div class="btn_group">
+                <input type="button" value="取消" />
+                <input type="button" value="确定" />
+            </div>
+        </div>
+    </div>
+        
+	<div class="layer2 u-layer2" style="display:none; position: absolute; z-index: 200; width: 50px; height: 50px;">
+		<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+		<span class="sr-only">Loading...</span>
+		<div class="mask"></div>
+	</div> 
+    <div class="mask" style="display:none;"></div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
+    <script src="../../static-resources/js/context.js"></script>
+    <script src="../../static-resources/js/workspace.js"></script>
+    <script src="../../static-resources/js/page.js"></script>
+    <script src="../../static-resources/js/menuManage.js"></script>
+    <!-- created and used by tyd -->
+    <!-- <script src="../../static-resources/js/jsmind.js"></script>
+    <script src="../../static-resources/js/jsmind.draggable.js"></script>
+    <script src="../../static-resources/js/jsMind.draggable.tyd.js"></script>
+    <script src="../../static-resources/js/test.js"></script> -->
+    <!-- <script src="../../static-resources/js/jqueryDragable.js"></script> -->
+    <script src="../../static-resources/js/logicNode.js"></script>
+    <script type="text/javascript">
+    	var urlId='http://localhost:8080/TarotIDE';
+    	//初始化目录
+    	$(function(){
+    		var userId=$("#userId").val();
+    		$.ajax({
+			     url:''+urlId+'/selectMenuByUserId',
+			     type:'POST',
+			     dataType:"json",
+			     data:{userId:userId},
+			     success:function(data) {
+			    	 var htmlstr = "";
+			    	 htmlstr = loop(htmlstr,data);
+			   		 $(".root_tree").html(htmlstr);
+			   		 refreshMenu(refreshEnum[0]);
+			    	 //init
+			    	 initRightEvent();
+			    	 initFolderClick();
+			     },
+			     error : function() {
+			          alert("异常！");
+			     }
+		 	})
+    	});
+
+    	function addMenu(menuId,menuType,name){
+    		menuId = filterString(menuId);
+        	var userId=$("#userId").val();
+            $.ajax({
+    			url:''+urlId+'/addmenu',
+    			type: "POST",
+    			dataType:"json",
+    			data:{
+    				menuId:menuId,
+    				userId:userId,
+    				name:name,
+    				menuType:menuType,
+    				power:maxPower
+    			},
+    			success:function(data) {
+    				//console.log(data);
+    				var isShow = showType(maxPower);
+    				if(menuId==0&&menuType==menuTypeEnum[0]){
+    					$('.root_tree').append($('<li data-title="'+ name + '"><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+    				}else if(menuId==0&&menuType!=menuTypeEnum[0]){
+    					$('.root_tree').append($('<li><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
+    				}else if(menuId!=0&&menuType==menuTypeEnum[0]){
+    					$currentRightDom.next().append($('<li data-title="'+ name + '"><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+    				}else{
+    					$currentRightDom.next().append($('<li><div id="'+menuIdPre+''+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-file-o"></i><span>' + name + '</span></div></li>'));
+    				}
+    				initRightEvent();
+                    initFolderClick();
+
+    			},
+    			error : function() {
+			          alert("异常！");
+			    }
+    		});
+    	}
+
+    	function deleteMenu(menuIdString,menuType){
+    		var menuId = filterString(menuIdString);
+            $.ajax({
+    			url:''+urlId+'/deleteMenu',
+    			type: "POST",
+    			dataType:"json",
+    			data:{
+    				menuId:menuId,
+    				menuType:menuType
+    			},
+    			success:function(data) {
+    				if($("#"+menuIdString)){
+    					$("#"+menuIdString).parent().remove();
+                    }
+    			},
+    			error : function() {
+			          alert("异常！");
+			    }
+    		});
+    	}
+
+    	function updateMenu(menuId,name,type){
+    		menuId = filterString(menuId);
+            $.ajax({
+//    			url:"updateMenu",
+    			url:''+urlId+'/updateMenu',
+    			type: "POST",
+    			dataType:"json",
+    			data:{
+    				menuId:menuId,
+    				name:name,
+    				type:type
+    			},
+    			success:function(data) {
+    				console.log("重命名成功！");
+    			},
+    			error : function() {
+			          alert("异常！");
+			    }
+    		});
+    	}
+    	var mType;
+    	function getUserPower(menuId,menuType){
+    		selectedMenuId = menuId;
+    		mType=menuType;
+    		UserPowerList(selectedMenuId,menuType,null);
+    	}
+		function searchItem(){
+			var str = $('#itemValue').val();
+			console.log(mType);
+			UserPowerList(selectedMenuId,mType,str);
+    	}
+    	function UserPowerList(menuId,menuType,content){
+    		$.ajax({
+			     url:''+urlId+'/selectByMenuId',
+			     type:'POST',
+			     data:{menuId: menuId, content:content, userId:$("#userId").val()},
+			     dataType:"json",
+			     success:function(data) {
+			    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
+			         var tablestr="";
+                    //目录管理
+			    	 for(var i=0;i<data.length;i++){
+			        	 var power = data[i].POWER;
+			        	 //console.log(data[i]);
+			        	 var checkboxStr = "";
+			        	 /*for(var j=0;j<powerEnum.length;j++){
+						     if(powerConjunction(power,powerEnum[j])){
+						    	 checkboxStr+='<td class="w50" ><input type=checkbox name=checkbox checked=true /></td>';
+						     }else{
+						    	 checkboxStr+='<td class="w50"><input type=checkbox name=checkbox /></td>';
+						     }
+						 }*/
+						 
+                        for(var j=0;j<powerEnum.length;j++){
+                       	 if(j==0){
+                       	 if(menuType==1){
+                       		 checkboxStr+='<td class="w50"><i name=checkbox class="fa fa-square" aria-hidden="true" style="font-size：100px"></i>';
+                       	 }else{
+                       		 if(powerConjunction(power,powerEnum[0])){
+                                    checkboxStr+='<td class="w50" ><i name=checkbox class="single singleChecked"></i>';
+                                }else{
+                                    checkboxStr+='<td class="w50"><i name=checkbox class="single"></i>';
+                                }
+                       	 }
+                        }else{
+                            if(powerConjunction(power,powerEnum[j])){
+                                checkboxStr+='<td class="w50" ><i name=checkbox class="single singleChecked"></i>';
+                            }else{
+                                checkboxStr+='<td class="w50"><i name=checkbox class="single"></i>';
+                            }
+                        }
+                        }
+			        	 var birthday = new Date(data[i].UPDATE_DATA).toLocaleString();
+			        	 //1是add，0是update
+			        	 var isAdd = 0;
+			        	 if(!power){
+			        		 isAdd = 1;
+			        	 }
+			        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'+
+							'<td class="w180" value="'+data[i].NAME+'">'+data[i].NAME+'</td>'+
+							'<td class="w180" value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'+
+							'<td class="w180">'+data[i].E_MAIL+'</td>'+
+							'<td class="w180">'+birthday+'</td>'+
+							'<td class="w180">'+data[i].SECRET_KEY+'</td>'+
+							'<td class="w180">'+data[i].IS_ACTIVATION+'</td>'+
+							checkboxStr+
+							'</tr>';
+			        	
+			         }
+			    	 $("#table1 tr[name='powerData']").remove();
+			         $('#table1').append($(tablestr));
+			      },
+			      error : function() {
+			           alert("异常！");
+			      }
+		 	})
+    	}
+    	function savePower(){
+    		var powerArray = new Array();
+    		for(var i=0;i<signArray.length;i++){
+    			var id = signArray[i];
+    			var powerStr = "0b";
+    			$("#userPower"+id).find("i[name='checkbox']").each(
+   					 function(){
+						 if($(this).hasClass('singleChecked')){
+							 powerStr+="1";
+						 }else{
+							 powerStr+="0";
+						 }
+					 }
+			 	);
+    			var isAdd = $("#userPower"+id).attr("isadd");
+    			//console.log(powerStr);
+   			 	var Obj = new Object();
+   			 	Obj.userId=id;
+   			 	Obj.power=powerStr;
+   			 	Obj.isadd=isAdd;
+   			 	powerArray.push(Obj);
+    		}
+    		var jsonObj = new Object();
+    		jsonObj.menuId=selectedMenuId;
+    		jsonObj.powerArray=powerArray;
+    		$.ajax({
+			     url:''+urlId+'/editUserPower',
+			     type:'POST',
+			     dataType:"json",
+			     contentType: "application/json",
+                 data:JSON.stringify(jsonObj),
+			     success:function(data) {
+			    	 for(var i=0;i<signArray.length;i++){
+			    		 var id = signArray[i];
+			    		 $("#userPower"+id).attr("isadd","0");
+			    	 }
+			    	 //及时修改当前用户该菜单的权限
+			    	 var currentUserPowerStr = "0b";
+			    	 var currentUserId = $("#userId").val();
+	    			 $("#userPower"+currentUserId).find("i[name='checkbox']").each(
+	   					 function(){
+							 if($(this).hasClass('singleChecked')){
+								 currentUserPowerStr+="1";
+							 }else{
+								 currentUserPowerStr+="0";
+							 }
+						 }
+				 	 );
+	    			 var isShow = showType(currentUserPowerStr);
+	    			 $("#"+menuIdPre+selectedMenuId).attr("name",isShow);
+			    	 $("#"+menuIdPre+selectedMenuId).attr("power",currentUserPowerStr);
+			    	 //清空signArray
+		    		 signArray = [];
+			         alert("修改成功！");
+			     },
+			     error : function() {
+			    	 //清空signArray
+		    		 signArray = [];
+		          	 alert("异常！");
+			     }
+		 	})
+
+    	}
+    	/* function searchItem(){
+    		if($("#itemValue").val()!=""){
+    			$("#table1 tr[name='powerData']").hide();
+        		var itemValue = $("#itemValue").val();
+        		$("td[value='"+itemValue+"']").parent().show();
+    		}else{
+    			$("#table1 tr[name='powerData']").show();
+    		}
+    	} */
+    	
+    	function abccc(){
+    		$(".root_tree").show();
+    	}
+    	function refreshMenu(type){
+	   		 console.log("刷新左边菜单");
+	   		 $(".root_tree div[name='noneShow']").parent().hide();
+	   		 if(type==1){
+	   			 $(".root_tree div[name='singleShow']").parent().show();
+	   		 }else{
+	   			$(".root_tree div[name='singleShow']").parent().hide();
+	   		 }
+	   	}
+        //获取数据源页面数据
+       /* function getInFo(urlId){
+            $.ajax({
+                url:urlId+'/selectDataConnectionAndPowerByUserId',
+                type:'POST',
+                dataType:"json",
+                contentType: "application/json",
+                data:JSON.stringify({userId:userId}),
+                success:function(data) {
+                    console.log(data)
+                },
+                error : function() {
+                    alert("异常！");
+                }
+            })
+        }*/
+        function getDataAdd4(usersId){
+            var usersId=4;
+            var str='';
+            $.ajax({
+                url:urlId+'/selectDataConnectionAndPowerByUserId'+'?userId='+usersId,
+                //url:'../../json/selectDataConnectionAndPowerByUserId.json',
+                type:'POST',
+                dataType:"json",
+                contentType: "application/json",
+               // data:JSON.stringify({userId:userId}),
+                success:function(data) {
+                    $(data).each(function(index,item){
+                        str+='<li id='+item["ID"]+'>'+item["NAME"]+'</li>';
+                    });
+                    str+='<li class="otherwise">other</li>';
+
+                    $('.optionList').html(str);
+                },
+                error : function() {
+                    alert("异常！");
+                }
+            })
+        }
+
+        function sendMessage(){
+            $.ajax({
+                url:urlId+'addSourceDataAndAll',
+                type:'POST',
+                dataType:"json",
+//                contentType: "application/json; charset=utf-8",
+                /*data:{"conId:id,isInterface:1,tableName:{[,,]},readType:{[user:root],[pwd:root],[port:3306]...,tables:null"},
+                userName,flowId*/
+                success:function(data) {
+
+                },
+                error : function() {
+                    alert("异常！");
+                }
+            })
+        }
+
+
+        function getDataDetail(detailId){
+            var detailId=detailId;
+            //console.log(detailId)
+            //var detailId=253;
+            var str='';
+            $.ajax({
+                url:urlId+'/selectValueAndTableByConId'+'?conId='+detailId,
+               // url:'../../json/selectValueAndTableByConId.json',
+                type:'POST',
+                dataType:"json",
+                contentType: "application/json",
+                // data:JSON.stringify({userId:userId}),
+                success:function(data) {
+                    $(data).each(function(index,item){
+                        var tableName=item["table"]["tabelName"];
+                        //console.log(tableName)
+                        console.log(tableName)
+                        for(var i=0;i<tableName.length;i++){
+                            str+='<li><i class="single"></i><span>'+tableName[i]+'</span></li>';
+                        }
+                        $('.mainEvent').html(str);
+                    });
+
+                },
+                error : function() {
+                    alert("异常！");
+                }
+            })
+        }
+
+       /* function bindOption(){
+            console.log(conItem)
+            var str='';
+            for(var i=0;i<data.length;i++){
+                var curData=data[i];
+                str+='<li id=conId>'+conName+'</li>';
+            }
+            str+='<li class="otherwise">other</li>';
+        }*/
+        //绑定数据
+       /* function bindAdd4() {
+            var str = '';
+            for (var i = 0; i < data.length; i++) {
+                var curData = data[i];
+                str+='<li><i class="single"></i><span>Business_class</span></li>'
+            }
+            $('.mainEvent').html(str);
+
+        }*/
+    	//工具类方法：循环遍历树，生成菜单目录
+    	function loop(htmlstr,data){
+    		for(var i=0;i<data.length;i++){
+	    		 var type = data[i].type;
+	    		 var childrens = data[i].childrens;
+	    		 var isShow = showType(data[i].power);
+	    		 if(type==1){
+	    			 htmlstr+='<li data-title="'+data[i].name+'">'+
+		 	            '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
+			            '<ul>';
+		        	 if(childrens){
+		        		 htmlstr = loop(htmlstr,childrens);
+		        		 htmlstr+='</ul></li>';
+		        	 }else{
+		        		 htmlstr+='</ul></li>';
+		        	 }
+	    		 }else if (type==2){
+                     htmlstr+='<li data-title="'+data[i].name+'">'+
+                             '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
+                             '<ul>';
+                     if(childrens){
+                         htmlstr = loop(htmlstr,childrens);
+                         htmlstr+='</ul></li>';
+                     }else{
+                         htmlstr+='</ul></li>';
+                     }
+                 }else if (type==3){
+                     htmlstr+='<li data-title="'+data[i].name+'">'+
+                             '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
+                             '<ul>';
+                     if(childrens){
+                         htmlstr = loop(htmlstr,childrens);
+                         htmlstr+='</ul></li>';
+                     }else{
+                         htmlstr+='</ul></li>';
+                     }
+                 }else if (type==4){
+                     htmlstr+='<li data-title="'+data[i].name+'">'+
+                             '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
+                             '<ul>';
+                     if(childrens){
+                         htmlstr = loop(htmlstr,childrens);
+                         htmlstr+='</ul></li>';
+                     }else{
+                         htmlstr+='</ul></li>';
+                     }
+                 }else if (type==5){
+                     htmlstr+='<li data-title="'+data[i].name+'">'+
+                             '<div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
+                             '<ul>';
+                     if(childrens){
+                         htmlstr = loop(htmlstr,childrens);
+                         htmlstr+='</ul></li>';
+                     }else{
+                         htmlstr+='</ul></li>';
+                     }
+                 }else{
+	    			 htmlstr+='<li><div id="'+menuIdPre+''+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-file-o"></i><span>'+data[i].name+'</span></div></li>';
+	    		 }
+
+	    	 }
+    		return htmlstr;
+    	}
+    	//工具类方法：再次初始化右击事件
+    	function initRightEvent(){
+            $('.root_tree div').unbind('mousedown').mousedown(function(event, a){
+                $('.folder input').trigger('blur');
+                if(event.which == 3 || a == 'right'){
+                    $currentRightDom = $(this);
+                }
+
+	            if($(this).html().indexOf('input') > 0){
+	                console.log('is current element.');
+	                return;
+	            }
+	            resetFolder();
+            });
+    	}
+    	//工具类方法：再次初始化文件夹打开与关闭事件
+    	function initFolderClick(){
+    		$('.folder_title').unbind('click').click(function(event){
+                if($(this).hasClass('fa-folder-close_')){
+                    $(this).removeClass('fa-folder-close_').addClass('fa-folder-open_');
+                    $(this).parent().next().show();
+                }else{
+                    $(this).removeClass('fa-folder-open_').addClass('fa-folder-close_');
+                    $(this).parent().next().hide();
+                }
+            });
+    	}
+    	//工具类方法：标记被选中过的条目id，该id也恰好是userId
+    	function signClick(id){
+    		if(signArray.indexOf(id)==-1){
+    			signArray.push(id);
+    		}
+    	}
+    	//工具类方法：校验菜单权限
+    	function powerConjunction(power,powerTarget){
+    		var result = power&powerTarget;
+		     if(result==powerTarget){
+		    	 return true;
+		     }else{
+		    	 return false;
+		     }
+    	}
+    	//工具类方法：过滤出字符串中的数字
+    	function filterString(source){
+    		return source.replace(/[^0-9]/ig, "");
+    	}
+    	//工具类方法：定义显示类型
+    	function showType(source){
+    		 var isShow="";
+			 if(powerConjunction(source,powerEnum[3])&&powerConjunction(source,powerEnum[4])){
+				 isShow="doubleShow";
+			 }else if(powerConjunction(source,powerEnum[3])&&!powerConjunction(source,powerEnum[4])){
+				 isShow="singleShow";
+			 }else{
+				 isShow="noneShow";
+			 }
+   		 	 return isShow;
+    	}
+    	var menuIdPre = "menuId";
+    	//公共对象：标记选中的菜单id
+    	var selectedMenuId = 0;
+    	//公共对象：刷新类型枚举，1是工作区目录刷新，2是管理目录刷新
+    	var refreshEnum = [1,2];
+    	//公共对象：标记枚举
+    	var signArray = new Array();
+    	//公共对象：权限枚举
+    	var powerEnum = ["0b10000","0b01000","0b00100","0b00010","0b00001"];
+    	//公共对象：最高权限
+    	var maxPower = "0b11111";
+    	//公共对象：目录类型枚举，1是文件夹，2是controller，3是flow，4是datamining，5是templet
+    	var menuTypeEnum = [1,2,3,4,5];   
+    	function savetargetok(){
+    		var tableName = $('#tableName').val();
+        	var sjlj = $('#sjlj').val();
+        	var ms = $('#ms').val();
+        	var nodeId = '1';
+        	var typeId = '14';
+        	var po = new Array();
+        	var obj1 = new Object();
+        	obj1.savetable = tableName;
+        	var obj2 = new Object();
+        	obj2.mode = ms;
+        	po.push(obj1);
+        	po.push(obj2);
+        	var jsonObj = new Object();
+        	jsonObj.saveArray = po;
+        	jsonObj.conId = sjlj;
+        	jsonObj.nodeId = nodeId;
+        	jsonObj.typeId = typeId;
+        	//alert("表名："+tableName+","+"数据连接："+sjlj+","+"模式："+ms);
+        	$.ajax({
+    			type:"POST",
+    			url:''+urlId+'/addNodeSave',
+    			dataType:"json",
+    			contentType: "application/json",
+    			data:JSON.stringify(jsonObj),
+    			success:function(data){
+    			}
+    		})
+    	}
+    	
+    </script>
+    
+<!--  ECHART & BI RELATED -->    
+<script src="../../static-resources/js/echarts/lib/echarts.min.3.2.3.js"></script>
+<script src="../../static-resources/js/bi.js"></script>
+<!-- ECHART THEMES -->
+<script src="../../static-resources/js/echarts/theme/dark.js"></script>
+<script src="../../static-resources/js/echarts/theme/shine.js"></script>
+<script src="../../static-resources/js/echarts/theme/infographic.js"></script>
+<script src="../../static-resources/js/echarts/theme/macarons.js"></script>
+<script src="../../static-resources/js/echarts/theme/roma.js"></script>
+<script src="../../static-resources/js/echarts/theme/vintage.js"></script>
+
+</body>
+</html>

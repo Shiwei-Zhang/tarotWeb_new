@@ -34,9 +34,6 @@
 
 </head>
 <body>
-
-	<button class="btn_bi" style="position: absolute;left:500px;width:50px;height:30px">bi</button>
-
 	<!--header start-->
 	<div class="f-header">
 		<div class="left-header">
@@ -214,7 +211,7 @@
 
 						<div class="module-prop">
 							<div class="title">属性</div>
-							<div class="prop">
+							<div class="prop new_table_name">
 								<span>Tablename as</span> <span> <input type="text"
 									placeholder="new table name">
 								</span>
@@ -362,7 +359,7 @@
 					<!--BI start-->
 					<div class="BI-bodyer module-bi bi-template" style="display: none">
 						<div class="biLeft">
-							<p>+ 添加图表</p>
+							<p class="showbiData">+ 添加图表</p>
 						</div>
 						<div class="line_fun line_active"></div>
 						<div class="biContainer">
@@ -689,40 +686,26 @@
 
 	<!-- Layers -->
 	<!-- Flow data source  -->
-	<div class="add4-con" style="display: none;">
+	<div class="add4-con add4Event" style="display: none;">
 		<i class="closeA"></i>
-		<ul class="add4Nav">
+		<ul class="add4Nav add4NavEvent">
 			<li class="bg">数据源</li>
 			<li>数据接口</li>
 		</ul>
-		<div class="optionA showCon">
-			<!--<div class="dataContainerA">
-            <input type="text" class="connection">
-            <span class="downIcon"></span>
-            <ul class="optionList">
-
-            </ul>
-            <ul class="mainList mainEvent mainList1">
-
-            </ul>
-            <div class="addFoot">
-                <span class="sure">确定</span>
-                <span class="cancel">取消</span>
-            </div>
-        </div>-->
-			<div class="dataContainerA">
-				<select name="" id="" class="connection">
+		<div class="optionA  optionAevnet showCon">
+			<div class="dataContainerA ContainerAevnet">
+				<select name="" id="" class="connection connectionEvent">
 
 				</select>
 				<ul class="mainList mainEvent mainList1">
 
 				</ul>
 				<div class="addFoot">
-					<span class="sure">确定</span> <span class="cancel">取消</span>
+					<span class="sure sureEvent">确定</span> <span class="cancel">取消</span>
 				</div>
 			</div>
 		</div>
-		<div class="optionA">
+		<div class="optionA optionAevnet">
 			<div class="dataContainerB">
 				<div class="partN">
 					<span>接口名称</span> <input type="text">
@@ -771,10 +754,10 @@
 								<span>行：</span><i class="rowIcon"></i>
 							</p>
 							<ul class="listContainer">
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
 							</ul>
 						</li>
 						<li>
@@ -782,12 +765,12 @@
 								<span>列：</span><i class="columnIcon"></i>
 							</p>
 							<ul class="listContainer">
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
-								<li><span>邮寄方式</span><i class="closeA"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
+								<li><span>邮寄方式</span><i class="closeB"></i></li>
 							</ul>
 						</li>
 						<li class="mapList clearFix"><!--<span>图例：</span> <span
@@ -840,45 +823,48 @@
 					<p class="biDataLbottom_t">图例</p>
 					<ul class="menu">
 						<li class="twoMap">
-							<h2>二维表</h2>
-							<ul class="detail">
-								<li class="zxMap"></li>
-								<li class="zzMaped"></li>
-								<li class="sdMap"></li>
-								<li class="kxMap"></li>
-								<li class="xxMaped"></li>
+							<h2 class="tabT"><i class="fa fa-caret-down"></i>二维表</h2>
+							<ul class="detail  show">
+								<li class="iconStyle zxMap"></li>
+								<li class="iconStyle zzMap"></li>
+								<li class="iconStyle sdMap"></li>
+								<li class="iconStyle kxMap"></li>
+								<li class="iconStyle xxMap"></li>
 							</ul>
 						</li>
 						<li class="circleMap">
-							<h2>圆形图</h2>
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>圆形图</h2>
 							<ul class="detail">
-								<li class="btMap"></li>
-								<li class="ldMaped"></li>
-								<li class="ybMap"></li>
+								<li class="iconStyle btMap"></li>
+								<li class="iconStyle ldMap"></li>
+								<li class="iconStyle ybMap"></li>
 							</ul>
 						</li>
 						<li class="powerMap" >
-							<h2>力向图</h2>
+
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>力向图</h2>
 							<ul class="detail">
-								<li class="gxMaped"></li>
-								<li class="jxMap"></li>
+								<li class="iconStyle gxMap"></li>
+								<li class="iconStyle jxMap"></li>
 							</ul>
 						</li>
 						<li class="varMap">
-							<h2>变量图</h2>
+
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>变量图</h2>
 							<ul class="detail">
-								<li class="xlMap"></li>
-								<li class="ycMaped"></li>
+								<li class="iconStyle xlMap"></li>
+								<li class="iconStyle ycMap"></li>
 							</ul>
 						</li>
 						<li class="otherThing">
-							<h2>其他</h2>
+
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>其他</h2>
 							<ul class="detail">
-								<li class="dtMap"></li>
-								<li class="phMaped"></li>
-								<li class="ldtMap"></li>
-								<li class="sjMap"></li>
-								<li class="bgMaped"></li>
+								<li class="iconStyle dtMap"></li>
+								<li class="iconStyle phMap"></li>
+								<li class="iconStyle ldtMap"></li>
+								<li class="iconStyle sjMap"></li>
+								<li class="iconStyle bgMap"></li>
 							</ul>
 						</li>
 					</ul>
@@ -888,29 +874,46 @@
 				<p>属性</p>
 				<ul class="menuRight">
 					<li class="filterPart">
-						<h2>过滤</h2>
-						<ul class="detail">
+
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>过滤</h2>
+						<ul class="detail filterContainer">
 							<li>
-								<div>
-									<select>
+								<div class="filterMain">
+									<select class="seleIdName">
 										<option value="" selected>ID</option>
 									</select>
-									<select>
+									<select class="seleList">
 										<option value="" selected>=</option>
 										<option value="">+</option>
 										<option value="">-</option>
 										<option value="">*</option>
 									</select>
 									<input type="text">
+									<i class="closeB"></i>
 								</div>
-								<div>
-									<select>
+								<div class="filterMain">
+									<select class="seleIdName">
 										<option value="" selected>OR</option>
 									</select>
-									<select>
+									<select class="seleList">
 										<option value="" selected>升</option>
 										<option value="">降</option>
 									</select>
+								</div>
+							</li>
+							<li>
+								<div class="filterMain">
+									<select class="seleIdName">
+										<option value="" selected>ID</option>
+									</select>
+									<select class="seleList">
+										<option value="" selected>=</option>
+										<option value="">+</option>
+										<option value="">-</option>
+										<option value="">*</option>
+									</select>
+									<input type="text">
+									<i class="plusIcon createMenu"></i>
 								</div>
 							</li>
 							<li class="btnPart">
@@ -920,9 +923,9 @@
 						</ul>
 					</li>
 					<li class="sortPart">
-						<h2>排序</h2>
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>排序</h2>
 						<div class="detail">
-							<select name=""  >
+							<select name="">
 								<option value="" selected>请选择字段</option>
 								<option value=""></option>
 							</select>
@@ -934,44 +937,48 @@
 						</div>
 					</li>
 					<li class="titlePart">
-						<h2>标题</h2>
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>标题</h2>
 						<ul class="detail">
-							<li><i class="single singleChecked"></i><span>显示标题</span></li>
+							<li class="titlePartT"><i class="single"></i><span>显示标题</span></li>
 							<li><input type="text"></li>
 							<li class="mapIcon">
-								<span class="showL checked"></span>
-								<span class="showC"></span>
-								<span class="showR"></span>
+								<span class="alignIcon showL checked"></span>
+								<span class="alignIcon showC"></span>
+								<span class="alignIcon showR"></span>
 							</li>
 						</ul>
 					</li>
 					<li class="showPh">
-						<h2>图例</h2>
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>图例</h2>
 						<ul class="detail">
-							<li><i class="single singleChecked"></i><span>显示图例</span></li>
+							<li><i class="single"></i><span>显示图例</span></li>
 							<li class="mapIcon">
-								<span class="showL"></span>
-								<span class="showC checked"></span>
-								<span class="showR"></span>
+								<span class="alignIcon showL checked"></span>
+								<span class="alignIcon showC"></span>
+								<span class="alignIcon showR"></span>
 							</li>
 						</ul>
 					</li>
-					<li>
-						<h2>主体</h2>
+					<li class="themePart">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>主体</h2>
 						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
+							<li>
+								<select>
+									<option value="" selected>请选择主题</option>
+									<option value="">theme1</option>
+									<option value="">theme2</option>
+									<option value="">theme3</option>
+									<option value="">theme4</option>
+									<option value="">theme5</option>
+								</select>
+							</li>
 						</ul>
 					</li>
-					<li>
-						<h2>其他</h2>
+					<li class="otherPart">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>其他</h2>
 						<ul class="detail">
-							<li>图形一</li>
-							<li>图形二</li>
-							<li>图形三</li>
-							<li>图形四</li>
+							<li class="titlePartT"><i class="single"></i><span>显示标题</span></li>
+							<li><input type="text"></li>
 						</ul>
 					</li>
 				</ul>
@@ -1319,22 +1326,7 @@
             $(".root_tree div[name='singleShow']").parent().hide();
         }
     }
-    //获取数据源页面数据
-    /* function getInFo(urlId){
-     $.ajax({
-     url:urlId+'/selectDataConnectionAndPowerByUserId',
-     type:'POST',
-     dataType:"json",
-     contentType: "application/json",
-     data:JSON.stringify({userId:userId}),
-     success:function(data) {
-     console.log(data)
-     },
-     error : function() {
-     alert("异常！");
-     }
-     })
-     }*/
+
     function getDataAdd4(usersId){
         var usersId=4;
         var str='';
@@ -1346,12 +1338,13 @@
             contentType: "application/json",
             // data:JSON.stringify({userId:userId}),
             success:function(data) {
+				str+='<option selected>请选择数据连接</option>';
                 $(data).each(function(index,item){
                     str+='<option id='+item["ID"]+'>'+item["NAME"]+'</option>';
                 });
                 str+='<option class="otherwise">other</option>';
 
-                $('.connection').html(str);
+                $('.connectionEvent').html(str);
             },
             error : function() {
                 alert("异常！");
@@ -1418,7 +1411,7 @@
         }),
 
         success:function(data) {
-            bindSourceData(data);
+            bindSourceData(data,flowIdName);
 			initDragable();
         },
         error : function() {
@@ -1450,11 +1443,13 @@
 		});
 	}
     function bindSourceData(data,flowIdName){
-        var nameList=data.tableName;
+        var tableName=data.tableName;
+        var sourceDataId=data.sourceDataId;
         var data_obj = $(
-				"<p jmType = '1' textValue = '"+nameList+"' level='2' flowId='"+flowIdName+"' sourceId='0' line_color='#0080ff' class='draggable'>"+nameList+"</p>"
+				"<p jmType = '1' textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='#0080ff' class='draggable'>"+tableName+"</p>"
         );
         $('.dt_conL').append(data_obj);
+		tableColumnsMap.put(sourceDataId,data.columns);
     }
 
 	function getSelectAllFlowId(flowIdName){
@@ -1501,25 +1496,7 @@
 
 
 
-    /* function bindOption(){
-     console.log(conItem)
-     var str='';
-     for(var i=0;i<data.length;i++){
-     var curData=data[i];
-     str+='<li id=conId>'+conName+'</li>';
-     }
-     str+='<li class="otherwise">other</li>';
-     }*/
-    //绑定数据
-    /* function bindAdd4() {
-     var str = '';
-     for (var i = 0; i < data.length; i++) {
-     var curData = data[i];
-     str+='<li><i class="single"></i><span>Business_class</span></li>'
-     }
-     $('.mainEvent').html(str);
 
-     }*/
     //工具类方法：循环遍历树，生成菜单目录
     function loop(htmlstr,data){
         for(var i=0;i<data.length;i++){
@@ -1538,7 +1515,7 @@
                 }
             }else if (type==2){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1548,7 +1525,7 @@
                 }
             }else if (type==3){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1558,7 +1535,7 @@
                 }
             }else if (type==4){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1568,7 +1545,7 @@
                 }
             }else if (type==5){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
-                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
 	            '<ul>';
                 if(childrens){
                     htmlstr = loop(htmlstr,childrens);
@@ -1676,7 +1653,7 @@
         //alert("表名："+tableName+","+"数据连接："+sjlj+","+"模式："+ms);
         $.ajax({
             type:"POST",
-            url:"http://172.16.1.227:8080/TarotIDE/addNodeSave",
+            url:"http://172.16.6.95/addNodeSave",
             dataType:"json",
             contentType: "application/json",
             data:JSON.stringify(jsonObj),
@@ -1688,13 +1665,4 @@
 
 </script>
 </body>
-
-
-<script>
-	$(document).ready(function(){
-		$('.btn_bi').click(function(){
-			$('.biData').show()
-		})
-	})
-</script>
 </html>
