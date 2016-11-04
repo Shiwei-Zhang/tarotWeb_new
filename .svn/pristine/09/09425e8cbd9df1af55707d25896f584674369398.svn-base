@@ -361,20 +361,14 @@
 
 					<!--BI start-->
 					<div class="BI-bodyer module-bi bi-template" style="display: none">
-						<div class="biLeft">
+						<div class="biLeft" style="z-index:104;">
 							<p class="showbiData">+ 添加图表</p>
-							<div class="bi-chart-list bicharlistStyle">
+							<div><input type="button" class="bi-template-save" value="保存"/></div>
+							<div class="bi-chart-list">
 							</div>
 						</div>
 						<div class="line_fun line_active"></div>
-						<div class="biContainer bi-template-container biContainerStyle">
-						</div>
-						<div class="biFooter clearFix">
-							<ul class="clearFix">
-								<li>发布</li>
-								<li>预览</li>
-								<li class="bi-template-save">保存</li>
-							</ul>
+						<div class="biContainer bi-template-container" style="position: absolute; float: left; width: 99.8%; height: 96%; margin-top: -22px;">
 						</div>
 					</div>
 					<!--BI end-->
@@ -383,8 +377,7 @@
 					<!--dataMining start-->
 
 					<div class="dataMining-bodyer module-datamining datamining-template" style="display: none">
-						dataMining-bodyer
-					</div>
+						dataMining-bodyer</div>
 
 
 
@@ -468,13 +461,7 @@
 									</div>
 									<div class="con-list">
 										<ul class="listPart">
-											<li>
-												<span>interface1</span>
-												<select>
-													<option selected>node1</option>
-													<option >node1</option>
-												</select>
-											</li>
+											<li>Flow1</li>
 											<li>Flow3</li>
 										</ul>
 									</div>
@@ -791,8 +778,8 @@
 							</p>
 						</li>
 						<!-- to be deleted -->
-						<li class="bi-chart bichartStyle">
-							<div id="bi-main" class="bimainStyle">
+						<li class="bi-chart" style="border:1px #dddddd solid; width: 735px; height: 320px; position: absolute; z-index:200; margin-top:40px;">
+							<div id="bi-main" style="width: 735px; height: 320px;">
 							</div>                        
                         </li>
 					</ul>
@@ -809,7 +796,7 @@
 					</ul>
 				</div>
 				<div class="biDataLbottom">
-					<p class="biDataLbottom_t">图表</p>
+					<p class="biDataLbottom_t">图例</p>
 					<ul class="menu bi-menu">
 						<li class="twoMap">
 							<h2 class="tabT"><i class="fa fa-caret-down"></i>二维表</h2>
@@ -926,7 +913,7 @@
 						<h2 class="tabT"><i class="fa fa-caret-right"></i>主题</h2>
 						<ul class="detail">
 							<li>
-								<select name="theme" class="w240">
+								<select name="theme">
 		            				<option value="">请选择主题</option>
 		            				<option value="dark">dark</option>
 		            				<option value="shine">shine</option>
@@ -961,12 +948,12 @@
 							</li>
 						</ul>
 					</li>
-					<li class="themePart bi-label bilabelStyle">
+					<li class="themePart bi-label">
 						<h2 class="tabT"><i class="fa fa-caret-right"></i>标签</h2>
 						<ul class="detail">
 							<li class="titlePartT"><i class="single lbshow"></i><span>显示标签</span></li>
 							<li>
-								<select name="lbposition" class="w240">
+								<select name="lbposition">
 			            			<option value="left">left</option>
 			            			<option value="right">right</option>
 			            			<option value="top" selected>top</option>
@@ -976,25 +963,25 @@
 							</li>
 						</ul>
 					</li>
-					<li class="themePart bi-toolbox bitoolboxStyle">
+					<li class="themePart bi-toolbox">
 						<h2 class="tabT"><i class="fa fa-caret-right"></i>工具栏</h2>
 						<ul class="detail">
 							<li class="titlePartT"><i class="single singleChecked tbshow"></i><span>显示工具栏</span></li>
 							<li>
-								<select name="tborient" class="w240">
+								<select name="tborient">
 			            			<option value="horizontal" selected>horizontal</option>
 			            			<option value="vertical">vertical</option>
 			            		</select>
 							</li>
 						</ul>
 					</li>
-					<li class="themePart bi-visualmap bivisualStyle">
+					<li class="themePart bi-visualmap">
 						<h2 class="tabT"><i class="fa fa-caret-right"></i>视觉映射</h2>
 						<ul class="detail">
 							<li class="titlePartT"><i class="single vmshow"></i><span>显示视觉映射</span></li>
-							<li><input class="w240" type="number" name="dimension" placeholder="映射哪组数据"/></li>
-							<li class="visualTextStyle">高：<input class='bi-visualmap-text' placeholder="高"/>低：<input  class='bi-visualmap-text' placeholder="低"/></li>
-							<li><input placeholder="色系:#50a3ba,#eac736,#d94e5d" class="bi-visualmap-inrange w240" /></li>
+							<li><input type="number" name="dimension" placeholder="映射哪组数据"/></li>
+							<li>高：<input style="width:30px;" class='bi-visualmap-text' placeholder="高"/>低：<input style="width:30px;" class='bi-visualmap-text' placeholder="低"/></li>
+							<li><input placeholder="色系:#50a3ba,#eac736,#d94e5d" class="bi-visualmap-inrange" /></li>
 						</ul>
 					</li>
 					<li class="otherPart bi-other">
@@ -1010,7 +997,7 @@
 	</div>
 	
 	 <!-- bi数据源选择 -->
-    <div class="add4-con biDataSource bi-datasource biDataStyle" style="display:none;">
+    <div class="add4-con biDataSource bi-datasource" style="display:none;">
 		<i class="closeA bi-close2"></i>
 		<ul class="add4Nav">
 			<li>数据接口</li>

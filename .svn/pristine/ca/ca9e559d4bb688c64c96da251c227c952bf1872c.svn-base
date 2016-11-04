@@ -2,20 +2,6 @@
     margin: 0;
     padding: 0;
 }
-/*
-z-index
-
-
-
-bichartStyle:200
-biLeft:104
-*/
-
-
-
-
-
-
 body {
     margin: 0 auto;
     background-color: #f6f6f6;
@@ -50,9 +36,7 @@ i {
 .container,.content,.module-data-all{
     height: 100%;
 }
-.w240{
-    width: 240px;
-}
+
 p{
     margin:0;
     padding:0;
@@ -257,7 +241,7 @@ ul.root_tree li div {
 .listContent{
     width: 80px;
     border:1px solid #bbbab6;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+    box-shadow: 0 1px 2px 1px #c5c5c5;
     background: #fff;
 }
 .listContent p{
@@ -308,7 +292,6 @@ ul.root_tree li div {
     position: absolute;
     top:0;
     left:0;
-    z-index: 104;
     background: #f6f6f6;
     border-top:1px solid #b9b9b9;
     border-right:1px solid #b9b9b9;
@@ -324,44 +307,9 @@ ul.root_tree li div {
     cursor: pointer;
 }
 
-.bicharlistStyle div{
-    height: 25px;
-    line-height: 25px;
-    padding-left: 10px;
-    cursor: pointer;
-}
-.bicharlistStyle div:hover{
-    background: #cbebf8;
-}
 
 
-.biContainerStyle{
-    position: relative;
-    float: left;
-    width: 99.8%;
-    height: 89%;
-    margin-top: -22px;
-}
-.biFooter{
-    height: 49px;
-    border-top: 1px solid #ddd;
-}
-.biFooter ul{
-    height: 49px;
-    padding-top: 10px;
-    float: right;
-}
-.biFooter ul li{
-    width: 60px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    cursor: pointer;
-    color: #fff;
-    background: #56b0e2;
-    float: left;
-    margin-right:10px;
-}
+
 
 
 
@@ -381,12 +329,16 @@ ul.root_tree li div {
     width:87%;
     margin-top: 22px;
     background: #fff;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+    box-shadow: 0 3px 3px 3px #e7e7e7;
 }
 .biData .fa{
     width: 8px;
     margin-right: 10px;
 }
+.biData h2{
+    /*display: inline-block;*/
+}
+
 
 .biData .biData-T{
     height: 44px;
@@ -417,6 +369,7 @@ ul.root_tree li div {
     width: 14.9%;
     float: left;
     height: 600px;
+    /*overflow: auto;*/
     margin-left: -100%;
     border:1px solid #ddd;
     border-bottom: none;
@@ -755,18 +708,11 @@ ul.root_tree li div {
 }
 .biDataR  .titlePart .single,
 .biDataR  .showPh .single,
-.biDataR  .otherPart .single,
-.biDataR  .bitoolboxStyle .single,
-.biDataR  .bivisualStyle .single,
-.biDataR  .bilabelStyle .single
-{
+.biDataR  .otherPart .single{
     margin-right: 10px;
 }
 .biDataR  .titlePart .titlePartT,
-.biDataR  .otherPart .titlePartT,
-.biDataR  .bitoolboxStyle .titlePartT,
-.biDataR  .bivisualStyle .titlePartT,
-.biDataR  .bilabelStyle .titlePartT
+.biDataR  .otherPart .titlePartT
 {
     margin-bottom: 10px;
 }
@@ -781,6 +727,7 @@ ul.root_tree li div {
     margin-bottom: 10px;
 }
 .biDataR .themePart select{
+    width: 190px;
     height: 22px;
 }
 
@@ -815,22 +762,6 @@ ul.root_tree li div {
 }
 
 
-.visualTextStyle{
-    margin-bottom: 10px;
-}
-.bivisualStyle .visualTextStyle input{
-    width: 30px;
-    margin-right: 10px;
-}
-
-.bivisualStyle input.w240 {
-    height: 20px;
-    margin-bottom: 10px;
-    line-height: 20px;
-}
-
-
-
 .biData-C .biDataC{
     width: 100%;
     height: 600px;
@@ -849,21 +780,6 @@ ul.root_tree li div {
 .biDataCmain .CmainList{
     margin:20px;
 }
-
-
-.biDataCmain .CmainList .bichartStyle{
-    position: absolute;
-    z-index:200;
-    width: 795px;
-    height: 395px;
-    border:1px #dddddd solid;
-    margin-top:40px;
-}
-.bichartStyle .bimainStyle{
-    width: 100%;
-    height: 100%;
-}
-
 .rowIcon{
     display: inline-block;
     width: 24px;
@@ -907,7 +823,7 @@ ul.root_tree li div {
     display: inline-block;
     width: 727px;
     max-width: 727px;
-    min-height: 28px;
+    /*height: 28px;*/
     vertical-align: -10px;
     padding-left: 4px;
     padding-top: 3px;
@@ -1920,7 +1836,7 @@ right style
     max-height: 289px;
     overflow: hidden;
     background: #fff;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+    box-shadow: 0 2px 2px 2px #f4f4f4;
 }
 .search .searchInfo li{
     height: 35px;
@@ -2084,7 +2000,7 @@ right style
     padding: 16px 0;
     background-color: #FFF;
     border: 1px #F0F0F0 solid;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 3px 0 #e3e3e3;
 }
 
 .task div {
@@ -2308,9 +2224,9 @@ tr:nth-child(even) {
     width: 746px;
     height: 674px;
     background: #fff;
-    -webkit-box-shadow:0 3px 3px 0 rgba(0,0,0,.3);
-    -moz-box-shadow:0 3px 3px 0 rgba(0,0,0,.3);
-    box-shadow:0 3px 3px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 3px 1px #e7e7e7;
+    -moz-box-shadow: 0 0 3px 1px #e7e7e7;
+    box-shadow: 0 0 3px 1px #e7e7e7;
 }
 .add4-con .closeA{
     position: absolute;
@@ -2351,6 +2267,41 @@ tr:nth-child(even) {
 .add4-con div.showCon{
     display: block;
 }
+
+/*.add4-con .dataContainerA .connection{
+    position: relative;
+    width: 669px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 15px;
+    border: 1px solid #b4b4b4;
+    margin: 30px 30px 20px;
+}
+
+.add4-con .dataContainerA .optionList{
+    display: none;
+    position: absolute;
+    top: 134px;
+    left: 31px;
+    z-index: 104;
+    background: #fff;
+    width: 684px;
+    height: 360px;
+    max-height: 360px;
+    overflow-y: scroll;
+    box-shadow: 0 2px 3px 1px #c4c4c4;
+}
+.dataContainerA .optionList li{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.dataContainerA .optionList li:hover{
+    color: #fff;
+    background: #56b0e2;
+}*/
 
 .add4-con .dataContainerA .connection{
     position: relative;
@@ -2745,24 +2696,12 @@ button, input, select {
    /* width: 1000px;
     height: 730px;*/
     background: #fff;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+    box-shadow: 0 3px 2px 3px #e7e7e7;
 }
 
 
 
 /*listSet end*/
-
-
-/*bi数据源选择 start*/
-.biDataStyle{
-    z-index: 120;
-}
-
-
-
-/*bi数据源选择 end*/
-
-
 
 
 /*mask layer*/
@@ -2772,7 +2711,7 @@ button, input, select {
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.4);
+    background-color: #c7c7c7;
     opacity: 0.7;
     z-index: 100;
 }
