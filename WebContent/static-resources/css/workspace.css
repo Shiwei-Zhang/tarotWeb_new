@@ -345,6 +345,7 @@ ul.root_tree li div {
 .biFooter{
     height: 49px;
     border-top: 1px solid #ddd;
+    background: #f6f6f6;
 }
 .biFooter ul{
     height: 49px;
@@ -860,8 +861,8 @@ ul.root_tree li div {
     margin-top:40px;
 }
 .bichartStyle .bimainStyle{
-    width: 100%;
-    height: 100%;
+    width: 795px;
+    height: 395px;
 }
 
 .rowIcon{

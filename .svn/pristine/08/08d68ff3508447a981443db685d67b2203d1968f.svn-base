@@ -176,11 +176,11 @@ $(function(){
     //controller
     $('.add3').unbind('click').click(function () {
         console.log('add3');
-        $('.add3conEvent').show();
+        $('.add3-con').show();
         $('.mask').show();
     });
     $('.content1 .closeA,.content1 .cancel').unbind('click').click(function () {
-        $('.add3conEvent').hide();
+        $('.add3-con').hide();
         $('.mask').hide();
     });
 
