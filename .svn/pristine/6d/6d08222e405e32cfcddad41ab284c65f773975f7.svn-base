@@ -26,7 +26,7 @@ $(function(){
         var dataType=$(this).attr('menutype');
         var fileName = $(this).children().last().text();
         flowIdName=idName;
-        console.log(flowIdName);
+        console.log(flowIdName)
         if(dataType == 1){//文件夹
         	return;
         }
@@ -127,6 +127,7 @@ $(function(){
     function createMenu(){
         var obj_temp=$("<li><div class='filterMain'><select class='seleIdName'><option value='' selected>ID</option></select><select class='seleList'><option value='' selected>=</option><option value=''>+</option><option value=''>-</option><option value=''>*</option></select><input type='text'><i class='closeB'></i></div><div class='filterMain'><select class='seleIdName'><option value='' selected>OR</option></select><select class='seleList'><option value='' selected>升</option><option value=''>降</option></select></div></li>");
 
+
         $('.createMenu').unbind().click(function(e){
             e = e || window.event;
             e.stopPropagation?e.stopPropagation():e.cancelBubble = true;
@@ -168,6 +169,10 @@ $(function(){
                 $(this).addClass('selected').siblings().removeClass('selected')
             }
         })
+
+
+
+
     };
 
 
@@ -180,7 +185,7 @@ $(function(){
             //参数列表的列
             delList()
         });
-    };
+    }
 
     //删除参数列表的每一列
     function delList() {
@@ -188,7 +193,7 @@ $(function(){
             //console.log($(this).parent());
             $(this).parent().remove();
         })
-    };
+    }
 
     //数据源
     function getSelectValue(){
@@ -198,7 +203,7 @@ $(function(){
                 console.log($(item).html());
                 interfaceName=$(item).html()
             })
-    };
+    }
 
     //点击确定
     function sureBtn() {
@@ -216,24 +221,21 @@ $(function(){
                 };
                 sourceColumn.push(source)
             }
-            console.log(paren.attr('class'));
+
             closeAdd4();
-            if (paren.attr('class').indexOf('ContainerAevnet') >0 ) {
+            if (paren.attr('class') === 'ContainerAevnet') {
+                console.log(0);
                 isInterface=0;
                 getSelectValue();
-                if(interfaceName){
-                    sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-                }
-            } else if (paren.attr('class').indexOf('optionAevnet') >0 ) {
+                sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
+            } else if (paren.hasClass('optionAevnet')) {
                 console.log(1);
                 isInterface=1;
                 interfaceName=interName;
-                if(interName){
-                    sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-                }
+                sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
             }
         })
-    };
+    }
 
     getSelect();
     //获取mainEvent下选中的内容
@@ -245,7 +247,7 @@ $(function(){
                 console.log($($('.mainEvent li .singleChecked')[i]).next())
             }
         })
-    };
+    }
 
     //controller
     $('.add3').unbind('click').click(function () {
@@ -310,22 +312,14 @@ $(function(){
         //input下拉菜单
         $('.connectionEvent').change(function(){
             detailId = $(this).children('option:selected').prop('id');
-            if(detailId){
-                getDataDetail(detailId);
-            }else {
-                alert('detailId不存在');
-                //TODO
-                if ($('.connectionEvent').val() === 'other') {
-
-                }
+            getDataDetail(detailId);
+            if ($('.connectionEvent').val() === 'other') {
 
             }
-
-
         });
 
         $('.mask').show();
-        $('.add4Event .closeA,.add4Event .cancel').click(function () {
+        $('.add4Event .closeA,.add4Event .cancel,.add4Event .sure').click(function () {
             closeAdd4();
         })
     });
@@ -407,7 +401,7 @@ $(function(){
 
             showType($idName, $dataType);
         }
-    };
+    }
 
     //loading related data
     function showType($idName, $dataType){
@@ -426,13 +420,13 @@ $(function(){
             $('.bi-template').show();
         }
 
-    };
+    }
 
     //数据源、数据接口弹出框
     function closeAdd4(){
         $('.add4Event').hide();
         $('.mask').hide();
-    };
+    }
 
     //目录管理点击事件
     $('.man1').unbind('click').click(function () {
@@ -448,7 +442,7 @@ $(function(){
 	var conId;
 	$('.man2').click(function () {
 		var user = $("#userId").val();
-        goDatasource(user,null);
+		goDatasource(user,null);
 	});
 	//数据源管理页面---添加按钮
 	$('.add2').click(function(){
@@ -502,7 +496,7 @@ function show_detail(obj){
 			$('.conAdd').append(conAddStr);
 		}
 	});
-};
+}
 
 //添加数据源----保存按钮
 //var uid = $("#userId").val();
@@ -548,7 +542,7 @@ function addConnection(){
 			alert('新增成功！');			
 		}
 	})
-};
+}
 //添加数据源----测试按钮
 function testConnection(){
 	var testArray = new Array();
@@ -638,16 +632,11 @@ function goDatasource(userId,content){
 						+'<div class="task"><div class="look" data-id=' + data[i].id +' data-name='+data[i].name+ '>查看</div>'
 						+'<div class="power" data-id=' + data[i].id + '>权限管理</div>'
 						+'<div class="delete" data-id=' + data[i].id + '>删除</div></div></div>'+'</td></tr>');
-                $('.table2').unbind('click').click(function (e) {
-                    e = e || window.event;
-                    var tar = e.target || e.srcElement;
-                    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('mark')) {
-                        $('.task').hide();
-                        $(tar).parent().next().show();
-                    }else {
-                        $('.task').hide();
-                    }
-                });
+				$('.mark').click(function(){
+					console.log($(this).next());
+					$('.task').hide();
+					$(this).parent().next().show();
+				});
 			}
 			goPage(1,10,'table2','barcon2');
 			//查看按钮

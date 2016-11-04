@@ -216,21 +216,18 @@ $(function(){
                 };
                 sourceColumn.push(source)
             }
-            console.log(paren.attr('class'));
+
             closeAdd4();
-            if (paren.attr('class').indexOf('ContainerAevnet') >0 ) {
+            if (paren.attr('class') === 'ContainerAevnet') {
+                console.log(0);
                 isInterface=0;
                 getSelectValue();
-                if(interfaceName){
-                    sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-                }
-            } else if (paren.attr('class').indexOf('optionAevnet') >0 ) {
+                sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
+            } else if (paren.hasClass('optionAevnet')) {
                 console.log(1);
                 isInterface=1;
                 interfaceName=interName;
-                if(interName){
-                    sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-                }
+                sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
             }
         })
     };
@@ -325,7 +322,7 @@ $(function(){
         });
 
         $('.mask').show();
-        $('.add4Event .closeA,.add4Event .cancel').click(function () {
+        $('.add4Event .closeA,.add4Event .cancel,.add4Event .sure').click(function () {
             closeAdd4();
         })
     });
@@ -448,7 +445,7 @@ $(function(){
 	var conId;
 	$('.man2').click(function () {
 		var user = $("#userId").val();
-        goDatasource(user,null);
+		ceshi(user,null);
 	});
 	//数据源管理页面---添加按钮
 	$('.add2').click(function(){
@@ -532,20 +529,15 @@ function addConnection(){
 		contentType: "application/json",
 		data:JSON.stringify(jsonObj),
 		success:function(data){
-			/*var createTime = new Date(data.createTime).toLocaleString();
+			var createTime = new Date(data.createTime).toLocaleString();
 			var updateTime = new Date(data.updateTime).toLocaleString();
-			$('#table2').prepend('<tr name="powerData"><td>'+data.sourceType+'</td><td value="'+data.name+'">'+data.name+'</td><td>'
-					+data.ip+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
-					+'<td class="w100"><span class="presh"><span class="mark"/></span>'
-					+'<div class="task"><div class="look" data-id=' + data.id +' data-name='+data.name+ '>查看</div>'
-					+'<div class="power" data-id=' + data.id + '>权限管理</div>'
-					+'<div class="delete" data-id=' + data.id + '>删除</div></div></div>'+'</td></tr>');*/
+			$('#table2').append('<tr><td>'+data.sourceType+'</td><td>'+data.name+'</td><td>'+data.ip+'</td><td>'
+					+createTime+'</td><td>'+updateTime+'</td><td class="w100"><span class="presh"><span class="mark"/></span>'
+					+'<div class="task"><div class="look">查看</div><div class="power">权限管理</div></div></div>'+'</td></tr>');
 			$('.add2-f').css("display","none");
 			$('.mask').css("display","none");
 			$('#table2').css("display","block");
-			goDatasource(uid,null);
-			//goPage(1,10,'table2','barcon2');
-			alert('新增成功！');			
+			alert('新增成功！');
 		}
 	})
 };
@@ -588,20 +580,13 @@ $('#itemValue').focus(function () {
 }).blur(function () {
 	$('#searchInfo').hide()
 });
-
-//数据连接回车搜索--完成BUG-34
-$('#itemValue2').keydown(function(e){
-	if(e.keyCode==13){
-		searchItem2(); //处理事件
-	}
-	});
 function searchItem2(){
 	var str = $('#itemValue2').val();
 	var user = $("#userId").val();
-	goDatasource(user,str);
+	ceshi(user,str);
 }
 
-function goDatasource(userId,content){
+function ceshi(userId,content){
 	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1').hide();
     $('.dataManager,.center-table2').show();
     $('.task,#manag').hide();
@@ -636,8 +621,7 @@ function goDatasource(userId,content){
 						+data[i].ip+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
 						+'<td class="w100"><span class="presh"><span class="mark"/></span>'
 						+'<div class="task"><div class="look" data-id=' + data[i].id +' data-name='+data[i].name+ '>查看</div>'
-						+'<div class="power" data-id=' + data[i].id + '>权限管理</div>'
-						+'<div class="delete" data-id=' + data[i].id + '>删除</div></div></div>'+'</td></tr>');
+						+'<div class="power" data-id=' + data[i].id + '>权限管理</div></div></div>'+'</td></tr>');
                 $('.table2').unbind('click').click(function (e) {
                     e = e || window.event;
                     var tar = e.target || e.srcElement;
@@ -774,30 +758,6 @@ function goDatasource(userId,content){
 					}
 				});
 			});
-			
-			//点击删除
-			$('.delete').click(function(){
-				var $this = $(this);
-				var cid = $(this).data('id');
-				var uid = $("#userId").val();
-				$.ajax({
-					type:"POST",
-					url:urlId+"/deleteDataConnection",
-					dataType:"json",
-					data:{
-						cid:cid,
-						uid:uid
-					},
-					success:function(data){
-						$('.task').hide();
-						$this.parent().parent().parent().remove();
-						//re-layer  
-						var currentPage=$('.numPage.active').text();
-						goPage(currentPage,10,'table2','barcon2');
-					}
-					
-					});
-			});
 			//权限管理
 			$('.power').click(function(){
 				conId = $(this).data('id');
@@ -895,14 +855,6 @@ function goDatasource(userId,content){
 		}
 	});
 }
-
-//数据连接权限管理回车搜索--完成BUG-43
-$('#itemValue3').keydown(function(e){
-	if(e.keyCode==13){
-		searchItem3(); //处理事件
-	}
-	});
-
 function searchItem3(){
 	var str = $('#itemValue3').val();
 	powerList(conId,str);

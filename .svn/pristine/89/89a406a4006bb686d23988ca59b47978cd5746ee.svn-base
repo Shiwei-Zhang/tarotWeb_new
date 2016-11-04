@@ -1136,7 +1136,7 @@ ul.root_tree li div {
     display: inline-block;
 }
 .w50 .single{
-    /*margin-left: 15px;*/
+    margin-left: 15px;
 }
 .singleChecked{
     background-position: center bottom;
@@ -1911,7 +1911,6 @@ right style
     font-size: 14px;
     color:  #1E1E1E ;
     background-color: #fff;
-    border: 1px solid transparent;
     font-family: 'arial', 'MicrosoftYaHei';
     text-align: left;
 }
@@ -1997,7 +1996,7 @@ right style
     top: 44px;
     z-index: 100;
     width: 140px;
-    height: 71px;
+    height: 48px;
     padding: 16px 0;
     background-color: #FFF;
     border: 1px #F0F0F0 solid;

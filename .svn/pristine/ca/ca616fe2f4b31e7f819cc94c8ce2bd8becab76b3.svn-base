@@ -216,21 +216,18 @@ $(function(){
                 };
                 sourceColumn.push(source)
             }
-            console.log(paren.attr('class'));
+
             closeAdd4();
-            if (paren.attr('class').indexOf('ContainerAevnet') >0 ) {
+            if (paren.attr('class') === 'ContainerAevnet') {
+                console.log(0);
                 isInterface=0;
                 getSelectValue();
-                if(interfaceName){
-                    sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-                }
-            } else if (paren.attr('class').indexOf('optionAevnet') >0 ) {
+                sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
+            } else if (paren.hasClass('optionAevnet')) {
                 console.log(1);
                 isInterface=1;
                 interfaceName=interName;
-                if(interName){
-                    sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
-                }
+                sendMessage(isInterface,flowIdName,detailId,interfaceName,sourceColumn)
             }
         })
     };
@@ -325,7 +322,7 @@ $(function(){
         });
 
         $('.mask').show();
-        $('.add4Event .closeA,.add4Event .cancel').click(function () {
+        $('.add4Event .closeA,.add4Event .cancel,.add4Event .sure').click(function () {
             closeAdd4();
         })
     });
@@ -448,7 +445,7 @@ $(function(){
 	var conId;
 	$('.man2').click(function () {
 		var user = $("#userId").val();
-        goDatasource(user,null);
+		ceshi(user,null);
 	});
 	//数据源管理页面---添加按钮
 	$('.add2').click(function(){
