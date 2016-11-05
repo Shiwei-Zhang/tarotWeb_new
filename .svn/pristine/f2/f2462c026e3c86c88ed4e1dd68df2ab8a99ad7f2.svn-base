@@ -7,9 +7,6 @@
 <link
 	href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"
 	rel="stylesheet">
-<link 
-	href="http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" 
-	rel="stylesheet">
 <link
 	href="../../static-resources/css/context.standalone.css?version=2016.09.18"
 	rel="stylesheet">
@@ -365,8 +362,6 @@
 							<p class="showbiData">+ 添加图表</p>
 							<div class="bi-chart-list bicharlistStyle">
 							</div>
-							<!--画布四周缩放按钮-->
-							<div class="fullScreen"></div>
 						</div>
 						<div class="line_fun line_active"></div>
 						<div class="biContainer bi-template-container biContainerStyle">
@@ -1291,7 +1286,7 @@
 		        	 if(!power){
 		        		 isAdd = 1;
 		        	 }
-		        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" class="borderRight" onclick="signClick('+data[i].ID+');">'+
+		        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'+
 						'<td class="w180" value="'+data[i].NAME+'">'+data[i].NAME+'</td>'+
 						'<td class="w180" value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'+
 						'<td class="w180">'+data[i].E_MAIL+'</td>'+
@@ -1304,7 +1299,6 @@
 		         }
 		    	 $("#table1 tr[name='powerData']").remove();
 		         $('#table1').append($(tablestr));
-				 goPage(1, 10, 'table1', 'barcon1');
 		      },
 		      error : function() {
 		           alert("异常！");

@@ -338,27 +338,6 @@ ul.root_tree li div {
 }
 
 
-/*canvas icon start*/
-/*.fullScreen{
-    background: url("../images/canvasIcon.png")no-repeat;
-}
-.fullScreen{
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: url("../images/canvasIcon.png")no-repeat;
-    background-size: 15px 15px;
-    background-position: 0 0;
-}*/
-
-
-
-
-
-/*canvas icon end*/
-
-
-
 .biContainerStyle{
     position: relative;
     float: left;
@@ -1304,12 +1283,6 @@ ul.root_tree li div {
     border:2px solid #55afe1;
     margin-left: 20px;
 }
-.addFoot span.disabled{
-    pointer-events: none;
-    cursor: default;
-    color: #767676;
-    border: 2px solid #767676;
-}
 .provide .con-con .con-list{
     height: 202px;
     border:1px solid #CAC9C9;
@@ -1936,7 +1909,7 @@ right style
     width: 85%;
 }
 .center-table1, .center-table2, .power-detail {
-    width: 98.6%;
+    width: 98.5%;
     height: 693px;
     border: 10px #F4F4F4 solid;
     display: none;
@@ -1947,7 +1920,7 @@ right style
     /*border: 1px #F0F0F0 solid;*/
     padding: 13px;
     position: relative;
-    width: 98.2%;
+    width: 98%;
     height: 34px;
 }
 .search .searchInfo{
@@ -2078,14 +2051,11 @@ right style
 }
 /*增删改查width*/
 .w50{
-    width: 58px;
-    text-align: center !important;
+    width: 50px;
+    text-align: center;
 }
 .w50 input{
     cursor: pointer;
-}
-.borderRight{
-    border-right:1px solid #D1D6D6;
 }
 .add2 {
     position: absolute;
@@ -2474,8 +2444,7 @@ tr:nth-child(even) {
     float: right;
     border:1px solid #dcdcdc;
     margin-bottom: 10px;
-    max-height: 367px;
-    overflow: auto;
+    max-height: 408px;
 }
 .paramL .paramMain li:nth-child(even){
     background: #f9f9f9;

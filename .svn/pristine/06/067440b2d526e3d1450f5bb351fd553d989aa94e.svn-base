@@ -223,9 +223,6 @@ $(function(){
 
     $('.add4').off('click').click(function () {
         getDataAdd4();
-
-        //mainEvent置空
-        $('.mainEvent').empty();
         //console.log('add4');
         $('.add4Event').show().find('.add4NavEvent li').click(function () {
             $(this).addClass('bg').siblings('li').removeClass('bg');
@@ -367,13 +364,13 @@ $(function(){
     };
 
     //目录管理点击事件
-    $('.man1').click(function () {
+    $('.man1').unbind('click').click(function () {
         $('.module-data,.dataManager').hide();
         $('.module-data-navigation,.module-manager').show();
         refreshMenu(refreshEnum[1]);
         $('.manager-bodyer,.center-table1').show();
         $('.center-table2,.power-detail,.task,#manag').hide();
-
+        goPage(1, 10, 'table1', 'barcon1');
     });
 
 	//数据连接管理
@@ -464,11 +461,20 @@ function addConnection(){
 		contentType: "application/json",
 		data:JSON.stringify(jsonObj),
 		success:function(data){
+			/*var createTime = new Date(data.createTime).toLocaleString();
+			var updateTime = new Date(data.updateTime).toLocaleString();
+			$('#table2').prepend('<tr name="powerData"><td>'+data.sourceType+'</td><td value="'+data.name+'">'+data.name+'</td><td>'
+					+data.ip+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
+					+'<td class="w100"><span class="presh"><span class="mark"/></span>'
+					+'<div class="task"><div class="look" data-id=' + data.id +' data-name='+data.name+ '>查看</div>'
+					+'<div class="power" data-id=' + data.id + '>权限管理</div>'
+					+'<div class="delete" data-id=' + data.id + '>删除</div></div></div>'+'</td></tr>');*/
 			$('.add2-f').css("display","none");
 			$('.mask').css("display","none");
 			$('#table2').css("display","block");
-			alert('新增成功！');	
-			goDatasource(uid,null);		
+			goDatasource(uid,null);
+			//goPage(1,10,'table2','barcon2');
+			alert('新增成功！');			
 		}
 	})
 };
@@ -555,7 +561,7 @@ function goDatasource(userId,content){
 				}
 
 				console.log(data[i].updateTime+"**********"+updateTime);
-				$('#table2').append('<tr name="powerData" class="borderRight"><td>'+data[i].sourceType+'</td><td value="'+data[i].name+'">'+data[i].name+'</td><td>'
+				$('#table2').append('<tr name="powerData"><td>'+data[i].sourceType+'</td><td value="'+data[i].name+'">'+data[i].name+'</td><td>'
 						+data[i].ip+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
 						+'<td class="w100"><span class="presh"><span class="mark"/></span>'
 						+'<div class="task"><div class="look" data-id=' + data[i].id +' data-name='+data[i].name+ '>查看</div>'
@@ -653,13 +659,8 @@ function goDatasource(userId,content){
 									contentType: "application/json",
 									data:JSON.stringify(jsonObj),
 									success:function(data){
-										//修改之后刷新--完成BUG-64
-										goDatasource(userId,null);
-										var currentPage=$('.numPage.active').text();
-										goPage(currentPage,10,'table2','barcon2');
-										
 										$('.look-detail').hide();
-										$('.mask').hide();										
+										$('.mask').hide();
 										alert('修改成功！');
 									}
 								});
@@ -721,7 +722,6 @@ function goDatasource(userId,content){
 						$this.parent().parent().parent().remove();
 						//re-layer  
 						var currentPage=$('.numPage.active').text();
-						//重新进行分页以达到刷新的目的--完成BUG-40
 						goPage(currentPage,10,'table2','barcon2');
 					}
 					
@@ -889,31 +889,3 @@ function powerList(conId,content){
 		}  
 	});
 }
-
-function interfaceName(){
-	var tableName = $('.partN input').val();
-	var flowId = flowIdName;
-	if(tableName==""){
-		$('.partN input').css('border-color','red')
-		$('.sureEvent').hide();
-		return;
-	}
-	
-	$.ajax({
-		type:"POST",
-		url:urlId+'/selectTableNameIsOk',
-		dataType:"json",
-		data:{tableName:tableName,flowId:flowId},
-		success:function(data){
-			console.log(data)
-			if(data==true){
-				$('.partN input').css('border-color','green')
-				$('.sureEvent').removeClass('disabled');
-			}else{
-				$('.partN input').css('border-color','red')
-				$('.sureEvent').addClass('disabled');
-			}
-		}
-	});
-}
-

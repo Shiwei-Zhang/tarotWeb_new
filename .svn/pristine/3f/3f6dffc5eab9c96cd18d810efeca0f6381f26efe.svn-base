@@ -132,7 +132,6 @@ $(function(){
         var sourceColumn=[];
         $('.sureEvent').unbind('click').click(function () {
             var paren = $(this).parent().parent();
-            var interName=$('.partN input').val();
             //console.log($(this).parent().parent().attr('class'));
             for(var i=1;i<$('.paramMain').find('li').length;i++){
                 var cur=$('.paramMain').find('li')[i];
@@ -223,9 +222,6 @@ $(function(){
 
     $('.add4').off('click').click(function () {
         getDataAdd4();
-
-        //mainEvent置空
-        $('.mainEvent').empty();
         //console.log('add4');
         $('.add4Event').show().find('.add4NavEvent li').click(function () {
             $(this).addClass('bg').siblings('li').removeClass('bg');
@@ -373,7 +369,7 @@ $(function(){
         refreshMenu(refreshEnum[1]);
         $('.manager-bodyer,.center-table1').show();
         $('.center-table2,.power-detail,.task,#manag').hide();
-
+        goPage(1, 10, 'table1', 'barcon1');
     });
 
 	//数据连接管理
@@ -555,7 +551,7 @@ function goDatasource(userId,content){
 				}
 
 				console.log(data[i].updateTime+"**********"+updateTime);
-				$('#table2').append('<tr name="powerData" class="borderRight"><td>'+data[i].sourceType+'</td><td value="'+data[i].name+'">'+data[i].name+'</td><td>'
+				$('#table2').append('<tr name="powerData"><td>'+data[i].sourceType+'</td><td value="'+data[i].name+'">'+data[i].name+'</td><td>'
 						+data[i].ip+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
 						+'<td class="w100"><span class="presh"><span class="mark"/></span>'
 						+'<div class="task"><div class="look" data-id=' + data[i].id +' data-name='+data[i].name+ '>查看</div>'
@@ -908,10 +904,10 @@ function interfaceName(){
 			console.log(data)
 			if(data==true){
 				$('.partN input').css('border-color','green')
-				$('.sureEvent').removeClass('disabled');
+				$('.sureEvent').show();
 			}else{
 				$('.partN input').css('border-color','red')
-				$('.sureEvent').addClass('disabled');
+				$('.sureEvent').hide();
 			}
 		}
 	});

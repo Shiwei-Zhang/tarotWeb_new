@@ -63,7 +63,7 @@
 			</div>
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
-				<h6 class="man2">数据连接管理</h6>
+				<h6 class="man2">数据源管理</h6>
 				<h6 class="man3">用户管理</h6>
 			</div>
 		</div>
@@ -365,8 +365,6 @@
 							<p class="showbiData">+ 添加图表</p>
 							<div class="bi-chart-list bicharlistStyle">
 							</div>
-							<!--画布四周缩放按钮-->
-							<div class="fullScreen"></div>
 						</div>
 						<div class="line_fun line_active"></div>
 						<div class="biContainer bi-template-container biContainerStyle">
@@ -728,7 +726,7 @@
 		<div class="optionA optionAevnet">
 			<div class="dataContainerB">
 				<div class="partN">
-					<span>接口名称</span> <input type="text" onblur="interfaceName()">
+					<span>接口名称</span> <input type="text">
 				</div>
 				<div class="paramL clearFix">
 					<span class="paramLl">参数列表</span>
@@ -737,12 +735,14 @@
 						<li><span class="">参数名称</span><span class="">类型</span></li>
 						<li><span class="" contenteditable="true">column1</span><span
 							contenteditable="true">int</span><i class="closeL"></i></li>
+						<li><span contenteditable="true">column2</span><span
+							contenteditable="true">int</span><i class="closeL"></i></li>
 					</ul>
 					<p class="addBtn clearFix">添加</p>
 				</div>
 			</div>
 			<div class="addFoot">
-				<span class="sure sureEvent">确定</span> <span class="cancel">取消</span>
+				<span class="sure">确定</span> <span class="cancel">取消</span>
 			</div>
 		</div>
 	</div>
@@ -1285,13 +1285,13 @@
                         }
                     }
                     }
-		        	 var birthday = new Date(data[i].CREATE_DATA).toLocaleString();
+		        	 var birthday = new Date(data[i].UPDATE_DATA).toLocaleString();
 		        	 //1是add，0是update
 		        	 var isAdd = 0;
 		        	 if(!power){
 		        		 isAdd = 1;
 		        	 }
-		        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" class="borderRight" onclick="signClick('+data[i].ID+');">'+
+		        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'+
 						'<td class="w180" value="'+data[i].NAME+'">'+data[i].NAME+'</td>'+
 						'<td class="w180" value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'+
 						'<td class="w180">'+data[i].E_MAIL+'</td>'+
@@ -1304,7 +1304,6 @@
 		         }
 		    	 $("#table1 tr[name='powerData']").remove();
 		         $('#table1').append($(tablestr));
-				 goPage(1, 10, 'table1', 'barcon1');
 		      },
 		      error : function() {
 		           alert("异常！");
@@ -1423,7 +1422,7 @@
 //        var detailId=300;
         var str='';
         $.ajax({
-                url:urlId+'/selectValueAndTableByConIds'+'?conId='+detailId+'&flowId='+flowId,
+                url:urlId+'/selectValueAndTableByConId'+'?conId='+detailId+'&flowId='+flowId,
 //            url:'../../json/selectValueAndTableByConId.json',
             type:'POST',
             dataType:"json",
