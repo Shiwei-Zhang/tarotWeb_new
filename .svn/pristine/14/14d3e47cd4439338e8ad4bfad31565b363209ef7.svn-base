@@ -91,6 +91,7 @@
 	            	level = 1;
 	            	var sourceids = new Array();
 		        	data = {"sourceids":sourceids,"level":level,"pk":pk,"sql":"","isSave":0,"isInterface":0,"isDebug":0,"alias":alias,"flowid":flowid,"sourceid":"","subMind":"","columns":"","params":"","line_color":line_color};
+    	        	var sourceids = new Array();
     	        	var index = target_node.index;
     	        	var node = this.jm.add_node(target_node.parent, nodeid, topic,data,index);
     	        	logic_node_num++;
@@ -121,7 +122,6 @@
             	    });
             		var newnodeid = jsMind.util.uuid.newid();
             		var level = 3;
-            		var subAlias = 'c'+column_alias_num;
         			var line_color = this.jm.options.view.line_color;
         			var topic2 = $('#jmnodeModel').html();
     	        	var level2 = $('#jmnodeModel').attr('level');
@@ -131,12 +131,10 @@
             			jqueryDom.css('visibility','hidden');
             			var topic = $(this).attr('textValue');
             			var fk = 0;
-            			var data = {"fk":fk,"level":level,"sql":"","constantValue":"0","subAlias":subAlias,"line_color":line_color};
+            			var data = {"fk":fk,"level":level,"sql":"","constantValue":"0","subAlias":"","line_color":line_color};
                     	var newnode = jd.add_node(target_node.parent, newnodeid, topic,data,target_node.index);
-                    	column_alias_num++;
                     	//创建新节点
-                    	var subAlias2 = 'c'+column_alias_num;
-        	        	var data2 = {"fk":fk2,"level":level2,"sql":topic2,"constantValue":"0","subAlias":subAlias2,"line_color":line_color};
+        	        	var data2 = {"fk":fk2,"level":level2,"sql":topic,"constantValue":"0","subAlias":"","line_color":line_color};
         	        	var node = jd.add_node(newnode, nodeid2, topic2,data2);
         	        	//把目标节点移到父节点上
         	        	jd.move_node(target_node.id, beforeid, newnodeid, "-1");
@@ -257,7 +255,7 @@
 	  	                if(flag){
 	  	                    //在这里对磁铁吸引进行判断
 	  	                    if(target_node.data.level==2||target_node.data.level==4){
-	  	                    	alert("不能在该节点添加子节点！");
+	  	                    	alert("哦哦");
 	  	                    }else{
 	  	                    	  var topic = $('#jmnodeModel').html();
 	  	                    	  var level = $('#jmnodeModel').attr('level');
@@ -268,15 +266,13 @@
 	  		      				  var pk = jsMind.util.uuid.newid();
 	  		      				  var nodeid = jsMind.util.uuid.newid();
 	  		      				  var alias = 't'+table_alias_num;
-	  		      				  var subAlias = 'c'+column_alias_num;
 	  		      				  var data;
 	  		      				  if(jd.container=="jsmind_container"){
 	  		      					  //拖进来的节点一定是底层节点，所以不用sourceids
 	  		      					  data = {"level":level,"pk":pk,"sql":"","isSave":0,"isInterface":0,"isDebug":0,"alias":alias,"flowid":flowid,"sourceid":sourceid,"subMind":"","columns":"","params":"","line_color":line_color};
 	  		      					  table_alias_num++;
 	  		      				  }else{
-	  		      					  data = {"fk":fk,"level":level,"sql":topic,"constantValue":"0","subAlias":subAlias,"line_color":line_color};
-	  		      					  column_alias_num++;
+	  		      					  data = {"fk":fk,"level":level,"sql":topic,"constantValue":"0","subAlias":"","line_color":line_color};
 	  		      				  }
 	  		      				  //如果父节点没有子节点则用add_node，否则用insert_node_before
 	  		      				  if(node_before){

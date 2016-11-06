@@ -528,7 +528,7 @@ function searchItem2(){
 }
 
 function goDatasource(userId,content){
-	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1,.power-detail').hide();
+	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1').hide();
     $('.dataManager,.center-table2').show();
     $('.task,#manag').hide();
 

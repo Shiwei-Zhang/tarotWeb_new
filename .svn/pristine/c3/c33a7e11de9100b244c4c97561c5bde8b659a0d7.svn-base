@@ -8,7 +8,7 @@ var powerEnum2 = ["0b10","0b01"];
 var maxPower2 = "0b11";
 var dbtype;
 var detailId;
-var interfaceName=[];
+var interfaceName;
 var flowIdName;
 $(function(){
     $('.paramMain:before').click(function () {
@@ -119,12 +119,10 @@ $(function(){
     //数据源
     function getSelectValue(){
         //单选
-        var singleCheckeds;
         $('.mainList1').find('.singleChecked').next().each(
             function(index,item){
-                //console.log($(item).html());
-                singleCheckeds=$(item).html();
-                interfaceName.push(singleCheckeds)
+                console.log($(item).html());
+                interfaceName=$(item).html()
             })
     };
 
@@ -226,9 +224,6 @@ $(function(){
     
     $('.add4').off('click').click(function () {
         getDataAdd4();
-
-        //mainEvent置空
-        $('.mainEvent').empty();
         //console.log('add4');
         $('.add4Event').show().find('.add4NavEvent li').click(function () {
             $(this).addClass('bg').siblings('li').removeClass('bg');
@@ -373,10 +368,11 @@ $(function(){
     //目录管理点击事件
     $('.man1').click(function () {
         $('.module-data,.dataManager').hide();
-        $('.module-data-navigation,.module-manager,.content').show();
+        $('.module-data-navigation,.module-manager').show();
         refreshMenu(refreshEnum[1]);
         $('.manager-bodyer,.center-table1').show();
         $('.center-table2,.power-detail,.task,#manag').hide();
+        goPage(1, 10, 'table1', 'barcon1');
     });
 
 	//数据连接管理
@@ -528,7 +524,7 @@ function searchItem2(){
 }
 
 function goDatasource(userId,content){
-	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1,.power-detail').hide();
+	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1').hide();
     $('.dataManager,.center-table2').show();
     $('.task,#manag').hide();
 
@@ -558,7 +554,7 @@ function goDatasource(userId,content){
 				}
 
 				console.log(data[i].updateTime+"**********"+updateTime);
-				$('#table2').append('<tr name="powerData" class="borderRight"><td>'+data[i].sourceType+'</td><td value="'+data[i].name+'">'+data[i].name+'</td><td>'
+				$('#table2').append('<tr name="powerData"><td>'+data[i].sourceType+'</td><td value="'+data[i].name+'">'+data[i].name+'</td><td>'
 						+data[i].ip+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
 						+'<td class="w100"><span class="presh"><span class="mark"/></span>'
 						+'<div class="task"><div class="look" data-id=' + data[i].id +' data-name='+data[i].name+ '>查看</div>'
@@ -911,10 +907,10 @@ function interfaceNames(){
 			console.log(data)
 			if(data==true){
 				$('.partN input').css('border-color','green')
-				$('.sureEvent').removeClass('disabled');
+				$('.sureEvent').show();
 			}else{
 				$('.partN input').css('border-color','red')
-				$('.sureEvent').addClass('disabled');
+				$('.sureEvent').hide();
 			}
 		}
 	});

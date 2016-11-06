@@ -1467,7 +1467,7 @@
 			source_entity.enumCode="sourcetable";
 			source_entity.value=item;
 			arr.push(source_entity);
-		});
+		})
 
         $.ajax({
             url:urlId+'/addSourceDataAndAll',
@@ -1481,7 +1481,6 @@
         }),
 
         success:function(data) {
-			console.log(data);
             bindSourceData(data,flowIdName);
 			initDragable();
         },
@@ -1513,14 +1512,14 @@
 		});
 	}
     function bindSourceData(data,flowIdName){
+        var tableName=data.tableName;
+        var sourceDataId=data.sourceDataId;
         var line_color = _jm1.options.view.line_color;
-        var data_str;
-		$.each(data,function(index,item){
-			data_str += "<p textValue = '"+item.tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+item.sourceDataId+"' line_color='"+line_color+"' class='draggable'>"+item.tableName+"</p>";
-			console.log(data_str)
-			tableColumnsMap.put(item.sourceDataId,item.columns);
-		});
-        $('.dt_conL').append($(data_str));
+        var data_obj = $(
+				"<p textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='"+line_color+"' class='draggable'>"+tableName+"</p>"
+        );
+        $('.dt_conL').append(data_obj);
+		tableColumnsMap.put(sourceDataId,data.columns);
     }
 
 	function getSelectAllFlowId(flowIdName){
@@ -1530,7 +1529,7 @@
 			dataType:"json",
 			contentType: "application/json",
 			success:function(data) {
-				//console.log(data);
+				console.log(data);
 				bindSourceData1(data,flowIdName);
 				initDragable();
 			},
@@ -1555,7 +1554,6 @@
 		$(data.sourceData).each(function(index,item){
 			//console.log(item)
 			tableName=item.tableName;
-			//console.log(item)
 			sourceDataId=item.sourceDataId;
 			dataConnectionName=item.dataConnectionName;
 			data_obj = $(

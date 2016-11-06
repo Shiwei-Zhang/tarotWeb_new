@@ -154,20 +154,20 @@
 												</div>
 												<div class="dt_con">
 													<div class="col_con" style="display: none;">
-														<!-- <p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
+														<p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
 					                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
 					                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
 					                                    <p jmType = "2" textValue = "value" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">value</p>
 					                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
-					                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p> -->
+					                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p>
 													</div>
 													<div class="syb_con">
-														<!-- <p fk = "0" textValue = "?+?" level="3" class="draggable">加</p>
-				                                    	<p fk = "0" textValue = "?-?" level="3" class="draggable">减</p>
-				                                    	<p fk = "0" textValue = "?*?" level="3" class="draggable">乘</p>
-				                                    	<p fk = "0" textValue = "?/?" level="3" class="draggable">除</p>
-				                                    	<p fk = "0" textValue = "sin(?)" level="3" class="draggable">sin</p>
-				                                    	<p fk = "0" textValue = "cos(?)" level="3" class="draggable">cos</p> -->
+														<p jmType = "2" textValue = "?+?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">加</p>
+				                                    	<p jmType = "2" textValue = "?-?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">减</p>
+				                                    	<p jmType = "2" textValue = "?*?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">乘</p>
+				                                    	<p jmType = "2" textValue = "?/?" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">除</p>
+				                                    	<p jmType = "2" textValue = "sin(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sin</p>
+				                                    	<p jmType = "2" textValue = "cos(?)" level="3" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">cos</p>
 													</div>
 												</div>
 											</div>
@@ -347,7 +347,7 @@
 								</div>
 							</div>
 
-							<div class="prop bbtm new_column_name">
+							<div class="prop bbtm">
 								<span>Columnname as</span> <input type="text"
 									placeholder="new column name" class="col">
 							</div>
@@ -1467,7 +1467,7 @@
 			source_entity.enumCode="sourcetable";
 			source_entity.value=item;
 			arr.push(source_entity);
-		});
+		})
 
         $.ajax({
             url:urlId+'/addSourceDataAndAll',
@@ -1481,7 +1481,6 @@
         }),
 
         success:function(data) {
-			console.log(data);
             bindSourceData(data,flowIdName);
 			initDragable();
         },
@@ -1499,28 +1498,28 @@
 			cursor: "move",
 			cursorAt: { top: 5, left: 5 },
 			helper: function( event ) {
-				var fk = event.target.getAttribute('fk');
 				var textValue = event.target.getAttribute('textValue');
+				var jmType = event.target.getAttribute('jmType');
 				var level = event.target.getAttribute('level');
 				var flowid = event.target.getAttribute('flowid');
 				var sourceid = event.target.getAttribute('sourceid');
-				var line_color = _jm1.options.view.line_color;
-				if(level=='3'||level=='4'||level=='5'){
-					line_color = _jm2.options.view.line_color;
+				var line_color = event.target.getAttribute('line_color');
+				var border_color = "#0080ff;";
+				if(jmType=='2'){
+					border_color = "#1abc9c;";
 				}
-				return $( "<jmnode id='jmnodeModel' style='border-color:"+line_color+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
+				return $( "<jmnode id='jmnodeModel' style='border-color:"+border_color+"' jm ='"+jmType+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
 			}
 		});
 	}
     function bindSourceData(data,flowIdName){
-        var line_color = _jm1.options.view.line_color;
-        var data_str;
-		$.each(data,function(index,item){
-			data_str += "<p textValue = '"+item.tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+item.sourceDataId+"' line_color='"+line_color+"' class='draggable'>"+item.tableName+"</p>";
-			console.log(data_str)
-			tableColumnsMap.put(item.sourceDataId,item.columns);
-		});
-        $('.dt_conL').append($(data_str));
+        var tableName=data.tableName;
+        var sourceDataId=data.sourceDataId;
+        var data_obj = $(//TODO
+				"<p jmType = '1' textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='#0080ff' class='draggable'>"+tableName+"</p>"
+        );
+        $('.dt_conL').append(data_obj);
+		tableColumnsMap.put(sourceDataId,data.columns);
     }
 
 	function getSelectAllFlowId(flowIdName){
@@ -1530,7 +1529,7 @@
 			dataType:"json",
 			contentType: "application/json",
 			success:function(data) {
-				//console.log(data);
+				console.log(data);
 				bindSourceData1(data,flowIdName);
 				initDragable();
 			},
@@ -1550,45 +1549,19 @@
 		var tableName;
 		var sourceDataId;
 		var data_obj;
-		var line_color = _jm1.options.view.line_color;
 		$('.dt_conL').empty();
 		$(data.sourceData).each(function(index,item){
 			//console.log(item)
 			tableName=item.tableName;
-			//console.log(item)
 			sourceDataId=item.sourceDataId;
 			dataConnectionName=item.dataConnectionName;
 			data_obj = $(
-					"<p textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='"+line_color+"' class='draggable'>"+tableName+"</p>"
+					"<p jmType = '1' textValue = '"+tableName+"' level='2' flowId='"+flowIdName+"' sourceId='"+sourceDataId+"' line_color='#0080ff' class='draggable'>"+tableName+"</p>"
 			);
 			$('.dt_conL').append(data_obj);
 			tableColumnsMap.put(sourceDataId,item.columns);
-		});
-		//初始化.syb_con和#showTip_jsmind_container2
-		var functionsList = data.functionsList;
-		var functionName = null;
-		var formula = null;
-		var placeholders = null;
-		var parameters = null;
-		var str = null;
-		var sysdoms = "";
-		$(functionsList).each(function(index,item){
-			functionName = item.name;
-			parameters = item.parameter;
-			placeholders=new Array();
-			$(parameters).each(function(index,item){
-				placeholders[index] = "?";
-			});
-			if(item.fixed==0){
-				placeholders[parameters.length-1] = "...";
-			}
-			str = placeholders.join().replace(/\"/g,"");
-			formula = functionName+"("+str+")"; 
-			var sysdom = '<p fk = "0" sql = "'+formula+'" textValue = "'+formula+'" level="3" class="draggable">'+formula+'</p>';
-			sysdoms+=sysdom;
-		});
-		$('.syb_con').html($(sysdoms));
-		$('#showTip_jsmind_container2').html($(sysdoms));
+		})
+		//$('.dt_conL').append(data_obj)
 	}
 
 

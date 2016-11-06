@@ -360,8 +360,7 @@
                 var topic = 'logic_node'+logic_node_num;
                 var alias = 't'+table_alias_num;
             	var pk = jsMind.util.uuid.newid();
-            	var sourceids = new Array();
-            	var data = {"sourceids":sourceids,"level":level,"pk":pk,"sql":"","isSave":0,"isInterface":0,"isDebug":0,"alias":alias,"flowid":flowid,"sourceid":"","subMind":"","columns":"","params":"","line_color":line_color};
+            	var data = {"level":level,"pk":pk,"sql":"","isSave":0,"isInterface":0,"isDebug":0,"alias":alias,"flowid":flowid,"sourceid":"","subMind":"","columns":"","params":"","line_color":line_color};
             	var index = target_node.index;
             	var nodeid = jsMind.util.uuid.newid();
             	var node = this.jm.add_node(target_node.parent, nodeid, topic,data,index);
@@ -388,16 +387,14 @@
         		var newnodeid = jsMind.util.uuid.newid();
         		var level = 3;
     			var line_color = jd.options.view.line_color;
-    			var subAlias = 'c'+column_alias_num;
     			var topic2 = $('#jmnodeModel').html();
 	        	var level2 = $('#jmnodeModel').attr('level');
 	        	var nodeid2 = jsMind.util.uuid.newid();
         		jqueryDom.find('p').unbind('click').click(function(){
         			jqueryDom.css('visibility','hidden');
         			var topic = $(this).attr('textValue');
-        			var data = {"level":level,"sql":"","subAlias":subAlias,"line_color":line_color};
+        			var data = {"level":level,"sql":"","subAlias":"","line_color":line_color};
                 	var newnode = jd.add_node(target_node.parent, newnodeid, topic,data,target_node.index);
-                	column_alias_num++;
                 	//把目标节点移到父节点上
                 	jd.move_node(target_node.id, "_first_", newnodeid, "-1");
                 	//把选中节点移到父节点上
@@ -439,26 +436,10 @@
                 if(flag){
                 	if(!!node_before){beforeid = node_before.id;}
                     //在这里对磁铁吸引进行判断
-                	if(target_node.data.level==2||target_node.data.level==4){
-                    	alert("不能在该节点添加子节点！");
+                    if(target_node.data.level==2){
+                    	alert("哦哦");
                     }else{
                     	this.jm.move_node(src_node.id, beforeid, target_node.id, target_direct);
-                    	//以下操作保证了移动transentity后，与是否出参保持一致
-                    	if(this.jm.options.container=="jsmind_container2"){
-                    		if(src_node.parent.isroot){
-        						$('.new_column_name').show();
-        						$('.new_constant_value').hide();
-        						if(src_node.data.level==5){
-        							$('.new_constant_value').show();
-        						}
-                    		}else{
-                    			$('.new_column_name').hide();
-        						$('.new_constant_value').hide();
-        						if(src_node.data.level==5){
-        							$('.new_constant_value').show();
-        						}
-                    		}
-                    	}
                     }
                 }else{
                 	$("jmnode").removeClass("intro");

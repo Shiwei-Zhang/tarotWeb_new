@@ -81,16 +81,17 @@
     // core object
     var jm = function(options){
         jm.current = this;
+
         this.version = __version__;
-        /*注解该部份代码，是为了防止view属性被覆盖。传入的options需要是完整的options对象   modified by tyd*/
-        //var opts = {};
-        //jm.util.json.merge(opts, DEFAULT_OPTIONS);
-        //jm.util.json.merge(opts, options);
-        //if(opts.container == null || opts.container.length == 0){
-        //    logger.error('the options.container should not be empty.');
-        //    return;
-        //}
-        this.options = options;
+        var opts = {};
+        jm.util.json.merge(opts, DEFAULT_OPTIONS);
+        jm.util.json.merge(opts, options);
+
+        if(opts.container == null || opts.container.length == 0){
+            logger.error('the options.container should not be empty.');
+            return;
+        }
+        this.options = opts;
         this.inited = false;
         this.mind = null;
         this.event_handles = [];
@@ -1047,6 +1048,7 @@
             this.inited = true;
 
             var opts = this.options;
+
             var opts_layout = {
                 mode:opts.mode,
                 hspace:opts.layout.hspace,
@@ -1233,15 +1235,12 @@
     		var newnodeid = jsMind.util.uuid.newid();
     		var level = 3;
 			var line_color = this.options.view.line_color;
-			var subAlias = 'c'+column_alias_num;
     		$('#showTip_'+this.options.container+' p').unbind('click').click(function(){
     			jqueryDom.css('visibility','hidden');
     			var topic = $(this).attr('textValue');
     			var fk = 0;
-    			var subAlias = 'c'+column_alias_num;
-    			var data = {"fk":fk,"level":level,"sql":topic,"constantValue":"0","subAlias":subAlias,"line_color":line_color};
+    			var data = {"fk":fk,"level":level,"sql":topic,"constantValue":"0","subAlias":topic,"line_color":line_color};
             	var node = jd.add_node(selected_node.parent, newnodeid, topic,data,selected_node.index);
-            	column_alias_num++;
             	//把选中节点移到父节点上
             	jd.move_node(selected_node.id, "_last_", node.id, "-1");
             	jd.select_node(newnodeid);
@@ -1590,7 +1589,6 @@
         loop_remove_node:function(node){
         	var jd = this;
         	var pk = node.data.pk;
-        	var parentnode = node.parent;
         	var dataArray = subtreeMap.get(pk).data;
         	$.grep( dataArray, function(n,i){
     			   if(n.parentid==pk){
@@ -1631,7 +1629,7 @@
         		var jd = this;
         		var pk =parentnode.data.pk;
         		var grand = parentnode.parent;
-        		var dataArray = subtreeMap.get(pk).data;
+        		var dataArray = subtreeMap.get(parentnode.data.pk).data;
         		var newArray = $.grep( dataArray, function(n,i){
         			   if(n.parentid==pk){
         				   //循环:这里循环删除params
@@ -1640,7 +1638,7 @@
         			   }
         			   return n.fk!=nodeid;
         			 });
-        		subtreeMap.get(pk).data = newArray;
+        		subtreeMap.get(parentnode.data.pk).data = newArray;
         	}
         },
         //在父节点的paramsMap中删除相应的params
@@ -2551,12 +2549,10 @@
 					$('.dt_d .col_con').html("");
 					var col_con_doms = "";
 					var columndoms="";
-					var line_color = _jm2.options.view.line_color;
 					$.each(columnArray, function(index, item){
-						var dom = "<p fk = '"+item.fk+"' textValue = '"+item.name+"' level='4' line_color='"+line_color+"' class='draggable'>"+item.name+"</p>";							
+						var dom = "<p fk = '"+item.fk+"' textValue = '"+item.name+"' level='4' line_color='#1abc9c' class='draggable'>"+item.name+"</p>";							
 						col_con_doms+=dom;
-						var optionvalue = item.fk||item.name;
-						var dom2 = '<option value="'+optionvalue+'">'+item.name+'</option>'; 
+						var dom2 = '<option value="'+item.fk+'">'+item.name+'</option>'; 
 						columndoms+=dom2;
 					});
 					$('.dt_d .col_con').append($(col_con_doms));
@@ -2640,10 +2636,11 @@
 				}else if(node.data.level=="3"||node.data.level=="4"||node.data.level=="5"){
 					_jm1.deleteflag=false;
 					_jm2.deleteflag=true;
+					//每次都清除一下主树的选中点，不改变式样的清除选中点，确保快捷键能正常使用
 					//if(this.selected_node&&this.selected_node!=node){	
 					if(selected_node){
 						if(selected_node.parent.isroot){
-							//保存columnName
+							//保存tableName
 							var columnName = "";
 							columnName = $('.new_column_name input').val();
 							selected_node.data.subAlias = columnName;
@@ -2657,12 +2654,12 @@
 					}
 					
 					/**********************以上是存储的操作，以下是查询展现的操作*******************************/
-					var columnNameNew = "";
-					columnNameNew = node.data.subAlias;
-					$('.new_column_name input').val(columnNameNew);
-					$('.new_column_name span').html(node.topic+' as ');
 					if(node.parent.isroot){
 						//初始化tableName
+						var columnNameNew = "";
+						columnNameNew = node.data.subAlias;
+						$('.new_column_name input').val(columnNameNew);
+						$('.new_column_name span').html(node.topic+' as ');
 						$('.new_column_name').show();
 						$('.new_constant_value').hide();
 						if(node.data.level==5){
