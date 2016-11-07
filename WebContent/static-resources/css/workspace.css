@@ -1242,7 +1242,7 @@ ul.root_tree li div {
 }
 .stream-con .part,.conList .part{
     max-height: 410px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .stream-con .part li,.provide .listPart li,.conList .part li{
     height: 40px;
@@ -1256,6 +1256,54 @@ ul.root_tree li div {
 .stream-con .part li:active,.provide .listPart li:active,.conList .part li:active{
     background: #CCEBF8;
 }
+.listConment .nameL{
+    float: left;
+}
+.listConment .nameR{
+    float: right;
+    margin-right:38px;
+}
+.listConment li{
+    position: relative;
+}
+.listConment .iconDown{
+    position: absolute;
+    top: 17px;
+    right: 12px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border: 8px solid transparent;
+    border-top-color: #000;
+}
+
+
+.listConment .nodeList{
+    display: none;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    z-index: 10;
+    background: #fff;
+    width: 100%;
+}
+.listConment .nodeList li{
+    height: 25px;
+    line-height: 25px;
+}
+/*.listConment .iconDown:after{
+    position: absolute;
+    top: -10px;
+    left: -13px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    content: '';
+    display: inline-block;
+    border: 10px solid transparent;
+    border-top-color: #FFF;
+}*/
+
 .stream-con p,.con-right p{
     position: absolute;
     width: 60px;

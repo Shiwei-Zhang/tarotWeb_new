@@ -416,6 +416,23 @@ $(function(){
 
 
 
+
+
+//control 页面
+
+$('.contentEvent').unbind().click(function(e){
+    e = e || window.event;
+    var tar = e.target || e.srcElement;
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('iconDownEvent')) {
+       console.log('ok');
+        $(tar).prev().show()
+    }else {
+        $('.nodeListEvent').hide()
+    }
+
+});
+
+
 //下拉框变化显示不同table
 
 function show_detail(obj){
