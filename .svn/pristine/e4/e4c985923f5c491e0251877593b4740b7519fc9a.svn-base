@@ -754,52 +754,15 @@
 
 
 	<!--listSet start-->
-	<div class="columnSet columnSetEvent" style="display: none">
+	<div class="columnSet" style="display: none">
 		<div class="columnSet_T clearFix">
 			<span class="columnTleft">列设置</span>
 			<span class="columnTclose"><i class="closeA"></i></span>
 		</div>
 		<div class="columnSet_C">
-			<table class="tableContainer tableContainerEvent" cellspacing="0">
-				<tr class="contentTitle">
-					<th>is save</th>
-					<th>name</th>
-					<th>pk</th>
-					<th>type</th>
-					<th>length</th>
-					<th>precision</th>
-					<th>scale</th>
-					<th>nullable</th>
-					<th>description</th>
-				</tr>
-				<tr><td><i class="single"></i></td><td contenteditable="true">January</td><td><i class="single"></i></td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td><i class="single"></i></td><td contenteditable="true">January</td></tr>
-				<tr>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-				</tr>
-				<tr>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-				</tr>
+			<table>
+				t
 			</table>
-		</div>
-		<div class="columnSet_B clearFix">
-			<span class="sureC">确定</span>
-			<span class="closeC">取消</span>
 		</div>
 	</div>
 	<!--listSet end-->
@@ -848,8 +811,10 @@
 							</ul>
 						</li>
 						<li class="mapList clearFix">
-							<span class="bi-error" style="display: none">错误信息错误信息错误信息错误信息</span>
-							<p class="saveBtn">
+							<p>
+								<span class="error-tip"></span>
+							</p>
+							<p>
 								<span class="bi-reset">重置</span> 
 								<span class="clicked bi-generator">生成</span>
 							</p>
@@ -1179,7 +1144,7 @@
     var dataConnectionName;
     
     //TODO deleting 
-//    urlId = 'http://localhost:800/';
+    urlId = 'http://localhost:800/';
     
     //初始化目录
     $(function(){
@@ -1834,6 +1799,12 @@
 <script src="../../static-resources/js/echarts/theme/macarons.js"></script>
 <script src="../../static-resources/js/echarts/theme/roma.js"></script>
 <script src="../../static-resources/js/echarts/theme/vintage.js"></script>
-
+<script src="../../static-resources/js/echarts/theme/chalk.js"></script>
+<script src="../../static-resources/js/echarts/theme/essos.js"></script>
+<script src="../../static-resources/js/echarts/theme/halloween.js"></script>
+<script src="../../static-resources/js/echarts/theme/purple-passion.js"></script>
+<script src="../../static-resources/js/echarts/theme/walden.js"></script>
+<script src="../../static-resources/js/echarts/theme/westeros.js"></script>
+<script src="../../static-resources/js/echarts/theme/wonderland.js"></script>
 </body>
 </html>

@@ -2924,7 +2924,6 @@ button, input, select {
 }
 .columnSet_C .tableContainer{
     width:97%;
-    max-height: 490px;
     margin: 20px;
     border-collapse:collapse;
     border: 1px solid #ddd;

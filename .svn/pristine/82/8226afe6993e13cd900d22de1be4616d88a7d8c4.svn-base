@@ -215,9 +215,7 @@
 						<div class="module-prop">
 							<div class="title">属性</div>
 							<div class="prop new_table_name">
-								<span>Tablename</span>
-								<span>as</span>
-								<span> <input type="text"
+								<span>Tablename as</span> <span> <input type="text"
 									placeholder="new table name">
 								</span>
 							</div>
@@ -350,9 +348,8 @@
 							</div>
 
 							<div class="prop bbtm new_column_name">
-								<span>Columnname</span>
-								<span>as</span>
-								<input type="text" placeholder="new column name" class="col">
+								<span>Columnname as</span> <input type="text"
+									placeholder="new column name" class="col">
 							</div>
 
 							<div class="btn">
@@ -368,6 +365,16 @@
 							<p class="showbiData">+ 添加图表</p>
 							<div class="bi-chart-list bicharlistStyle">
 							</div>
+							<!--画布四周缩放按钮-->
+							<div class="fullScreen"></div>
+							<div class="rotateIcon"></div>
+							<div class="zoomIcon"></div>
+							<div class="dubblePart">
+								<span class="deleteIcon"></span>
+								<span class="copyIcon"></span>
+								<span class="jtIcon"></span>
+							</div>
+							<div class="dragIcons"></div>
 						</div>
 						<div class="line_fun line_active"></div>
 						<div class="biContainer bi-template-container biContainerStyle">
@@ -378,15 +385,6 @@
 								<li>预览</li>
 								<li class="bi-template-save">保存</li>
 							</ul>
-						</div>
-						<!--画布四周缩放按钮-->
-						<div class="fullScreen bi-chart-edit" style="display:none;"></div>
-						<div class="rotateIcon" style="display:none;"></div>
-						<div class="zoomIcon"  style="display:none;"></div>
-						<div class="dubblePart bi-chart-delete" style="display:none;">
-							<!-- <span class="deleteIcon"></span> -->
-							<span class="copyIcon"></span>
-							<span class="jtIcon"></span>
 						</div>
 					</div>
 					<!--BI end-->
@@ -754,52 +752,15 @@
 
 
 	<!--listSet start-->
-	<div class="columnSet columnSetEvent" style="display: none">
+	<div class="columnSet" style="display: none">
 		<div class="columnSet_T clearFix">
 			<span class="columnTleft">列设置</span>
 			<span class="columnTclose"><i class="closeA"></i></span>
 		</div>
 		<div class="columnSet_C">
-			<table class="tableContainer tableContainerEvent" cellspacing="0">
-				<tr class="contentTitle">
-					<th>is save</th>
-					<th>name</th>
-					<th>pk</th>
-					<th>type</th>
-					<th>length</th>
-					<th>precision</th>
-					<th>scale</th>
-					<th>nullable</th>
-					<th>description</th>
-				</tr>
-				<tr><td><i class="single"></i></td><td contenteditable="true">January</td><td><i class="single"></i></td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td><i class="single"></i></td><td contenteditable="true">January</td></tr>
-				<tr>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-				</tr>
-				<tr>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td>January</td>
-					<td><i class="single"></i></td>
-					<td>January</td>
-				</tr>
+			<table>
+				t
 			</table>
-		</div>
-		<div class="columnSet_B clearFix">
-			<span class="sureC">确定</span>
-			<span class="closeC">取消</span>
 		</div>
 	</div>
 	<!--listSet end-->
@@ -821,7 +782,7 @@
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
-			<span>数据分析</span> <i class="closeA closeR bi-close1"></i>
+			<span>数据分析</span> <i class="closeA closeR"></i>
 		</div>
 		<div class="biData-C clearFix">
 			<div class="biDataC">
@@ -848,8 +809,7 @@
 							</ul>
 						</li>
 						<li class="mapList clearFix">
-							<span class="bi-error" style="display: none">错误信息错误信息错误信息错误信息</span>
-							<p class="saveBtn">
+							<p>
 								<span class="bi-reset">重置</span> 
 								<span class="clicked bi-generator">生成</span>
 							</p>
@@ -998,14 +958,6 @@
 		            				<option value="macarons">macarons</option>
 		            				<option value="roma">roma</option>
 		            				<option value="vintage">vintage</option>
-		            				
-		            				<option value="chalk">chalk</option>
-		            				<option value="essos">essos</option>
-		            				<option value="halloween">halloween</option>
-		            				<option value="purple-passion">purple-passion</option>
-		            				<option value="walden">walden</option>
-		            				<option value="westeros">westeros</option>
-		            				<option value="wonderland">wonderland</option>
 		            			</select>
 							</li>
 						</ul>

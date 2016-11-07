@@ -335,67 +335,10 @@ $(function(){
         addTargetRecord();
     });
 
-
-
-
-
     //target layer --start
     $('.table_name').on("keyup", function(){
         $('.name_list ul li.selected').children().text($(this).val());
     });
-
-    //columnSet 列设置
-    $('.setting_col').on('click',function(){
-        $('.columnSetEvent,.mask').show();
-
-        //TODO
-        /*var str='';
-        $.ajax({
-            url: '',
-            type:'POST',
-            dataType:"json",
-            success:function(data) {
-                $(data).each(function(index,item){
-                    str+='<tr><td><i class="single"></i></td><td contenteditable="true"></td><td><i class="single"></i></td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td><i class="single"></i></td><td contenteditable="true">January</td></tr>';
-                });
-                $('.tableContainerEvent').append($(str));
-            }
-            /!*error : function() {
-                alert("异常！");
-            }*!/
-        });*/
-
-        $('.columnSetEvent .single').unbind('click').click(function (e) {
-            e = e || window.event;
-            var tar = e.target || e.srcElement;
-            if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('single')) {
-                if ($(tar).hasClass('singleChecked')) {
-                    $(tar).removeClass('singleChecked');
-                } else {
-                    $(tar).addClass('singleChecked')
-                }
-            }
-        });
-
-
-
-        $('.columnSetEvent .closeA,.columnSetEvent .closeC').on('click',function(){
-            $('.columnSetEvent').hide();
-        });
-        $('.columnSetEvent .sureC').on('click',function(){
-            $('.columnSetEvent').find('.singleChecked').each(function(){
-
-            });
-            //TODO
-
-
-
-        })
-    });
-
-
-
-
     $('.tl_header .close, .btn_group input:eq(0)').on('click', function(event){
         $('.target_layer').hide();
         $('.mask').hide();
@@ -541,9 +484,6 @@ $(function(){
         console.log('target...');
         targetObjs = $('.target label');
         $('.name_list ul').empty();
-        $('#sjlj').val('');
-        $('#ms').val('请选择模式');
-
         for(var i=0; i < targetObjs.length; i++){
             $('.name_list ul').append($('<li><a>'+ targetObjs[i].innerHTML + '</a></li>'));
         }
@@ -570,6 +510,8 @@ $(function(){
                 for(var i=0;i<data.length;i++){
                     $('#sjlj').append("<option value="+data[i].id+">"+data[i].name+"</option>")
                 }
+                //alert(data);
+
             }
         });
 

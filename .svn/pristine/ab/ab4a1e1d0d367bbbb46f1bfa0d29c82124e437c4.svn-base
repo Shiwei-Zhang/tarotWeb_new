@@ -1006,17 +1006,6 @@ ul.root_tree li div {
     height: 30px;
     line-height: 30px;
 }
-
-
-.bi-error{
-    float: left;
-    width: 368px;
-    color: red;
-    height: 26px;
-    margin-left: 58px;
-    line-height: 26px;
-}
-
 .CmainList li span{
     display: inline-block;
     /*width: 100px;*/
@@ -2910,65 +2899,12 @@ button, input, select {
 .columnSet_T .columnTclose i{
     display: inline-block;
 }
-.tableContainer{
-    box-sizing: content-box;
-}
-.tableContainer tr th,.tableContainer tr td{
-    height: 36px;
-}
-.tableContainer tr td{
-    padding-left:20px;
-}
 .columnSet_C{
-    height: 496px;
-}
-.columnSet_C .tableContainer{
-    width:97%;
-    max-height: 490px;
-    margin: 20px;
-    border-collapse:collapse;
-    border: 1px solid #ddd;
 
 }
 
-.tableContainer tr td{
-    border:1px solid #ddd;
-}
-.columnSet_C .tableContainer .contentTitle{
-    border-bottom: 1px solid #8c8c8c !important;
-    background: #f9f9f9;
-}
-.columnSet_B{
-    height: 55px;
-    border-top:1px solid #e6e6e6;
-}
-.columnSet_B span{
-    float: right;
-    width: 70px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: 11px;
-    cursor: pointer;
-}
-.columnSet_B span.closeC{
-    color: #767676;
-    border:2px solid #767676;
-}
-.columnSet_B span.sureC{
-    color: #55afe1;;
-    border:2px solid #55afe1;
-    margin-left: 20px;
-    margin-right: 20px;
-}
 
-
-
-
-
-    /*listSet end*/
+/*listSet end*/
 
 
 /*bi数据源选择 start*/
