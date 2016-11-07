@@ -483,6 +483,9 @@ $(function(){
         console.log('target...');
         targetObjs = $('.target label');
         $('.name_list ul').empty();
+        $('#sjlj').val('');
+        $('#ms').val('');
+
         for(var i=0; i < targetObjs.length; i++){
             $('.name_list ul').append($('<li><a>'+ targetObjs[i].innerHTML + '</a></li>'));
         }
@@ -509,8 +512,6 @@ $(function(){
                 for(var i=0;i<data.length;i++){
                     $('#sjlj').append("<option value="+data[i].id+">"+data[i].name+"</option>")
                 }
-                //alert(data);
-
             }
         });
 

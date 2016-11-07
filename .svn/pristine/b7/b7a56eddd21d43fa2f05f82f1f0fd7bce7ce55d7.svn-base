@@ -751,16 +751,9 @@
 
 
 	<!--listSet start-->
-	<div class="columnSet" style="display: none">
-		<div class="columnSet_T clearFix">
-			<span class="columnTleft">列设置</span>
-			<span class="columnTclose"><i class="closeA"></i></span>
-		</div>
-		<div class="columnSet_C">
-			<table>
-				t
-			</table>
-		</div>
+
+	<div class="listSet" style="display: none">
+
 	</div>
 	<!--listSet end-->
 
@@ -1074,7 +1067,7 @@
 					<tr>
 						<td class="title3">数据连接</td>
 						<td><select id="sjlj">
-								<option selected="selected">请选择数据连接</option>
+								<option>请选择数据连接</option>
 						</select></td>
 					</tr>
 					<tr>
@@ -1085,7 +1078,7 @@
 					<tr>
 						<td class="title3">模式</td>
 						<td><select id="ms">
-								<option selected="selected">请选择模式</option>
+								<option>请选择模式</option>
 								<option>none</option>
 								<option>append</option>
 								<option>overwrite</option>
@@ -1106,7 +1099,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="mask" style="display: none;"></div>
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 	<script
@@ -1740,22 +1732,17 @@
     var menuTypeEnum = [1,2,3,4,5];
     function savetargetok(){
         var tableName = $('#tableName').val();
-		tableName=tableName.replace(/(^ +)|( +$)/g,'');
         var sjlj = $('#sjlj').val();
         var ms = $('#ms').val();
         var nodeId = '1';
         var typeId = '14';
         var po = new Array();
         var obj1 = new Object();
+        obj1.savetable = tableName;
         var obj2 = new Object();
         obj2.mode = ms;
-		if(tableName!=''){
-			obj1.savetable = tableName;
-		}
-		if(sjlj!='请选择数据连接'&&ms!='请选择模式'){
-			po.push(obj1);
-			po.push(obj2);
-		}
+        po.push(obj1);
+        po.push(obj2);
         var jsonObj = new Object();
         jsonObj.saveArray = po;
         jsonObj.conId = sjlj;
