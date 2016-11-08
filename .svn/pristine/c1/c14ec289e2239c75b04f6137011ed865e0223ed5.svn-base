@@ -407,10 +407,10 @@
 					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display: none">
 
 						<!--content部分-->
-						<div class="content1 contentEvent">
+						<div class="content1">
 							<div class="stream">
 								<div class="con-title">
-									<span>流 / 挖掘组件</span> <i class="add3 add3Stream"></i>
+									<span>流 / 挖掘组件</span> <i class="add3"></i>
 								</div>
 								<div class="stream-con">
 									<ul class="part">
@@ -418,76 +418,44 @@
 										<li>精准营销 / Datamining</li>
 										<li>精准营销 / Flow3</li>
 									</ul>
-									<p class="streamTest">Test</p>
+									<p>Test</p>
 								</div>
-								<div class="add3-con add3EventOne" style="display: none">
+								<div class="add3-con">
 									<div class="addT">
 										<span>添加</span> <i class="closeA"></i>
 									</div>
-									<div class="addList addListEvent">
+									<div class="addList">
 										<div class="addRoot">
 											<p>
-												<i class="downIcon titleTip"></i><span>Root</span>
+												<i class="downIcon"></i><span>Root</span>
 											</p>
-											<div>
-												<div class="menu1">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu1</span>
-													</p>
-													<ul class="menu1List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-														<li>
-															<div class="menu1">
-																<p>
-																	<i class="downIcon titleTip"></i><span>Menu1</span>
-																</p>
-																<ul class="menu1List">
-																	<li><i class="single"></i><span>Flow1</span></li>
-																	<li><i class="single"></i><span>Flow2</span></li>
-																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																	<li><i class="single"></i><span>Flow4</span></li>
-																	<li><i class="single"></i><span>Flow5</span></li>
-																	<li><i class="single"></i><span>Flow6</span></li>
-																	<li>
-																		<div class="menu1">
-																			<p>
-																				<i class="downIcon titleTip"></i><span>Menu1</span>
-																			</p>
-																			<ul class="menu1List">
-																				<li><i class="single"></i><span>Flow1</span></li>
-																				<li><i class="single"></i><span>Flow2</span></li>
-																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																				<li><i class="single"></i><span>Flow4</span></li>
-																				<li><i class="single"></i><span>Flow5</span></li>
-																				<li><i class="single"></i><span>Flow6</span></li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-												<div class="menu2">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu2</span>
-													</p>
-													<ul class="menu2List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-													</ul>
-												</div>
+											<div class="menu1">
+												<p>
+													<i class="downIcon"></i><span>Menu1</span>
+												</p>
+												<ul class="menu1List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
 											</div>
+											<div class="menu2">
+												<p>
+													<i class="rightIcon"></i><span>Menu2</span>
+												</p>
+												<ul class="menu2List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
 											</div>
+										</div>
 
 									</div>
 									<div class="addFoot">
@@ -498,7 +466,7 @@
 							<div class="provide">
 								<div class="con-con">
 									<div class="con-title">
-										<span>依赖项</span> <i class="add3Provide"></i>
+										<span>依赖项</span> <i class="add3"></i>
 									</div>
 									<div class="con-list">
 										<ul class="listPart">
@@ -512,104 +480,52 @@
 										<span>数据接口</span>
 									</div>
 									<div class="con-list">
-										<ul class="listPart listConment ConmentEvent">
+										<ul class="listPart">
 											<li>
-												<span class="nameL">interface1</span>
-												<span class="nameR">node1</span>
-												<ul class="nodeList nodeListEvent">
-													<li>node1</li>
-													<li>node2</li>
-													<li>node3</li>
-													<li>node4</li>
-													<li>node5</li>
-													<li>node6</li>
-													<li>node7</li>
-												</ul>
-												<i class="iconDown iconDownEvent"></i>
+												<span>interface1</span>
+												<select>
+													<option selected>node1</option>
+													<option >node1</option>
+												</select>
 											</li>
-											<li>
-												<span class="nameL">interface1</span>
-												<span class="nameR">node1</span>
-												<ul class="nodeList nodeListEvent">
-													<li>node1</li>
-													<li>node2</li>
-													<li>node3</li>
-													<li>node4</li>
-													<li>node5</li>
-													<li>node6</li>
-													<li>node7</li>
-												</ul>
-												<i class="iconDown iconDownEvent"></i>
-											</li>
+											<li>Flow3</li>
 										</ul>
 									</div>
 								</div>
-								<div class="add3-con add3EventTwo" style="display: none">
+								<div class="add3-con add3conEvent" style="display: none">
 									<div class="addT">
 										<span>添加</span> <i class="closeA"></i>
 									</div>
-									<div class="addList addListEvent">
+									<div class="addList">
 										<div class="addRoot">
 											<p>
-												<i class="downIcon titleTip"></i><span>Root</span>
+												<i class="downIcon"></i><span>Root</span>
 											</p>
-											<div>
-												<div class="menu1">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu1</span>
-													</p>
-													<ul class="menu1List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-														<li>
-															<div class="menu1">
-																<p>
-																	<i class="downIcon titleTip"></i><span>Menu1</span>
-																</p>
-																<ul class="menu1List">
-																	<li><i class="single"></i><span>Flow1</span></li>
-																	<li><i class="single"></i><span>Flow2</span></li>
-																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																	<li><i class="single"></i><span>Flow4</span></li>
-																	<li><i class="single"></i><span>Flow5</span></li>
-																	<li><i class="single"></i><span>Flow6</span></li>
-																	<li>
-																		<div class="menu1">
-																			<p>
-																				<i class="downIcon titleTip"></i><span>Menu1</span>
-																			</p>
-																			<ul class="menu1List">
-																				<li><i class="single"></i><span>Flow1</span></li>
-																				<li><i class="single"></i><span>Flow2</span></li>
-																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																				<li><i class="single"></i><span>Flow4</span></li>
-																				<li><i class="single"></i><span>Flow5</span></li>
-																				<li><i class="single"></i><span>Flow6</span></li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-												<div class="menu2">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu2</span>
-													</p>
-													<ul class="menu2List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-													</ul>
-												</div>
+											<div class="menu1">
+												<p>
+													<i class="downIcon"></i><span>Menu1</span>
+												</p>
+												<ul class="menu1List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single singleChecked"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
+											</div>
+											<div class="menu2">
+												<p>
+													<i class="rightIcon"></i><span>Menu2</span>
+												</p>
+												<ul class="menu2List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single singleChecked"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
 											</div>
 										</div>
 
@@ -624,51 +540,12 @@
 									<span>字段</span>
 								</div>
 								<div class="conList">
-									<ul class="part listConment">
-										<li>
-											<span class="nameL">字段1</span>
-											<span class="nameR">node1</span>
-											<ul class="nodeList nodeListEvent">
-												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
-											</ul>
-											<i class="iconDown iconDownEvent"></i>
-										</li>
-										<li>
-											<span class="nameL">字段2</span>
-											<span class="nameR">node1</span>
-											<ul class="nodeList nodeListEvent">
-												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
-											</ul>
-											<i class="iconDown iconDownEvent"></i>
-										</li>
-										<li>
-											<span class="nameL">字段3</span>
-											<span class="nameR">node1</span>
-											<ul class="nodeList nodeListEvent">
-												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
-											</ul>
-											<i class="iconDown iconDownEvent"></i>
-										</li>
+									<ul class="part">
+										<li>精准营销 / Flow1</li>
+										<li>精准营销 / Datamining</li>
+										<li>精准营销 / Flow3</li>
 									</ul>
-									<p class="saveEvent">保存</p>
+									<p>保存</p>
 								</div>
 							</div>
 						</div>
@@ -878,137 +755,15 @@
 
 
 	<!--listSet start-->
-	<div class="columnSet columnSetEvent" style="display: none">
+	<div class="columnSet" style="display: none">
 		<div class="columnSet_T clearFix">
 			<span class="columnTleft">列设置</span>
 			<span class="columnTclose"><i class="closeA"></i></span>
 		</div>
 		<div class="columnSet_C">
-			<table class="tableContainer tableContainerEvent" cellspacing="0">
-				<tr class="contentTitle">
-					<th>Is save</th>
-					<th>Name</th>
-					<th>Pk</th>
-					<th>Type</th>
-					<th>Length</th>
-					<th>Precision</th>
-					<th>Scale</th>
-					<th>Nullable</th>
-					<th>Description</th>
-				</tr>
-				<tr>
-					<td><i class="single columnOne"></i></td>
-					<td contenteditable="true">column1</td>
-					<td><i class="single columnTwo"></i></td>
-					<td class="colSelect">
-						<select>
-							<option value="int">int</option>
-							<option value="tinyint">tinyint</option>
-							<option value="smallint">smallint</option>
-							<option value="mediumint">mediumint</option>
-							<option value="integer">integer</option>
-							<option value="bigint">bigint</option>
-							<option value="bit">bit</option>
-							<option value="real">real</option>
-							<option value="double">double</option>
-							<option value="float">float</option>
-							<option value="decimal">decimal</option>
-							<option value="numeric">numeric</option>
-							<option value="char">char</option>
-							<option value="date">date</option>
-							<option value="time">time</option>
-							<option value="year">year</option>
-							<option value="varchar">year</option>
-							<option value="timestamp">year</option>
-							<option value="datetime">year</option>
-							<option value="blob">year</option>
-							<option value="tinyblob">year</option>
-							<option value="longblob">year</option>
-						</select>
-					</td>
-					<td contenteditable="true">0</td>
-					<td contenteditable="true">0</td>
-					<td contenteditable="true">0</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
-				</tr>
-				<tr>
-					<td><i class="single columnOne"></i></td>
-					<td contenteditable="true">column2</td>
-					<td><i class="single columnTwo"></i></td>
-					<td class="colSelect">
-						<select>
-							<option value="int">int</option>
-							<option value="tinyint">tinyint</option>
-							<option value="smallint">smallint</option>
-							<option value="mediumint">mediumint</option>
-							<option value="integer">integer</option>
-							<option value="bigint">bigint</option>
-							<option value="bit">bit</option>
-							<option value="real">real</option>
-							<option value="double">double</option>
-							<option value="float">float</option>
-							<option value="decimal">decimal</option>
-							<option value="numeric">numeric</option>
-							<option value="char">char</option>
-							<option value="date">date</option>
-							<option value="time">time</option>
-							<option value="year">year</option>
-							<option value="varchar">year</option>
-							<option value="timestamp">year</option>
-							<option value="datetime">year</option>
-							<option value="blob">year</option>
-							<option value="tinyblob">year</option>
-							<option value="longblob">year</option>
-						</select>
-					</td>
-					<td contenteditable="true">20</td>
-					<td contenteditable="true">20</td>
-					<td contenteditable="true">20</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxx</td>
-				</tr>
-				<tr>
-					<td><i class="single columnOne"></i></td>
-					<td contenteditable="true">column3</td>
-					<td><i class="single columnTwo"></i></td>
-					<td class="colSelect">
-						<select>
-							<option value="int">int</option>
-							<option value="tinyint">tinyint</option>
-							<option value="smallint">smallint</option>
-							<option value="mediumint">mediumint</option>
-							<option value="integer">integer</option>
-							<option value="bigint">bigint</option>
-							<option value="bit">bit</option>
-							<option value="real">real</option>
-							<option value="double">double</option>
-							<option value="float">float</option>
-							<option value="decimal">decimal</option>
-							<option value="numeric">numeric</option>
-							<option value="char">char</option>
-							<option value="date">date</option>
-							<option value="time">time</option>
-							<option value="year">year</option>
-							<option value="varchar">year</option>
-							<option value="timestamp">year</option>
-							<option value="datetime">year</option>
-							<option value="blob">year</option>
-							<option value="tinyblob">year</option>
-							<option value="longblob">year</option>
-						</select>
-					</td>
-					<td contenteditable="true">0</td>
-					<td contenteditable="true">0</td>
-					<td contenteditable="true">0</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxx</td>
-				</tr>
+			<table>
+				t
 			</table>
-		</div>
-		<div class="columnSet_B clearFix">
-			<span class="sureC">确定</span>
-			<span class="closeC">取消</span>
 		</div>
 	</div>
 	<!--listSet end-->
@@ -1386,7 +1141,7 @@
     var dataConnectionName;
     
     //TODO deleting 
-//    urlId = 'http://localhost:800/';
+    //urlId = 'http://localhost:800/';
     
     //初始化目录
     $(function(){
@@ -1745,6 +1500,7 @@
                 source_entity:JSON.stringify(arr)
         }),
         success:function(data) {
+        	console.log(data);
             bindSourceData(data,flowIdName);
 			initDragable();
         },
@@ -1807,7 +1563,6 @@
 	//getSelectAllFlowId()
 
 	function bindSourceData1(data,flowIdName){
-		console.log(flowIdName)
 		//var flowIdName=0;
 		var tableName;
 		var sourceDataId;
@@ -2061,6 +1816,12 @@
 <script src="../../static-resources/js/echarts/theme/macarons.js"></script>
 <script src="../../static-resources/js/echarts/theme/roma.js"></script>
 <script src="../../static-resources/js/echarts/theme/vintage.js"></script>
-
+<script src="../../static-resources/js/echarts/theme/chalk.js"></script>
+<script src="../../static-resources/js/echarts/theme/essos.js"></script>
+<script src="../../static-resources/js/echarts/theme/halloween.js"></script>
+<script src="../../static-resources/js/echarts/theme/purple-passion.js"></script>
+<script src="../../static-resources/js/echarts/theme/walden.js"></script>
+<script src="../../static-resources/js/echarts/theme/westeros.js"></script>
+<script src="../../static-resources/js/echarts/theme/wonderland.js"></script>
 </body>
 </html>

@@ -173,36 +173,22 @@ $(function(){
                 console.log($($('.mainEvent li .singleChecked')[i]).next())
             }
         })
-    }
+    };
 
     //controller
-
-    $('.contentEvent').unbind().click(function(e){
-        e = e || window.event;
-        var tar = e.target || e.srcElement;
-        if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('iconDownEvent')) {
-            $('.nodeListEvent').hide();
-            $(tar).prev().show()
-        }else {
-            $('.nodeListEvent').hide()
-        }
-        if (tar.tagName.toLowerCase() === 'li' && $(tar).parent().hasClass('nodeListEvent')) {
-            $(tar).parent().prev().html($(tar).html());
-        }
-    });
-
-    $('.titleTip').on('click',function(e){
-        if ($(this).hasClass('downIcon')) {
-            $(this).removeClass('downIcon').addClass('rightIcon');
-            $(this).parent().next().hide()
-        } else {
-            $(this).removeClass('rightIcon').addClass('downIcon');
-            $(this).parent().next().show()
-        }
-    });
     $('.add3Stream').unbind('click').click(function () {
         console.log('add3');
         $('.add3EventOne,.mask').show();
+
+        $('.titleTip').on('click',function(e){
+                if ($(this).hasClass('downIcon')) {
+                    $(this).removeClass('downIcon').addClass('rightIcon');
+                    $(this).parent().next().hide()
+                } else {
+                    $(this).removeClass('rightIcon').addClass('downIcon');
+                    $(this).parent().next().show()
+                }
+        });
     });
     $('.add3Provide').unbind('click').click(function () {
         console.log('add3');
@@ -212,26 +198,10 @@ $(function(){
     });
 
 
-    $('.add3EventOne .closeA,.add3EventOne .cancel').unbind('click').click(function () {
-        $('.add3EventOne,.mask').hide();
+    $('.content1 .closeA,.content1 .cancel').unbind('click').click(function () {
+        $('.add3conEvent').hide();
+        $('.mask').hide();
     });
-    $('.add3EventTwo .closeA,.add3EventTwo .cancel').unbind('click').click(function () {
-        $('.add3EventTwo,.mask').hide();
-    });
-
-    //test测试按钮
-    $('.streamTest').unbind().click(function(){
-        console.log('test....');
-        //TODO
-    });
-    //保存按钮
-    $('.saveEvent').unbind().click(function(){
-        console.log('save...');
-        //TODO
-    });
-    //controller end
-
-
 
     //单选框
     $('.mainEvent,.add3-con,.table1Event').unbind('click').click(function (e) {
@@ -460,7 +430,19 @@ $(function(){
 
 
 
+//control 页面
 
+$('.contentEvent').unbind().click(function(e){
+    e = e || window.event;
+    var tar = e.target || e.srcElement;
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('iconDownEvent')) {
+       console.log('ok');
+        $(tar).prev().show()
+    }else {
+        $('.nodeListEvent').hide()
+    }
+
+});
 
 
 //下拉框变化显示不同table

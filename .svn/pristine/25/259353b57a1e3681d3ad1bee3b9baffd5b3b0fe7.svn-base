@@ -335,114 +335,10 @@ $(function(){
         addTargetRecord();
     });
 
-
-
-
-
     //target layer --start
     $('.table_name').on("keyup", function(){
         $('.name_list ul li.selected').children().text($(this).val());
     });
-
-    //columnSet 列设置
-    $('.setting_col').on('click',function(){
-        $('.columnSetEvent,.mask').show();
-
-        //TODO
-        /*var str='';
-        $.ajax({
-            url: '',
-            type:'POST',
-            dataType:"json",
-            success:function(data) {
-                $(data).each(function(index,item){
-                    str+='<tr><td><i class="single"></i></td><td contenteditable="true"></td><td><i class="single"></i></td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td contenteditable="true">January</td><td><i class="single"></i></td><td contenteditable="true">January</td></tr>';
-                });
-                $('.tableContainerEvent').append($(str));
-            }
-            /!*error : function() {
-                alert("异常！");
-            }*!/
-        });*/
-
-        $('.columnSetEvent .single').unbind('click').click(function (e) {
-            e = e || window.event;
-            var tar = e.target || e.srcElement;
-            if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('single')) {
-                if ($(tar).hasClass('singleChecked')) {
-                    $(tar).removeClass('singleChecked');
-                } else {
-                    $(tar).addClass('singleChecked')
-                }
-            }
-        });
-
-
-        $('.columnSetEvent .closeA,.columnSetEvent .closeC').on('click',function(){
-            $('.columnSetEvent').hide();
-        });
-        $('.columnSetEvent .sureC').on('click',function(){
-            var columnList = new Array();
-            $('.columnSetEvent tr').each(function(index,item){
-                //console.log($(this).hasClass('contentTitle'))
-               if($(this).hasClass('contentTitle')) {
-                   return true;
-               }
-
-                var columnIssave,
-                    columnPk,
-                    columnName,
-                    columnType,
-                    columnLength,
-                    columnPrecision,
-                    columnScale,
-                    description,
-                    nullAble,
-                    columnNullAble;
-                $(this).find('.single').each(function(index,item){
-                    if($(item).hasClass('columnOne')){
-                        columnName=$(this).parent().next().html();
-                        $(this).hasClass('singleChecked')?columnIssave=1:columnIssave=0;
-                    }else if($(item).hasClass('columnTwo')){
-                        $(this).hasClass('singleChecked')?columnPk=1:columnPk=0;
-                        columnType=$(this).parent().next().children().val();
-                        columnLength=$(this).parent().next().next().html();
-                        columnPrecision=$(this).parent().next().next().next().html();
-                        columnScale=$(this).parent().next().next().next().next().html();
-                    }else if($(item).hasClass('columnThree')){
-                        $(this).hasClass('singleChecked')?nullAble=1:nullAble=0;
-                        description=$(this).parent().next().html();
-                    }
-                });
-
-                var columnObj = new Object();
-                columnObj.isSave=columnIssave;
-                columnObj.name =columnName;
-                columnObj.pk=columnPk;
-                columnObj.type=columnType;
-                columnObj.lenght=columnLength;
-                columnObj.precision=columnPrecision;
-                columnObj.scale=columnScale;
-                columnObj.nullable=nullAble;
-                columnObj.description=description;
-                columnList.push(columnObj);
-
-            });
-            var bigObj = new Object();
-            bigObj.nodeId=columnList;
-            console.log(bigObj);
-
-
-            //TODO
-
-
-
-        })
-    });
-
-
-
-
     $('.tl_header .close, .btn_group input:eq(0)').on('click', function(event){
         $('.target_layer').hide();
         $('.mask').hide();
@@ -608,9 +504,6 @@ $(function(){
         console.log('target...');
         targetObjs = $('.target label');
         $('.name_list ul').empty();
-        $('#sjlj').val('');
-        $('#ms').val('请选择模式');
-
         for(var i=0; i < targetObjs.length; i++){
             $('.name_list ul').append($('<li data-id='+i+'><a >'+ targetObjs[i].innerHTML + '</a></li>'));
         }

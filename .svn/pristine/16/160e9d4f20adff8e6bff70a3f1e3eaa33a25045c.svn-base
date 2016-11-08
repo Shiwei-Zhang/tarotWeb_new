@@ -441,36 +441,6 @@
 														<li><i class="single"></i><span>Flow4</span></li>
 														<li><i class="single"></i><span>Flow5</span></li>
 														<li><i class="single"></i><span>Flow6</span></li>
-														<li>
-															<div class="menu1">
-																<p>
-																	<i class="downIcon titleTip"></i><span>Menu1</span>
-																</p>
-																<ul class="menu1List">
-																	<li><i class="single"></i><span>Flow1</span></li>
-																	<li><i class="single"></i><span>Flow2</span></li>
-																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																	<li><i class="single"></i><span>Flow4</span></li>
-																	<li><i class="single"></i><span>Flow5</span></li>
-																	<li><i class="single"></i><span>Flow6</span></li>
-																	<li>
-																		<div class="menu1">
-																			<p>
-																				<i class="downIcon titleTip"></i><span>Menu1</span>
-																			</p>
-																			<ul class="menu1List">
-																				<li><i class="single"></i><span>Flow1</span></li>
-																				<li><i class="single"></i><span>Flow2</span></li>
-																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																				<li><i class="single"></i><span>Flow4</span></li>
-																				<li><i class="single"></i><span>Flow5</span></li>
-																				<li><i class="single"></i><span>Flow6</span></li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
 													</ul>
 												</div>
 												<div class="menu2">
@@ -518,12 +488,12 @@
 												<span class="nameR">node1</span>
 												<ul class="nodeList nodeListEvent">
 													<li>node1</li>
-													<li>node2</li>
-													<li>node3</li>
-													<li>node4</li>
-													<li>node5</li>
-													<li>node6</li>
-													<li>node7</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
 												</ul>
 												<i class="iconDown iconDownEvent"></i>
 											</li>
@@ -532,84 +502,52 @@
 												<span class="nameR">node1</span>
 												<ul class="nodeList nodeListEvent">
 													<li>node1</li>
-													<li>node2</li>
-													<li>node3</li>
-													<li>node4</li>
-													<li>node5</li>
-													<li>node6</li>
-													<li>node7</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
 												</ul>
 												<i class="iconDown iconDownEvent"></i>
 											</li>
 										</ul>
 									</div>
 								</div>
-								<div class="add3-con add3EventTwo" style="display: none">
+								<!--<div class="add3-con add3EventTwo" style="display: none">
 									<div class="addT">
 										<span>添加</span> <i class="closeA"></i>
 									</div>
-									<div class="addList addListEvent">
+									<div class="addList">
 										<div class="addRoot">
 											<p>
-												<i class="downIcon titleTip"></i><span>Root</span>
+												<i class="downIcon eventBtn"></i><span>Root</span>
 											</p>
-											<div>
-												<div class="menu1">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu1</span>
-													</p>
-													<ul class="menu1List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-														<li>
-															<div class="menu1">
-																<p>
-																	<i class="downIcon titleTip"></i><span>Menu1</span>
-																</p>
-																<ul class="menu1List">
-																	<li><i class="single"></i><span>Flow1</span></li>
-																	<li><i class="single"></i><span>Flow2</span></li>
-																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																	<li><i class="single"></i><span>Flow4</span></li>
-																	<li><i class="single"></i><span>Flow5</span></li>
-																	<li><i class="single"></i><span>Flow6</span></li>
-																	<li>
-																		<div class="menu1">
-																			<p>
-																				<i class="downIcon titleTip"></i><span>Menu1</span>
-																			</p>
-																			<ul class="menu1List">
-																				<li><i class="single"></i><span>Flow1</span></li>
-																				<li><i class="single"></i><span>Flow2</span></li>
-																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																				<li><i class="single"></i><span>Flow4</span></li>
-																				<li><i class="single"></i><span>Flow5</span></li>
-																				<li><i class="single"></i><span>Flow6</span></li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-												<div class="menu2">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu2</span>
-													</p>
-													<ul class="menu2List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-													</ul>
-												</div>
+											<div class="menu1">
+												<p>
+													<i class="downIcon eventBtn"></i><span>Menu1</span>
+												</p>
+												<ul class="menu1List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single singleChecked"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
+											</div>
+											<div class="menu2">
+												<p>
+													<i class="rightIcon eventBtn"></i><span>Menu2</span>
+												</p>
+												<ul class="menu2List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single singleChecked"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
 											</div>
 										</div>
 
@@ -617,7 +555,7 @@
 									<div class="addFoot">
 										<span class="sure">确定</span> <span class="cancel">取消</span>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<div class="con-right">
 								<div class="con-title">
@@ -630,12 +568,12 @@
 											<span class="nameR">node1</span>
 											<ul class="nodeList nodeListEvent">
 												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
 											</ul>
 											<i class="iconDown iconDownEvent"></i>
 										</li>
@@ -644,12 +582,12 @@
 											<span class="nameR">node1</span>
 											<ul class="nodeList nodeListEvent">
 												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
 											</ul>
 											<i class="iconDown iconDownEvent"></i>
 										</li>
@@ -658,17 +596,17 @@
 											<span class="nameR">node1</span>
 											<ul class="nodeList nodeListEvent">
 												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
 											</ul>
 											<i class="iconDown iconDownEvent"></i>
 										</li>
 									</ul>
-									<p class="saveEvent">保存</p>
+									<p>保存</p>
 								</div>
 							</div>
 						</div>
