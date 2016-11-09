@@ -99,7 +99,7 @@ $(function(){
                     e.preventDefault();
                     console.log('添加DataMining');
                     //modified by tyd
-                    var folderName = '新建挖掘模型';
+                    var folderName = '新建DataMining';
                     addMenu($currentRightDom.attr("id"),menuTypeEnum[3],folderName);
                 }},
                 {text:'添加控制器', action:function(e){

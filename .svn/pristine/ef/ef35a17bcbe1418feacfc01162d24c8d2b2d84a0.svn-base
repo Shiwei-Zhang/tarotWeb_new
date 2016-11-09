@@ -35,11 +35,6 @@ $(function(){
         //初始化事件
     });
 
-
-
-
-
-
     //module-data-right-navigation
     $('.tabsEvent').off('click').on('click','li', function (e) {
 
@@ -158,22 +153,13 @@ $(function(){
     }
 
     //controller
-    var bOk=true;
+
     $('.contentEvent').unbind().click(function(e){
         e = e || window.event;
         var tar = e.target || e.srcElement;
-
         if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('iconDownEvent')) {
-
-            if(bOk){
-                $('.nodeListEvent').hide();
-                $(tar).prev().show();
-                bOk=false;
-            }else {
-                $('.nodeListEvent').hide();
-                $(tar).prev().hide();
-                bOk=true;
-            }
+            $('.nodeListEvent').hide();
+            $(tar).prev().show()
         }else {
             $('.nodeListEvent').hide()
         }
@@ -320,7 +306,7 @@ $(function(){
         if( !isExist ){
             $('.tabsEvent li').removeClass('thistab');
             $('.tabsEvent').append(
-                '<li class="thistab tabs-'+ $idName +'" data_type="'+$dataType+'" idName="'+$idName+'"><a tab="tab1_1"><span class="'+iconType+'"></span><span class="name_m" title="Co Flow">' + $fileName + '</span><span class="close_m"><i class="closeTab"></i></span></a></li>'
+                '<li class="thistab tabs-'+ $idName +'" data_type="'+$dataType+'" idName="'+$idName+'"><a tab="tab1_1"><span class="'+iconType+'"></span><span class="name_m" title="Co Flow">' + $fileName + '</span><span class="close_m"><i class="fa  fa-close-m"></i></span></a></li>'
             );
             //隐藏其他页面
             $('.module-manager').hide();

@@ -593,7 +593,6 @@ var baseUrl = urlId;
     	
     	if( filter.indexOf('@') > -1){
     		//filter有变量数据
-    		console.log('过滤条件中含有变量, 无法执行过滤条件。');
     		return ;
     	}
     	$('.bi-generator').trigger('click');
@@ -802,7 +801,6 @@ var baseUrl = urlId;
 			try{
 				chartJson.dataZoom = [];
 				chartJson.dataZoom.push(dataZoom);
-				echarts.init($biMain[0], theme).setOption(chartJson);
 			} catch(e){
 				console.log(e);
 				datazoomShow = 0;
@@ -1719,7 +1717,7 @@ var baseUrl = urlId;
 		var name = chart.name;
 		var templateId = chart.templateId;
 		$('.bi-chart-list').append( 
-				$('<div class="bi-edit" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '">'+name+'</div>') );
+				$('<div class="bi-edit" style="margin-top:5px;" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '">'+name+'</div>') );
 		//绑定点击和拖拽事件
 		biEditBindEvent();
 		

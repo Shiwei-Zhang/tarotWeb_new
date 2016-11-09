@@ -64,9 +64,7 @@
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
 				<h6 class="man2">数据连接管理</h6>
-				<h6 class="man3">业务代码维护</h6>
-				<h6 class="man4">内部数据类型维护</h6>
-				<h6 class="man5">外部数据类型维护</h6>
+				<h6 class="man3">用户管理</h6>
 			</div>
 		</div>
 	</div>
@@ -121,7 +119,7 @@
 											</div>
 										</div>
 
-										<div class="line_fun  line_active"></div>
+										<div class="line_fun line_active"></div>
 
 					                    <div id="jsmind_container" class="cav_flow">
 					                    </div>
@@ -132,10 +130,10 @@
 							<!-- bottom tabs-->
 							<div class="cav_body" id="tabbox2">
 								<ul class="tabs tabs2">
-									<li><a tab="tab2_1"><span class="flow"></span><p>转换</p></a></li>
-									<li><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
-									<li><a tab="tab2_3"><span class="debug"></span><p class="textArea">调试</p></a></li>
-									<li><a tab="tab2_4"><span class="mointor"></span><p class="textArea">数据监控</p></a></li>
+									<li><a tab="tab2_1"><span class="flow"></span>转换</a></li>
+									<li><a tab="tab2_2"><span class="log"></span>日志</a></li>
+									<li><a tab="tab2_3"><span class="debug"></span>调试</a></li>
+									<li><a tab="tab2_4"><span class="mointor"></span>数据监控</a></li>
 									<li class="monitor nochangetab"><a tab="tab2_4"> <span
 											class="debug"></span> <span class="runing"></span> <span
 											class="stop"></span> <span class="wait"></span> <span
@@ -149,8 +147,8 @@
 											<div class="dt_d">
 												<div class="dt_fun">
 													<p class="dtt">
-														<span data-cls="col_con" class="active_t">字段</span> <span
-															data-cls="syb_con" >函数</span>
+														<span data-cls="col_con">字段</span> <span
+															data-cls="syb_con" class="active_t">函数</span>
 													</p>
 													<input type="text" placeholder="搜索" />
 												</div>
@@ -173,7 +171,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="line_fun  line_funDown line_active"></div>
+											<div class="line_fun line_active"></div>
 										</div>
 
 										<div id="jsmind_container2" class="cav_flow">
@@ -231,7 +229,7 @@
 
 								</div>
 
-								<div class="panel join_panel" style="display: none">
+								<div class="panel join_panel" style="display: none;">
 									<div class="joins">
 										<!-- as template-->
 										<div class="template_join" style="display: none;">
@@ -376,7 +374,7 @@
 						</div>
 						<div class="biFooter clearFix">
 							<ul class="clearFix">
-								<li class="biPublish">发布</li>
+								<li>发布</li>
 								<li>预览</li>
 								<li class="bi-template-save">保存</li>
 							</ul>
@@ -442,36 +440,6 @@
 														<li><i class="single"></i><span>Flow4</span></li>
 														<li><i class="single"></i><span>Flow5</span></li>
 														<li><i class="single"></i><span>Flow6</span></li>
-														<li>
-															<div class="menu1">
-																<p>
-																	<i class="downIcon titleTip"></i><span>Menu1</span>
-																</p>
-																<ul class="menu1List">
-																	<li><i class="single"></i><span>Flow1</span></li>
-																	<li><i class="single"></i><span>Flow2</span></li>
-																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																	<li><i class="single"></i><span>Flow4</span></li>
-																	<li><i class="single"></i><span>Flow5</span></li>
-																	<li><i class="single"></i><span>Flow6</span></li>
-																	<li>
-																		<div class="menu1">
-																			<p>
-																				<i class="downIcon titleTip"></i><span>Menu1</span>
-																			</p>
-																			<ul class="menu1List">
-																				<li><i class="single"></i><span>Flow1</span></li>
-																				<li><i class="single"></i><span>Flow2</span></li>
-																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																				<li><i class="single"></i><span>Flow4</span></li>
-																				<li><i class="single"></i><span>Flow5</span></li>
-																				<li><i class="single"></i><span>Flow6</span></li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
 													</ul>
 												</div>
 												<div class="menu2">
@@ -519,12 +487,12 @@
 												<span class="nameR">node1</span>
 												<ul class="nodeList nodeListEvent">
 													<li>node1</li>
-													<li>node2</li>
-													<li>node3</li>
-													<li>node4</li>
-													<li>node5</li>
-													<li>node6</li>
-													<li>node7</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
 												</ul>
 												<i class="iconDown iconDownEvent"></i>
 											</li>
@@ -533,84 +501,52 @@
 												<span class="nameR">node1</span>
 												<ul class="nodeList nodeListEvent">
 													<li>node1</li>
-													<li>node2</li>
-													<li>node3</li>
-													<li>node4</li>
-													<li>node5</li>
-													<li>node6</li>
-													<li>node7</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
+													<li>node1</li>
 												</ul>
 												<i class="iconDown iconDownEvent"></i>
 											</li>
 										</ul>
 									</div>
 								</div>
-								<div class="add3-con add3EventTwo" style="display: none">
+								<!--<div class="add3-con add3EventTwo" style="display: none">
 									<div class="addT">
 										<span>添加</span> <i class="closeA"></i>
 									</div>
-									<div class="addList addListEvent">
+									<div class="addList">
 										<div class="addRoot">
 											<p>
-												<i class="downIcon titleTip"></i><span>Root</span>
+												<i class="downIcon eventBtn"></i><span>Root</span>
 											</p>
-											<div>
-												<div class="menu1">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu1</span>
-													</p>
-													<ul class="menu1List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-														<li>
-															<div class="menu1">
-																<p>
-																	<i class="downIcon titleTip"></i><span>Menu1</span>
-																</p>
-																<ul class="menu1List">
-																	<li><i class="single"></i><span>Flow1</span></li>
-																	<li><i class="single"></i><span>Flow2</span></li>
-																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																	<li><i class="single"></i><span>Flow4</span></li>
-																	<li><i class="single"></i><span>Flow5</span></li>
-																	<li><i class="single"></i><span>Flow6</span></li>
-																	<li>
-																		<div class="menu1">
-																			<p>
-																				<i class="downIcon titleTip"></i><span>Menu1</span>
-																			</p>
-																			<ul class="menu1List">
-																				<li><i class="single"></i><span>Flow1</span></li>
-																				<li><i class="single"></i><span>Flow2</span></li>
-																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
-																				<li><i class="single"></i><span>Flow4</span></li>
-																				<li><i class="single"></i><span>Flow5</span></li>
-																				<li><i class="single"></i><span>Flow6</span></li>
-																			</ul>
-																		</div>
-																	</li>
-																</ul>
-															</div>
-														</li>
-													</ul>
-												</div>
-												<div class="menu2">
-													<p>
-														<i class="downIcon titleTip"></i><span>Menu2</span>
-													</p>
-													<ul class="menu2List">
-														<li><i class="single"></i><span>Flow1</span></li>
-														<li><i class="single"></i><span>Flow2</span></li>
-														<li><i class="single singleChecked"></i><span>Flow3</span></li>
-														<li><i class="single"></i><span>Flow4</span></li>
-														<li><i class="single"></i><span>Flow5</span></li>
-														<li><i class="single"></i><span>Flow6</span></li>
-													</ul>
-												</div>
+											<div class="menu1">
+												<p>
+													<i class="downIcon eventBtn"></i><span>Menu1</span>
+												</p>
+												<ul class="menu1List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single singleChecked"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
+											</div>
+											<div class="menu2">
+												<p>
+													<i class="rightIcon eventBtn"></i><span>Menu2</span>
+												</p>
+												<ul class="menu2List">
+													<li><i class="single"></i><span>Flow1</span></li>
+													<li><i class="single"></i><span>Flow2</span></li>
+													<li><i class="single singleChecked"></i><span>Flow3</span></li>
+													<li><i class="single"></i><span>Flow4</span></li>
+													<li><i class="single singleChecked"></i><span>Flow5</span></li>
+													<li><i class="single"></i><span>Flow6</span></li>
+												</ul>
 											</div>
 										</div>
 
@@ -618,7 +554,7 @@
 									<div class="addFoot">
 										<span class="sure">确定</span> <span class="cancel">取消</span>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<div class="con-right">
 								<div class="con-title">
@@ -631,12 +567,12 @@
 											<span class="nameR">node1</span>
 											<ul class="nodeList nodeListEvent">
 												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
 											</ul>
 											<i class="iconDown iconDownEvent"></i>
 										</li>
@@ -645,12 +581,12 @@
 											<span class="nameR">node1</span>
 											<ul class="nodeList nodeListEvent">
 												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
 											</ul>
 											<i class="iconDown iconDownEvent"></i>
 										</li>
@@ -659,17 +595,17 @@
 											<span class="nameR">node1</span>
 											<ul class="nodeList nodeListEvent">
 												<li>node1</li>
-												<li>node2</li>
-												<li>node3</li>
-												<li>node4</li>
-												<li>node5</li>
-												<li>node6</li>
-												<li>node7</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
+												<li>node1</li>
 											</ul>
 											<i class="iconDown iconDownEvent"></i>
 										</li>
 									</ul>
-									<p class="saveEvent">保存</p>
+									<p>保存</p>
 								</div>
 							</div>
 						</div>
@@ -1014,13 +950,24 @@
 	</div>
 	<!--listSet end-->
 
+	<!--bi deploy start-->
+	<div class="add3-con bideployStyle bideployEvent" style="display: none">
+		<div class="addT">
+			<span>发布</span> <i class="closeA"></i>
+		</div>
+		<div class="addFoot">
+			<span class="sure">确定</span> <span class="cancel">取消</span>
+		</div>
+	</div>
 
+
+	<!--bi deploy end-->
 
 
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
-			<span>报表编辑</span> <i class="closeA closeR bi-close1"></i>
+			<span>数据分析</span> <i class="closeA closeR bi-close1"></i>
 		</div>
 		<div class="biData-C clearFix">
 			<div class="biDataC">
@@ -1292,24 +1239,6 @@
 		</div>
 	</div>
 	<!-- data source end -->
-
-	<!--biDeploy bi发布弹框-->
-	<div class="bideployStyle bideployEvent" style="display: none">
-		<div class="addT">
-			<span>发布</span> <i class="closeA"></i>
-		</div>
-		<div class="biContent">
-			<span>URL</span><input type="text">
-		</div>
-		<div class="addFoot">
-			<span class="sure">确定</span> <span class="cancel">取消</span>
-		</div>
-	</div>
-
-
-	<!--bi deploy end-->
-
-
 	<!--BI end-->
 	<!-- target -->
 	<div class="target_layer" style="display: none;">
@@ -1361,10 +1290,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 	<div class="mask" style="display: none;"></div>
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
@@ -1466,7 +1391,7 @@
         });
     }
     
-function renameMenuForHome(){
+    function renameMenuForHome(){
     	var text = $('.root_tree').children().last().children().first().children().last().text();
     	$('.root_tree').children().last().children().first().children().last().remove();
     	$('.root_tree').children().last().children().first().append($('<input type="text" value="'+ text + '" />'));
@@ -1518,10 +1443,6 @@ function renameMenuForHome(){
                 $currentRightDom.next().children().last().children().children().last().remove();
                 $currentRightDom.next().children().last().children().first().append($('<span>' + val + '</span>'));
 
-               
-
-    
-
                 $currentRightDom = null;
             }
         });
@@ -1570,8 +1491,6 @@ function renameMenuForHome(){
     }
     var mType;
 	function getUserPower(menuId,menuType){
-		$('.root_tree div').removeClass('visitedBg');
-		$('#' + menuId).addClass('visitedBg');
 		selectedMenuId = menuId;
 		mType=menuType;
 		UserPowerList(selectedMenuId,menuType,null);
@@ -2122,7 +2041,6 @@ function renameMenuForHome(){
 <!-- BI related -->
 <!--  ECHART & BI RELATED -->    
 <script src="../../static-resources/js/echarts/lib/echarts.min.3.2.3.js"></script>
-<script src="http://echarts.baidu.com/asset/map/js/china.js"></script>
 <script src="../../static-resources/js/bi.js"></script>
 <!-- ECHART THEMES -->
 <script src="../../static-resources/js/echarts/theme/dark.js"></script>
