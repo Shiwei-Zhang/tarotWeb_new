@@ -9,8 +9,6 @@ z-index
 
 bichartStyle:200
 biLeft:104
-.bideployStyle: 20
-.dubblePart:201
 */
 
 
@@ -24,7 +22,7 @@ body {
     width: 100%;
     position: relative;
     font:14px 'arial', 'MicrosoftYaHei';
-    color: #1E1E1E;
+    color: black;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -51,7 +49,6 @@ i {
 
 .container,.content,.module-data-all{
     height: 100%;
-    box-sizing: content-box;
 }
 .w240{
     width: 240px;
@@ -65,7 +62,7 @@ p{
 
 .f-header {
     border-bottom: 1px #B6BCCC solid;
-    background-color: #dcdcdc;
+    background-color: #dcdcde;
 }
 
 .left-header {
@@ -105,37 +102,34 @@ p{
 
 .right-header {
     float: right;
-    margin-top: -55px;
-    margin-right: 10px;
+    margin-top: -59px;
     position: relative;
 }
 
 .right-header > div {
-    display: inline-block;
-    height: 44px;
-    width: 44px;
+    display: table-cell;
+    height: 50px;
 }
 .right-header .flows{
-    margin-right: -11px;
+    margin-right: 10px;
 }
 .right-header .managers{
     margin-left: 10px;
 }
 .right-header > div > div:first-child {
-    width: 43px;
-    height: 33px;
-    font-size: 12px;
-    margin-bottom: 4px;
+    width: 50px;
+    height: 35px;
+    margin-bottom: 5px;
     background-repeat: no-repeat;
     background-position: center center;
 }
 
 .right-header > div > div:last-child {
-    width: 44px;
-    height: 20px;
+    width: 50px;
+    height: 10px;
     font-size: 8px;
     text-align: center;
-    margin-top: -8px;
+    margin-top: -10px;
 }
 
 .right-header .flow {
@@ -148,40 +142,31 @@ p{
     cursor: pointer;
 }
 
-/*.root_tree visited background*/
-.visitedBg{
-    background: #cce8f8;
-}
-
-
 #manag {
-    width: 140px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     background-color: #FFF;
     position: absolute;
     z-index: 100;
-    top: 56px;
-    right: -1px;
+    top: 60px;
+    right: 0;
     display: none;
     text-align: center;
-    border-left: 1px #dcdcdc solid;
-    border-bottom: 1px #dcdcdc solid;
-    border-right: 1px #dcdcdc solid;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+    border-left: 1px #b6bccc solid;
+    border-bottom: 1px #b6bccc solid;
+    border-right: 1px #b6bccc solid;
 }
 
 #manag h6 {
-    height: 30px;
-    line-height: 30px;
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
     font-weight: normal;
-    text-align: left;
-    padding-left: 10px;
     cursor: pointer;
 }
 
 #manag h6:hover {
-    background: #56b0e2;
-    color: #fff;
+    background: #87CEFF;
 }
 
 
@@ -192,7 +177,8 @@ p{
     float: left;
 }
 .module-data-navigation{
-    width:201px;
+    /*width:13%;*/
+    width:12.95%;
     height: 100%;
     background: #fff;
     border-right: 1px solid #B9B9B9;
@@ -202,16 +188,15 @@ p{
 .title {
     text-align: center;
     padding-top: 2px;
-    font-size: 14px;
     background-color: #e2e2e2;
     height: 25px;
     line-height: 25px;
 }
 /*folder style*/
 .folder .home {
-    padding-left: 10px;
-    height: 28px;
-    line-height: 28px;
+    margin-left: 5px;
+    margin-top: 10px;
+    height: 21px;
     font-weight: bold;
 }
 .folder .home i{
@@ -219,14 +204,13 @@ p{
 }
 
 .folder div {
-    /*width: 97%;*/
+    width: 97%;
 }
+/*.folder .folder_self {
+    margin-top: -5px;
+}*/
 .folder div:hover {
     background-color: #f6f6f6;
-    cursor: pointer;
-}
-.folder div:visited {
-    background-color: red;
     cursor: pointer;
 }
 .folder{
@@ -256,12 +240,11 @@ p{
     margin-left: 5px;
 }
 .folder input {
-    width: 90px;
+    width: 120px;
 }
 ul.root_tree li div {
     /*height: 28px;*/
-    line-height: 26px;
-    padding-left:10px;
+    line-height: 28px;
 }
 .folder_self span {
     margin-left: 5px;
@@ -340,22 +323,21 @@ ul.root_tree li div {
     background: #56b0e2;
     text-align: center;
     color: #f7ffff;
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
 }
 
 .bicharlistStyle div{
-    height: 27px;
-    line-height: 27px;
+    height: 25px;
+    line-height: 25px;
     padding-left: 10px;
     cursor: pointer;
     overflow: hidden;
-    font-size: 12px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 .bicharlistStyle div:hover{
-    background: #eaeaea;
+    background: #cbebf8;
 }
 
 
@@ -394,7 +376,6 @@ ul.root_tree li div {
     position: absolute;
     top: 343px;
     left: 10px;
-    z-index: 201;
     width: 72px;
     height: 30px;
     background: #fff;
@@ -470,38 +451,6 @@ ul.root_tree li div {
 }
 
 
-.bideployStyle{
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom: 0;
-    z-index: 120;
-    margin:auto;
-    width: 400px;
-    height: 312px;
-    background: #fff;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.3);
-}
-.bideployStyle .addT{
-    height: 56px;
-    padding:0 20px;
-    border-bottom: 1px solid #e6e6e6;
-    background: #f9f9f9;
-}
-.bideployStyle .biContent{
-    height: 177px;
-    padding:20px 30px 0;
-}
-.biContent .biUrl{
-    margin-right:20px;
-}
-.biContent input{
-    width:280px;
-    height: 38px;
-    padding-left:10px;
-    border: 1px solid #ddd;
-}
 
 /*BI end*/
 
@@ -610,6 +559,7 @@ ul.root_tree li div {
     text-align: center;
     font-size: 14px;
     border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
 }
 
 .biDataL .biDataLbottom .menu,.biDataR .menuRight{
@@ -902,11 +852,8 @@ ul.root_tree li div {
     text-align: center;
     border:1px solid #57b2e1;
     background:#fff;
-    margin-right: 7px;
+    margin-right: 10px;
     cursor: pointer;
-}
-.biDataR .btnPart span.runBtn{
-    width:118px;
 }
 .biDataR .filterPart .btnPart span.clicked{
     color: #fff;
@@ -1232,6 +1179,7 @@ ul.root_tree li div {
     text-align: center;
     font-size: 12px;
     background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
 }
 
 
@@ -1402,7 +1350,7 @@ ul.root_tree li div {
     height: 25px;
     vertical-align: middle;
     background: url("../images/closeIcon.png")no-repeat center center;
-    background-size: 20px 20px;
+    background-size: 25px 25px;
 }
 .addT i{
     float: right;
@@ -1525,7 +1473,7 @@ ul.root_tree li div {
 
 /*tabs for right body*/
 .module-data{
-    width: 87.3%;
+    width: 87%;
     height: 100%;
     background-color: #fff;
     border-bottom: 1px solid #B9B9B9;
@@ -1539,24 +1487,20 @@ ul.root_tree li div {
 }
 
 .tabs1 li {
-    width: 121px;
-    padding-left:7px;
+    width: 120px;
+    margin-left:10px;
+    padding-left:10px;
 }
 .tabs li {
     float: left;
     height: 26px;
     line-height: 26px;
     cursor:pointer;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 1px solid #bbb;
 }
 .tabs1 li a span {
     display: inline-block;
     width: 20px;
     height: 25px;
-    font-size: 12px;
     vertical-align: top;
 }
 .tabs1 li a span.biIcon {
@@ -1569,28 +1513,20 @@ ul.root_tree li div {
     margin-top:5px;
 }
 .tabs1 li a span.name_m{
-    width: 72px;
+    width: 80px;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 4px;
 }
 
 .tabs .thistab {
     background: #fff;
-    color: #4178BE;
     border-bottom: 1px solid #fff;
+    border-left: 1px #bbbbbb solid;
     border-right: 1px #bbbbbb solid;
+    border-top: 1px #bbbbbb solid;
+    border-radius: 10px 10px 0 1px;
 }
 
-.closeTab{
-    margin-right: 5px;
-    display: inline-block;
-    width: 20px;
-    height: 22px;
-    background: url(../images/closeTab.png)no-repeat;
-    background-size: 16px 16px;
-    background-position: 1px 5px;
-}
 .tabs .flow {
     background-image: url('./../images/flow-s.png');
     background-repeat: no-repeat;
@@ -1649,11 +1585,9 @@ ul.root_tree li div {
 /*flow start*/
 .module-flow{
     height: 100%;
-    position: relative;
 }
 .module-core, .module-prop{
     float: left;
-    font-size: 0;
 }
 .module-core{
     width:75%;
@@ -1674,9 +1608,9 @@ ul.root_tree li div {
     border-right: 1px solid #B9B9B9;
     width: 128px;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 99;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
     background-color: #f6f6f6;
 }
 .dt_d .dt_con p {
@@ -1692,16 +1626,14 @@ ul.root_tree li div {
 }
 .dt_d .dt_fun p.dtt {
     height: 26px;
-    font-size: 14px;
     line-height: 26px;
     font-weight: 500;
     text-align: center;
     margin-top: 0;
 }
 .dt_d .dt_fun p.dts {
-    background-color: #56b0e2;
+    background-color: #269FD6;
     color: #FFF;
-    font-size: 14px;
     text-align: center;
     height: 26px;
     line-height: 26px;
@@ -1724,9 +1656,7 @@ ul.root_tree li div {
     background-position: left 0px;
     background-size: 23px 27px;
 }
-.line_fun.line_funDown{
-    left: 129px;
-}
+
 .line_active {
     background-image: url('./../images/lineActive.png');
     background-size: 20px 21px;
@@ -1751,7 +1681,6 @@ ul.root_tree li div {
     overflow-y: auto;
 }
 .tabs2{
-    font-size: 12px;
     border-right:1px solid #b6bccc;
     border-top:1px solid #b6bccc;
 }
@@ -1761,21 +1690,12 @@ ul.root_tree li div {
     height: 25px;
     vertical-align: top;
 }
-.tabs2 p {
-    display: inline-block;
-    height: 25px;
-}
-.tabs2 .flow{
-    width:20px;
-    background-position: 4px 5px;
-}
 .tabs2 li{
-    padding-left:5px;
-    padding-right:5px;
+    padding:0 10px;
 }
 #tabbox2 .monitor {
     float: right;
-    margin-right: 2px;
+    margin-right: 15px;
 }
 .cav_flow{
     margin-top: -21px;
@@ -1797,7 +1717,7 @@ ul.root_tree li div {
 }
 
 #tabbox2 .dtt span.active_t {
-    background-color: #56b0e2;
+    background-color: #269FD6;
     color: white;
 }
 
@@ -1864,10 +1784,7 @@ right style
     font-size: 0;
 }
 .module-prop{
-    /*width: 25%;*/
-    position: absolute;
-    right: -1px;
-    width:350px;
+    width: 25%;
     height: 100%;
     margin-top: -28px;
     border-left: 1px solid #B9B9B9;
@@ -1889,11 +1806,11 @@ right style
 }
 
 .module-prop .prop span:first-child {
-    /*margin-left: 3%;*/
+    margin-left: 3%;
     font-family: Arial;
     font-size: 14px;
     display: inline-block;
-    width: 88px;
+    width: 97px;
     height: 20px;
     line-height: 20px;
     vertical-align: -5px;
@@ -1902,11 +1819,15 @@ right style
     white-space: nowrap;
 }
 .module-prop .prop input {
-    width: 157px;
-    height: 20px;
-    padding-left: 10px;
-    margin-left: 10px;
+    /*width: 180px;*/
+    width:46%;
+    height: 18px;
+    /*padding-left: 8px;*/
+    padding-left: 3%;
+    border-radius: 3px;
     vertical-align: 1px;
+    /*margin-left: 10px;*/
+    margin-left: 3%;
     border: 1px #e3e3e3 solid;
 }
 
@@ -1919,7 +1840,7 @@ right style
     line-height: 30px;
     padding-top: 2px;
     /*padding-left: 5px;*/
-    /*padding-left:3%;*/
+    padding-left:3%;
     font-size: 14px;
     text-align: left;
     background-color: #ededed;
@@ -1944,9 +1865,9 @@ right style
 }
 
 .title span:first-child {
-    width: 325px;
     display: inline-block;
     vertical-align: top;
+    width: 92%;
     cursor: pointer;
 }
 
@@ -1963,35 +1884,28 @@ right style
 }
 
 .joins, .filters, .groups, .orders, .targets {
-    padding-left: 26px;
-    margin-top: 4px;
+    /*padding-left: 26px;*/
+    padding-left: 7.5%;
+    margin-top: 10px;
 }
 
 
 
+
+
+/*.join, .filter, .group, .order, .target{margin-top:10px; }*/
 .joins select, .filters select, .targets select {
     height: 22px;
     border: 1px #ddd solid;
+    border-radius: 5px;
 }
 .joins select{
-    width: 102px;
+    /*width: 70px;*/
+    width: 22%;
     height: 18px;
 }
-.joins .condition2{
-    width: 72px;
-}
-
-.joins .template_operations{
-    margin-top:10px;
-}
-
-.joins .condition5{
-    width: 72px;
-    margin-left: 10px;
-}
-
 .join_ {
-    /*width: 100%;*/
+    width: 100%;
 }
 
 .join .fa-trash {
@@ -2004,20 +1918,23 @@ right style
 }
 
 .condition1 {
-    width: 100px;
-    /*width: 32%;*/
+    /*width: 100px;*/
+    width: 32%;
 }
 
 .condition2 {
-    width: 72px;
-    margin: 0 10px;
+    /*width: 70px;*/
+    width: 22%;
+    /*margin: 0 8px;*/
+    margin: 0 4%;
 }
 
 .condition3 {
-    width: 100px;
+    /*width: 100px;*/
+    width: 28%;
     height: 18px;
-    margin-right: 9px;
-    border: 1px #ddd solid;
+    margin-right:2%;
+    border: 1px #C8C8C8 solid;
 }
 
 .related_table {
@@ -2054,12 +1971,15 @@ right style
 }
 
 .operations select {
-    width: 100px;
-    margin-right: 10px;
+    /*width: 100px;*/
+    width: 32%;
+    /*margin-right: 9px;*/
+    margin-right: 4.1%;
 }
 
 .operations select:last-child{
-    width: 72px;
+    /*width: 70px;*/
+    width: 22%;
 }
 .related_table .condition5 {
     margin-left: -2px;
@@ -2068,11 +1988,10 @@ right style
 .group select, .order select {
     height: 30px;
     border: 1px #ddd solid;
-    /*border-radius: 5px;*/
+    border-radius: 5px;
 }
 .plus-right{
-    margin-left: -11px;
-    vertical-align: 1px;
+    margin-left:-5px;
 }
 
 .related_table .tables .tableA {
@@ -2095,14 +2014,18 @@ right style
 
 .group select {
     height: 22px;
-    width: 296px;
-    margin-right: 8px;
+    /*width: 284px;*/
+    width: 89%;
+    /*margin-right: 10px;*/
+    margin-right: 4%;
 }
 
 .order select {
-    width: 142px;
+    /*width: 136px;*/
+    width: 42.7%;
     height: 22px;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
+    margin-right: 3.6%;
 }
 
 .target label {
@@ -2115,7 +2038,7 @@ right style
 .target label input {
     width: 90%;
     height: 15px;
-    /*border-radius: 1px;*/
+    border-radius: 1px;
     border: 1px solid #c4c4c4;
 }
 
@@ -2135,7 +2058,7 @@ right style
     height: 25px;
     background-color: white;
     border: 1px lightgray solid;
-    /*border-radius: 3px;*/
+    border-radius: 3px;
     cursor: pointer;
 }
 
@@ -2822,7 +2745,7 @@ tr:nth-child(even) {
     height: 25px;
     background-image: url('./../images/plus.png');
     background-repeat: no-repeat;
-    background-position: left 8px;
+    background-position: left 5px;
 }
 
 .fa-trash2 {
@@ -2853,7 +2776,7 @@ button, input, select {
     height: 500px;
     top: 100px;
     background-color: white;
-    /*border-radius: 2px;*/
+    border-radius: 2px;
     border: 1px solid #a9a9a9;
 }
 
