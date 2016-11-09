@@ -14,10 +14,6 @@ biLeft:104
 */
 
 
-
-
-
-
 body {
     margin: 0 auto;
     background-color: #f6f6f6;
@@ -1517,7 +1513,20 @@ ul.root_tree li div {
 
 /*controller end*/
 
+/*controllerDeploy start*/
 
+.controllDeploy-bodyer{
+    padding: 20px;
+
+}
+
+
+
+
+
+
+
+/*controllerDeploy end*/
 
 
 
