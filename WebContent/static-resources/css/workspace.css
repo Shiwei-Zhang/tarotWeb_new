@@ -322,7 +322,8 @@ ul.root_tree li div {
 }
 .biLeft{
     width: 128px;
-    height:100%;
+    /*height:100%;*/
+    height: 813px;
     position: absolute;
     top:0;
     left:0;
@@ -442,7 +443,8 @@ ul.root_tree li div {
     position: relative;
     float: left;
     width: 99.8%;
-    height: 89%;
+    /*height: 89%;*/
+    height: 765px;
     margin-top: -22px;
 }
 .biFooter{
@@ -1519,13 +1521,123 @@ ul.root_tree li div {
 
 .controllDeploy-bodyer{
     padding: 20px;
+    height: 800px;
+    background: #fff;
+}
+.deployLeft{
+    margin-right:20px;
+}
+.deployLeft .deployTitle,.deployRight .deployTitle{
+    height: 40px;
+    background: #f0f0f0;
+}
+.deployLeft .deployTitle span,
+.deployRight .deployTitle span
+{
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.deployLeft .deployContent,
+.deployRight .deployContent
+{
+    font-size: 0;
+    height: 720px;
+    padding: 20px;
+    /*background: lightblue;*/
+}
+.deployContent .paramList > li,
+.dispatchPart > li
+{
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+.deployContent .paramList > li .single,
+.dispatchPart > li
+{
+    margin-top:11px;
+}
+.deployContent .paramList > li .Tname,
+.dispatchPart > li .Tname
+{
+    float: left;
+    display: inline-block;
+    /*width: 50px;*/
+    width: 18%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+}
+.deployContent .paramList > li select{
+    box-sizing: content-box;
+    width: 81%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #dcdcdc;
+    outline: none;
+}
+.deployContent .paramList > li select:focus{
+    border: 1px solid #149edd;
+}
+.deployContent .paramList > li input:focus{
+    border: 1px solid #149edd;
+}
+.deployContent .paramList > li input{
+    box-sizing: content-box;
+    width: 81%;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    border: 1px solid #dcdcdc;
 
 }
+.deployLeft,.deployRight{
+    float: left;
+    width:49%;
+    height: 800px;
+    border:1px solid #D2D2D2;
+}
+.deployRight .sureBtn{
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background: #56b0e2;
+    float: right;
+}
+.deployRight .TipPart{
+    width: 310px;
+    float: left;
+    height: 260px;
+}
+.deployRight .TipPart li{
+    float: left;
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+.deployRight .TipPart li span{
+    display: inline-block;
+    width: 91px;
+    height: 40px;
+    line-height: 40px;
+}
 
+.deployRight .TipPart li .single {
+    margin-top: -2px;
+    margin-right:10px;
+}
 
+/*dispatchPart*/
+.dispatchPart{
+    font-size: 14px;
+}
 
-
-
+.dispatchPart > li
 
 
 /*controllerDeploy end*/

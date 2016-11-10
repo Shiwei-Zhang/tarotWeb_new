@@ -31,8 +31,6 @@
 	{
 		background-color:yellow;
 	}
-
-
 </style>
 
 </head>
@@ -73,7 +71,6 @@
 	<!-- header end -->
 	<input type="hidden" value="4" id="userId">
 	<input type="hidden" value="lsq" id="userName">
-
 
 	<!--content-->
 	<div class="container">
@@ -695,11 +692,187 @@
 
 					<!--controllerDeploy start-->
 
-					<div class="controllDeploy-bodyer deploy-template">
+					<div class="controllDeploy-bodyer deploy-template" style="">
 						<div class="deployLeft">
-
+							<div class="deployTitle">
+								<span>controller发布</span>
+							</div>
+							<div class="deployContent">
+								<ul class="paramList">
+									<li>
+										<span class="Tname">副本ID</span>
+										<select>
+											<option value="">None</option>
+										</select>
+									</li>
+									<li>
+										<span class="Tname">副本名称</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">发布类型</span>
+										<select>
+											<option value="">webservice</option>
+											<option value="">调度</option>
+										</select>
+									</li>
+								</ul>
+								<ul class="dispatchPart" style="">
+									<li>
+										<span class="Tname">允许多线程</span>
+										<i class="single"></i>
+									</li>
+									<li>
+										<span class="Tname">时间控件</span>
+										<div class="timeControl"></div>
+									</li>
+									<li>
+										<span class="Tname">当前状态</span>
+										<i>未发布</i>
+									</li>
+									<li class="btnPart">
+										<p>发布</p>
+										<p>创建</p>
+										<p>JOB</p>
+									</li>
+								</ul>
+								<ul class="webservicePart" style="display: none">
+									<li>
+										<span class="Tname">接口代码</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">Token</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">允许多线程</span>
+										<i class="single"></i>
+									</li>
+									<li>
+										<span class="Tname">发布状态</span>
+										<span>未发布</span>
+									</li>
+									<li>
+										<p>IP白名单设置</p>
+										<p>IP黑名单设置</p>
+										<ul>
+											<li>
+												<span>起始IP</span>
+												<span>终止IP</span>
+											</li>
+											<li>
+												<span>起始IP</span>
+												<span>终止IP</span>
+											</li>
+											<li>
+												<span>起始IP</span>
+												<span>终止IP</span>
+											</li>
+											<li>
+												<span>起始IP</span>
+												<span>终止IP</span>
+											</li>
+											<li>
+												<p>增加</p>
+											</li>
+											<li class="btnPart">
+												<p>发布</p>
+												<p>创建</p>
+												<p>JOB</p>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
 						</div>
-						<div class="deployRight"></div>
+						<div class="deployRight">
+							<div class="deployTitle">
+								<span>通知人</span>
+							</div>
+							<div class="deployContent">
+								<ul class="paramList">
+									<li>
+										<span class="Tname">类型</span>
+										<select>
+											<option value="">邮件</option>
+										</select>
+									</li>
+									<li>
+										<span class="Tname">收件人</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">系统默认邮箱</span>
+										<i class="single"></i>
+									</li>
+									<li>
+										<span class="Tname">发件地址</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">密码</span>
+										<input type="password" >
+									</li>
+									<li>
+										<span class="Tname">发件服务器</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">发件端口号</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">通知事件</span>
+										<ul class="TipPart">
+											<li>
+												<i class="single"></i>
+												<span>开始执行</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>下线</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>结束执行</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>发布</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>执行异常</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>日志</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>手动终止</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>日志统计信息</span>
+
+											</li>
+										</ul>
+									</li>
+									<li class="clearFix">
+										<span class="sureBtn">保存</span>
+									</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 
 
