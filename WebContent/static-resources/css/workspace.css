@@ -46,7 +46,7 @@ i {
 }
 
 .container,.content,.module-data-all{
-    height: 100%;
+    height: 840px;
     box-sizing: content-box;
 }
 .w240{
@@ -60,12 +60,12 @@ p{
 /* header*/
 
 .f-header {
+    height: 59px;
     border-bottom: 1px #B6BCCC solid;
     background-color: #dcdcdc;
 }
 
 .left-header {
-    height: 65px;
     margin-left: 20px;
 }
 
@@ -108,7 +108,7 @@ p{
 
 .right-header > div {
     display: inline-block;
-    height: 44px;
+    height: 46px;
     width: 44px;
 }
 .right-header .flows{
@@ -189,7 +189,8 @@ p{
 }
 .module-data-navigation{
     width:201px;
-    height: 100%;
+    /*height: 100%;*/
+    height: 840px;
     background: #fff;
     border-right: 1px solid #B9B9B9;
     border-bottom: 1px solid #B9B9B9;
@@ -226,7 +227,8 @@ p{
     cursor: pointer;
 }
 .folder{
-    height: 96%;
+    /*height: 96%;*/
+    height: 813px;
     overflow: auto;
 }
 .folder ul {
@@ -1540,7 +1542,7 @@ ul.root_tree li div {
     border-bottom: 1px solid #B9B9B9;
 }
 .tabs {
-    height: 26px;
+    height: 25px;
     margin:0;
     padding: 0;
     border-bottom: 1px solid #B6BCCC;
@@ -1669,7 +1671,7 @@ ul.root_tree li div {
     height: 100%;
 }
 #tabbox1, #tabbox2{
-    height: 50%;
+    height: 390px;
 }
 .tab_conbox{
     padding:0;
@@ -1751,12 +1753,12 @@ ul.root_tree li div {
 }
 
 #tabbox1 .dt_d .dt_con {
-    height: 277px;
+    height: 318px;
     overflow-y: auto;
 }
 
 #tabbox2 .dt_d .dt_con{
-    height: 226px;
+    height: 319px;
     overflow-y: auto;
 }
 .tabs2{
@@ -1787,7 +1789,7 @@ ul.root_tree li div {
     margin-right: 2px;
 }
 .cav_flow{
-    margin-top: -21px;
+    margin-top: -22px;
 }
 
 
@@ -1811,9 +1813,7 @@ ul.root_tree li div {
 }
 
 .tab-btn-group {
-    width: 99.8%;
     height: 25px;
-    margin-top: -52px;
     background: #f6f6f6;
     border-top: 1px #e7e7e7 solid;
 }
@@ -3127,7 +3127,6 @@ button, input, select {
 
 
 
-
 /*mask layer*/
 .mask {
     width: 100%;
@@ -3150,14 +3149,14 @@ button, input, select {
 	color: #777620; */
 }
 /*@media*/
-@media(min-height: 1000px) {
+@media(min-height: 1920px) {
     body{
-        height: 700px;
+        height: 900px;
     }
 }
-@media(max-height: 1000px) {
+@media(max-height: 1366px) {
     body{
-        height: 700px;
+        height: 900px;
     }
 }
 
