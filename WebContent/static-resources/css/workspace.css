@@ -16,7 +16,8 @@ biLeft:104
 
 body {
     margin: 0 auto;
-    background-color: #f6f6f6;
+    /*background-color: #f6f6f6;*/
+    background-color: #fff;
     width: 100%;
     position: relative;
     font:14px 'arial', 'MicrosoftYaHei';
@@ -1262,8 +1263,8 @@ ul.root_tree li div {
     width: 28%;
     height: 509px;
     float: left;
-    /*margin-left: 26px;*/
-    margin-left: 4%;
+    margin-left: 26px;
+    /*margin-left: 4%;*/
     /*background: #f5f5f5;*/
 }
 
@@ -1546,15 +1547,20 @@ ul.root_tree li div {
     padding: 20px;
     /*background: lightblue;*/
 }
-.deployContent .paramList > li{
+.deployContent .paramList > li,
+.dispatchPart > li
+{
     margin-bottom: 20px;
     min-height: 40px;
 }
-.deployContent .paramList > li .single{
+.deployContent .paramList > li .single,
+.dispatchPart > li .single
+{
     margin-top:11px;
 }
-.deployContent .paramList > li .Tname{
-    float: left;
+.deployContent .paramList > li .Tname,
+.dispatchPart > li .Tname
+{
     display: inline-block;
     /*width: 50px;*/
     width: 18%;
@@ -1562,7 +1568,8 @@ ul.root_tree li div {
     font-size: 14px;
     line-height: 40px;
 }
-.deployContent .paramList > li select{
+.deployContent .paramList > li select
+{
     box-sizing: content-box;
     width: 81%;
     height: 40px;
@@ -1573,10 +1580,14 @@ ul.root_tree li div {
 .deployContent .paramList > li select:focus{
     border: 1px solid #149edd;
 }
-.deployContent .paramList > li input:focus{
+.deployContent .paramList > li input:focus,
+.dispatchPart > li input:focus
+{
     border: 1px solid #149edd;
 }
-.deployContent .paramList > li input{
+.deployContent .paramList > li input,
+.dispatchPart > li input
+{
     box-sizing: content-box;
     width: 81%;
     height: 40px;
@@ -1630,9 +1641,22 @@ ul.root_tree li div {
 .dispatchPart{
     font-size: 14px;
 }
-
-
-
+.deployState i{
+    cursor: default;
+    font-style: normal;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+}
+.dispatchPart .timeControl{
+    display: inline-block;
+    box-sizing: content-box;
+    vertical-align: -48px;
+    width: 81%;
+    height: 72px;
+    line-height: 72px;
+    border: 1px dashed #dcdcdc;
+}
 /*controllerDeploy end*/
 
 
