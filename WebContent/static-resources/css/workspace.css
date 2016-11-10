@@ -1546,20 +1546,14 @@ ul.root_tree li div {
     padding: 20px;
     /*background: lightblue;*/
 }
-.deployContent .paramList > li,
-.dispatchPart > li
-{
+.deployContent .paramList > li{
     margin-bottom: 20px;
     min-height: 40px;
 }
-.deployContent .paramList > li .single,
-.dispatchPart > li
-{
+.deployContent .paramList > li .single{
     margin-top:11px;
 }
-.deployContent .paramList > li .Tname,
-.dispatchPart > li .Tname
-{
+.deployContent .paramList > li .Tname{
     float: left;
     display: inline-block;
     /*width: 50px;*/
@@ -1637,7 +1631,6 @@ ul.root_tree li div {
     font-size: 14px;
 }
 
-.dispatchPart > li
 
 
 /*controllerDeploy end*/
