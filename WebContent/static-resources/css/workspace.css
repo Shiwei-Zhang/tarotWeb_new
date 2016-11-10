@@ -1548,21 +1548,25 @@ ul.root_tree li div {
     /*background: lightblue;*/
 }
 .deployContent .paramList > li,
-.dispatchPart > li
+.dispatchPart > li,
+.webservicePart > li
 {
     margin-bottom: 20px;
     min-height: 40px;
 }
 .deployContent .paramList > li .single,
-.dispatchPart > li .single
+.dispatchPart > li .single,
+.webservicePart > li .single
 {
     margin-top:11px;
 }
 .deployContent .paramList > li .Tname,
-.dispatchPart > li .Tname
+.dispatchPart > li .Tname,
+.webservicePart > li .Tname
 {
     display: inline-block;
     /*width: 50px;*/
+    float: left;
     width: 18%;
     height: 40px;
     font-size: 14px;
@@ -1581,12 +1585,14 @@ ul.root_tree li div {
     border: 1px solid #149edd;
 }
 .deployContent .paramList > li input:focus,
-.dispatchPart > li input:focus
+.dispatchPart > li input:focus,
+.webservicePart > li input:focus
 {
     border: 1px solid #149edd;
 }
 .deployContent .paramList > li input,
-.dispatchPart > li input
+.dispatchPart > li input,
+.webservicePart > li input
 {
     box-sizing: content-box;
     width: 81%;
@@ -1641,7 +1647,15 @@ ul.root_tree li div {
 .dispatchPart{
     font-size: 14px;
 }
-.deployState i{
+.webservicePart{
+    font-size: 14px;
+}
+.deployStateD{
+    height: 300px;
+}
+.deployStateD i,
+.deployStateW i
+{
     cursor: default;
     font-style: normal;
     height: 40px;
@@ -1657,6 +1671,43 @@ ul.root_tree li div {
     line-height: 72px;
     border: 1px dashed #dcdcdc;
 }
+.btnPart p{
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 20px;
+    background: #56b0e2;
+    float: right;
+}
+.ipPower{
+    height: 30px;
+}
+.ipList{
+    float: left;
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background: #f0f0f0;
+    color: #242424;
+}
+.ipList.ipListed{
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background: #56b0e2;
+}
+
 /*controllerDeploy end*/
 
 

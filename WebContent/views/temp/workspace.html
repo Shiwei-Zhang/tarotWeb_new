@@ -717,7 +717,7 @@
 										</select>
 									</li>
 								</ul>
-								<ul class="dispatchPart" style="">
+								<ul class="dispatchPart" style="display: none">
 									<li>
 										<span class="Tname">允许多线程</span>
 										<i class="single"></i>
@@ -725,10 +725,33 @@
 									<li>
 										<span class="Tname">时间控件</span>
 										<div class="timeControl">
-
+											<div class="timeSele">
+												<span>Every</span>
+												<select>
+													<option value="">week</option>
+													<option value="">mounth</option>
+													<option value="">year</option>
+													<option value="">day</option>
+												</select>
+												<span>on</span>
+												<select>
+													<option value="">Monday</option>
+													<option value="">Tuesday</option>
+													<option value="">Wednesday</option>
+													<option value="">Thursday</option>
+													<option value="">Friday</option>
+													<option value="">Saturday</option>
+													<option value="">Sunday</option>
+												</select>
+												<span>at</span>
+												<select>
+													<option value=""></option>
+												</select>
+											</div>
+											<div class="timeshow"></div>
 										</div>
 									</li>
-									<li class="deployState">
+									<li class="deployStateD">
 										<span class="Tname">当前状态</span>
 										<i>未发布</i>
 									</li>
@@ -738,7 +761,7 @@
 										<p>JOB</p>
 									</li>
 								</ul>
-								<ul class="webservicePart" style="display: none">
+								<ul class="webservicePart" style="">
 									<li>
 										<span class="Tname">接口代码</span>
 										<input type="text">
@@ -751,13 +774,15 @@
 										<span class="Tname">允许多线程</span>
 										<i class="single"></i>
 									</li>
-									<li>
+									<li class="deployStateW">
 										<span class="Tname">发布状态</span>
-										<span>未发布</span>
+										<i>未发布</i>
 									</li>
 									<li>
-										<p>IP白名单设置</p>
-										<p>IP黑名单设置</p>
+										<div class="clearFix ipPower">
+											<p class="ipList">IP白名单设置</p>
+											<p class="ipList ipListed">IP黑名单设置</p>
+										</div>
 										<ul>
 											<li>
 												<span>起始IP</span>
