@@ -24,7 +24,7 @@
 }
 
 #jsmind_container2 {
-	height: 369px;
+	height: 77%;
 	width: 99.7%;
 	overflow-y: hidden;
 }
@@ -32,6 +32,8 @@
 	{
 		background-color:yellow;
 	}
+
+
 </style>
 
 </head>
@@ -52,7 +54,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<div style="height:25px;"><button class="logout">注销</button></div>
+		<div style="height:32px;"><button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -64,13 +66,15 @@
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
 				<h6 class="man2">数据连接管理</h6>
-				<h6 class="man3">业务代码维护</h6>
-				<h6 class="man4">内部数据类型维护</h6>
-				<h6 class="man5">外部数据类型维护</h6>
+				<h6 class="man3">用户管理</h6>
 			</div>
 		</div>
 	</div>
 	<!-- header end -->
+
+<!-- 	<input type="hidden" value='4' id="userId">
+	<input type="hidden" value='lsq' id="userName"> -->
+
 
 	<!--content-->
 	<div class="container">
@@ -103,7 +107,7 @@
 
 					<div class="module-flow clearFix flow-template" style="display: none">
 						<!-- flow start-->
-						<div class="module-core module-coreEvent">
+						<div class="module-core">
 							<div class="cav_body" id="tabbox1">
 								<ul class="tab_conbox">
 									<li class="tab1_1 tab_con1">
@@ -118,7 +122,7 @@
 											</div>
 										</div>
 
-										<div class="line_fun  line_active"></div>
+										<div class="line_fun line_active"></div>
 
 					                    <div id="jsmind_container" class="cav_flow">
 					                    </div>
@@ -129,10 +133,10 @@
 							<!-- bottom tabs-->
 							<div class="cav_body" id="tabbox2">
 								<ul class="tabs tabs2">
-									<li><a tab="tab2_1"><span class="flow"></span><p>转换</p></a></li>
-									<li><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
-									<li><a tab="tab2_3"><span class="debug"></span><p class="textArea">调试</p></a></li>
-									<li><a tab="tab2_4"><span class="mointor"></span><p class="textArea">数据监控</p></a></li>
+									<li><a tab="tab2_1"><span class="flow"></span>转换</a></li>
+									<li><a tab="tab2_2"><span class="log"></span>日志</a></li>
+									<li><a tab="tab2_3"><span class="debug"></span>调试</a></li>
+									<li><a tab="tab2_4"><span class="mointor"></span>数据监控</a></li>
 									<li class="monitor nochangetab"><a tab="tab2_4"> <span
 											class="debug"></span> <span class="runing"></span> <span
 											class="stop"></span> <span class="wait"></span> <span
@@ -146,8 +150,8 @@
 											<div class="dt_d">
 												<div class="dt_fun">
 													<p class="dtt">
-														<span data-cls="col_con" class="active_t">字段</span> <span
-															data-cls="syb_con" >函数</span>
+														<span data-cls="col_con">字段</span> <span
+															data-cls="syb_con" class="active_t">函数</span>
 													</p>
 													<input type="text" placeholder="搜索" />
 												</div>
@@ -170,7 +174,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="line_fun  line_funDown line_active"></div>
+											<div class="line_fun line_active"></div>
 										</div>
 
 										<div id="jsmind_container2" class="cav_flow">
@@ -198,13 +202,16 @@
 								</ul>
 							</div>
 
-
+							<div class="tab-btn-group">
+								<div class="one-btn">
+									<input type="button" value="查看原字段" />
+								</div>
+								<div class="btns">
+									<input type="button" value="图形" class="selected" /> <input
+										type="button" value="代码" />
+								</div>
+							</div>
 							<!-- bottom tabs end-->
-						</div>
-
-						<!--code part-->
-						<div class="codePart codePartEvent">
-
 						</div>
 						<!-- flow end-->
 
@@ -225,7 +232,7 @@
 
 								</div>
 
-								<div class="panel join_panel" style="display: none">
+								<div class="panel join_panel" style="display: none;">
 									<div class="joins">
 										<!-- as template-->
 										<div class="template_join" style="display: none;">
@@ -355,17 +362,6 @@
 								<input type="button" value="保存" class="save" />
 							</div>
 						</div>
-
-						<!--tab-btn-group-->
-						<div class="tab-btn-group">
-							<div class="one-btn">
-								<input type="button" value="查看原字段" />
-							</div>
-							<div class="btns">
-								<input type="button" value="图形" class="chart selected" /> <input
-									type="button" value="代码" class="code"/>
-							</div>
-						</div>
 					</div>
 
 
@@ -381,7 +377,7 @@
 						</div>
 						<div class="biFooter clearFix">
 							<ul class="clearFix">
-								<li class="biPublish">发布</li>
+								<li>发布</li>
 								<li>预览</li>
 								<li class="bi-template-save">保存</li>
 							</ul>
@@ -696,245 +692,6 @@
 						</div>
 					</div>
 					<!--Controller end-->
-
-					<!--controllerDeploy start-->
-
-					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
-						<div class="deployLeft">
-							<div class="deployTitle">
-								<span>controller发布</span>
-							</div>
-							<div class="deployContent">
-								<ul class="paramList">
-									<li>
-										<span class="Tname">副本ID</span>
-										<select>
-											<option value="">None</option>
-										</select>
-									</li>
-									<li>
-										<span class="Tname">副本名称</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">发布类型</span>
-										<select id="deployType">
-											<option value="webservice">webservice</option>
-											<option value="dispatch">调度</option>
-										</select>
-									</li>
-								</ul>
-								<ul class="dispatchPart" style="display: none">
-									<li>
-										<span class="Tname">允许多线程</span>
-										<i class="single"></i>
-									</li>
-									<li>
-										<span class="Tname">时间控件</span>
-										<div class="timeControl">
-											<div class="timeSele">
-												<span>Every</span>
-												<select>
-													<option value="">week</option>
-													<option value="">mounth</option>
-													<option value="">year</option>
-													<option value="">day</option>
-												</select>
-												<span>on</span>
-												<select>
-													<option value="">Monday</option>
-													<option value="">Tuesday</option>
-													<option value="">Wednesday</option>
-													<option value="">Thursday</option>
-													<option value="">Friday</option>
-													<option value="">Saturday</option>
-													<option value="">Sunday</option>
-												</select>
-												<span>at</span>
-												<select>
-													<option value=""></option>
-												</select>
-											</div>
-											<div class="timeshow"></div>
-										</div>
-									</li>
-									<li class="deployStateD">
-										<span class="Tname">当前状态</span>
-										<i>未发布</i>
-									</li>
-								</ul>
-								<ul class="webservicePart" style="display: block">
-									<li>
-										<span class="Tname">接口代码</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">Token</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">允许多线程</span>
-										<i class="single"></i>
-									</li>
-									<li class="deployStateW">
-										<span class="Tname">发布状态</span>
-										<i>未发布</i>
-									</li>
-									<li class="ipPart">
-										<div class="clearFix ipPower">
-											<p class="ipList whiteIp ipListed">IP白名单设置</p>
-											<p class="ipList blackIp">IP黑名单设置</p>
-										</div>
-										<!--white list-->
-										<div>
-											<ul class="ipContainer ipContainerA" style="display: block">
-												<li class="ipTitle">
-													<span>起始IP</span>
-													<span>终止IP</span>
-												</li>
-												<li>
-													<span contenteditable="true">172.0.0.1</span>
-													<span contenteditable="true">172.0.0.1</span>
-												</li>
-												<li>
-													<span contenteditable="true">172.0.0.1</span>
-													<span contenteditable="true">172.0.0.1</span>
-												</li>
-												<li>
-													<span contenteditable="true">172.0.0.1</span>
-													<span contenteditable="true">172.0.0.1</span>
-												</li>
-											</ul>
-										</div>
-
-										<!--black list-->
-										<ul class="ipContainer ipContainerB" style="display: none">
-											<li class="ipTitle">
-												<span>起始IP</span>
-												<span>终止IP</span>
-											</li>
-											<li>
-												<span contenteditable="true">172.0.0.2</span>
-												<span contenteditable="true">172.0.0.2</span>
-											</li>
-											<li>
-												<span contenteditable="true">172.0.0.2</span>
-												<span contenteditable="true">172.0.0.2</span>
-											</li>
-											<li>
-												<span contenteditable="true">172.0.0.2</span>
-												<span contenteditable="true">172.0.0.2</span>
-											</li>
-										</ul>
-										<p class="ipAddPart clearFix">
-										<span class="plusBtn">增加</span>
-										</p>
-									</li>
-								</ul>
-								<div class="btnPart">
-									<p>发布</p>
-									<p>创建</p>
-									<p>JOB</p>
-									<p>删除</p>
-									<span>
-										<i class="warning warningBtn"></i>
-										<i>controller资源已发生改变</i>
-									</span>
-								</div>
-							</div>
-						</div>
-						<div class="deployRight">
-							<div class="deployTitle">
-								<span>通知人</span>
-							</div>
-							<div class="deployContent">
-								<ul class="paramList">
-									<li>
-										<span class="Tname">类型</span>
-										<select>
-											<option value="">邮件</option>
-										</select>
-									</li>
-									<li>
-										<span class="Tname">收件人</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">系统默认邮箱</span>
-										<i class="single"></i>
-									</li>
-									<li>
-										<span class="Tname">发件地址</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">密码</span>
-										<input type="password" >
-									</li>
-									<li>
-										<span class="Tname">发件服务器</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">发件端口号</span>
-										<input type="text">
-									</li>
-									<li>
-										<span class="Tname">通知事件</span>
-										<ul class="TipPart">
-											<li>
-												<i class="single"></i>
-												<span>开始执行</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>下线</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>结束执行</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>发布</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>执行异常</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>日志</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>手动终止</span>
-
-											</li>
-											<li>
-												<i class="single"></i>
-												<span>日志统计信息</span>
-
-											</li>
-										</ul>
-									</li>
-									<li class="clearFix">
-										<span class="sureBtn sureBtnEvent">保存</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-
-
-					<!--controllerDeploy end-->
 
 				</div>
 			</div>
@@ -1257,19 +1014,30 @@
 	</div>
 	<!--listSet end-->
 
+	<!--bi deploy start-->
+	<div class="add3-con bideployStyle bideployEvent" style="display: none">
+		<div class="addT">
+			<span>发布</span> <i class="closeA"></i>
+		</div>
+		<div class="addFoot">
+			<span class="sure">确定</span> <span class="cancel">取消</span>
+		</div>
+	</div>
 
+
+	<!--bi deploy end-->
 
 
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
 		<div class="biData-T">
-			<span>报表编辑</span> <i class="closeA closeR bi-close1"></i>
+			<span>数据分析</span> <i class="closeA closeR bi-close1"></i>
 		</div>
 		<div class="biData-C clearFix">
 			<div class="biDataC">
 				<div class="biDataCmain">
 					<div class="CmainT clearFix">
-						<span>拖拽模式</span>
+						<span>拖拽模式</span> 
 						<i class="bi-save">保存</i>
 					</div>
 					<ul class="CmainList">
@@ -1292,14 +1060,14 @@
 						<li class="mapList clearFix">
 							<span class="bi-error error-tip"></span>
 							<p>
-								<span class="bi-reset">重置</span>
+								<span class="bi-reset">重置</span> 
 								<span class="clicked bi-generator">生成</span>
 							</p>
 						</li>
 						<!-- to be deleted -->
 						<li class="bi-chart bichartStyle">
 							<div id="bi-main" class="bimainStyle">
-							</div>
+							</div>                        
                         </li>
 					</ul>
 				</div>
@@ -1311,7 +1079,7 @@
 						<i class="addIcon"></i><span>添加数据</span>
 					</p>
 					<ul class="biList bi-list">
-
+					
 					</ul>
 				</div>
 				<div class="biDataLbottom">
@@ -1371,7 +1139,7 @@
 							<li class="bi-filter">
 								<div class="filterMain bi-filter-condition">
 									<select class="seleIdName bi-filter-fields">
-
+										
 									</select>
 									<select class="seleList bi-filter-operate">
 										<option value="=">=</option>
@@ -1430,7 +1198,7 @@
 		            				<option value="macarons">macarons</option>
 		            				<option value="roma">roma</option>
 		            				<option value="vintage">vintage</option>
-
+		            				
 		            				<option value="chalk">chalk</option>
 		            				<option value="essos">essos</option>
 		            				<option value="halloween">halloween</option>
@@ -1519,7 +1287,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	 <!-- bi数据源选择 -->
     <div class="add4-con biDataSource bi-datasource biDataStyle" style="display:none;">
 		<i class="closeA bi-close2"></i>
@@ -1535,31 +1303,13 @@
 
 				</ul>
 				<div class="addFoot">
-					<span class="sure1 bi-sure">确定</span>
+					<span class="sure1 bi-sure">确定</span> 
 					<span class="cancel1 bi-cancel">取消</span>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- data source end -->
-
-	<!--biDeploy bi发布弹框-->
-	<div class="bideployStyle bideployEvent" style="display: none">
-		<div class="addT">
-			<span>发布</span> <i class="closeA"></i>
-		</div>
-		<div class="biContent">
-			<span class="biUrl">URL</span><input type="text">
-		</div>
-		<div class="addFoot">
-			<span class="sure">确定</span> <span class="cancel">取消</span>
-		</div>
-	</div>
-
-
-	<!--bi deploy end-->
-
-
 	<!--BI end-->
 	<!-- target -->
 	<div class="target_layer" style="display: none;">
@@ -1612,40 +1362,7 @@
 		</div>
 	</div>
 
-
-	<!--controller warning start-->
-
-	<div class="warningPart" style="display: none">
-		<p class="warningT">
-			<i class="warning"></i>
-			<i>controller资源已发生改变</i>
-		</p>
-		<div class="warningContent">
-			<p>
-				<i class="ovalIcon ovalIconed"></i>
-				<span>忽略</span>
-			</p>
-			<p>
-				<i class="ovalIcon"></i>
-				<span>新建controller</span>
-			</p>
-			<p>
-				<i class="ovalIcon"></i>
-				<span>新建调度</span>
-			</p>
-		</div>
-		<div class="warningFooter">
-			<span class="sure">确定</span>
-			<span class="cancel">取消</span>
-		</div>
-	</div>
-
-
-
-	<!--controller warning end-->
 	<div class="mask" style="display: none;"></div>
-
-
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 	<script
 		src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
@@ -1845,8 +1562,6 @@ function renameMenuForHome(){
     }
     var mType;
 	function getUserPower(menuId,menuType){
-		$('.root_tree div').removeClass('visitedBg');
-		$('#' + menuId).addClass('visitedBg');
 		selectedMenuId = menuId;
 		mType=menuType;
 		UserPowerList(selectedMenuId,menuType,null);
@@ -1998,21 +1713,17 @@ function renameMenuForHome(){
     function refreshMenu(type){
         console.log("刷新左边菜单");
         $(".root_tree div[name='noneShow']").parent().hide();
-        //刷新目录树
-        if(type==1){
-            $(".root_tree div[name='singleShow']").parent().show();
-        }else{
-        	//刷新目录管理
-            $(".root_tree div[name='singleShow']").parent().hide();
-        	if(!$(".root_tree div").hasClass("header_active") || $(".root_tree .header_active").attr('name')=='singleShow'){
-        		var $this = $(".root_tree div[name='doubleShow']").eq(0);
-        		$this.addClass('header_active');
-                var menuId=$this.attr('id');
-                var menuType=$this.attr('menutype');
-                getUserPower(menuId,menuType);
-        	}
+      //刷新目录管理
+        $(".root_tree div[name='singleShow']").parent().hide();
+    	if(!$(".root_tree div").hasClass("header_active") || $(".root_tree .header_active").attr('name')=='singleShow'){
+    		var $this = $(".root_tree div[name='doubleShow']").eq(0);
+    		$this.addClass('header_active');
+            var menuId=$this.attr('id');
+            var menuType=$this.attr('menutype');
+            getUserPower(menuId,menuType);
     	}
-    }
+            
+        }
 
 
     function getDataAdd4(usersId){

@@ -52,7 +52,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<div style="height:25px;"><button class="logout">注销</button></div>
+		<div style="height:32px;"><button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -71,6 +71,13 @@
 		</div>
 	</div>
 	<!-- header end -->
+
+<<<<<<< .mine
+=======
+<!-- 	<input type="hidden" value='4' id="userId">
+	<input type="hidden" value='lsq' id="userName"> -->
+
+>>>>>>> .r597
 
 	<!--content-->
 	<div class="container">
@@ -1649,7 +1656,7 @@
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 	<script
 		src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
-	<script src="../../static-resources/js/comm.js"></script>
+	<!--<script src="../../static-resources/js/comm.js"></script>-->
 	<script src="../../static-resources/js/context.js"></script>
 	<script src="../../static-resources/js/workspace.js"></script>
 
@@ -1998,21 +2005,17 @@ function renameMenuForHome(){
     function refreshMenu(type){
         console.log("刷新左边菜单");
         $(".root_tree div[name='noneShow']").parent().hide();
-        //刷新目录树
-        if(type==1){
-            $(".root_tree div[name='singleShow']").parent().show();
-        }else{
-        	//刷新目录管理
-            $(".root_tree div[name='singleShow']").parent().hide();
-        	if(!$(".root_tree div").hasClass("header_active") || $(".root_tree .header_active").attr('name')=='singleShow'){
-        		var $this = $(".root_tree div[name='doubleShow']").eq(0);
-        		$this.addClass('header_active');
-                var menuId=$this.attr('id');
-                var menuType=$this.attr('menutype');
-                getUserPower(menuId,menuType);
-        	}
+      //刷新目录管理
+        $(".root_tree div[name='singleShow']").parent().hide();
+    	if(!$(".root_tree div").hasClass("header_active") || $(".root_tree .header_active").attr('name')=='singleShow'){
+    		var $this = $(".root_tree div[name='doubleShow']").eq(0);
+    		$this.addClass('header_active');
+            var menuId=$this.attr('id');
+            var menuType=$this.attr('menutype');
+            getUserPower(menuId,menuType);
     	}
-    }
+            
+        }
 
 
     function getDataAdd4(usersId){

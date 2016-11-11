@@ -52,7 +52,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<div style="height:25px;"><button class="logout">注销</button></div>
+		<div style="height:32px;"><button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
