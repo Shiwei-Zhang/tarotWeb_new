@@ -85,13 +85,13 @@ $(function(){
             var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
             $('.paramMain').append(new_obj);
             //参数列表的列
-            delList()
+            delList();
         });
     };
-
+    delList();
     //删除参数列表的每一列
     function delList() {
-        $('.closeL').unbind('click').click(function () {
+        $('.paramMain .closeL').unbind('click').click(function () {
             //console.log($(this).parent());
             $(this).parent().remove();
         })
@@ -284,10 +284,7 @@ $(function(){
                 if ($('.connectionEvent').val() === 'other') {
 
                 }
-
             }
-
-
         });
 
         $('.mask').show();
@@ -449,7 +446,86 @@ $(function(){
 
 
 
+//controllDeployEvent start
 
+$('.controllDeployEvent').unbind('click').click(function (e) {
+    e = e || window.event;
+    var tar = e.target || e.srcElement;
+    //单选框
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('single')) {
+        if ($(tar).hasClass('singleChecked')) {
+            $(tar).removeClass('singleChecked');
+        } else {
+            $(tar).addClass('singleChecked')
+        }
+    }
+
+    //发布类型change事件
+    $('#deployType').change(function(){
+        var p1=$(this).children('option:selected').val();
+        if(p1=='webservice'){
+            $('.webservicePart').show();
+            $('.dispatchPart').hide();
+            //TODO
+        }else if(p1=='dispatch'){
+            $('.webservicePart').hide();
+            $('.dispatchPart').show();
+            //TODO
+        }
+    });
+
+
+    //warningBtn controller resource has changed
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('warningBtn')) {
+        console.log('warningBtn~~~');
+        //TODO
+    }
+
+    //white list  black list
+    if (tar.tagName.toLowerCase() === 'p' && $(tar).hasClass('ipList')) {
+        $(tar).siblings().removeClass('ipListed');
+        $(tar).addClass('ipListed');
+        if($(tar).attr('class').indexOf('whiteIp')>0){
+            $('.ipContainerB').hide();
+            $('.ipContainerA').show();
+        }else if($(tar).attr('class').indexOf('blackIp')>0){
+            $('.ipContainerB').show();
+            $('.ipContainerA').hide();
+        }
+
+        //TODO
+    }
+
+   /* //增加参数列表的每一列
+    ipAddList();
+    function ipAddList() {
+        $('.plusBtn').unbind('click').click(function () {
+            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
+            $('.paramMain').append(new_obj);
+            //参数列表的列
+            delList();
+        });
+    }
+    delList();
+    //删除参数列表的每一列
+    function delList() {
+        $('.paramMain .closeL').unbind('click').click(function () {
+            //console.log($(this).parent());
+            $(this).parent().remove();
+        })
+    }*/
+
+    //deployRight 保存
+    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('sureBtnEvent')) {
+        console.log('sureBtnEvent~~~~');
+
+        //TODO
+    }
+
+
+});
+
+//controllDeployEvent end
 
 
 

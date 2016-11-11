@@ -692,7 +692,7 @@
 
 					<!--controllerDeploy start-->
 
-					<div class="controllDeploy-bodyer deploy-template" style="">
+					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="">
 						<div class="deployLeft">
 							<div class="deployTitle">
 								<span>controller发布</span>
@@ -711,9 +711,9 @@
 									</li>
 									<li>
 										<span class="Tname">发布类型</span>
-										<select>
-											<option value="">webservice</option>
-											<option value="">调度</option>
+										<select id="deployType">
+											<option value="webservice">webservice</option>
+											<option value="dispatch">调度</option>
 										</select>
 									</li>
 								</ul>
@@ -755,13 +755,8 @@
 										<span class="Tname">当前状态</span>
 										<i>未发布</i>
 									</li>
-									<li class="btnPart">
-										<p>发布</p>
-										<p>创建</p>
-										<p>JOB</p>
-									</li>
 								</ul>
-								<ul class="webservicePart" style="">
+								<ul class="webservicePart" style="display: block">
 									<li>
 										<span class="Tname">接口代码</span>
 										<input type="text">
@@ -780,25 +775,48 @@
 									</li>
 									<li class="ipPart">
 										<div class="clearFix ipPower">
-											<p class="ipList ipListed">IP白名单设置</p>
-											<p class="ipList">IP黑名单设置</p>
+											<p class="ipList whiteIp ipListed">IP白名单设置</p>
+											<p class="ipList blackIp">IP黑名单设置</p>
 										</div>
-										<ul class="ipContainer">
+										<!--white list-->
+										<div>
+											<ul class="ipContainer ipContainerA" style="display: block">
+												<li class="ipTitle">
+													<span>起始IP</span>
+													<span>终止IP</span>
+												</li>
+												<li>
+													<span contenteditable="true">172.0.0.1</span>
+													<span contenteditable="true">172.0.0.1</span>
+												</li>
+												<li>
+													<span contenteditable="true">172.0.0.1</span>
+													<span contenteditable="true">172.0.0.1</span>
+												</li>
+												<li>
+													<span contenteditable="true">172.0.0.1</span>
+													<span contenteditable="true">172.0.0.1</span>
+												</li>
+											</ul>
+										</div>
+
+										<!--black list-->
+										<ul class="ipContainer ipContainerB" style="display: none">
 											<li class="ipTitle">
 												<span>起始IP</span>
 												<span>终止IP</span>
 											</li>
 											<li>
-												<span contenteditable="true">172.0.0.1</span>
-												<span contenteditable="true">172.0.0.1</span>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
 											</li>
 											<li>
-												<span contenteditable="true">172.0.0.1</span>
-												<span contenteditable="true">172.0.0.1</span>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
 											</li>
 											<li>
-												<span contenteditable="true">172.0.0.1</span>
-												<span contenteditable="true">172.0.0.1</span>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
 											</li>
 										</ul>
 										<p class="ipAddPart clearFix">
@@ -810,6 +828,11 @@
 									<p>发布</p>
 									<p>创建</p>
 									<p>JOB</p>
+									<p>删除</p>
+									<span>
+										<i class="warning warningBtn"></i>
+										<i>controller资源已发生改变</i>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -895,7 +918,7 @@
 										</ul>
 									</li>
 									<li class="clearFix">
-										<span class="sureBtn">保存</span>
+										<span class="sureBtn sureBtnEvent">保存</span>
 									</li>
 								</ul>
 							</div>
@@ -1575,6 +1598,38 @@
 			</div>
 		</div>
 	</div>
+
+
+	<!--controller warning start-->
+
+	<div class="warningPart" style="">
+		<p>
+			<i class="warning"></i>
+			<i>controller资源已发生改变</i>
+		</p>
+		<div class="warningContent">
+			<p>
+				<i></i>
+				<span>忽略</span>
+			</p>
+			<p>
+				<i></i>
+				<span>新建controller</span>
+			</p>
+			<p>
+				<i></i>
+				<span>新建调度</span>
+			</p>
+		</div>
+		<div class="warningFooter">
+			<span>确定</span>
+			<span>取消</span>
+		</div>
+	</div>
+
+
+
+	<!--controller warning end-->
 	<div class="mask" style="display: none;"></div>
 
 

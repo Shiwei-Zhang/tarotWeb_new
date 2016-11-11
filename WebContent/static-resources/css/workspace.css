@@ -1684,6 +1684,29 @@ ul.root_tree li div {
     float: right;
 }
 
+.btnPart span{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.btnPart span i{
+    font-style: normal;
+    cursor: default;
+}
+.btnPart span .warning{
+    cursor: pointer;
+}
+.warning{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../images/warningIcon.png)no-repeat;
+    background-size: 20px 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
 .ipPart{
     height: 240px;
 }
@@ -1750,6 +1773,23 @@ ul.root_tree li div {
 
 /*controllerDeploy end*/
 
+/*controller warning start*/
+
+.warningPart{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin:auto;
+    width: 330px;
+    height: 280px;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,.3);
+}
+
+
+/*controller warning end*/
 
 
 
@@ -2061,6 +2101,7 @@ ul.root_tree li div {
 }
 
 .tab-btn-group input {
+    width:42px;
     border: 1px #d0d0d0 solid;
     background-color: #ffffff;
     height: 20px;
