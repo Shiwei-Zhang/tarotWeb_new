@@ -48,7 +48,7 @@ i {
 
 .container,.content,.module-data-all{
     height: 840px;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 .w240{
     width: 240px;
@@ -1574,7 +1574,7 @@ ul.root_tree li div {
 }
 .deployContent .paramList > li select
 {
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 81%;
     height: 40px;
     line-height: 40px;
@@ -1594,7 +1594,7 @@ ul.root_tree li div {
 .dispatchPart > li input,
 .webservicePart > li input
 {
-    box-sizing: content-box;
+    box-sizing: border-box;
     width: 81%;
     height: 40px;
     line-height: 40px;
@@ -1664,7 +1664,7 @@ ul.root_tree li div {
 }
 .dispatchPart .timeControl{
     display: inline-block;
-    box-sizing: content-box;
+    box-sizing: border-box;
     vertical-align: -48px;
     width: 81%;
     height: 72px;
@@ -1706,6 +1706,65 @@ ul.root_tree li div {
     background-size: 20px 20px;
     vertical-align: middle;
     cursor: pointer;
+}
+.warningPart .warningT{
+    height: 25px;
+    line-height: 25px;
+    margin-top: 60px;
+    padding-left: 51px;
+    margin-bottom: 18px;
+}
+.warningPart .warningT i{
+    font-style: normal;
+}
+
+.warningContent{
+    padding-left:88px;
+    height: 125px;
+}
+.warningContent p{
+    height: 30px;
+    line-height: 30px;
+}
+.ovalIcon{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../images/OvalIcon.png)no-repeat;
+    background-size: 14px 14px;
+    background-position: 5px 5px;
+    vertical-align: middle;
+}
+.ovalIconed{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("../images/OvalIconed.png")no-repeat;
+    background-size: 14px 14px;
+    background-position: 5px 5px;
+    vertical-align: middle;
+}
+.warningFooter{
+    height: 30px;
+    margin-right: 20px;
+}
+.warningFooter span{
+    width: 60px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 20px;
+    float: right;
+}
+.warningFooter span.sure{
+    color: #56b0e2;
+    border:1px solid #56b0e2;
+}
+.warningFooter span.cancel{
+    color: #767676;
+    border:1px solid #767676;
 }
 .ipPart{
     height: 240px;
@@ -1781,6 +1840,7 @@ ul.root_tree li div {
     left:0;
     right:0;
     bottom: 0;
+    z-index: 140;
     margin:auto;
     width: 330px;
     height: 280px;
@@ -1803,6 +1863,8 @@ ul.root_tree li div {
 }
 .tabs {
     height: 25px;
+    max-height: 25px;
+    overflow: hidden;
     margin:0;
     padding: 0;
     border-bottom: 1px solid #B6BCCC;
@@ -2075,6 +2137,10 @@ ul.root_tree li div {
 
 .tab-btn-group {
     height: 25px;
+    position: absolute;
+    bottom: 27px;
+    left: 0;
+    width: 100%;
     background: #f6f6f6;
     border-top: 1px #e7e7e7 solid;
 }
@@ -2084,9 +2150,6 @@ ul.root_tree li div {
     vertical-align: top;
 }
 
-.tab-btn-group div:first-child {
-    margin-left: 10px;
-}
 
 .tab-btn-group div.one-btn {
     margin-left: 10px;
@@ -2096,21 +2159,21 @@ ul.root_tree li div {
     border-radius: 5px;
 }
 
-.tab-btn-group div:last-child {
-    float: right;
-}
+
 
 .tab-btn-group input {
-    width:42px;
     border: 1px #d0d0d0 solid;
     background-color: #ffffff;
     height: 20px;
     margin-top: 2px;
     cursor: pointer;
 }
-
-.tab-btn-group div.btns {
-    margin-right: 10px;
+.tab-btn-group .btns{
+    float: right;
+    margin-right:370px;
+}
+.btns input{
+    width:42px;
 }
 
 .tab-btn-group div.btns input:first-child {
@@ -2135,11 +2198,11 @@ right style
     font-size: 0;
 }
 .module-prop{
-    /*width: 25%;*/
     position: absolute;
     right: -1px;
     width:350px;
-    height: 100%;
+    height: 840px;
+    z-index: 130;
     margin-top: -28px;
     border-left: 1px solid #B9B9B9;
     margin-left: -1px;
@@ -2391,13 +2454,11 @@ right style
 }
 
 .btn {
-    width: 21%;
-    /*width: 300px;*/
-    /*text-align: center;*/
+    width: 330px;
+    height: 28px;
     position: absolute;
     margin-left: 10px;
-    top: 100%;
-    margin-top: 39px;
+    bottom: 0;
 }
 
 .btn input {
@@ -3302,7 +3363,7 @@ button, input, select {
     display: inline-block;
 }
 .tableContainer{
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 .tableContainer tr th,.tableContainer tr td{
     height: 36px;
@@ -3422,5 +3483,14 @@ button, input, select {
     }
 }
 
-
+/*@media(min-width: 1920px) {
+    body{
+        width: 1920px;
+    }
+}
+@media(max-width: 1440px) {
+    body{
+        width: 1440px;
+    }
+}*/
 

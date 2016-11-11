@@ -460,6 +460,7 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
         }
     }
 
+
     //发布类型change事件
     $('#deployType').change(function(){
         var p1=$(this).children('option:selected').val();
@@ -521,11 +522,36 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
 
         //TODO
     }
-
+    //
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('warningBtn')) {
+        console.log('warningBtn~~~~');
+        $('.warningPart,.mask').show();
+    //TODO
+    }
 
 });
 
 //controllDeployEvent end
+
+
+//warningPart
+$('.warningPart').unbind('click').click(function (e) {
+    e = e || window.event;
+    var tar = e.target || e.srcElement;
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('ovalIcon')) {
+        $('.ovalIcon').removeClass('ovalIconed');
+        $(tar).addClass('ovalIconed');
+    }
+    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('cancel')) {
+        $('.warningPart,.mask').hide();
+    }
+    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('sure')) {
+        //TODO
+
+        $('.warningPart,.mask').hide();
+    }
+});
+
 
 
 

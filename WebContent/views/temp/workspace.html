@@ -103,7 +103,7 @@
 
 					<div class="module-flow clearFix flow-template" style="display: none">
 						<!-- flow start-->
-						<div class="module-core">
+						<div class="module-core module-coreEvent">
 							<div class="cav_body" id="tabbox1">
 								<ul class="tab_conbox">
 									<li class="tab1_1 tab_con1">
@@ -196,19 +196,15 @@
 										</div>
 									</li>
 								</ul>
-								<div class="tab-btn-group">
-									<div class="one-btn">
-										<input type="button" value="查看原字段" />
-									</div>
-									<div class="btns">
-										<input type="button" value="图形" class="selected" /> <input
-											type="button" value="代码" />
-									</div>
-								</div>
 							</div>
 
 
 							<!-- bottom tabs end-->
+						</div>
+
+						<!--code part-->
+						<div class="codePart codePartEvent">
+
 						</div>
 						<!-- flow end-->
 
@@ -357,6 +353,17 @@
 
 							<div class="btn">
 								<input type="button" value="保存" class="save" />
+							</div>
+						</div>
+
+						<!--tab-btn-group-->
+						<div class="tab-btn-group">
+							<div class="one-btn">
+								<input type="button" value="查看原字段" />
+							</div>
+							<div class="btns">
+								<input type="button" value="图形" class="chart selected" /> <input
+									type="button" value="代码" class="code"/>
 							</div>
 						</div>
 					</div>
@@ -692,7 +699,7 @@
 
 					<!--controllerDeploy start-->
 
-					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="">
+					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
 						<div class="deployLeft">
 							<div class="deployTitle">
 								<span>controller发布</span>
@@ -1602,28 +1609,28 @@
 
 	<!--controller warning start-->
 
-	<div class="warningPart" style="">
-		<p>
+	<div class="warningPart" style="display: none">
+		<p class="warningT">
 			<i class="warning"></i>
 			<i>controller资源已发生改变</i>
 		</p>
 		<div class="warningContent">
 			<p>
-				<i></i>
+				<i class="ovalIcon ovalIconed"></i>
 				<span>忽略</span>
 			</p>
 			<p>
-				<i></i>
+				<i class="ovalIcon"></i>
 				<span>新建controller</span>
 			</p>
 			<p>
-				<i></i>
+				<i class="ovalIcon"></i>
 				<span>新建调度</span>
 			</p>
 		</div>
 		<div class="warningFooter">
-			<span>确定</span>
-			<span>取消</span>
+			<span class="sure">确定</span>
+			<span class="cancel">取消</span>
 		</div>
 	</div>
 

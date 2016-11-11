@@ -17,6 +17,17 @@ $(function(){
     $('.manager').on('click', function(event){
         console.log('manager...');
     });
+    $('.btns input').on('click', function(event){
+        $('input').removeClass('selected');
+        $(this).addClass('selected');
+        if($(this).attr('class').indexOf('chart')>-1){
+            $('.module-coreEvent').show();
+            $('.codePartEvent').hide();
+        }else if($(this).attr('class').indexOf('code')>-1){
+            $('.module-coreEvent').hide();
+            $('.codePartEvent').show();
+        }
+    });
 
     //folder change
     $('.folder_title').on('click', function(event){
