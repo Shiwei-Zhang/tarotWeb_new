@@ -101,7 +101,7 @@
 						</ul>
 					</div>
 
-					<div class="module-flow clearFix flow-template" style="display: none">
+					<div class="module-flow clearFix flow-template" style="display: none;">
 						<!-- flow start-->
 						<div class="module-core module-coreEvent">
 							<div class="cav_body" id="tabbox1">
@@ -370,7 +370,7 @@
 
 
 					<!--BI start-->
-					<div class="BI-bodyer module-bi bi-template" style="display: none">
+					<div class="BI-bodyer module-bi bi-template" style="display: none;">
 						<div class="biLeft">
 							<p class="showbiData">+ 添加图表</p>
 							<div class="bi-chart-list bicharlistStyle">
@@ -402,7 +402,12 @@
 					<!--dataMining start-->
 
 					<div class="dataMining-bodyer module-datamining datamining-template" style="display: none">
-						dataMining-bodyer
+						<div class="dataMinL">
+
+						</div>
+						<div class="dataMinR">
+
+						</div>
 					</div>
 
 
@@ -410,7 +415,7 @@
 					<!--dataMining end-->
 
 					<!--Controller start-->
-					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display: none">
+					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display:none">
 
 						<!--content部分-->
 						<div class="content1 contentEvent">
@@ -699,7 +704,7 @@
 
 					<!--controllerDeploy start-->
 
-					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
+					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none;">
 						<div class="deployLeft">
 							<div class="deployTitle">
 								<span>controller发布</span>
@@ -1670,8 +1675,17 @@
     var userId = $.getCookie('userId').id;
     var userName=$.getCookie('userId').name;
     var urlId='http://localhost:8080/TarotIDE';
-    
-    //TODO deleting 
+
+	  resizeW();
+	  $(window).on('resize', resizeW);
+	  function resizeW() {
+		  var $winW;
+		  $winW = $(window).width();
+		  $('.module-data').css('width', $winW - 201);
+		  $('.module-data-all').css('width', $winW - 201);
+	  }
+
+	//TODO deleting
     //urlId = 'http://localhost:800/';
     //初始化目录
     $(function(){
