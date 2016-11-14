@@ -49,7 +49,7 @@ input[type="button"] {
 }
 
 .header_active {
-    background-color: #F4F4F4;
+    background-color: #d2d2d2;
 }
 
 .container,.content,.module-data-all{
@@ -1234,24 +1234,116 @@ ul.root_tree li div {
 .dataMining-bodyer{
     width:100%;
     height: 100%;
-    background: lightblue;
 }
 .dataMinL{
     /*width:75%;*/
-    width:69%;
+    width:75%;
     height: 100%;
     float: left;
     box-sizing: border-box;
-    background: lightgrey;
-}
-.dataMinR{
-    width:350px;
-    height: 100%;
-    float: right;
-    box-sizing: border-box;
-    background: red;
+    background: #fff;
 }
 
+.dataMinL .dataMinL-top{
+    height: 549px;
+    padding: 20px;
+    background: #fff;
+}
+.dataMinL-top .dataMinT{
+    height: 40px;
+    line-height: 40px;
+    padding-left:20px;
+    background: #f0f0f0;
+}
+.dataMinL-top .dataMinT span{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+
+}
+.dataMinL-top .dataMinC{
+    /*height: ;*/
+    padding:20px 20px 0 20px;
+}
+.dataMinL-top .dataMinC .paramList{
+    height: 440px;
+}
+.dataMinC .paramList li{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.dataMinC .paramList li span{
+    display: inline-block;
+    width:75px;
+}
+.dataMinC .paramList li select{
+    height: 38px;
+    width:81%;
+    line-height: 38px;
+    border:1px solid #dcdcdc;
+}
+.dataMinL-top .practice{
+    width:49%;
+    height: 100%;
+    float: left;
+    border:1px solid #c9c9c9;
+    margin-right:20px;
+}
+.dataMinL-top .savePart{
+    width:48%;
+    height: 100%;
+    float: left;
+    border:1px solid #c9c9c9;
+ }
+.dataMinL .dataMinL-bottom{
+    height: 260px;
+}
+.dataMinL-bottom .tabs{
+background:#f6f6f6;
+}
+.dataMinL-bottom .dataMinFile p{
+    height: 25px;
+    line-height: 25px;
+    padding-left:10px;
+}
+.dataMinR{
+    position: absolute;
+    right: -1px;
+    z-index: 130;
+    margin-top: -26px;
+    width:345px;
+    height: 840px;
+    float: left;
+    border-left:1px solid #b9b9b9;
+    box-sizing: border-box;
+    background: #f4f4f4;
+}
+.dataMinR .dataMinRtop{
+    height: 26px;
+    line-height: 26px;
+    background: #e2e2e2;
+    text-align: center;
+}
+.dataMinR .propContainer{
+    padding-left: 26px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+.dataMinR .propContainer li{
+    margin-top:10px;
+}
+.propContainer li span{
+    display: inline-block;
+    width:54px;
+    font-size: 12px;
+}
+.propContainer li input{
+    width:238px;
+    height: 18px;
+    line-height: 18px;
+    border:1px solid #c8c8c8;
+}
 /*dataMining-bodyer end*/
 
 
