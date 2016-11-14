@@ -1825,6 +1825,7 @@ var baseUrl = urlId;
         });
     };
 	showList('.bi-menu');
+	showList('.biCharList');
 	showList('.bi-menu-right');
 	
     showList('.menuRight');

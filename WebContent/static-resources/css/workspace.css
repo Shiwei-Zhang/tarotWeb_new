@@ -309,7 +309,7 @@ ul.root_tree li div {
     height: 700px;
     position: relative;
 }
-.biLeft{
+.biAddLeft{
     width: 128px;
     /*height:100%;*/
     height: 813px;
@@ -321,7 +321,15 @@ ul.root_tree li div {
     border-top:1px solid #b9b9b9;
     border-right:1px solid #b9b9b9;
 }
-.biLeft p{
+.biLeft{
+    height: 393px;
+}
+.biLeftTemp{
+    height: 420px;
+}
+.biLeft p,
+.biLeftTemp p
+{
     width: 100%;
     height: 30px;
     line-height: 30px;
@@ -331,7 +339,42 @@ ul.root_tree li div {
     font-size: 12px;
     cursor: pointer;
 }
-
+.choiceBtn span{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+}
+.styleIcon{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/styleIcon.png)no-repeat;
+    background-size: 15px 15px;
+    background-position: 0 4px;
+    vertical-align: middle;
+}
+.down_down{
+    display: inline-block;
+    width:24px;
+    height: 24px;
+    background: url("../images/down_down.png")no-repeat;
+    background-size: 16px 10px;
+    vertical-align: middle;
+    background-position: 3px 6px;
+}
+.down_up{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/down_up.png)no-repeat;
+    background-size: 16px 10px;
+    vertical-align: middle;
+    background-position: 3px 6px;
+}
+.bicharlistStyle{
+    height: 360px;
+}
 .bicharlistStyle div{
     height: 27px;
     line-height: 27px;
@@ -1312,7 +1355,7 @@ background:#f6f6f6;
 }
 .dataMinR{
     position: absolute;
-    right: -1px;
+    right: 0;
     z-index: 130;
     margin-top: -26px;
     width:345px;
@@ -1366,7 +1409,8 @@ background:#f6f6f6;
 }
 .content1 .stream,.content1 .provide,.content1 .con-right{
     /*width: 386px;*/
-    width: 28%;
+    /*width: 28%;*/
+    width: 31%;
     height: 509px;
     float: left;
     margin-left: 26px;
@@ -2193,7 +2237,7 @@ background:#f6f6f6;
 }
 .tabs2{
     font-size: 12px;
-    border-right:1px solid #b6bccc;
+    /*border-right:1px solid #b6bccc;*/
     border-top:1px solid #b6bccc;
 }
 .tabs2 span {
@@ -3559,6 +3603,111 @@ button, input, select {
 
 
 /*bi数据源选择 end*/
+
+/*bi charTemp start*/
+.biCharTemp{
+    position: absolute;
+    bottom: 0;
+    left: 250px;
+    z-index: 160;
+    width: 252px;
+    height: 743px;
+    border:1px solid #c8c8c8;
+    background: #f9f9f9;
+}
+.biCharTemp .bicharT{
+    height: 49px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #d2d2d2;
+}
+.bicharT span{
+    float: left;
+    display: inline-block;
+    height: 49px;
+    width:58px;
+    line-height: 49px;
+    margin-left:14px;
+}
+.bicharT i{
+    float: right;
+    display: inline-block;
+    width: 25px;
+    height: 49px;
+    line-height: 49px;
+    margin-right:14px;
+}
+.biCharTemp .biCharList{
+    margin-top:13px;
+}
+.biCharTemp .biCharList li{
+    padding-left:10px;
+}
+.biCharTemp .biCharList li h2{
+    font-weight: normal;
+    font-size: 14px;
+}
+.biCharList .themeContainer{
+    font-size: 0;
+}
+.biCharList .themeContainer li{
+    width: 209px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 6px;
+    border:1px solid #f1edea;
+    padding:5px 0 5px 7px;
+}
+.themeContainer li span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+.themeContainer .themeOne{
+    background: url("../images/theme1.png")no-repeat;
+}
+.themeContainer .themeTwo{
+    background: url("../images/theme2.png")no-repeat;
+}
+.themeContainer .themeThree{
+    background: url("../images/theme3.png")no-repeat;
+}
+.themeContainer .themeFour{
+    background: url("../images/theme4.png")no-repeat;
+}
+.themeContainer .themeFive{
+    background: url("../images/theme5.png")no-repeat;
+}
+.themeContainer .themeSix{
+    background: url("../images/theme6.png")no-repeat;
+}
+.themeContainer .themeSeven{
+    background: url("../images/theme7.png")no-repeat;
+}
+.themeContainer .themeEight{
+    background: url("../images/theme8.png")no-repeat;
+}
+.themeContainer .themeNine{
+    background: url("../images/theme9.png")no-repeat;
+}
+.themeContainer .themeTen{
+    background: url("../images/theme10.png")no-repeat;
+}
+.themeContainer .themeEleven{
+    background: url("../images/theme11.png")no-repeat;
+}
+.themeContainer .themeTwelve{
+    background: url("../images/theme12.png")no-repeat;
+}
+.themeContainer .themeThirteen{
+    background: url("../images/theme13.png")no-repeat;
+}
+
+
+
+
+
+/*bi charTemp end*/
 
 
 

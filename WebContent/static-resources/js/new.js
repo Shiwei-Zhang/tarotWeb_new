@@ -374,7 +374,7 @@ $(function(){
 
             showType($idName, $dataType);
         }
-    };
+    }
 
     //loading related data
     function showType($idName, $dataType){

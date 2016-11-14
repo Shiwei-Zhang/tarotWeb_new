@@ -371,11 +371,25 @@
 
 					<!--BI start-->
 					<div class="BI-bodyer module-bi bi-template" style="display: none;">
-						<div class="biLeft">
-							<p class="showbiData">+ 添加图表</p>
-							<div class="bi-chart-list bicharlistStyle">
+						<div class="biAddLeft">
+							<div class="biLeft">
+								<p class="showbiData">+ 添加图表</p>
+								<div class="bi-chart-list bicharlistStyle">
+								</div>
+							</div>
+							<div class="biLeftTemp">
+								<p class="">+ 添加模版</p>
+								<div class="bicharlistStyle">
+
+								</div>
+								<p class="choiceBtn">
+									<i class="styleIcon"></i>
+									<span>样式</span>
+									<i class="down_down"></i>
+								</p>
 							</div>
 						</div>
+
 						<div class="line_fun line_active"></div>
 						<div class="biContainer bi-template-container biContainerStyle">
 						</div>
@@ -1726,6 +1740,40 @@
 	</div>
 
 
+	<!--bi charTemp start-->
+
+	<div class="biCharTemp" style="">
+		<div class="bicharT">
+			<span>属性</span>
+			<i class="closeA"></i>
+		</div>
+		<ul class="biCharList">
+			<li>
+				<h2 class="tabT"><i class="fa fa-caret-down"></i>主题</h2>
+				<ul class="themeContainer">
+					<li class="themeOne"></li>
+					<li class="themeTwo"></li>
+					<li class="themeThree"></li>
+					<li class="themeFour"></li>
+					<li class="themeFive"></li>
+					<li class="themeSix"></li>
+					<li class="themeSeven"></li>
+					<li class="themeEight"></li>
+					<li class="themeNine"></li>
+					<li class="themeTen"></li>
+					<li class="themeEleven "></li>
+					<li class="themeTwelve "></li>
+					<li class="themeThirteen "></li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="tabT"><i class="fa fa-caret-right"></i>模版大小</h2>
+
+			</li>
+		</ul>
+	</div>
+	<!--bi charTemp end-->
+
 	<!--controller warning start-->
 
 	<div class="warningPart" style="display: none">
@@ -1986,7 +2034,7 @@ function renameMenuForHome(){
 		     dataType:"json",
 		     success:function(data) {
 		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-		         $('.module-manager').show();
+		         //$('.module-manager').show();
 		    	 var tablestr="";
                 //目录管理
 		    	 for(var i=0;i<data.length;i++){
