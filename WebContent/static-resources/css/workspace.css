@@ -50,6 +50,7 @@ input[type="button"] {
 
 .header_active {
     background-color: #d2d2d2;
+    border:1px solid #989898;
 }
 
 .container,.content,.module-data-all{
@@ -119,9 +120,11 @@ p{
     width: 44px;
 }
 .right-header .flows{
+    cursor: pointer;
     margin-right: -11px;
 }
 .right-header .managers{
+    cursor: pointer;
     margin-left: 10px;
 }
 .right-header > div > div:first-child {
@@ -2589,11 +2592,13 @@ right style
 
 /*manager-bodyer start */
 .manager-bodyer {
-    width: 85%;
+    /*width: 85%;*/
+    width:100%;
 }
 .center-table1, .center-table2, .power-detail {
     width: 98.6%;
-    height: 693px;
+    /*height: 693px;*/
+    height: 822px;
     border: 10px #F4F4F4 solid;
     display: none;
 }
@@ -2656,7 +2661,8 @@ right style
 .table1, .table2, .table3 {
     word-break: break-all;
     width: 100%;
-    height: 588px;
+    /*height: 588px;*/
+    height: 709px;
     border: 1px #F0F0F0 solid;
     color: #1E1E1E ;
     font-family: verdana, arial, sans-serif;
@@ -2708,6 +2714,7 @@ right style
     height: 48px;
     font-size: 14px;
     text-align: left;
+    box-sizing: border-box;
     padding-left: 20px;
     border-bottom: 1px solid #D1D6D6;
     border-left: 1px solid #D1D6D6;
@@ -2715,7 +2722,8 @@ right style
 }
 
 .table2 tr td.w100,.table2 tr th.w100{
-    width: 90px;
+    /*width: 90px;*/
+    width: 117px;
     position: relative;
     cursor: pointer;
 }
@@ -2967,10 +2975,6 @@ tr:nth-child(even) {
 .module-manager-right{
     width:100%;
 }
-.manager-bodyer{
-    width:98%;
-}
-
 /*module-manager end*/
 
 
