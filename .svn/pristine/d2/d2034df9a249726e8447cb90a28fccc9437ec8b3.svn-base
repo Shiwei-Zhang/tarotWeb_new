@@ -49,7 +49,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<div style="height:25px;"><button class="logout">注销</button></div>
+		<div style="height:32px;"><button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -61,9 +61,9 @@
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
 				<h6 class="man2">数据连接管理</h6>
-				<!--<h6 class="man3">业务代码维护</h6>
+				<h6 class="man3">业务代码维护</h6>
 				<h6 class="man4">内部数据类型维护</h6>
-				<h6 class="man5">外部数据类型维护</h6>-->
+				<h6 class="man5">外部数据类型维护</h6>
 			</div>
 		</div>
 	</div>
@@ -342,14 +342,14 @@
 								</div>
 							</div>
 
-							<div class="prop new_column_name">
+							<div class="prop bbtm new_column_name">
 								<span>Columnname</span>
-								<span class="middleW">as</span>
+								<span>as</span>
 								<input type="text" placeholder="new column name" class="col">
 							</div>
 							<div class="prop bbtm new_constant_value">
 								<span>Constant</span>
-								<span class="middleW">is</span>
+								<span>is</span>
 								<input type="text" placeholder="new constant value" class="col">
 							</div>
 							
@@ -372,26 +372,12 @@
 
 
 					<!--BI start-->
-					<div class="BI-bodyer module-bi bi-template" style="display: none;">
-						<div class="biAddLeft">
-							<div class="biLeft">
-								<p class="showbiData">+ 添加图表</p>
-								<div class="bi-chart-list bicharlistStyle">
-								</div>
-							</div>
-							<div class="biLeftTemp">
-								<p class="">+ 添加模版</p>
-								<div class="bicharlistStyle">
-
-								</div>
-								<p class="choiceBtn">
-									<i class="styleIcon"></i>
-									<span>样式</span>
-									<i class="down_down styleBtn"></i>
-								</p>
+					<div class="BI-bodyer module-bi bi-template" style="display: none">
+						<div class="biLeft">
+							<p class="showbiData">+ 添加图表</p>
+							<div class="bi-chart-list bicharlistStyle">
 							</div>
 						</div>
-
 						<div class="line_fun line_active"></div>
 						<div class="biContainer bi-template-container biContainerStyle">
 						</div>
@@ -418,120 +404,7 @@
 					<!--dataMining start-->
 
 					<div class="dataMining-bodyer module-datamining datamining-template" style="display: none">
-						<div class="dataMinL">
-							<div class="dataMinL-top">
-								<div class="practice">
-									<div class="dataMinT">
-										<span>训练模型</span>
-									</div>
-									<div class="dataMinC dataMinCl">
-										<ul class="paramList">
-											<li>
-												<span>模型类型</span>
-												<select>
-													<option value="">xx类型</option>
-												</select>
-											</li>
-											<li>
-												<span>类型</span>
-												<select>
-													<option value="">接口</option>
-												</select>
-											</li>
-											<li>
-												<span>接口名称</span>
-												<select>
-													<option value="">AGP、PCI-E 16X</option>
-												</select>
-											</li>
-											<li>
-												<span>数据连接</span>
-												<select>
-													<option value="">test</option>
-												</select>
-											</li>
-											<li>
-												<span>数据源表</span>
-												<select>
-													<option value="">test</option>
-												</select>
-											</li>
-											<li>
-													<span>Tarns字段</span>
-												<select>
-													<option value="">test</option>
-												</select>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="savePart">
-									<div class="dataMinT">
-										save_target
-									</div>
-									<div class="dataMinC dataMinCr">
-										<ul class="paramList">
-											<li>
-												<span>数据连接</span>
-												<select>
-													<option value="">xx类型</option>
-												</select>
-											</li>
-											<li>
-												<span>表名</span>
-												<select>
-													<option value="">接口</option>
-												</select>
-											</li>
-											<li>
-												<span>模式</span>
-												<select>
-													<option value="">AGP、PCI-E 16X</option>
-												</select>
-											</li>
-										</ul>
-										<div class="btnPart">
-											<p>保存</p>
-											<p>Test</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="dataMinL-bottom">
-								<ul class="tabs tabs2">
-									<li class="thistab"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
-								</ul>
-								<div class="dataMinFile">
-									<p>log1</p>
-									<p>log2</p>
-									<p>log3</p>
-									<p>log4</p>
-									<p>log5</p>
-									<p>log6</p>
-								</div>
-							</div>
-						</div>
-						<div class="dataMinR">
-							<div class="dataMinRtop">
-								属性
-							</div>
-							<div class="dataMinR-prop">
-								<ul class="propContainer">
-									<li>
-										<span>备注</span>
-										<input type="text">
-									</li>
-									<li>
-										<span>步长</span>
-										<input type="text">
-									</li>
-									<li>
-										<span>最大区间</span>
-										<input type="text">
-									</li>
-								</ul>
-							</div>
-						</div>
+						dataMining-bodyer
 					</div>
 
 
@@ -539,7 +412,7 @@
 					<!--dataMining end-->
 
 					<!--Controller start-->
-					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display:none">
+					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display: none">
 
 						<!--content部分-->
 						<div class="content1 contentEvent">
@@ -828,7 +701,7 @@
 
 					<!--controllerDeploy start-->
 
-					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none;">
+					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
 						<div class="deployLeft">
 							<div class="deployTitle">
 								<span>controller发布</span>
@@ -1742,40 +1615,6 @@
 	</div>
 
 
-	<!--bi charTemp start-->
-
-	<div class="biCharTemp" style="display: none">
-		<div class="bicharT">
-			<span>属性</span>
-			<i class="closeA"></i>
-		</div>
-		<ul class="biCharList">
-			<li>
-				<h2 class="tabT"><i class="fa fa-caret-down"></i>主题</h2>
-				<ul class="themeContainer">
-					<li class="themeOne"></li>
-					<li class="themeTwo"></li>
-					<li class="themeThree"></li>
-					<li class="themeFour"></li>
-					<li class="themeFive checked"></li>
-					<li class="themeSix"></li>
-					<li class="themeSeven"></li>
-					<li class="themeEight checked"></li>
-					<li class="themeNine"></li>
-					<li class="themeTen"></li>
-					<li class="themeEleven "></li>
-					<li class="themeTwelve "></li>
-					<li class="themeThirteen "></li>
-				</ul>
-			</li>
-			<li>
-				<h2 class="tabT"><i class="fa fa-caret-right"></i>模版大小</h2>
-
-			</li>
-		</ul>
-	</div>
-	<!--bi charTemp end-->
-
 	<!--controller warning start-->
 
 	<div class="warningPart" style="display: none">
@@ -1833,17 +1672,8 @@
     var userId = $.getCookie('userId').id;
     var userName=$.getCookie('userId').name;
     var urlId='http://localhost:8080/TarotIDE';
-
-	  resizeW();
-	  $(window).on('resize', resizeW);
-	  function resizeW() {
-		  var $winW;
-		  $winW = $(window).width();
-		  $('.module-data').css('width', $winW - 201);
-		  $('.module-data-all').css('width', $winW - 201);
-	  }
-
-	//TODO deleting
+    
+    //TODO deleting 
     //urlId = 'http://localhost:800/';
     //初始化目录
     $(function(){
@@ -2023,13 +1853,6 @@ function renameMenuForHome(){
 		mType=menuType;
 		UserPowerList(selectedMenuId,menuType,null);
 	}
-	
-	$('#itemValue').keydown(function(e){
-		if(e.keyCode==13){
-			searchItem(); //处理事件
-		}
-		});
-
 	function searchItem(){
 		var str = $('#itemValue').val();
 		console.log(mType);
@@ -2043,7 +1866,7 @@ function renameMenuForHome(){
 		     dataType:"json",
 		     success:function(data) {
 		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-		         //$('.module-manager').show();
+		         $('.module-manager').show();
 		    	 var tablestr="";
                 //目录管理
 		    	 for(var i=0;i<data.length;i++){

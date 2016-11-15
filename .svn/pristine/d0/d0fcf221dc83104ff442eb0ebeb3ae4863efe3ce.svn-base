@@ -748,6 +748,7 @@ function goDatasource(userId,content){
 					
 					if(!powerConjunction(data[i].POWER,powerEnum2[1])){
 						$('.modifyPower'+ data[i].ID +'').hide();
+						$('.task').css('height','45px');
 					}
 				}
                 $('.table2').unbind('click').click(function (e) {

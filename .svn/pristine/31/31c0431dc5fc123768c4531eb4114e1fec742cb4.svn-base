@@ -61,9 +61,9 @@
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
 				<h6 class="man2">数据连接管理</h6>
-				<!--<h6 class="man3">业务代码维护</h6>
+				<h6 class="man3">业务代码维护</h6>
 				<h6 class="man4">内部数据类型维护</h6>
-				<h6 class="man5">外部数据类型维护</h6>-->
+				<h6 class="man5">外部数据类型维护</h6>
 			</div>
 		</div>
 	</div>
@@ -342,14 +342,14 @@
 								</div>
 							</div>
 
-							<div class="prop new_column_name">
+							<div class="prop bbtm new_column_name">
 								<span>Columnname</span>
-								<span class="middleW">as</span>
+								<span>as</span>
 								<input type="text" placeholder="new column name" class="col">
 							</div>
 							<div class="prop bbtm new_constant_value">
 								<span>Constant</span>
-								<span class="middleW">is</span>
+								<span>is</span>
 								<input type="text" placeholder="new constant value" class="col">
 							</div>
 							
@@ -2023,13 +2023,6 @@ function renameMenuForHome(){
 		mType=menuType;
 		UserPowerList(selectedMenuId,menuType,null);
 	}
-	
-	$('#itemValue').keydown(function(e){
-		if(e.keyCode==13){
-			searchItem(); //处理事件
-		}
-		});
-
 	function searchItem(){
 		var str = $('#itemValue').val();
 		console.log(mType);
