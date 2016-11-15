@@ -2491,6 +2491,9 @@ function renameMenuForHome(){
     	    }
     	    resetFolder();
     	});
+		$('.folder').unbind('mousedown').mousedown(function(){
+			resetFolder();
+		})
     }
     //工具类方法：再次初始化文件夹打开与关闭事件
     function initFolderClick(){
