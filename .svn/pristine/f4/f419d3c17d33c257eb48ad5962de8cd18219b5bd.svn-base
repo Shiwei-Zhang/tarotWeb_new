@@ -2043,7 +2043,7 @@ function renameMenuForHome(){
 		     dataType:"json",
 		     success:function(data) {
 		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-		         //$('.module-manager').show();
+		         $('.module-manager').show();
 		    	 var tablestr="";
                 //目录管理
 		    	 for(var i=0;i<data.length;i++){

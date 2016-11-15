@@ -149,7 +149,7 @@
 													<input type="text" placeholder="搜索" />
 												</div>
 												<div id="_column_trans" class="dt_con">
-													<div class="col_con" style="display: block;">
+													<div class="col_con" style="display: none;">
 														<!-- <p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
 					                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
 					                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
@@ -157,7 +157,7 @@
 					                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
 					                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p> -->
 													</div>
-													<div class="syb_con"style="display: none">
+													<div class="syb_con">
 														<!-- <p fk = "0" textValue = "?+?" level="3" class="draggable">加</p>
 				                                    	<p fk = "0" textValue = "?-?" level="3" class="draggable">减</p>
 				                                    	<p fk = "0" textValue = "?*?" level="3" class="draggable">乘</p>
@@ -1136,8 +1136,7 @@
 				</table>
 				<div class="add2-f">
 					<div class="h4">
-						<span>添加数据连接</span>
-						<i class="fa fa-trash2 pos-left"></i>
+						添加数据连接<i class="fa fa-trash2 pos-left"></i>
 					</div>
 					<table class="add2-input">
 
@@ -1156,8 +1155,8 @@
 				</div>
 				<div class="look-detail">
 					<div class="h4">
-						<span>查看</span>
-						<i class="fa fa-trash2 pos-left"></i>
+						查看&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+							class="fa fa-trash2 pos-left"></i>
 					</div>
 					<table class="add2-input look-input">
 
@@ -1185,7 +1184,7 @@
 						onclick="searchItem3();" class="search-text" value="搜索" />
 				</div>
 				<table id="table3" class="table3 table1Event">
-					<tr style="display: block;border: 1px solid #a1a1a1;">
+					<tr style="display: block;">
 						<th>用户名</th>
 						<th>登录名</th>
 						<th>邮箱</th>
@@ -2043,7 +2042,7 @@ function renameMenuForHome(){
 		     dataType:"json",
 		     success:function(data) {
 		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-		         //$('.module-manager').show();
+		         $('.module-manager').show();
 		    	 var tablestr="";
                 //目录管理
 		    	 for(var i=0;i<data.length;i++){
