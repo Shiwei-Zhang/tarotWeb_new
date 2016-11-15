@@ -903,7 +903,7 @@ function addTargetRecord(){
     $('.target_layer').show();
     $('.mask').show();
 
-    var userId = userId;
+    //var userId = userId;
     $.ajax({
         type:"POST",
         url:urlId+"/selectDataConnection?userId="+userId,
@@ -912,7 +912,7 @@ function addTargetRecord(){
         //data:{userId:4},
         success:function(data){
             for(var i=0;i<data.length;i++){
-                $('#sjlj').append("<option value="+data[i].id+">"+data[i].name+"</option>")
+                $('#sjlj').append("<option value="+data[i].ID+">"+data[i].NAME+"</option>")
             }
             //$.dialog(data);
 
