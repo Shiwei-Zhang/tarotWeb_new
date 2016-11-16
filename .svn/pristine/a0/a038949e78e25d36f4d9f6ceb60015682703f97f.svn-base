@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>报表预览</title>
+<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+<link href="../../static-resources/css/workspace.css?version=2016.10.26" rel="stylesheet">
+<link href="../../static-resources/js/plugin/paging.css" rel="stylesheet">
+</head>
+<body>
+	<div class="bi-preview">
+	</div>
+
+<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
+<script src="../../static-resources/js/comm.js"></script>
+<!-- BI related -->
+<!-- BI TABLE -->
+<script src="../../static-resources/js/plugin/query.js"></script>
+<script src="../../static-resources/js/plugin/paging.js"></script>
+<!--  ECHART & BI RELATED -->
+<script src="../../static-resources/js/echarts/lib/echarts.min.3.2.3.js"></script>
+<script src="http://echarts.baidu.com/asset/map/js/china.js"></script>
+<script src="../../static-resources/js/bi.preview.js"></script>
+<script src="../../static-resources/js/plugin/variable.js"></script>
+<!-- ECHART THEMES -->
+<script src="../../static-resources/js/echarts/theme/dark.js"></script>
+<script src="../../static-resources/js/echarts/theme/shine.js"></script>
+<script src="../../static-resources/js/echarts/theme/infographic.js"></script>
+<script src="../../static-resources/js/echarts/theme/macarons.js"></script>
+<script src="../../static-resources/js/echarts/theme/roma.js"></script>
+<script src="../../static-resources/js/echarts/theme/vintage.js"></script>
+<script src="../../static-resources/js/echarts/theme/chalk.js"></script>
+<script src="../../static-resources/js/echarts/theme/essos.js"></script>
+<script src="../../static-resources/js/echarts/theme/halloween.js"></script>
+<script src="../../static-resources/js/echarts/theme/purple-passion.js"></script>
+<script src="../../static-resources/js/echarts/theme/walden.js"></script>
+<script src="../../static-resources/js/echarts/theme/westeros.js"></script>
+<script src="../../static-resources/js/echarts/theme/wonderland.js"></script>
+</body>
+</html>
