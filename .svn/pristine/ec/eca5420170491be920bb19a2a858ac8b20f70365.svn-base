@@ -33,7 +33,7 @@
 </head>
 <body>
 	<!--header start-->
-	<!--<input type="button" value="abc" onclick="save_jsmind();"></input>-->
+	<input type="button" value="abc" onclick="save_jsmind();"></input>
 	<div class="f-header">
 		<div class="left-header">
 			<div>
@@ -49,7 +49,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<!--<div style="height:25px;"><button class="logout">注销</button></div>-->
+		<div style="height:25px;"><button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -61,9 +61,9 @@
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
 				<h6 class="man2">数据连接管理</h6>
-				<h6 class="man3">业务代码维护</h6>
+				<!--<h6 class="man3">业务代码维护</h6>
 				<h6 class="man4">内部数据类型维护</h6>
-				<h6 class="man5">外部数据类型维护</h6>
+				<h6 class="man5">外部数据类型维护</h6>-->
 			</div>
 		</div>
 	</div>
