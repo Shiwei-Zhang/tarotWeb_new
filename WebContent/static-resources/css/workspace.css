@@ -2128,13 +2128,29 @@ ul.root_tree li div {
 }
 
 .ipContainer li {
+    position: relative;
     border-bottom: 1px solid #e6e6e6;
+}
+.ipContainer li:hover .ipPart i.closeL{
+   display: block;
 }
 
 .ipContainer li,
 .ipContainer li span {
     height: 35px;
     line-height: 35px;
+}
+
+.ipPart i.closeL {
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background: url(../images/closeIcon.png) no-repeat center center;
+    background-size: 15px 15px;
 }
 
 .ipTitle {

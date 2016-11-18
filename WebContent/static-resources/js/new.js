@@ -576,22 +576,29 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
         $(tar).siblings().removeClass('ipListed');
         $(tar).addClass('ipListed');
         if($(tar).attr('class').indexOf('whiteIp')>0){
-            $('.ipContainerB').hide();
-            $('.ipContainerA').show();
+            $('.blockContainer').hide();
+            $('.whiteContainer').show();
         }else if($(tar).attr('class').indexOf('blackIp')>0){
-            $('.ipContainerB').show();
-            $('.ipContainerA').hide();
+            $('.blockContainer').show();
+            $('.whiteContainer').hide();
         }
 
         //TODO
     }
 
-   /* //增加参数列表的每一列
-    ipAddList();
-    function ipAddList() {
-        $('.plusBtn').unbind('click').click(function () {
-            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
-            $('.paramMain').append(new_obj);
+
+    addList();
+    //增加参数列表的每一列
+    function addList() {
+        $('.whiteContainer .plusBtn').unbind('click').click(function () {
+            var new_obj = $("<li><span contenteditable='true'>172.0.0.1</span> <span contenteditable='true'>172.0.0.1</span><i class='closeL'></i></li></li>");
+            $('.ipContainerA').append(new_obj);
+            //参数列表的列
+            delList();
+        });
+        $('.blockContainer .plusBtn').unbind('click').click(function () {
+            var new_obj = $("<li><span contenteditable='true'>172.0.0.1</span> <span contenteditable='true'>172.0.0.1</span><i class='closeL'></i></li></li>");
+            $('.ipContainerB').append(new_obj);
             //参数列表的列
             delList();
         });
@@ -599,11 +606,15 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
     delList();
     //删除参数列表的每一列
     function delList() {
-        $('.paramMain .closeL').unbind('click').click(function () {
-            //console.log($(this).parent());
+        $('.whiteContainer .closeL').unbind('click').click(function () {
+            $(this).parent().remove();
+        });
+        $('.blockContainer .closeL').unbind('click').click(function () {
             $(this).parent().remove();
         })
-    }*/
+    }
+
+
 
     //deployRight 保存
     if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('sureBtnEvent')) {
