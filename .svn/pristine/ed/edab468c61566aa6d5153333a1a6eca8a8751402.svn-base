@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,  initial-scale=1.0">
+<title>工作区</title>
+<link
+	href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"
+	rel="stylesheet">
+<link 
+	href="http://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" 
+	rel="stylesheet">
+<link
+	href="../../static-resources/css/context.standalone.css?version=2016.09.18"
+	rel="stylesheet">
+<link href="../../static-resources/css/workspace.css?version=2016.10.26"
+	rel="stylesheet">
+<link href="../../static-resources/css/jsmind.css" rel="stylesheet">
+<link href="../../static-resources/js/plugin/paging.css" rel="stylesheet">
+<style type="text/css">
+#jsmind_container {
+	height: 100%;
+	overflow-y: hidden;
+}
+
+#jsmind_container2 {
+	height: 369px;
+	width: 99.7%;
+	overflow-y: hidden;
+}
+</style>
+
+</head>
+<body>
+	<!--header start-->
+	<div class="f-header">
+		<div class="left-header">
+			<div>
+				<div class="logo"></div>
+				<div>&nbsp;</div>
+			</div>
+			<div>
+				<div class="logo_icon"></div>
+				<div>&nbsp;</div>
+			</div>
+
+			<!-- <div><div class="debug"></div><div>测试</div></div>
+        <div><div class="run"></div><div>运行</div></div> -->
+		</div>
+		<div class="right-header">
+		<!--<div style="height:25px;"><button class="logout">注销</button></div>-->
+			<div class="flows header_active">
+				<div class="flow"></div>
+				<div>工作区</div>
+			</div>
+			<div class="managers">
+				<div class="manager"></div>
+				<div>管理</div>
+			</div>
+			<div id="manag" class="manag" style="display: none;">
+				<h6 class="man1">目录管理</h6>
+				<h6 class="man2">数据连接管理</h6>
+				<h6 class="man3">业务代码维护</h6>
+				<h6 class="man4">内部数据类型维护</h6>
+				<h6 class="man5">外部数据类型维护</h6>
+			</div>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<!--content-->
+	<div class="container">
+		<!-- left and right renderer -->
+		<div class="content clearFix">
+			<!-- bi, dm, ctrl etc module -->
+			<!-- navigation -->
+			<div class="module-data-navigation">
+				<div class="title">目录</div>
+				<div class="folder">
+					<div class="home" id="0">
+						<i class="fa fa-file-o fa-caret-down"></i>Home
+					</div>
+					<ul class="root_tree">
+
+					</ul>
+				</div>
+			</div>
+
+			<div class="module-data" style="">
+				<!-- -->
+				<div class="module-data-all">
+					<div class="module-data-right-navigation" style="display: none">
+						<ul class="tabs tabs1 tabsEvent clearFix">
+							<!--<li class="thistab"><a tab="tab1_1"><span class="flow"></span><span class="name_m" title="Co Flow">Co Flow1</span><span class="close_m"><i class="fa  fa-close-m"></i></span></a></li>
+                        <li><a tab="tab1_2"><span class="biIcon"></span><span class="name_m" title="Data2 sfsfasfa">BI</span><span class="close_m"><i class="fa fa-close-m"></i></span></a></li>
+                        <li><a tab="tab1_3"><span class="controllerIcon"></span><span class="name_m" title="Co Flow">Controller</span><span class="close_m"><i class="fa fa-close-m"></i></span></a></li>-->
+						</ul>
+					</div>
+
+					<div class="module-flow clearFix flow-template" style="display: none">
+						<!-- flow start-->
+						<div class="module-core module-coreEvent">
+							<div class="cav_body" id="tabbox1">
+								<ul class="tab_conbox">
+									<li class="tab1_1 tab_con1">
+										<div class="dt_d">
+											<div class="dt_fun">
+												<p class="dtt">数据源</p>
+												<p class="dts add4">+ 选择数据源</p>
+												<input type="text" placeholder="搜索" />
+											</div>
+											<div id="_source_add" class="dt_con dt_conL">
+
+											</div>
+										</div>
+
+										<div class="line_fun  line_active"></div>
+
+					                    <div id="jsmind_container" class="cav_flow">
+					                    </div>
+									</li>
+								</ul>
+							</div>
+
+							<!-- bottom tabs-->
+							<div class="cav_body" id="tabbox2">
+								<ul class="tabs tabs2">
+									<li><a tab="tab2_1"><span class="flow"></span><p>转换</p></a></li>
+									<li><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
+									<li><a tab="tab2_3"><span class="debug"></span><p class="textArea">调试</p></a></li>
+									<li><a tab="tab2_4"><span class="mointor"></span><p class="textArea">数据监控</p></a></li>
+									<li class="monitor nochangetab"><a tab="tab2_4"> <span
+											class="debug"></span> <span class="runing"></span> <span
+											class="stop"></span> <span class="wait"></span> <span
+											class="next"></span> <!-- <span class="next1"></span>
+                                        <span class="prev"></span> -->
+									</a></li>
+								</ul>
+								<ul class="tab_conbox">
+									<li class="tab2_1 tab_con2">
+										<div style="position: relative;">
+											<div class="dt_d">
+												<div class="dt_fun">
+													<p class="dtt">
+														<span data-cls="col_con" class="active_t">字段</span> <span
+															data-cls="syb_con" >函数</span>
+													</p>
+													<input type="text" placeholder="搜索" />
+												</div>
+												<div id="_column_trans" class="dt_con">
+													<div class="col_con" style="display: block;">
+														<!-- <p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
+					                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
+					                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
+					                                    <p jmType = "2" textValue = "value" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">value</p>
+					                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
+					                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p> -->
+													</div>
+													<div class="syb_con"style="display: none">
+														<!-- <p fk = "0" textValue = "?+?" level="3" class="draggable">加</p>
+				                                    	<p fk = "0" textValue = "?-?" level="3" class="draggable">减</p>
+				                                    	<p fk = "0" textValue = "?*?" level="3" class="draggable">乘</p>
+				                                    	<p fk = "0" textValue = "?/?" level="3" class="draggable">除</p>
+				                                    	<p fk = "0" textValue = "sin(?)" level="3" class="draggable">sin</p>
+				                                    	<p fk = "0" textValue = "cos(?)" level="3" class="draggable">cos</p> -->
+													</div>
+												</div>
+											</div>
+											<div class="line_fun  line_funDown line_active"></div>
+										</div>
+
+										<div id="jsmind_container2" class="cav_flow">
+				                    	</div>
+									</li>
+
+									<li class="tab2_2 tab_con2">
+										<div>
+											<br /> log7
+										</div>
+									</li>
+
+									<li class="tab2_3 tab_con2">
+										<div>
+											debug<br /> debug<br /> debug<br /> debug<br /> debug<br />
+											debug<br /> debug<br />
+										</div>
+									</li>
+
+									<li class="tab2_4 tab_con2">
+										<div>
+											<h5 style="margin-left: 10px;">监控数据</h5>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+
+							<!-- bottom tabs end-->
+						</div>
+
+						<!--code part-->
+						<div class="codePart codePartEvent">
+
+						</div>
+						<!-- flow end-->
+
+						<div class="module-prop">
+							<div class="title">属性</div>
+							<div class="prop new_table_name">
+								<span>Tablename</span>
+								<span>as</span>
+								<span> <input type="text"
+									placeholder="new table name">
+								</span>
+							</div>
+
+							<div class="prop1">
+								<div class="title">
+									<span class="join_"><i class="fa fa-caret-right"></i>
+										Join</span>
+
+								</div>
+
+								<div class="panel join_panel" style="display: none">
+									<div class="joins">
+										<!-- as template-->
+										<div class="template_join" style="display: none;">
+											<select class="condition1">
+												<option value="id">table1.ID</option>
+												<option value="name">table1.NAME</option>
+											</select> <select class="condition2">
+												<option value="=">=</option>
+												<option value=">">&gt;</option>
+												<option value="<">&lt;</option>
+												<option value=">=">&gt;=</option>
+												<option value="<=">&lt;=</option>
+											</select> <select class="condition3">
+												<option value="id">table2.ID</option>
+												<option value="name">table2.NAME</option>
+											</select> <span class="plus-right"><i class="fa fa-trash2"></i></span>
+										</div>
+										<div class="template_operations" style="display: none;">
+											<select class="condition4">
+												<option value="OR">OR</option>
+												<option value="AND">AND</option>
+											</select> <select class="condition5">
+												<option value="0">-</option>
+												<option value="1">升</option>
+												<option value="-1">降</option>
+											</select>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+
+							<div class="prop1">
+								<div class="title">
+									<span class="filter_"><i class="fa fa-caret-right"></i>
+										Filter</span> <span><i class="fa plus_icon filter_plus"></i></span>
+								</div>
+								<div class="panel filter_panel" style="display: none;">
+									<div class="filters">
+										<!-- first filter is as a template. others are same.-->
+										<div class="filter" style="display: none;">
+											<select class="condition1">
+												<option value="">ID</option>
+											</select> <select class="condition2">
+												<option value="=">=</option>
+												<option value=">">&gt;</option>
+												<option value="<">&lt;</option>
+												<option value=">=">&gt;=</option>
+												<option value="<=">&lt;=</option>
+											</select> <input type="text" class="condition3" /> <span class="trash"><i
+												class="fa fa-trash2"></i></span>
+											<div class="operations">
+												<select class="condition4">
+													<option value="OR">OR</option>
+													<option value="AND">AND</option>
+												</select> <select class="condition5">
+													<option value="0">-</option>
+													<option value="1">升</option>
+													<option value="-1">降</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="prop1">
+								<div class="title">
+									<span class="group_"><i class="fa fa-caret-right"></i>
+										Group</span> <span><i class="fa plus_icon group_plus"></i></span>
+								</div>
+								<div class="panel group_panel" style="display: none;">
+									<div class="groups">
+										<div class="group" style="display: none;">
+											<select>
+												<option value="">NAME</option>
+												<option value="">AGE</option>
+												<option value="">GENDER</option>
+												<option value="">TYPE</option>
+											</select> <span class="trash"> <i class="fa fa-trash2"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="prop1">
+								<div class="title">
+									<span class="order_"><i class="fa fa-caret-right"></i>
+										Order</span> <span><i class="fa plus_icon order_plus"></i></span>
+								</div>
+								<div class="panel order_panel" style="display: none;">
+									<div class="orders">
+										<div class="order" style="display: none;">
+											<select>
+												<option value="ID">ID</option>
+												<option value="ID">ID1</option>
+												<option value="ID">ID2</option>
+											</select> <select>
+												<option value="ASC">ASC</option>
+												<option value="DESC">DESC</option>
+											</select> <span class="trash"> <i class="fa fa-trash2"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="prop1">
+								<div class="title">
+									<span class="target_"><i class="fa fa-caret-right"></i>
+										Save_target</span> <span><i class="fa plus_icon target_plus"></i></span>
+								</div>
+								<div class="panel target_panel" style="display: none;">
+									<div class="targets"></div>
+								</div>
+							</div>
+
+							<div class="prop new_column_name">
+								<span>Columnname</span>
+								<span class="middleW">as</span>
+								<input type="text" placeholder="new column name" class="col">
+							</div>
+							<div class="prop bbtm new_constant_value">
+								<span>Constant</span>
+								<span class="middleW">is</span>
+								<input type="text" placeholder="new constant value" class="col">
+							</div>
+							
+							<div class="btn">
+								<input type="button" value="保存" class="save" />
+							</div>
+						</div>
+
+						<!--tab-btn-group-->
+						<div class="tab-btn-group">
+							<div class="one-btn">
+								<input type="button" value="查看原字段" />
+							</div>
+							<div class="btns">
+								<input type="button" value="图形" class="chart selected" /> <input
+									type="button" value="代码" class="code"/>
+							</div>
+						</div>
+					</div>
+
+
+					<!--BI start-->
+					<div class="BI-bodyer module-bi bi-template" style="display: none;">
+						<div class="biAddLeft">
+							<div class="biLeft">
+								<p class="showbiData">+ 添加图表</p>
+								<div class="bi-chart-list bicharlistStyle">
+								</div>
+							</div>
+							<div class="biLeftTemp">
+								 <p class="addBiTemplate">+ 添加模版</p>
+								<div class="bicharlistStyle bi-template-layout">
+
+								</div>
+								<p class="choiceBtn">
+									<i class="styleIcon"></i>
+									<span>样式</span>
+									<i class="down_down styleBtn"></i>
+								</p>
+							</div>
+						</div>
+
+						<div class="line_fun line_active"></div>
+						<div class="biContainer bi-template-container biContainerStyle">
+						</div>
+						<div class="biFooter clearFix">
+							<ul class="clearFix">
+								<li class="biPublish">发布</li>
+								<li class="bi-preview">预览</li>
+								<li class="bi-template-save">保存</li>
+							</ul>
+						</div>
+						<!--画布四周缩放按钮-->
+						<div class="fullScreen bi-chart-edit bi-chart-group" style="display:none;"></div>
+						<div class="rotateIcon" style="display:none;"></div>
+						<div class="zoomIcon"  style="display:none;"></div>
+						<div class="dubblePart bi-chart-delete bi-chart-group" style="display:none;">
+							<!-- <span class="deleteIcon"></span> -->
+							<span class="copyIcon"></span>
+							<span class="jtIcon"></span>
+						</div>
+					</div>
+					<!--BI end-->
+
+
+					<!--dataMining start-->
+
+					<div class="dataMining-bodyer module-datamining datamining-template" style="display: none">
+						<div class="dataMinL">
+							<div class="dataMinL-top">
+								<div class="practice">
+									<div class="dataMinT">
+										<span>训练模型</span>
+									</div>
+									<div class="dataMinC dataMinCl">
+										<ul class="paramList">
+											<li>
+												<span>模型类型</span>
+												<select>
+													<option value="">xx类型</option>
+												</select>
+											</li>
+											<li>
+												<span>类型</span>
+												<select>
+													<option value="">接口</option>
+												</select>
+											</li>
+											<li>
+												<span>接口名称</span>
+												<select>
+													<option value="">AGP、PCI-E 16X</option>
+												</select>
+											</li>
+											<li>
+												<span>数据连接</span>
+												<select>
+													<option value="">test</option>
+												</select>
+											</li>
+											<li>
+												<span>数据源表</span>
+												<select>
+													<option value="">test</option>
+												</select>
+											</li>
+											<li>
+													<span>Tarns字段</span>
+												<select>
+													<option value="">test</option>
+												</select>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="savePart">
+									<div class="dataMinT">
+										save_target
+									</div>
+									<div class="dataMinC dataMinCr">
+										<ul class="paramList">
+											<li>
+												<span>数据连接</span>
+												<select>
+													<option value="">xx类型</option>
+												</select>
+											</li>
+											<li>
+												<span>表名</span>
+												<select>
+													<option value="">接口</option>
+												</select>
+											</li>
+											<li>
+												<span>模式</span>
+												<select>
+													<option value="">AGP、PCI-E 16X</option>
+												</select>
+											</li>
+										</ul>
+										<div class="btnPart">
+											<p>保存</p>
+											<p>Test</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="dataMinL-bottom">
+								<ul class="tabs tabs2">
+									<li class="thistab"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
+								</ul>
+								<div class="dataMinFile">
+									<p>log1</p>
+									<p>log2</p>
+									<p>log3</p>
+									<p>log4</p>
+									<p>log5</p>
+									<p>log6</p>
+								</div>
+							</div>
+						</div>
+						<div class="dataMinR">
+							<div class="dataMinRtop">
+								属性
+							</div>
+							<div class="dataMinR-prop">
+								<ul class="propContainer">
+									<li>
+										<span>备注</span>
+										<input type="text">
+									</li>
+									<li>
+										<span>步长</span>
+										<input type="text">
+									</li>
+									<li>
+										<span>最大区间</span>
+										<input type="text">
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+
+					<!--dataMining end-->
+
+					<!--Controller start-->
+					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display:none">
+
+						<!--content部分-->
+						<div class="content1 contentEvent">
+							<div class="stream">
+								<div class="con-title">
+									<span>流 / 挖掘组件</span> <i class="add3 add3Stream component"></i>
+								</div>
+								<div class="stream-con">
+									<ul class="part">
+										<li>精准营销 / Flow1</li>
+										<li>精准营销 / Datamining</li>
+										<li>精准营销 / Flow3</li>
+									</ul>
+									<p class="streamTest">Test</p>
+								</div>
+								<div class="add3-con add3EventOne" style="display: none">
+									<div class="addT">
+										<span>添加</span> <i class="closeA"></i>
+									</div>
+									<div class="addList addListEvent">
+										<div class="addRoot addRoot01">
+											<!--<p>
+												<i class="downIcon titleTip"></i><span>Root</span>
+											</p>
+											<div>
+												<div class="menu1">
+													<p>
+														<i class="downIcon titleTip"></i><span>Menu1</span>
+													</p>
+													<ul class="menu1List">
+														<li><i class="single"></i><span>Flow1</span></li>
+														<li><i class="single"></i><span>Flow2</span></li>
+														<li><i class="single singleChecked"></i><span>Flow3</span></li>
+														<li><i class="single"></i><span>Flow4</span></li>
+														<li><i class="single"></i><span>Flow5</span></li>
+														<li><i class="single"></i><span>Flow6</span></li>
+														<li>
+															<div class="menu1">
+																<p>
+																	<i class="downIcon titleTip"></i><span>Menu1</span>
+																</p>
+																<ul class="menu1List">
+																	<li><i class="single"></i><span>Flow1</span></li>
+																	<li><i class="single"></i><span>Flow2</span></li>
+																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
+																	<li><i class="single"></i><span>Flow4</span></li>
+																	<li><i class="single"></i><span>Flow5</span></li>
+																	<li><i class="single"></i><span>Flow6</span></li>
+																	<li>
+																		<div class="menu1">
+																			<p>
+																				<i class="downIcon titleTip"></i><span>Menu1</span>
+																			</p>
+																			<ul class="menu1List">
+																				<li><i class="single"></i><span>Flow1</span></li>
+																				<li><i class="single"></i><span>Flow2</span></li>
+																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
+																				<li><i class="single"></i><span>Flow4</span></li>
+																				<li><i class="single"></i><span>Flow5</span></li>
+																				<li><i class="single"></i><span>Flow6</span></li>
+																			</ul>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="menu2">
+													<p>
+														<i class="downIcon titleTip"></i><span>Menu2</span>
+													</p>
+													<ul class="menu2List">
+														<li><i class="single"></i><span>Flow1</span></li>
+														<li><i class="single"></i><span>Flow2</span></li>
+														<li><i class="single singleChecked"></i><span>Flow3</span></li>
+														<li><i class="single"></i><span>Flow4</span></li>
+														<li><i class="single"></i><span>Flow5</span></li>
+														<li><i class="single"></i><span>Flow6</span></li>
+													</ul>
+												</div>
+											</div>-->
+											</div>
+
+									</div>
+									<div class="addFoot">
+										<span class="sure">确定</span> <span class="cancel">取消</span>
+									</div>
+								</div>
+							</div>
+							<div class="provide">
+								<div class="con-con">
+									<div class="con-title">
+										<span>依赖项</span> <i class="add3Provide"></i>
+									</div>
+									<div class="con-list">
+										<ul class="listPart">
+											<li>Flow1</li>
+											<li>Flow3</li>
+										</ul>
+									</div>
+								</div>
+								<div class="con-con mar20">
+									<div class="con-title">
+										<span>数据接口</span>
+									</div>
+									<div class="con-list">
+										<ul class="listPart listConment ConmentEvent">
+											<li>
+												<span class="nameL">interface1</span>
+												<span class="nameR">node1</span>
+												<ul class="nodeList nodeListEvent">
+													<li>node1</li>
+													<li>node2</li>
+													<li>node3</li>
+													<li>node4</li>
+													<li>node5</li>
+													<li>node6</li>
+													<li>node7</li>
+												</ul>
+												<i class="iconDown iconDownEvent"></i>
+											</li>
+											<li>
+												<span class="nameL">interface1</span>
+												<span class="nameR">node1</span>
+												<ul class="nodeList nodeListEvent">
+													<li>node1</li>
+													<li>node2</li>
+													<li>node3</li>
+													<li>node4</li>
+													<li>node5</li>
+													<li>node6</li>
+													<li>node7</li>
+												</ul>
+												<i class="iconDown iconDownEvent"></i>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="add3-con add3EventTwo" style="display: none">
+									<div class="addT">
+										<span>添加</span> <i class="closeA"></i>
+									</div>
+									<div class="addList addListEvent">
+										<ul class="menu1List">
+											<li><i class="single singleChecked"></i><span>Home / Flow1</span></li>
+											<li><i class="single"></i><span>Home / Flow2</span></li>
+											<li><i class="single"></i><span>Home / Flow3</span></li>
+											<li><i class="single"></i><span>Home / Flow4</span></li>
+											<li><i class="single singleChecked"></i><span>Home / Flow5</span></li>
+											<li><i class="single"></i><span>Home / Flow6</span></li>
+											<li><i class="single"></i><span>Home / Flow7</span></li>
+										</ul>
+									</div>
+									<div class="addFoot">
+										<span class="sure">确定</span> <span class="cancel">取消</span>
+									</div>
+								</div>
+							</div>
+							<div class="con-right">
+								<div class="con-title">
+									<span>字段</span>
+								</div>
+								<div class="conList">
+									<ul class="part listConment">
+										<li>
+											<span class="nameL">字段1</span>
+											<span class="nameR">node1</span>
+											<ul class="nodeList nodeListEvent">
+												<li>node1</li>
+												<li>node2</li>
+												<li>node3</li>
+												<li>node4</li>
+												<li>node5</li>
+												<li>node6</li>
+												<li>node7</li>
+											</ul>
+											<i class="iconDown iconDownEvent"></i>
+										</li>
+										<li>
+											<span class="nameL">字段2</span>
+											<span class="nameR">node1</span>
+											<ul class="nodeList nodeListEvent">
+												<li>node1</li>
+												<li>node2</li>
+												<li>node3</li>
+												<li>node4</li>
+												<li>node5</li>
+												<li>node6</li>
+												<li>node7</li>
+											</ul>
+											<i class="iconDown iconDownEvent"></i>
+										</li>
+										<li>
+											<span class="nameL">字段3</span>
+											<span class="nameR">node1</span>
+											<ul class="nodeList nodeListEvent">
+												<li>node1</li>
+												<li>node2</li>
+												<li>node3</li>
+												<li>node4</li>
+												<li>node5</li>
+												<li>node6</li>
+												<li>node7</li>
+											</ul>
+											<i class="iconDown iconDownEvent"></i>
+										</li>
+									</ul>
+									<p class="saveEvent">保存</p>
+								</div>
+							</div>
+						</div>
+						<div class="content2">
+							<ul class="tabs tabs2">
+								<li class="thistab"><a tab="tab2_2"><span class="log"></span>日志</a></li>
+							</ul>
+							<ul class="diary">
+								<li>Log80</li>
+								<li>Log81</li>
+								<li>Log82</li>
+								<li>Log83</li>
+								<li>Log84</li>
+								<li>Log85</li>
+								<li>Log86</li>
+								<li>Log87</li>
+								<li>Log88</li>
+							</ul>
+						</div>
+					</div>
+					<!--Controller end-->
+
+					<!--controllerDeploy start-->
+
+					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none;">
+						<div class="deployLeft">
+							<div class="deployTitle">
+								<span>controller发布</span>
+							</div>
+							<div class="deployContent">
+								<ul class="paramList">
+									<li>
+										<span class="Tname">副本ID</span>
+										<select>
+											<option value="">None</option>
+										</select>
+									</li>
+									<li>
+										<span class="Tname">副本名称</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">发布类型</span>
+										<select id="deployType">
+											<option value="webservice">webservice</option>
+											<option value="dispatch">调度</option>
+										</select>
+									</li>
+								</ul>
+								<ul class="dispatchPart" style="display: none">
+									<li>
+										<span class="Tname">允许多线程</span>
+										<i class="single"></i>
+									</li>
+									<li>
+										<span class="Tname">时间控件</span>
+										<div class="timeControl">
+											<div class="timeSele">
+												<span>Every</span>
+												<select>
+													<option value="">week</option>
+													<option value="">mounth</option>
+													<option value="">year</option>
+													<option value="">day</option>
+												</select>
+												<span>on</span>
+												<select>
+													<option value="">Monday</option>
+													<option value="">Tuesday</option>
+													<option value="">Wednesday</option>
+													<option value="">Thursday</option>
+													<option value="">Friday</option>
+													<option value="">Saturday</option>
+													<option value="">Sunday</option>
+												</select>
+												<span>at</span>
+												<select>
+													<option value=""></option>
+												</select>
+											</div>
+											<div class="timeshow"></div>
+										</div>
+									</li>
+									<li class="deployStateD">
+										<span class="Tname">当前状态</span>
+										<i>未发布</i>
+									</li>
+								</ul>
+								<ul class="webservicePart" style="display: block">
+									<li>
+										<span class="Tname">接口代码</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">Token</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">允许多线程</span>
+										<i class="single"></i>
+									</li>
+									<li class="deployStateW">
+										<span class="Tname">发布状态</span>
+										<i>未发布</i>
+									</li>
+									<li class="ipPart">
+										<div class="clearFix ipPower">
+											<p class="ipList whiteIp ipListed">IP白名单设置</p>
+											<p class="ipList blackIp">IP黑名单设置</p>
+										</div>
+										<!--white list-->
+										<div>
+											<ul class="ipContainer ipContainerA" style="display: block">
+												<li class="ipTitle">
+													<span>起始IP</span>
+													<span>终止IP</span>
+												</li>
+												<li>
+													<span contenteditable="true">172.0.0.1</span>
+													<span contenteditable="true">172.0.0.1</span>
+												</li>
+												<li>
+													<span contenteditable="true">172.0.0.1</span>
+													<span contenteditable="true">172.0.0.1</span>
+												</li>
+												<li>
+													<span contenteditable="true">172.0.0.1</span>
+													<span contenteditable="true">172.0.0.1</span>
+												</li>
+											</ul>
+										</div>
+
+										<!--black list-->
+										<ul class="ipContainer ipContainerB" style="display: none">
+											<li class="ipTitle">
+												<span>起始IP</span>
+												<span>终止IP</span>
+											</li>
+											<li>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
+											</li>
+											<li>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
+											</li>
+											<li>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
+											</li>
+										</ul>
+										<p class="ipAddPart clearFix">
+										<span class="plusBtn">增加</span>
+										</p>
+									</li>
+								</ul>
+								<div class="btnPart">
+									<p>发布</p>
+									<p>创建</p>
+									<p>JOB</p>
+									<p>删除</p>
+									<span>
+										<i class="warning warningBtn"></i>
+										<i>controller资源已发生改变</i>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="deployRight">
+							<div class="deployTitle">
+								<span>通知人</span>
+							</div>
+							<div class="deployContent">
+								<ul class="paramList">
+									<li>
+										<span class="Tname">类型</span>
+										<select>
+											<option value="">邮件</option>
+										</select>
+									</li>
+									<li>
+										<span class="Tname">收件人</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">系统默认邮箱</span>
+										<i class="single"></i>
+									</li>
+									<li>
+										<span class="Tname">发件地址</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">密码</span>
+										<input type="password" >
+									</li>
+									<li>
+										<span class="Tname">发件服务器</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">发件端口号</span>
+										<input type="text">
+									</li>
+									<li>
+										<span class="Tname">通知事件</span>
+										<ul class="TipPart">
+											<li>
+												<i class="single"></i>
+												<span>开始执行</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>下线</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>结束执行</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>发布</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>执行异常</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>日志</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>手动终止</span>
+
+											</li>
+											<li>
+												<i class="single"></i>
+												<span>日志统计信息</span>
+
+											</li>
+										</ul>
+									</li>
+									<li class="clearFix">
+										<span class="sureBtn sureBtnEvent">保存</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+
+					<!--controllerDeploy end-->
+
+				</div>
+			</div>
+			<!-- manager module -->
+			<div class="module-manager" style="display: none;">
+				<div class="module-manager-right">
+					<!-- manager start-->
+					<div class="manager-bodyer" style="display: none;">
+						<div class="center-table1">
+							<div class="search">
+								<i class="fa fa-search"></i> <input id="itemValue" class="sou1"
+									type="text" placeholder="用户名、真实姓名" /><input type="button"
+									onclick="searchItem();" class="search-text" value="搜索" />
+								<ul class="searchInfo" id="searchInfo">
+									<!-- <li>data main</li>
+									<li>data info</li>
+									<li>data list</li>
+									<li>data one</li>
+									<li>data two</li>
+									<li>data three</li> -->
+								</ul>
+							</div>
+							<table id="table1" class="table1 table1Event">
+								<tr class="firTr" style="display: block;">
+									<th class="w180">用户名</th>
+									<th class="w180">登录名</th>
+									<th class="w180">邮箱</th>
+									<th class="w180">创建时间</th>
+									<th class="w180">修改时间</th>
+									<th class="w50 hiddenClass">增</th>
+									<th class="w50">删</th>
+									<th class="w50">改</th>
+									<th class="w50">查</th>
+									<th class="w50">赋予</th>
+								</tr>
+
+							</table>
+							<table class="fenye">
+								<tr>
+									<td><div id="barcon1" class="barcon"></div></td>
+									<td><input type="button" class="table1-save"
+										onclick="savePower()" value="保存" /></td>
+								</tr>
+							</table>
+						</div>
+
+					</div>
+					<!-- manager start-->
+				</div>
+
+			</div>
+		</div>
+
+		<!-- full renderer -->
+		<div class="dataManager" style="display: none">
+			<div class="center-table2">
+				<div class="search">
+					<i class="fa fa-search"></i> <input id="itemValue2" class="sou1"
+						type="text" placeholder="Name、Date " /><input type="button"
+						onclick="searchItem2();" class="search-text" value="搜索" />
+						 <ul class="searchInfo" id="searchInfo2"></ul>
+						<input type="button" class="search-text add2" value="添加" />
+				</div>
+				<table id="table2" class="table2">
+
+				</table>
+				<table class="fenye">
+					<tr>
+						<td><div id="barcon2" class="barcon"></div></td>
+					</tr>
+				</table>
+				<div class="add2-f">
+					<div class="h4">
+						<span>添加数据连接</span>
+						<i class="fa fa-trash2 pos-left"></i>
+					</div>
+					<table class="add2-input">
+
+					</table>
+					<div class="add2-table2">
+						<table class="conAdd">
+
+						</table>
+					</div>
+					<div class="tab-button">
+						<input type="button" class="table2-but" onclick="testConnection()"
+							value="测试" />&nbsp;&nbsp;&nbsp; <input type="button"
+							class="table2-but" onclick="addConnection()" value="保存" />
+						<div id="result" style="color: red;"></div>
+					</div>
+				</div>
+				<div class="look-detail">
+					<div class="h4">
+						<span>查看</span>
+						<i class="fa fa-trash2 pos-left"></i>
+					</div>
+					<table class="add2-input look-input">
+
+					</table>
+					<div class="add2-table2">
+						<table class="lookTable">
+
+						</table>
+					</div>
+					<div class="look-button">
+						<input type="button" class="table2-but edit2" value="编辑" />&nbsp;&nbsp;&nbsp;
+						<input type="button" class="table2-but save2" value="保存" />
+					</div>
+					<div class="edit-button">
+						<input type="button" class="table2-but edit-test" value="测试" />&nbsp;&nbsp;&nbsp;
+						<input type="button" class="table2-but edit-save" value="保存" />
+						<div id="result2" style="color: red;"></div>
+					</div>
+				</div>
+			</div>
+			<div class="power-detail">
+				<div class="search">
+					<i class="fa fa-search"></i> <input id="itemValue3" class="sou1"
+						type="text" placeholder="Name " />&nbsp&nbsp <input type="button"
+						onclick="searchItem3();" class="search-text" value="搜索" />
+						<ul class="searchInfo" id="searchInfo3"></ul>
+				</div>
+				<table id="table3" class="table3 table1Event">
+					<tr style="display: block;border: 1px solid #a1a1a1;">
+						<th>用户名</th>
+						<th>登录名</th>
+						<th>邮箱</th>
+						<th>创建时间</th>
+						<th>修改时间</th>
+						<th>使用</th>
+						<th>赋予</th>
+					</tr>
+				</table>
+				<table class="fenye">
+					<tr>
+						<td><div id="barcon3" class="barcon"></div></td>
+						<td><input type="button" class="table1-save"
+							onclick="savePower2()" value="保存" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Layers -->
+	<!-- Flow data source  -->
+	<div class="add4-con add4Event" style="display: none;">
+		<i class="closeA"></i>
+		<ul class="add4Nav add4NavEvent">
+			<li class="bg">数据源</li>
+			<li>数据接口</li>
+		</ul>
+		<div class="optionA  optionAevnet showCon">
+			<div class="dataContainerA ContainerAevnet">
+				<select name="" id="" class="connection connectionEvent">
+
+				</select>
+				<ul class="mainList mainEvent mainList1">
+
+				</ul>
+				<div class="addFoot">
+					<span class="sure sureEvent">确定</span> <span class="cancel">取消</span>
+				</div>
+			</div>
+		</div>
+		<div class="optionA optionAevnet">
+			<div class="dataContainerB">
+				<div class="partN">
+					<span>接口名称</span> <input type="text" onblur="interfaceNames()">
+				</div>
+				<div class="paramL clearFix">
+					<span class="paramLl">参数列表</span>
+
+					<ul class="paramMain">
+						<li><span class="">参数名称</span><span class="">类型</span></li>
+						<li><span class="" contenteditable="true">column1</span><span
+							contenteditable="true">int</span><i class="closeL"></i></li>
+					</ul>
+					<p class="addBtn clearFix">添加</p>
+				</div>
+			</div>
+			<div class="addFoot">
+				<span class="sure sureEvent">确定</span> <span class="cancel">取消</span>
+			</div>
+		</div>
+	</div>
+
+
+	<!--listSet start-->
+	<div class="columnSet columnSetEvent" style="display: none">
+		<div class="columnSet_T clearFix">
+			<span class="columnTleft">列设置</span>
+			<span class="columnTclose"><i class="closeA"></i></span>
+		</div>
+		<div class="columnSet_C">
+			<table class="tableContainer tableContainerEvent" cellspacing="0">
+				<tr class="contentTitle">
+					<th>Is save</th>
+					<th>Name</th>
+					<th>Pk</th>
+					<th>Type</th>
+					<th>Length</th>
+					<th>Precision</th>
+					<th>Scale</th>
+					<th>Nullable</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td><i class="single columnOne"></i></td>
+					<td contenteditable="true">column1</td>
+					<td><i class="single columnTwo"></i></td>
+					<td class="colSelect">
+						<select>
+							<option value="int">int</option>
+							<option value="tinyint">tinyint</option>
+							<option value="smallint">smallint</option>
+							<option value="mediumint">mediumint</option>
+							<option value="integer">integer</option>
+							<option value="bigint">bigint</option>
+							<option value="bit">bit</option>
+							<option value="real">real</option>
+							<option value="double">double</option>
+							<option value="float">float</option>
+							<option value="decimal">decimal</option>
+							<option value="numeric">numeric</option>
+							<option value="char">char</option>
+							<option value="date">date</option>
+							<option value="time">time</option>
+							<option value="year">year</option>
+							<option value="varchar">year</option>
+							<option value="timestamp">year</option>
+							<option value="datetime">year</option>
+							<option value="blob">year</option>
+							<option value="tinyblob">year</option>
+							<option value="longblob">year</option>
+						</select>
+					</td>
+					<td contenteditable="true">0</td>
+					<td contenteditable="true">0</td>
+					<td contenteditable="true">0</td>
+					<td><i class="single columnThree"></i></td>
+					<td contenteditable="true">xxxx</td>
+				</tr>
+				<tr>
+					<td><i class="single columnOne"></i></td>
+					<td contenteditable="true">column2</td>
+					<td><i class="single columnTwo"></i></td>
+					<td class="colSelect">
+						<select>
+							<option value="int">int</option>
+							<option value="tinyint">tinyint</option>
+							<option value="smallint">smallint</option>
+							<option value="mediumint">mediumint</option>
+							<option value="integer">integer</option>
+							<option value="bigint">bigint</option>
+							<option value="bit">bit</option>
+							<option value="real">real</option>
+							<option value="double">double</option>
+							<option value="float">float</option>
+							<option value="decimal">decimal</option>
+							<option value="numeric">numeric</option>
+							<option value="char">char</option>
+							<option value="date">date</option>
+							<option value="time">time</option>
+							<option value="year">year</option>
+							<option value="varchar">year</option>
+							<option value="timestamp">year</option>
+							<option value="datetime">year</option>
+							<option value="blob">year</option>
+							<option value="tinyblob">year</option>
+							<option value="longblob">year</option>
+						</select>
+					</td>
+					<td contenteditable="true">20</td>
+					<td contenteditable="true">20</td>
+					<td contenteditable="true">20</td>
+					<td><i class="single columnThree"></i></td>
+					<td contenteditable="true">xxx</td>
+				</tr>
+				<tr>
+					<td><i class="single columnOne"></i></td>
+					<td contenteditable="true">column3</td>
+					<td><i class="single columnTwo"></i></td>
+					<td class="colSelect">
+						<select>
+							<option value="int">int</option>
+							<option value="tinyint">tinyint</option>
+							<option value="smallint">smallint</option>
+							<option value="mediumint">mediumint</option>
+							<option value="integer">integer</option>
+							<option value="bigint">bigint</option>
+							<option value="bit">bit</option>
+							<option value="real">real</option>
+							<option value="double">double</option>
+							<option value="float">float</option>
+							<option value="decimal">decimal</option>
+							<option value="numeric">numeric</option>
+							<option value="char">char</option>
+							<option value="date">date</option>
+							<option value="time">time</option>
+							<option value="year">year</option>
+							<option value="varchar">year</option>
+							<option value="timestamp">year</option>
+							<option value="datetime">year</option>
+							<option value="blob">year</option>
+							<option value="tinyblob">year</option>
+							<option value="longblob">year</option>
+						</select>
+					</td>
+					<td contenteditable="true">0</td>
+					<td contenteditable="true">0</td>
+					<td contenteditable="true">0</td>
+					<td><i class="single columnThree"></i></td>
+					<td contenteditable="true">xxx</td>
+				</tr>
+			</table>
+		</div>
+		<div class="columnSet_B clearFix">
+			<span class="sureC">确定</span>
+			<span class="closeC">取消</span>
+		</div>
+	</div>
+	<!--listSet end-->
+
+
+
+
+	<!--BI Data analysis-->
+	<div class="biData" style="display: none">
+		<div class="biData-T">
+			<span>报表编辑</span> <i class="closeA closeR bi-close1"></i>
+		</div>
+		<div class="biData-C clearFix">
+			<div class="biDataC">
+				<div class="biDataCmain">
+					<div class="CmainT clearFix">
+						<span>拖拽模式</span>
+						<i class="bi-save">保存</i>
+					</div>
+					<ul class="CmainList">
+						<li>
+							<p>
+								<span>行：</span><i class="rowIcon"></i>
+							</p>
+							<ul class="listContainer bi-dimensionality">
+								<!-- <li><span>邮寄方式</span><i class="closeB"></i></li> -->
+							</ul>
+						</li>
+						<li>
+							<p>
+								<span>列：</span><i class="columnIcon"></i>
+							</p>
+							<ul class="listContainer bi-measure">
+								<!-- <li><span>邮寄方式</span><i class="closeB"></i></li> -->
+							</ul>
+						</li>
+						<li class="mapList clearFix">
+							<span class="bi-error error-tip"></span>
+							<p>
+								<span class="bi-reset">重置</span>
+								<span class="clicked bi-generator">生成</span>
+							</p>
+						</li>
+						<!-- to be deleted -->
+						<li class="bi-chart bichartStyle">
+							<div id="bi-main" class="bimainStyle">
+							</div>
+                        </li>
+					</ul>
+				</div>
+			</div>
+			<div class="biDataL">
+				<div class="biDataLtop">
+					<p class="biPart">数据字段</p>
+					<p class="addPart">
+						<i class="addIcon"></i><span>添加数据</span>
+					</p>
+					<ul class="biList bi-list">
+
+					</ul>
+				</div>
+				<div class="biDataLbottom">
+					<p class="biDataLbottom_t">图表</p>
+					<ul class="menu bi-menu">
+						<li class="twoMap">
+							<h2 class="tabT"><i class="fa fa-caret-down"></i>二维表</h2>
+							<ul class="detail  show">
+								<li class="iconStyle zxMap" data-type="line"></li>
+								<li class="iconStyle zzMap" data-type="bar"></li>
+								<li class="iconStyle sdMap" data-type="scatter"></li>
+								<li class="iconStyle kxMap" data-type="k"></li>
+								<li class="iconStyle xxMap" data-type="boxplot"></li>
+							</ul>
+						</li>
+						<li class="circleMap">
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>圆形图</h2>
+							<ul class="detail">
+								<li class="iconStyle btMap" data-type="pie"></li>
+								<li class="iconStyle ldMap" data-type=radar></li>
+								<li class="iconStyle ybMap" data-type="gauge"></li>
+							</ul>
+						</li>
+						<li class="powerMap" >
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>力向图</h2>
+							<ul class="detail">
+								<li class="iconStyle gxMap" data-type="graph"></li>
+								<li class="iconStyle jxMap" data-type="treemap"></li>
+							</ul>
+						</li>
+						<li class="varMap">
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>变量图</h2>
+							<ul class="detail">
+								<li class="iconStyle xlMap" data-type="droplist"></li>
+								<li class="iconStyle ycMap" data-type="input"></li>
+							</ul>
+						</li>
+						<li class="otherThing">
+							<h2 class="tabT"><i class="fa fa-caret-right"></i>其他</h2>
+							<ul class="detail">
+								<li class="iconStyle dtMap" data-type="map"></li>
+								<li class="iconStyle phMap" data-type="parallel"></li>
+								<li class="iconStyle ldtMap" data-type="funnel"></li>
+								<li class="iconStyle sjMap" data-type="sankey"></li>
+								<li class="iconStyle bgMap" data-type="table"></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="biDataR">
+				<p>属性</p>
+				<ul class="menuRight bi-menu-right">
+					<li class="filterPart">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>过滤</h2>
+						<ul class="detail filterContainer bi-filter-container">
+							<li class="bi-filter">
+								<div class="filterMain bi-filter-condition">
+									<select class="seleIdName bi-filter-fields">
+
+									</select>
+									<select class="seleList bi-filter-operate">
+										<option value="=">=</option>
+										<option value="<">&lt;</option>
+										<option value="<=">&lt;=</option>
+										<option value=">">&gt;</option>
+										<option value=">=">&gt;=</option>
+										<option value="<>">&lt;&gt;</option>
+										<option value="in">in</option>
+										<option value="like">like</option>
+									</select>
+									<input type="text" class="bi-filter-operate-content">
+									<i class="closeB bi-filter-close" style="display:none;"></i>
+									<i class="plusIcon createMenu bi-filter-add"></i>
+								</div>
+								<div class="filterMain bi-filter-related" style="display:none;">
+									<select class="seleIdName bi-filter-related-orand">
+										<option value="OR" selected>OR</option>
+										<option value="AND" selected>AND</option>
+									</select>
+									<select class="seleList bi-filter-related-downup">
+										<option value="1" selected>↑</option>
+										<option value="0">-</option>
+										<option value="-1">↓</option>
+									</select>
+								</div>
+							</li>
+							<li class="btnPart bi-filter-btns">
+								<span class="resetBtn bi-filter-reset">重置条件</span>
+								<span class="runBtn clicked bi-filter-execute">执行条件</span>
+							</li>
+						</ul>
+					</li>
+					<li class="sortPart bi-sort">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>排序</h2>
+						<div class="detail">
+							<select name="fields">
+								<option value="">请选择字段</option>
+							</select>
+							<select name="order" >
+								<option value="">请选择</option>
+								<option value="ASC">升</option>
+								<option value="DESC">降</option>
+							</select>
+						</div>
+					</li>
+					<li class="themePart bi-theme">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>主题</h2>
+						<ul class="detail">
+							<li>
+								<select name="theme" class="w240">
+		            				<option value="">请选择主题</option>
+		            				<option value="dark">dark</option>
+		            				<option value="shine">shine</option>
+		            				<option value="infographic">infographic</option>
+		            				<option value="macarons">macarons</option>
+		            				<option value="roma">roma</option>
+		            				<option value="vintage">vintage</option>
+
+		            				<option value="chalk">chalk</option>
+		            				<option value="essos">essos</option>
+		            				<option value="halloween">halloween</option>
+		            				<option value="purple-passion">purple-passion</option>
+		            				<option value="walden">walden</option>
+		            				<option value="westeros">westeros</option>
+		            				<option value="wonderland">wonderland</option>
+		            			</select>
+							</li>
+						</ul>
+					</li>
+					<li class="titlePart bi-title">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>标题</h2>
+						<ul class="detail">
+							<li class="titlePartT"><i class="single show"></i><span>显示标题</span></li>
+							<li><input type='text' name='text' placeholder="名称" value="untitled chart"/></li>
+							<li class="mapIcon position">
+								<span class="alignIcon showL"></span>
+								<span class="alignIcon showC checked"></span>
+								<span class="alignIcon showR"></span>
+							</li>
+						</ul>
+					</li>
+					<li class="showPh bi-legend">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>图例</h2>
+						<ul class="detail">
+							<li><i class="single singleChecked lshow"></i><span>显示图例</span></li>
+							<li class="mapIcon lposition">
+								<span class="alignIcon showL checked"></span>
+								<span class="alignIcon showC"></span>
+								<span class="alignIcon showR"></span>
+							</li>
+						</ul>
+					</li>
+					<li class="themePart bi-label bilabelStyle">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>标签</h2>
+						<ul class="detail">
+							<li class="titlePartT"><i class="single lbshow"></i><span>显示标签</span></li>
+							<li>
+								<select name="lbposition" class="w240">
+			            			<option value="left">left</option>
+			            			<option value="right">right</option>
+			            			<option value="top" selected>top</option>
+			            			<option value="bottom">bottom</option>
+			            			<option value="inside">inside</option>
+			            		</select>
+							</li>
+						</ul>
+					</li>
+					<li class="themePart bi-toolbox bitoolboxStyle">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>工具栏</h2>
+						<ul class="detail">
+							<li class="titlePartT"><i class="single singleChecked tbshow"></i><span>显示工具栏</span></li>
+							<li>
+								<select name="tborient" class="w240">
+			            			<option value="horizontal" selected>horizontal</option>
+			            			<option value="vertical">vertical</option>
+			            		</select>
+							</li>
+						</ul>
+					</li>
+					<li class="themePart bi-visualmap bivisualStyle">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>视觉映射</h2>
+						<ul class="detail">
+							<li class="titlePartT"><i class="single vmshow"></i><span>显示视觉映射</span></li>
+							<li><input class="w240" type="number" name="dimension" placeholder="映射哪组数据"/></li>
+							<li class="visualTextStyle">高：<input class='bi-visualmap-text' placeholder="高"/>低：<input  class='bi-visualmap-text' placeholder="低"/></li>
+							<li><input placeholder="色系:#50a3ba,#eac736,#d94e5d" class="bi-visualmap-inrange w240" /></li>
+						</ul>
+					</li>
+					<li class="otherPart bi-other">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>其他</h2>
+						<ul class="detail">
+							<li class="titlePartT bi-tooltip"><i class="single singleChecked ttshow"></i><span>显示提示框</span></li>
+							<li class="titlePartT bi-datazoom"><i class="single dzshow"></i><span>显示区域缩放</span></li>
+						</ul>
+					</li>
+
+					<li class="titlePart bi-variable" style="display:none;">
+						<h2 class="tabT"><i class="fa fa-caret-right"></i>变量名</h2>
+						<ul class="detail">
+							<li title="变量名以@开头">@<input type='text' name='variable' placeholder="变量名" title="请输入变量名"/></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	 <!-- bi数据源选择 -->
+    <div class="add4-con biDataSource bi-datasource biDataStyle" style="display:none;">
+		<i class="closeA bi-close2"></i>
+		<ul class="add4Nav">
+			<li>数据接口</li>
+		</ul>
+		<div class="optionA showCon">
+			<div class="dataContainerA">
+				<select class="connection bi-connection">
+
+				</select>
+				<ul class="mainList bi-mainList">
+
+				</ul>
+				<div class="addFoot">
+					<span class="sure1 bi-sure">确定</span>
+					<span class="cancel1 bi-cancel">取消</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- data source end -->
+
+	<!--biDeploy bi发布弹框-->
+	<div class="bideployStyle bideployEvent" style="display: none">
+		<div class="addT">
+			<span>发布</span> <i class="closeA"></i>
+		</div>
+		<div class="biContent">
+			<span class="biUrl">URL</span><input type="text">
+		</div>
+		<div class="addFoot">
+			<span class="sure">确定</span> <span class="cancel">取消</span>
+		</div>
+	</div>
+
+
+	<!--bi deploy end-->
+
+
+	<!--BI end-->
+	<!-- target -->
+	<div class="target_layer" style="display: none;">
+		<div class="tl_header">
+			<div class="title2">存储路径</div>
+			<div class="close">
+				<i class="fa fa-close-m"></i>
+			</div>
+		</div>
+		<div class="tl_bodyer">
+			<div class="name_list">
+				<ul>
+
+				</ul>
+			</div>
+			<div class="name_conf">
+				<table>
+					<tr>
+						<td class="title3">数据连接</td>
+						<td><select id="sjlj" >
+								<option value="">请选择数据连接</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td class="title3">表名</td>
+						<td><input type="text" class="table_name" id="tableName" /></td>
+					</tr>
+
+					<tr>
+						<td class="title3">模式</td>
+						<td><select id="ms">
+								<option value="">请选择模式</option>
+								<option value="none">none</option>
+								<option value="append">append</option>
+								<option value="overwrite">overwrite</option>
+								<option value="error">error</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input value="列设置" type="button"
+							class="setting_col"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="tl_footer">
+			<div class="btn_group">
+				<input type="button" value="取消" /> <input type="button" value="确定"/>
+			</div>
+		</div>
+	</div>
+
+
+	<!--checkTemplate start-->
+	<div class="checkTemplate" style="display: none">
+		<div class="checkTemplate_T clearFix">
+			<span>选择布局</span>
+			<i class="closeA"></i>
+		</div>
+		<div class="checkTemplate_C checkTemplateE">
+			<ul class="clearFix">
+				<li class="styleOne checked"></li>
+				<li class="styleTwo"></li>
+				<li class="styleThree"></li>
+				<li class="styleFour"></li>
+				<li class="styleFive"></li>
+				<li class="styleSix"></li>
+				<li class="styleSeven"></li>
+				<li class="styleEight"></li>
+				<li class="styleNine"></li>
+				<li class="styleTen"></li>
+				<li class="styleEleven"></li>
+				<li class="styleTwelve"></li>
+				<li class="styleThirteen"></li>
+				<li class="styleFourteen"></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<!--checkTemplate end-->
+
+	<!--bi charTemp start-->
+
+	<div class="biCharTemp bi-template-layout-setting" style="display: none">
+		<div class="bicharT">
+			<span>属性</span>
+			<i class="closeA"></i>
+		</div>
+		<ul class="biCharList">
+			<li>
+				<h2 class="tabT"><i class="fa fa-caret-down"></i>主题</h2>
+				<ul class="themeContainer bi-theme-container">
+					<li class="themeOne vintage" data-theme="vintage"></li>
+					<li class="themeTwo westeros" data-theme="westeros"></li>
+					<li class="themeThree wonderland" data-theme="wonderland"></li>
+					<li class="themeFour chalk" data-theme="chalk"></li>
+					<li class="themeFive macarons" data-theme="macarons"></li>
+					<li class="themeSix shine" data-theme="shine"></li>
+					<li class="themeSeven halloween" data-theme="halloween"></li>
+					<li class="themeEight dark" data-theme="dark"></li>
+					<li class="themeNine essos" data-theme="essos"></li>
+					<li class="themeTen walden" data-theme="walden"></li>
+					<li class="themeEleven infographic" data-theme="infographic"></li>
+					<li class="themeTwelve roma" data-theme="roma"></li>
+					<li class="themeThirteen purple-passion" data-theme="purple-passion"></li>
+				</ul>
+			</li>
+			<li>
+				<h2 class="tabT"><i class="fa fa-caret-right"></i>模版大小</h2>
+			</li>
+		</ul>
+	</div>
+	<!--bi charTemp end-->
+
+	<!--controller warning start-->
+
+	<div class="warningPart" style="display: none">
+		<p class="warningT">
+			<i class="warning"></i>
+			<i>controller资源已发生改变</i>
+		</p>
+		<div class="warningContent">
+			<p>
+				<i class="ovalIcon ovalIconed"></i>
+				<span>忽略</span>
+			</p>
+			<p>
+				<i class="ovalIcon"></i>
+				<span>新建controller</span>
+			</p>
+			<p>
+				<i class="ovalIcon"></i>
+				<span>新建调度</span>
+			</p>
+		</div>
+		<div class="warningFooter">
+			<span class="sure">确定</span>
+			<span class="cancel">取消</span>
+		</div>
+	</div>
+
+
+
+	<!--controller warning end-->
+	<div class="mask" style="display: none;"></div>
+
+
+	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script
+		src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
+	<script src="../../static-resources/js/comm.js"></script>
+	<script src="../../static-resources/js/context.js"></script>
+	<script src="../../static-resources/js/workspace.js"></script>
+
+	<script src="../../static-resources/js/page.js"></script>
+	<!--<script src="../../static-resources/js/menuManage.js"></script>-->
+	<script src="../../static-resources/js/new.js"></script>
+	<!-- by tyd -->
+	<script src="../../static-resources/js/jsmind.js"></script>
+	<script src="../../static-resources/js/jsmind.draggable.js"></script>
+	<script src="../../static-resources/js/jsMind.draggable.tyd.js"></script>
+	<script src="../../static-resources/js/logicNode.js"></script>
+	<script src="../../static-resources/js/test.js"></script>
+    <!-- by gjc -->
+    <script src="../../static-resources/js/controller.js"></script>
+	<script type="text/javascript">
+    var detailId;
+    var dataConnectionName;
+    var dataConnections_global = new Array();
+    var userId = $.getCookie('userId').id;
+    var userName=$.getCookie('userId').name;
+    var urlId='http://localhost:8080/TarotIDE';
+    var his1 = new History('table1');
+    var his2 = new History('table2');
+    var his3 = new History('table3');
+
+	  resizeW();
+	  $(window).on('resize', resizeW);
+	  function resizeW() {
+		  var $winW;
+		  $winW = $(window).width();
+		  $('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
+		  $('.dataMinL').css('width',($(window).width()-201-345));
+		  $('.module-core').css('width',($(window).width()-201-351));
+	  }
+	//TODO deleting
+    //urlId = 'http://localhost:800/';
+    //初始化目录
+    $(function(){
+        $.ajax({
+            url: urlId + '/selectMenuByUserId',
+            type:'POST',
+            dataType:"json",
+            data:{userId:userId},
+            success:function(data) {
+            	var rootTrees = data.rootTrees;
+            	var dataConns = data.dataConns;
+            	var functionsList = data.functionsList;
+            	//赋予全局变量dataConnections_global
+            	dataConnections_global = dataConns;
+            	initDataConnsAndFunctionsList(dataConns,functionsList);
+                var htmlstr = "";
+                htmlstr = loop(htmlstr,rootTrees);
+                $(".root_tree").html(htmlstr);
+                refreshMenu(refreshEnum[0]);
+                //init
+                initRightEvent();
+                initFolderClick();
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        })
+    });
+    //初始化DataConnsAndFunctionsList
+	function initDataConnsAndFunctionsList(dataConns,functionsList){
+		//初始化.connectionEvent和#sjlj
+		var str='<option value="" >请选择数据连接</option>';
+        $(dataConns).each(function(index,item){
+            str+='<option value='+item.ID+'>'+item.NAME+'</option>';
+        });
+        $('.connectionEvent').html(str);
+        $('#sjlj').html(str);
+      	//初始化.syb_con和#showTip_jsmind_container2
+		var functionName = null;
+		var formula = null;
+		var placeholders = null;
+		var parameters = null;
+		var str = null;
+		var number;
+		var fixed;
+		var sysdoms = '<p fk = "0" textValue = "?+?+..." level="6" functionName="+" paramNumber="3" fixed="0" class="draggable">加法</p>'+
+		'<p fk = "0" textValue = "?-?-..." level="6" functionName="-" paramNumber="3" fixed="0" class="draggable">减法</p>'+
+		'<p fk = "0" textValue = "?*?*..." level="6" functionName="*" paramNumber="3" fixed="0" class="draggable">乘法</p>'+
+		'<p fk = "0" textValue = "?/?/..." level="6" functionName="/" paramNumber="3" fixed="0" class="draggable">除法</p>'+
+		'<p fk = "0" textValue = "?%?%..." level="6" functionName="%" paramNumber="3" fixed="0" class="draggable">取余</p>'+
+		'<p fk = "0" textValue = "Constant" level="5" functionName="?" paramNumber="1" fixed="1" class="draggable">常量</p>';
+		$(functionsList).each(function(index,item){
+			functionName = item.name;
+			parameters = item.parameter;
+			number = parameters.length-1;
+			placeholders=new Array();
+			//暂时先这样
+			$(parameters).each(function(i,element){
+				if(i>0){
+					placeholders[i-1] = "?";
+				}
+			});
+			fixed=item.fixed;
+			if(fixed==0){
+				placeholders[parameters.length-2] = "...";
+			}
+			//str = placeholders.join().replace(/\"/g,"");
+			str = placeholders.join();
+			formula = functionName+"("+str+")"; 
+			var sysdom = '<p fk = "0" textValue = "'+formula+'" level="3" functionName="'+functionName+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable">'+formula+'</p>';
+			sysdoms+=sysdom;
+		});
+		$('.syb_con').html($(sysdoms));
+		$('#showTip_jsmind_container2').html($(sysdoms));
+	}
+    function addMenu(menuId,menuType,name){
+        menuId = filterString(menuId);
+		var iconType;
+		//2是controller，3是flow，4是datamining，5是biIcon
+		if(menuType==2){
+			iconType='controllerIcon';
+		}else if(menuType==3){
+			iconType='flowIcon';
+		}else if(menuType==4){
+			iconType='DataMicon';
+		}else if(menuType==5){
+			iconType='biIcon';
+		}
+        $.ajax({
+            url: urlId + '/addmenu',
+            type: "POST",
+            dataType:"json",
+            data:{
+                menuId:menuId,
+                userId:userId,
+                name:name,
+                menuType:menuType,
+                power:maxPower
+            },
+            success:function(data) {
+                //console.log(data);
+                var isShow = showType(maxPower);
+                if(menuId==0&&menuType==menuTypeEnum[0]){
+                    $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span class="rootTitle" style="margin-left: 4px">' + name + '</span></div><ul></ul></li>'));
+                    renameMenuForHome();
+                }else if(menuId==0&&menuType!=menuTypeEnum[0]){
+                    $('.root_tree').append($('<li><div id="'+data+'" menuType="'+menuType+'" power="0b01111" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa '+ iconType +'"></i><span>' + name + '</span></div></li>'));
+                    renameMenuForHome();
+                }else if(menuId!=0&&menuType==menuTypeEnum[0]){
+                    $currentRightDom.next().append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span>' + name + '</span></div><ul></ul></li>'));
+                    renameMenu();
+                }else{
+                    $currentRightDom.next().append($('<li><div id="'+data+'" menuType="'+menuType+'" power="0b01111" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data+','+menuType+');"><i class="fa ' + iconType + '"></i><span>' + name + '</span></div></li>'));
+                    renameMenu();
+                }
+                initRightEvent();
+                initFolderClick();
+
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        });
+    }
+    
+function renameMenuForHome(){
+    	var text = $('.root_tree').children().last().children().first().children().last().text();
+    	$('.root_tree').children().last().children().first().children().last().remove();
+    	$('.root_tree').children().last().children().first().append($('<input type="text" value="'+ text + '" />'));
+    	$('.folder input').select();
+        
+        $('.folder input').unbind('keydown').keydown(function(e){
+            if (e.keyCode == "13") {//keyCode=13是回车键
+            	var val = $(this).val();
+            	renameOk(val);
+            }
+        });
+    }
+    function renameOk(val){
+        if(/['"#$%&\^*]/.test(val)){
+            $.dialog("不能包含特殊字符！");
+            return;
+        }else if(val == ""){
+            $.dialog("不能为空！");
+            return;
+        }
+        var menuId=$('.root_tree').children().last().children().attr('id');
+        var name=val;
+        var type=$('.root_tree').children().last().children().attr("menuType");
+        updateMenu(menuId,name,type);
+        $('.root_tree').children().last().children().first().children().last().remove();
+        $('.root_tree').children().last().children().first().append($('<span>' + val + '</span>'));
+    }
+    
+    function renameMenu(){
+    	var text = $currentRightDom.next().children().last().children().children().last().text();
+    	$currentRightDom.next().children().last().children().children().last().remove();
+    	$currentRightDom.next().children().last().children().first().append($('<input type="text" value="'+ text + '" />'));
+    	$('.folder input').select(); 
+        
+        $('.folder input').unbind('keydown').keydown(function(e){
+            if (e.keyCode == "13") {//keyCode=13是回车键
+                var val = $(this).val();
+                if(/['"#$%&\^*]/.test(val)){
+                    $.dialog("不能包含特殊字符！");
+                    return;
+                }else if(val == ""){
+                    $.dialog("不能为空！");
+                    return;
+                }
+                var menuId=$currentRightDom.next().children().last().children().attr('id');
+                var name=val;
+                var type=$currentRightDom.next().children().last().children().attr("menuType");
+                updateMenu(menuId,name,type);
+                $currentRightDom.next().children().last().children().children().last().remove();
+                $currentRightDom.next().children().last().children().first().append($('<span>' + val + '</span>'));
+                $currentRightDom = null;
+            }
+        });
+    }
+
+    function deleteMenu(menuIdString,menuType){
+        var menuId = filterString(menuIdString);
+        $.ajax({
+            url:urlId + '/deleteMenu',
+            type: "POST",
+            dataType:"json",
+            data:{
+                menuId:menuId,
+                menuType:menuType
+            },
+            success:function(data) {
+                if($("#"+menuIdString)){
+                    $("#"+menuIdString).parent().remove();
+                }
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        });
+    }
+
+    function updateMenu(menuId,name,type){
+        menuId = filterString(menuId);
+        $.ajax({
+   			url:urlId + '/updateMenu',
+            //url:"../webapp/data/data.json",
+            type: "POST",
+            dataType:"json",
+            data:{
+                menuId:menuId,
+                name:name,
+                type:type
+            },
+            success:function(data) {
+                console.log("重命名成功！");
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        });
+    }
+    var mType;
+	function getUserPower(menuId,menuType){
+		$('.root_tree div').removeClass('visitedBg');
+		$('#' + menuId).addClass('visitedBg');
+		selectedMenuId = menuId;
+		mType=menuType;
+		UserPowerList(selectedMenuId,menuType,null);
+	}
+	//回车事件
+	$('#itemValue').keydown(function(e){
+		if(e.keyCode==13){
+			searchItem(); //处理事件
+		}
+		});
+	
+	function searchItem(){
+		var str = $('#itemValue').val();
+		//var his = new History(str);  // 参数标示cookie的键值
+		his1.add(str,str,str);
+		var data = his1.getList();
+		$('#searchInfo').empty();
+		if(data!=null){
+		 for(var i =data.length-1;i>=0;i--){
+			
+			$('#searchInfo').prepend('<li>'+data[i].title+'</li>');
+		} 
+		}
+		console.log(data);
+		console.log(mType);
+		UserPowerList(selectedMenuId,mType,str);
+	}
+	function UserPowerList(menuId,menuType,content){
+		$.ajax({
+		     url:''+urlId+'/selectByMenuId',
+		     type:'POST',
+		     data:{menuId: menuId, content:content, userId:userId},
+		     dataType:"json",
+		     success:function(data) {
+		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
+		         $('.module-manager').show();
+		    	 var tablestr="";
+                //目录管理
+		    	 for(var i=0;i<data.length;i++){
+		        	 var power = data[i].POWER;
+		        	 var checkboxStr = "";
+
+                     for(var j=0;j<powerEnum.length;j++){
+                    		if(j==3){
+                        		if(powerConjunction(power,powerEnum[3])){
+                                 checkboxStr+='<td class="w50" ><i name=checkbox class="single read singleChecked"></i>';
+                                 continue;
+                             }else{
+                                 checkboxStr+='<td class="w50"><i name=checkbox class="single read"></i>';
+                                 continue;
+                             }
+                        	 }
+                   	 if(j==0){
+                   	 if(menuType!=1){
+                   		checkboxStr+='<td class="w50 hiddenClass"><i name=checkbox ></i>';
+                   	 }else{
+                   		 if(powerConjunction(power,powerEnum[0])){
+                                checkboxStr+='<td class="w50" ><i name=checkbox class="single singleChecked"></i>';
+                            }else{
+                                checkboxStr+='<td class="w50"><i name=checkbox class="single"></i>';
+                            }
+                   	 }
+                   	 
+                    }else{
+                        if(powerConjunction(power,powerEnum[j])){
+                            checkboxStr+='<td class="w50" ><i name=checkbox class="single singleChecked"></i>';
+                        }else{
+                            checkboxStr+='<td class="w50"><i name=checkbox class="single"></i>';
+                        }
+                    }
+                    }
+		        	 var createTime = new Date(data[i].CREATE_DATA).toLocaleString();
+		        	 if(data[i].UPDATE_DATA!=null){
+							var updateTime = new Date(data[i].UPDATE_DATA).toLocaleString();
+						}else{
+							var updateTime = '';
+						}
+		        	 //1是add，0是update
+		        	 var isAdd = 0;
+		        	 if(!power){
+		        		 isAdd = 1;
+		        	 }
+		        	 tablestr+= '<tr id = "userPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" class="borderRight" onclick="signClick('+data[i].ID+');">'+
+						'<td class="w180" value="'+data[i].NAME+'">'+data[i].NAME+'</td>'+
+						'<td class="w180" value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'+
+						'<td class="w180">'+data[i].E_MAIL+'</td>'+
+						'<td class="w180">'+createTime+'</td>'+
+						'<td class="w180">'+updateTime+'</td>'+
+						checkboxStr+
+						'</tr>';
+		        	
+		         }
+		    	 $("#table1 tr[name='powerData']").remove();
+		         $('#table1').append($(tablestr));
+		         if(menuType!=1){
+                		$('.hiddenClass').hide();
+                		$('.w180').css("width","207px");
+				 }else{
+					 $('.hiddenClass').show();
+					 $('.w180').css("width","197px");
+				 }
+				 goPage(1, 10, 'table1', 'barcon1');
+		      },
+		      error : function() {
+		           $.dialog("异常！");
+		      }
+	 	})
+	}
+	function savePower(){
+		var powerArray = new Array();
+		for(var i=0;i<signArray.length;i++){
+			var id = signArray[i];
+			var powerStr = "0b";
+			$("#userPower"+id).find("i[name='checkbox']").each(
+					 function(){
+					 if($(this).hasClass('singleChecked')){
+						 powerStr+="1";
+					 }else{
+						 powerStr+="0";
+					 }
+				 }
+		 	);
+			var isAdd = $("#userPower"+id).attr("isadd");
+			//console.log(powerStr);
+			 	var Obj = new Object();
+			 	Obj.userId=id;
+			 	Obj.power=powerStr;
+			 	Obj.isadd=isAdd;
+			 	powerArray.push(Obj);
+		}
+		var jsonObj = new Object();
+		jsonObj.menuId=selectedMenuId;
+		jsonObj.powerArray=powerArray;
+		$.ajax({
+		     url:''+urlId+'/editUserPower',
+		     type:'POST',
+		     dataType:"json",
+		     contentType: "application/json",
+             data:JSON.stringify(jsonObj),
+		     success:function(data) {
+		    	 for(var i=0;i<signArray.length;i++){
+		    		 var id = signArray[i];
+		    			 $("#userPower"+id).attr("isadd","0");		    		 
+		    	 }
+		    	 //及时修改当前用户该菜单的权限
+		    	 var currentUserPowerStr = "0b";
+		    	 var currentUserId = userId;
+    			 $("#userPower"+currentUserId).find("i[name='checkbox']").each(
+   					 function(){
+						 if($(this).hasClass('singleChecked')){
+							 currentUserPowerStr+="1";
+						 }else{
+							 currentUserPowerStr+="0";
+						 }
+					 }
+			 	 );
+    			/*  var isShow = showType(currentUserPowerStr);
+    			 $("#"+selectedMenuId).attr("name",isShow);
+		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr); */
+		    	 //清空signArray
+	    		 signArray = [];
+		    	 //$('.root_tree').children().show();
+		         $.dialog("修改成功！");
+		     },
+		     	error : function() {
+		    	 //清空signArray
+	    		 signArray = [];
+	          	 $.dialog("异常！");
+		     }
+	 	})
+
+	}
+   
+    function abccc(){
+        $(".root_tree").show();
+    }
+    function refreshMenu(type){
+        console.log("刷新左边菜单");
+        $(".root_tree div[name='noneShow']").parent().hide();
+        //刷新目录树
+        if(type==1){
+            $(".root_tree div[name='singleShow']").parent().show();
+        }else{
+        	//刷新目录管理
+            $(".root_tree div[name='singleShow']").parent().hide();
+        	if(!$(".root_tree div").hasClass("header_active") || $(".root_tree .header_active").attr('name')=='singleShow'){
+        		var $this = $(".root_tree div[name='doubleShow']").eq(0);
+        		$this.addClass('header_active');
+                var menuId=$this.attr('id');
+                var menuType=$this.attr('menutype');
+                getUserPower(menuId,menuType);
+        	}
+    	}
+    }
+
+
+    function getDataAdd4(usersId){
+        var usersId=userId;
+        var str='';
+        $.ajax({
+            url:urlId+'/selectDataConnectionAndPowerByUserId'+'?userId='+usersId,
+            type:'POST',
+            dataType:"json",
+            contentType: "application/json",
+            // data:JSON.stringify({userId:userId}),
+            success:function(data) {
+				str+='<option selected>请选择数据连接</option>';
+                $(data).each(function(index,item){
+                    str+='<option id='+item["ID"]+'>'+item["NAME"]+'</option>';
+                });
+                $('.connectionEvent').html(str);
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        })
+    }
+
+    var sourceType;
+    function getDataDetail(detailId){
+        detailId=detailId;
+        var flowId = flowId_global;
+        var str='';
+        $.ajax({
+            url:urlId+'/selectValueAndTableByConIds'+'?conId='+detailId+'&flowId='+flowId,
+            type:'POST',
+            dataType:"json",
+            contentType: "application/json",
+            // data:JSON.stringify({userId:userId}),
+            success:function(data) {
+                //console.log(data)
+                $(data).each(function(index,item){
+                    var tableNames=item.tableName;
+                    sourceType=item.sourceType;
+                    //console.log(tableNames)
+                    for(var i=0;i<tableNames.length;i++){
+                        str+='<li><i class="single"></i><span>'+tableNames[i]+'</span></li>';
+                    }
+                    $('.mainEvent').html(str);
+                });
+
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        })
+    }
+
+    function sendMessage(isInterface,flowId_global,detailId,interfaceName,sourceColumn){
+        var source_data=new Object;
+        var source_column=new Object;
+        var arr=new Array();
+        source_data.flowId=flowId_global;
+        source_data.conId=detailId;
+        source_data.sourceDataType=sourceType;
+        source_data.isInterface=isInterface;
+
+		if(isInterface){
+			//是接口
+			var source_entity=new Object();
+			source_entity.enumCode="sourcetable";
+			source_entity.value=interfaceName;
+			arr.push(source_entity);
+		}else{
+			//不是接口
+			$(interfaceName).each(function(index,item){
+				var source_entity=new Object();
+				source_entity.enumCode="sourcetable";
+				source_entity.value=item;
+				arr.push(source_entity);
+			});
+		}
+
+        $.ajax({
+            url:urlId+'/addSourceDataAndAll',
+            type:'POST',
+            dataType:"json",
+            contentType: "application/json; charset=utf-8",
+            data:JSON.stringify({
+                source_column:JSON.stringify(sourceColumn),
+                source_data:JSON.stringify(source_data),
+                source_entity:JSON.stringify(arr)
+	        }),
+	        success:function(data) {
+	            bindSourceData(data,flowId_global);
+				initDragable();
+	        },
+	        error : function() {
+	            $.dialog("异常！");
+	        }
+    	})
+    }
+    function bindSourceData(data,flowId_global){
+        var line_color = _jm1.options.view.line_color;
+        var data_str = "";
+		$.each(data,function(index,item){
+			data_str += "<p textValue = '"+item.tableName+"' level='2' flowId='"+flowId_global+"' sourceId='"+item.sourceDataId+"' line_color='"+line_color+"' class='draggable'>"+item.tableName+"</p>";
+			tableColumnsMap.put(item.sourceDataId,item.columns);
+		});
+        $('.dt_conL').append($(data_str));
+    }
+
+    function getFlowIdByMenuId(menuId){
+    	$.ajax({
+			url:urlId+'/getFlowIdByMenuId?menuId='+menuId,
+			type:'POST',
+			dataType:"json",
+			contentType: "application/json",
+			success:function(data) {
+				var jsmindStr = create_jsmindStr();
+				jsmindStrsMap.put(flowId_global,jsmindStr);
+				clear_panel_();
+				/********************以上是保存上一个flow并清空，以下是展现下一个flow**********************/
+				//赋值全局变量flowId_global
+				flowId_global = data;
+				var jsmindStr_new = jsmindStrsMap.get(flowId_global);
+				var sourceData = sourceDatasMap.get(flowId_global);
+				if(!jsmindStr_new){
+					var jsmindAndSourcedata = getSelectAllFlowId(flowId_global);
+					jsmindStr_new = jsmindAndSourcedata.jsmindStr;
+					sourceData = jsmindAndSourcedata.sourceData;
+					jsmindStrsMap.put(flowId_global,jsmindStr_new);
+					sourceDatasMap.put(flowId_global,sourceData);
+				}
+				//初始化jsmind
+				var jsmind = JSON.parse(jsmindStr_new);
+				if(jsmind){
+					_jm1.show(jsmind);	
+					var dataList = jsmind.data;
+					$.each(dataList,function(index,item){
+						if(!item.isroot){
+							var pk = item.pk;
+							subtreeMap.put(pk,item.subMind);
+				    		paramsMap.put(pk,item.params);
+				    		joinsMap.put(pk,item.joins);
+				    		targetsMap.put(pk,item.saveTargets);
+						}
+					});
+				}
+				//初始化.dt_conL
+				var tableName;
+				var sourceDataId;
+				var data_obj;
+				var line_color = _jm1.options.view.line_color;
+				$(sourceData).each(function(index,item){
+					tableName=item.tableName;
+					sourceDataId=item.sourceDataId;
+					dataConnectionName=item.dataConnectionName;
+					data_obj = $(
+							"<p textValue = '"+tableName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' line_color='"+line_color+"' class='draggable'>"+tableName+"</p>"
+					);
+					$('.dt_conL').append(data_obj);
+					tableColumnsMap.put(sourceDataId,item.columns);
+				});				
+				initDragable();
+			},
+			error : function() {
+				$.dialog("异常！");
+			}
+		})
+    }
+	function getSelectAllFlowId(flowId){
+		var result;
+		$.ajax({
+			url:urlId+'/selectAllByFlowId?flowId='+flowId,
+			type:'POST',
+			async: false,
+			dataType:"json",
+			contentType: "application/json",
+			success:function(data) {
+				result = data;
+			},
+			error : function() {
+				$.dialog("异常！");
+			}
+		});
+		return result;
+	}
+	function clear_panel_(){
+		$('.dt_conL').empty();
+		_jm1.show();
+		_jm2.show();
+		subtreeMap.clear();
+		paramsMap.clear();
+		joinsMap.clear();
+		targetsMap.clear();
+		tableColumnsMap.clear();
+	}
+    //工具类方法：循环遍历树，生成菜单目录
+    function loop(htmlstr,data){
+        for(var i=0;i<data.length;i++){
+            var type = data[i].type;
+            var childrens = data[i].childrens;
+            var isShow = showType(data[i].power);
+            if(type==1){
+                htmlstr+='<li data-title="'+data[i].name+'">'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
+	            '<ul>';
+                if(childrens){
+                    htmlstr = loop(htmlstr,childrens);
+                    htmlstr+='</ul></li>';
+                }else{
+                    htmlstr+='</ul></li>';
+                }
+            }else if (type==2){
+                htmlstr+='<li data-title="'+data[i].name+'">'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa controllerIcon"></i><span>'+data[i].name+'</span></div>'+
+	            '<ul>';
+                if(childrens){
+                    htmlstr = loop(htmlstr,childrens);
+                    htmlstr+='</ul></li>';
+                }else{
+                    htmlstr+='</ul></li>';
+                }
+            }else if (type==3){
+                htmlstr+='<li data-title="'+data[i].name+'">'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa flowIcon"></i><span>'+data[i].name+'</span></div>'+
+	            '<ul>';
+                if(childrens){
+                    htmlstr = loop(htmlstr,childrens);
+                    htmlstr+='</ul></li>';
+                }else{
+                    htmlstr+='</ul></li>';
+                }
+            }else if (type==4){
+                htmlstr+='<li data-title="'+data[i].name+'">'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa DataMicon"></i><span>'+data[i].name+'</span></div>'+
+	            '<ul>';
+                if(childrens){
+                    htmlstr = loop(htmlstr,childrens);
+                    htmlstr+='</ul></li>';
+                }else{
+                    htmlstr+='</ul></li>';
+                }
+            }else if (type==5){
+                htmlstr+='<li data-title="'+data[i].name+'">'+
+                '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa biIcon"></i><span>'+data[i].name+'</span></div>'+
+	            '<ul>';
+                if(childrens){
+                    htmlstr = loop(htmlstr,childrens);
+                    htmlstr+='</ul></li>';
+                }else{
+                    htmlstr+='</ul></li>';
+                }
+            }else{
+            	htmlstr+='<li><div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_child" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-file-o"></i><span>'+data[i].name+'</span></div></li>';
+   		 }
+            
+
+        }
+        return htmlstr;
+    }
+    //工具类方法：再次初始化右击事件
+    function initRightEvent(){
+    	$('.folder div').unbind('mousedown').mousedown(function(e, a){
+    	    $('.folder input').trigger('blur');
+    	    if(e.which == 3 || a == 'right'){
+    	        $currentRightDom = $(this);
+    	        if($currentRightDom.attr('id')==0){
+    	        	var power='0b10010';
+    	        }else{
+    	        	var power=$currentRightDom.attr('power');
+    	        }
+    	        generateFun(power, '.folder div');
+    	    }
+    	    if($(this).html().indexOf('input') > 0){
+    	        console.log('is current element.');
+    	        return;
+    	    }
+    	    resetFolder();
+    	});
+    	$('.folder').unbind('mousedown').mousedown(function(e){
+			if($(e.target).attr('type')=='text'){
+				console.log('当前点击：');
+				console.log(e.target);
+			}else{
+				resetFolder(); 
+			}
+		})
+    }
+    //工具类方法：再次初始化文件夹打开与关闭事件
+    function initFolderClick(){
+        $('.folder_title').unbind('click').click(function(event){
+            if($(this).hasClass('fa-folder-close_')){
+                $(this).removeClass('fa-folder-close_').addClass('fa-folder-open_');
+                $(this).parent().next().show();
+            }else{
+                $(this).removeClass('fa-folder-open_').addClass('fa-folder-close_');
+                $(this).parent().next().hide();
+            }
+        });
+    }
+    //工具类方法：标记被选中过的条目id，该id也恰好是userId
+    function signClick(id){
+        if(signArray.indexOf(id)==-1){
+            signArray.push(id);
+        }
+    }
+    //工具类方法：校验菜单权限
+    function powerConjunction(power,powerTarget){
+        var result = power&powerTarget;
+        if(result==powerTarget){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    //工具类方法：过滤出字符串中的数字
+    function filterString(source){
+        return source.replace(/[^0-9]/ig, "");
+    }
+    //工具类方法：定义显示类型
+    function showType(source){
+        var isShow="";
+        if(powerConjunction(source,powerEnum[3])&&powerConjunction(source,powerEnum[4])){
+            isShow="doubleShow";
+        }else if(powerConjunction(source,powerEnum[3])&&!powerConjunction(source,powerEnum[4])){
+            isShow="singleShow";
+        }else{
+            isShow="noneShow";
+        }
+        return isShow;
+    }
+    //var menuIdPre = "menuId";
+    //公共对象：标记选中的菜单id
+    var selectedMenuId = 0;
+    //公共对象：刷新类型枚举，1是工作区目录刷新，2是管理目录刷新
+    var refreshEnum = [1,2];
+    //公共对象：标记枚举
+    var signArray = new Array();
+    //公共对象：权限枚举
+    var powerEnum = ["0b10000","0b01000","0b00100","0b00010","0b00001"];
+    //公共对象：最高权限
+    var maxPower = "0b11111";
+    //公共对象：目录类型枚举，1是文件夹，2是controller，3是flow，4是datamining，5是templet
+    var menuTypeEnum = [1,2,3,4,5];
+	</script>
+
+<!-- BI related -->
+<!-- BI TABLE -->
+<script src="../../static-resources/js/plugin/query.js"></script>
+<script src="../../static-resources/js/plugin/paging.js"></script>
+<!--  ECHART & BI RELATED -->
+<script src="../../static-resources/js/echarts/lib/echarts.min.3.2.3.js"></script>
+<script src="http://echarts.baidu.com/asset/map/js/china.js"></script>
+<script src="../../static-resources/js/bi.js"></script>
+<script src="../../static-resources/js/plugin/variable.js"></script>
+<!-- ECHART THEMES -->
+<script src="../../static-resources/js/echarts/theme/dark.js"></script>
+<script src="../../static-resources/js/echarts/theme/shine.js"></script>
+<script src="../../static-resources/js/echarts/theme/infographic.js"></script>
+<script src="../../static-resources/js/echarts/theme/macarons.js"></script>
+<script src="../../static-resources/js/echarts/theme/roma.js"></script>
+<script src="../../static-resources/js/echarts/theme/vintage.js"></script>
+<script src="../../static-resources/js/echarts/theme/chalk.js"></script>
+<script src="../../static-resources/js/echarts/theme/essos.js"></script>
+<script src="../../static-resources/js/echarts/theme/halloween.js"></script>
+<script src="../../static-resources/js/echarts/theme/purple-passion.js"></script>
+<script src="../../static-resources/js/echarts/theme/walden.js"></script>
+<script src="../../static-resources/js/echarts/theme/westeros.js"></script>
+<script src="../../static-resources/js/echarts/theme/wonderland.js"></script>
+</body>
+</html>
