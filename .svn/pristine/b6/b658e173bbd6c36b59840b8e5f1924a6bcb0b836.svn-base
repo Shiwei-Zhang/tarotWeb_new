@@ -379,7 +379,7 @@
 								</div>
 							</div>
 							<div class="biLeftTemp">
-								 <p class="addBiTemplate">+ 添加模版</p>
+								<!-- <p class="" style="display:none;">+ 添加模版</p> -->
 								<div class="bicharlistStyle bi-template-layout">
 
 								</div>
@@ -683,15 +683,70 @@
 										<span>添加</span> <i class="closeA"></i>
 									</div>
 									<div class="addList addListEvent">
-										<ul class="menu1List">
-											<li><i class="single singleChecked"></i><span>Home / Flow1</span></li>
-											<li><i class="single"></i><span>Home / Flow2</span></li>
-											<li><i class="single"></i><span>Home / Flow3</span></li>
-											<li><i class="single"></i><span>Home / Flow4</span></li>
-											<li><i class="single singleChecked"></i><span>Home / Flow5</span></li>
-											<li><i class="single"></i><span>Home / Flow6</span></li>
-											<li><i class="single"></i><span>Home / Flow7</span></li>
-										</ul>
+										<div class="addRoot">
+											<p>
+												<i class="downIcon titleTip"></i><span>Root</span>
+											</p>
+											<div>
+												<div class="menu1">
+													<p>
+														<i class="downIcon titleTip"></i><span>Menu1</span>
+													</p>
+													<ul class="menu1List">
+														<li><i class="single"></i><span>Flow1</span></li>
+														<li><i class="single"></i><span>Flow2</span></li>
+														<li><i class="single singleChecked"></i><span>Flow3</span></li>
+														<li><i class="single"></i><span>Flow4</span></li>
+														<li><i class="single"></i><span>Flow5</span></li>
+														<li><i class="single"></i><span>Flow6</span></li>
+														<li>
+															<div class="menu1">
+																<p>
+																	<i class="downIcon titleTip"></i><span>Menu1</span>
+																</p>
+																<ul class="menu1List">
+																	<li><i class="single"></i><span>Flow1</span></li>
+																	<li><i class="single"></i><span>Flow2</span></li>
+																	<li><i class="single singleChecked"></i><span>Flow3</span></li>
+																	<li><i class="single"></i><span>Flow4</span></li>
+																	<li><i class="single"></i><span>Flow5</span></li>
+																	<li><i class="single"></i><span>Flow6</span></li>
+																	<li>
+																		<div class="menu1">
+																			<p>
+																				<i class="downIcon titleTip"></i><span>Menu1</span>
+																			</p>
+																			<ul class="menu1List">
+																				<li><i class="single"></i><span>Flow1</span></li>
+																				<li><i class="single"></i><span>Flow2</span></li>
+																				<li><i class="single singleChecked"></i><span>Flow3</span></li>
+																				<li><i class="single"></i><span>Flow4</span></li>
+																				<li><i class="single"></i><span>Flow5</span></li>
+																				<li><i class="single"></i><span>Flow6</span></li>
+																			</ul>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="menu2">
+													<p>
+														<i class="downIcon titleTip"></i><span>Menu2</span>
+													</p>
+													<ul class="menu2List">
+														<li><i class="single"></i><span>Flow1</span></li>
+														<li><i class="single"></i><span>Flow2</span></li>
+														<li><i class="single singleChecked"></i><span>Flow3</span></li>
+														<li><i class="single"></i><span>Flow4</span></li>
+														<li><i class="single"></i><span>Flow5</span></li>
+														<li><i class="single"></i><span>Flow6</span></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
 									</div>
 									<div class="addFoot">
 										<span class="sure">确定</span> <span class="cancel">取消</span>
@@ -1689,35 +1744,6 @@
 	</div>
 
 
-	<!--checkTemplate start-->
-	<div class="checkTemplate" style="display: none">
-		<div class="checkTemplate_T clearFix">
-			<span>选择布局</span>
-			<i class="closeA"></i>
-		</div>
-		<div class="checkTemplate_C checkTemplateE">
-			<ul class="clearFix">
-				<li class="styleOne checked"></li>
-				<li class="styleTwo"></li>
-				<li class="styleThree"></li>
-				<li class="styleFour"></li>
-				<li class="styleFive"></li>
-				<li class="styleSix"></li>
-				<li class="styleSeven"></li>
-				<li class="styleEight"></li>
-				<li class="styleNine"></li>
-				<li class="styleTen"></li>
-				<li class="styleEleven"></li>
-				<li class="styleTwelve"></li>
-				<li class="styleThirteen"></li>
-				<li class="styleFourteen"></li>
-			</ul>
-		</div>
-	</div>
-
-
-	<!--checkTemplate end-->
-
 	<!--bi charTemp start-->
 
 	<div class="biCharTemp bi-template-layout-setting" style="display: none">
@@ -1818,10 +1844,10 @@
 	  function resizeW() {
 		  var $winW;
 		  $winW = $(window).width();
-		  $('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
-		  $('.dataMinL').css('width',($(window).width()-201-345));
-		  $('.module-core').css('width',($(window).width()-201-351));
+		  $('.module-data').css('width', $winW - 201);
+		  $('.module-data-all').css('width', $winW - 201);
 	  }
+
 	//TODO deleting
     //urlId = 'http://localhost:800/';
     //初始化目录

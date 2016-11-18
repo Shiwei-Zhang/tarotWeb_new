@@ -16,27 +16,6 @@ $(function(){
 		window.location.href="/TarotIDE/logout";
 	})
 });
-
-//bi布局
-$(function(){
-    //点击显示布局弹框
-    $('.addBiTemplate').unbind().click(function(){
-        $('.mask,.checkTemplate').show();
-    });
-
-    $('.checkTemplate .closeA').unbind().click(function(){
-        $('.mask,.checkTemplate').hide();
-    });
-
-
-    //添加模版点击事件
-    $('.checkTemplateE li').unbind().click(function(){
-        $('.checkTemplateE li').removeClass('checked');
-        $(this).addClass('checked');
-    });
-});
-
-
 $(function(){
     $('.paramMain:before').click(function () {
         console.log('ok')

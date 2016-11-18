@@ -379,7 +379,7 @@
 								</div>
 							</div>
 							<div class="biLeftTemp">
-								 <p class="addBiTemplate">+ 添加模版</p>
+								<!-- <p class="" style="display:none;">+ 添加模版</p> -->
 								<div class="bicharlistStyle bi-template-layout">
 
 								</div>
@@ -1689,35 +1689,6 @@
 	</div>
 
 
-	<!--checkTemplate start-->
-	<div class="checkTemplate" style="display: none">
-		<div class="checkTemplate_T clearFix">
-			<span>选择布局</span>
-			<i class="closeA"></i>
-		</div>
-		<div class="checkTemplate_C checkTemplateE">
-			<ul class="clearFix">
-				<li class="styleOne checked"></li>
-				<li class="styleTwo"></li>
-				<li class="styleThree"></li>
-				<li class="styleFour"></li>
-				<li class="styleFive"></li>
-				<li class="styleSix"></li>
-				<li class="styleSeven"></li>
-				<li class="styleEight"></li>
-				<li class="styleNine"></li>
-				<li class="styleTen"></li>
-				<li class="styleEleven"></li>
-				<li class="styleTwelve"></li>
-				<li class="styleThirteen"></li>
-				<li class="styleFourteen"></li>
-			</ul>
-		</div>
-	</div>
-
-
-	<!--checkTemplate end-->
-
 	<!--bi charTemp start-->
 
 	<div class="biCharTemp bi-template-layout-setting" style="display: none">
@@ -1819,8 +1790,6 @@
 		  var $winW;
 		  $winW = $(window).width();
 		  $('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
-		  $('.dataMinL').css('width',($(window).width()-201-345));
-		  $('.module-core').css('width',($(window).width()-201-351));
 	  }
 	//TODO deleting
     //urlId = 'http://localhost:800/';

@@ -2446,4 +2446,5 @@ var user_ = $.getCookie('userId');
     	
     }
     //TODO will be deleted...
+    $('.bicharlistStyle').css('height','390px');
     //--------------- 布局结束 ---------------------------//

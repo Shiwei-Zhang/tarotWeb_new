@@ -2491,7 +2491,7 @@ ul.root_tree li div {
 
 #tabbox2 .monitor {
     float: right;
-    margin-right: -1px;
+    margin-right: 2px;
 }
 
 .cav_flow {

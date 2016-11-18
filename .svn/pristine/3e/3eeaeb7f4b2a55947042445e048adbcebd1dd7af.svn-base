@@ -1819,8 +1819,6 @@
 		  var $winW;
 		  $winW = $(window).width();
 		  $('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
-		  $('.dataMinL').css('width',($(window).width()-201-345));
-		  $('.module-core').css('width',($(window).width()-201-351));
 	  }
 	//TODO deleting
     //urlId = 'http://localhost:800/';
