@@ -575,11 +575,6 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
         //TODO
     }
 
-   /* if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('closeL')) {
-
-        //TODO
-    }*/
-
     //white list  black list
     if (tar.tagName.toLowerCase() === 'p' && $(tar).hasClass('ipList')) {
         $(tar).siblings().removeClass('ipListed');

@@ -548,18 +548,9 @@
 								</div>
 								<div class="stream-con">
 									<ul class="part">
-										<li>
-											<span>精准营销 / Flow1</span>
-											<i class="closeL"></i>
-										</li>
-										<li>
-											<span>精准营销 / Datamining</span>
-											<i class="closeL"></i>
-										</li>
-										<li>
-											<span>精准营销 / Flow3</span>
-											<i class="closeL"></i>
-										</li>
+										<li>精准营销 / Flow1</li>
+										<li>精准营销 / Datamining</li>
+										<li>精准营销 / Flow3</li>
 									</ul>
 									<p class="streamTest">Test</p>
 								</div>
@@ -645,18 +636,8 @@
 									</div>
 									<div class="con-list">
 										<ul class="listPart">
-											<li>
-												<span>Flow1</span>
-												<i class="closeL"></i>
-											</li>
-											<li>
-												<span>Flow2</span>
-												<i class="closeL"></i>
-											</li>
-											<li>
-												<span>Flow3</span>
-												<i class="closeL"></i>
-											</li>
+											<li>Flow1</li>
+											<li>Flow3</li>
 										</ul>
 									</div>
 								</div>
@@ -938,7 +919,7 @@
 								<div class="btnPart">
 									<p>发布</p>
 									<p>创建</p>
-									<p class="jobBtn">JOB</p>
+									<p>JOB</p>
 									<p>删除</p>
 									<span>
 										<i class="warning warningBtn"></i>
@@ -1220,6 +1201,7 @@
 		</div>
 	</div>
 
+
 	<!--listSet start-->
 	<div class="columnSet columnSetEvent" style="display: none">
 		<div class="columnSet_T clearFix">
@@ -1355,6 +1337,9 @@
 		</div>
 	</div>
 	<!--listSet end-->
+
+
+
 
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
@@ -1797,56 +1782,10 @@
 			<span class="cancel">取消</span>
 		</div>
 	</div>
+
+
+
 	<!--controller warning end-->
-
-	<!--jobList start-->
-	<div class="jobList" style="display: none">
-		<div class="columnSet_T clearFix">
-			<span class="columnTleft">Job list</span>
-			<span class="columnTclose"><i class="closeA"></i></span>
-		</div>
-		<div class="jobContainer">
-			<table class="tableContainer" cellspacing="0">
-				<tr class="contentTitle">
-					<th>Job ID</th>
-					<th>统计情况</th>
-					<th>状态</th>
-					<th>日志</th>
-					<th>开始时间</th>
-					<th>结束时间</th>
-					<th>操作</th>
-				</tr>
-				<tr>
-					<td>DDAA1</td>
-					<td>XXXX年异常</td>
-					<td>running</td>
-					<td>aabbccdd</td>
-					<td>2016-10-18</td>
-					<td>2016-10-18</td>
-					<td>
-						<span class="killBtn">Kill</span>
-					</td>
-				</tr>
-				<tr>
-					<td>DDAA1</td>
-					<td>XXXX年异常</td>
-					<td>running</td>
-					<td>aabbccdd</td>
-					<td>2016-10-18</td>
-					<td>2016-10-18</td>
-					<td>
-						<span class="killBtn">Kill</span>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="columnSet_B clearFix">
-			<span class="sureC">确定</span>
-			<span class="closeC">取消</span>
-		</div>
-	</div>
-	<!--jobList end-->
-
 	<div class="mask" style="display: none;"></div>
 
 
@@ -2151,7 +2090,6 @@ function renameMenuForHome(){
 		     dataType:"json",
 		     success:function(data) {
 		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-				 $('.module-manager').show();
 		    	 var tablestr="";
                 //目录管理
 		    	 for(var i=0;i<data.length;i++){
@@ -2222,12 +2160,7 @@ function renameMenuForHome(){
 		      error : function() {
 		           $.dialog("异常！");
 		      }
-	 	});
-
-		/*if($('.flows').hasClass('header_active')){
-			$('.module-manager').hide();
-			console.log('in')
-		}*/
+	 	})
 	}
 	function savePower(){
 		var powerArray = new Array();

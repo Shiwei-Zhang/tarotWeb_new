@@ -585,10 +585,8 @@ ul.root_tree li div {
     bottom: 0;
     z-index: 105;
     margin: auto;
-    /*height: 700px;*/
-    height: 805px;
-    /*width: 87%;*/
-    width:1390px;
+    height: 700px;
+    width: 87%;
     margin-top: 22px;
     background: #fff;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
@@ -611,7 +609,7 @@ ul.root_tree li div {
     width: 120px;
     text-align: center;
     line-height: 44px;
-    font-size: 20px;
+    font-size: 18px;
     float: left;
 }
 
@@ -627,10 +625,10 @@ ul.root_tree li div {
 }
 
 .biData-C .biDataL {
-    width: 198px;
-    /* width: 14.9%; */
+    /*width: 198px;*/
+    width: 14.9%;
     float: left;
-    height: 720px;
+    height: 600px;
     margin-left: -100%;
     border: 1px solid #ddd;
     border-bottom: none;
@@ -1112,14 +1110,13 @@ ul.root_tree li div {
 
 .biData-C .biDataC {
     width: 100%;
-    /*height: 600px;*/
-    height: 720px;
+    height: 600px;
     float: left;
     border-bottom: 1px solid #ddd;
 }
 
 .biData-C .biDataC .biDataCmain {
-    width: 850px;
+    width: 62.6%;
     padding: 0 300px 0 200px;
 }
 
@@ -1127,7 +1124,6 @@ ul.root_tree li div {
     height: 32px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    background: #f8f8f8;
 }
 
 .biDataCmain .CmainList {
@@ -1137,15 +1133,15 @@ ul.root_tree li div {
 .biDataCmain .CmainList .bichartStyle {
     position: absolute;
     z-index: 200;
-    width: 808px;
-    height: 512px;
+    width: 795px;
+    height: 395px;
     border: 1px #dddddd solid;
     margin-top: 40px;
 }
 
 .bichartStyle .bimainStyle {
-    width: 808px;
-    height: 512px;
+    width: 795px;
+    height: 395px;
 }
 
 .rowIcon {
@@ -1204,8 +1200,8 @@ ul.root_tree li div {
 
 .CmainList .listContainer {
     display: inline-block;
-    width: 745px;
-    max-width: 745px;
+    width: 733px;
+    max-width: 733px;
     min-height: 28px;
     vertical-align: -10px;
     padding-left: 4px;
@@ -1346,11 +1342,10 @@ ul.root_tree li div {
 
 .biData-C .biDataR {
     float: left;
-    width: 298px;
-    /* width: 22%; */
-    /* height: 600px; */
-    height: 720px;
-    /* background: #fff; */
+    /*width: 298px;*/
+    width: 22%;
+    height: 600px;
+    /*background: #fff;*/
     margin-left: -300px;
     border: 1px solid #ddd;
     border-bottom: none;
@@ -1514,7 +1509,7 @@ ul.root_tree li div {
     width: 100%;
     height: 509px;
     padding: 20px 0;
-    /*border-bottom: 1px solid #e7e7e7;*/
+    border-bottom: 1px solid #e7e7e7;
     overflow: hidden;
 }
 
@@ -2183,12 +2178,8 @@ ul.root_tree li div {
     height: 35px;
     line-height: 35px;
 }
-.ipContainer li:hover i.closeL
-{
-    display: block;
-}
-.ipPart li i.closeL
-{
+
+.ipPart i.closeL {
     display: none;
     position: absolute;
     top: 1px;
@@ -2199,6 +2190,7 @@ ul.root_tree li div {
     background: url(../images/closeIcon.png) no-repeat center center;
     background-size: 15px 15px;
 }
+
 .ipTitle {
     background: #f9f9f9;
 }

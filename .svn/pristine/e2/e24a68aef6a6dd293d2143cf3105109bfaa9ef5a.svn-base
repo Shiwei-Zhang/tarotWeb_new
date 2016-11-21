@@ -548,18 +548,9 @@
 								</div>
 								<div class="stream-con">
 									<ul class="part">
-										<li>
-											<span>精准营销 / Flow1</span>
-											<i class="closeL"></i>
-										</li>
-										<li>
-											<span>精准营销 / Datamining</span>
-											<i class="closeL"></i>
-										</li>
-										<li>
-											<span>精准营销 / Flow3</span>
-											<i class="closeL"></i>
-										</li>
+										<li>精准营销 / Flow1</li>
+										<li>精准营销 / Datamining</li>
+										<li>精准营销 / Flow3</li>
 									</ul>
 									<p class="streamTest">Test</p>
 								</div>
@@ -645,18 +636,8 @@
 									</div>
 									<div class="con-list">
 										<ul class="listPart">
-											<li>
-												<span>Flow1</span>
-												<i class="closeL"></i>
-											</li>
-											<li>
-												<span>Flow2</span>
-												<i class="closeL"></i>
-											</li>
-											<li>
-												<span>Flow3</span>
-												<i class="closeL"></i>
-											</li>
+											<li>Flow1</li>
+											<li>Flow3</li>
 										</ul>
 									</div>
 								</div>
@@ -1220,6 +1201,7 @@
 		</div>
 	</div>
 
+
 	<!--listSet start-->
 	<div class="columnSet columnSetEvent" style="display: none">
 		<div class="columnSet_T clearFix">
@@ -1355,6 +1337,9 @@
 		</div>
 	</div>
 	<!--listSet end-->
+
+
+
 
 	<!--BI Data analysis-->
 	<div class="biData" style="display: none">
@@ -1845,6 +1830,9 @@
 			<span class="closeC">取消</span>
 		</div>
 	</div>
+
+
+
 	<!--jobList end-->
 
 	<div class="mask" style="display: none;"></div>
