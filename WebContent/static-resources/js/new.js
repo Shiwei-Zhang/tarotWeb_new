@@ -107,7 +107,7 @@ $(function(){
     //增加参数列表的每一列
     function addList() {
         $('.addBtn').unbind('click').click(function () {
-            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
+            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true' class='noBorderR'>int</span><i class='closeL'></i></li>");
             $('.paramMain').append(new_obj);
             //参数列表的列
             delList();
@@ -471,9 +471,9 @@ $(function(){
         $('.add4NavEvent').next().addClass('showCon');
         $('.partN input,.connectionEvent').val('');
         $('.paramMain').empty();
-        $('.paramMain').append('<li><span class="">参数名称</span><span class="">类型</span></li>'
+        $('.paramMain').append('<li><span class="">参数名称</span><span class="noBorderR">类型</span></li>'
 						+'<li><span class="" contenteditable="true">column1</span>'
-						+'<span contenteditable="true">int</span><i class="closeL"></i></li>');
+						+'<span contenteditable="true" class="noBorderR">int</span><i class="closeL"></i></li>');
         $('.mainEvent').html('');
         $('.partN input').css('border-color','#dedede');      
     };

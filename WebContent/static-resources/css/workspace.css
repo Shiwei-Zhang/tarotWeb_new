@@ -67,7 +67,9 @@ p {
     margin: 0;
     padding: 0;
 }
-
+.noBorderR{
+    border-right:none!important;
+}
 /* header*/
 
 .f-header {
@@ -3519,6 +3521,7 @@ right style
     margin-bottom: 10px;
     max-height: 367px;
     overflow: auto;
+    border-bottom: none;
 }
 
 .paramL .paramMain li:nth-child(even) {
