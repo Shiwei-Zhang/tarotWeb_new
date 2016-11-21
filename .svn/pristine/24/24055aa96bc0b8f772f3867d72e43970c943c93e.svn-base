@@ -772,7 +772,7 @@
 
 					<!--controllerDeploy start-->
 
-					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
+					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none;">
 						<div class="deployLeft">
 							<div class="deployTitle">
 								<span>controller发布</span>
@@ -859,8 +859,8 @@
 											<p class="ipList blackIp">IP黑名单设置</p>
 										</div>
 										<!--white list-->
-										<div class="whiteContainer" style="display: block">
-											<ul class="ipContainer ipContainerA">
+										<div>
+											<ul class="ipContainer ipContainerA" style="display: block">
 												<li class="ipTitle">
 													<span>起始IP</span>
 													<span>终止IP</span>
@@ -868,52 +868,40 @@
 												<li>
 													<span contenteditable="true">172.0.0.1</span>
 													<span contenteditable="true">172.0.0.1</span>
-													<i class="closeL"></i>
 												</li>
 												<li>
 													<span contenteditable="true">172.0.0.1</span>
 													<span contenteditable="true">172.0.0.1</span>
-													<i class="closeL"></i>
 												</li>
 												<li>
 													<span contenteditable="true">172.0.0.1</span>
 													<span contenteditable="true">172.0.0.1</span>
-													<i class="closeL"></i>
 												</li>
 											</ul>
-											<p class="ipAddPart clearFix">
-												<span class="plusBtn">增加</span>
-											</p>
 										</div>
 
 										<!--black list-->
-
-										<div class="blockContainer" style="display: none">
-											<ul class="ipContainer ipContainerB">
-												<li class="ipTitle">
-													<span>起始IP</span>
-													<span>终止IP</span>
-												</li>
-												<li>
-													<span contenteditable="true">172.0.0.2</span>
-													<span contenteditable="true">172.0.0.2</span>
-													<i class="closeL"></i>
-												</li>
-												<li>
-													<span contenteditable="true">172.0.0.2</span>
-													<span contenteditable="true">172.0.0.2</span>
-													<i class="closeL"></i>
-												</li>
-												<li>
-													<span contenteditable="true">172.0.0.2</span>
-													<span contenteditable="true">172.0.0.2</span>
-													<i class="closeL"></i>
-												</li>
-											</ul>
-											<p class="ipAddPart clearFix">
-												<span class="plusBtn">增加</span>
-											</p>
-										</div>
+										<ul class="ipContainer ipContainerB" style="display: none">
+											<li class="ipTitle">
+												<span>起始IP</span>
+												<span>终止IP</span>
+											</li>
+											<li>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
+											</li>
+											<li>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
+											</li>
+											<li>
+												<span contenteditable="true">172.0.0.2</span>
+												<span contenteditable="true">172.0.0.2</span>
+											</li>
+										</ul>
+										<p class="ipAddPart clearFix">
+										<span class="plusBtn">增加</span>
+										</p>
 									</li>
 								</ul>
 								<div class="btnPart">
