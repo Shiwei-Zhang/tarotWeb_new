@@ -265,6 +265,16 @@ $(function(){
          console.log('save...');
          //TODO
      });
+
+
+
+     $(function () {
+         var $box=$('.tabs-wrap');
+         $box.find('li').click(function () {
+             $(this).addClass('active').siblings('li').removeClass('active');
+             $('.tabs-panels').children('div').eq($(this).index()).show().siblings('div').hide();
+         })
+     })
  });
     //controller end
 

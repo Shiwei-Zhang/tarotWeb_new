@@ -1935,15 +1935,15 @@ ul.root_tree li div {
     border: 1px solid #149edd;
 }
 
-.deployContent .paramList > li input:focus,
+.deployContent .paramList > li > input:focus,
 .dispatchPart > li input:focus,
 .webservicePart > li input:focus {
     border: 1px solid #149edd;
 }
 
-.deployContent .paramList > li input,
-.dispatchPart > li input,
-.webservicePart > li input {
+.deployContent .paramList > li > input,
+.dispatchPart > li > input,
+.webservicePart > li > input {
     box-sizing: border-box;
     width: 81%;
     height: 40px;
@@ -2020,16 +2020,82 @@ ul.root_tree li div {
     line-height: 40px;
     display: inline-block;
 }
-
+/*timeControl start*/
 .dispatchPart .timeControl {
     display: inline-block;
     box-sizing: border-box;
     vertical-align: -48px;
+    font-size: 12px;
     width: 81%;
-    height: 72px;
-    line-height: 72px;
+    height: 310px;
     border: 1px dashed #dcdcdc;
 }
+.timeControl .tabsT {
+    height: 26px;
+    background: #ddd;
+}
+
+.timeControl .tabsT li {
+    box-sizing: border-box;
+    float: left;
+    width: 40px;
+    height: 26px;
+    color: #313131;
+    line-height: 26px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.timeControl .tabsT li.active {
+    background: #56b0e2;
+    color: #fff;
+}
+.timeControl input[type="radio"] {
+    margin: 3px 3px 0 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.timeControl input[type="number"] {
+    width:31px;
+}
+.timeControl .panel-bodys{
+    /*width: 624px;*/
+    width: 100%;
+    height: 188px;
+}
+.timeControl .line {
+    height: 25px;
+    line-height: 25px;
+    margin: 3px;
+}
+.timeControl .imp {
+    padding-left: 24px;
+}
+.timeControl input[type="checkbox"] {
+    margin: 3px 3px 3px 4px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+
+
+
+/*timeControl end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .btnPart p {
     width: 60px;
