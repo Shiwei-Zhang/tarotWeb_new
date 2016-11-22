@@ -2056,7 +2056,7 @@ ul.root_tree li div {
     cursor: pointer;
 }
 .timeControl input[type="number"] {
-    width:31px;
+    width:45px;
 }
 .timeControl .panel-bodys{
     /*width: 624px;*/

@@ -10,6 +10,7 @@ var dbtype;
 var detailId;
 var interfaceName=[];
 var flowId_global;
+var pageSize=13;
 $(function(){
 	//注销登录
 	$('.logout').click(function(){
@@ -882,7 +883,7 @@ function goDatasource(userId,content){
                     }
                 });
 			}
-			goPage(1,10,'table2','barcon2');
+			goPage(1,pageSize,'table2','barcon2');
 			//查看按钮
 			$('.look').click(function(){
 				$('.look-input').html('');
@@ -969,7 +970,7 @@ function goDatasource(userId,content){
 										//修改之后刷新--完成BUG-64
 										goDatasource(userId,null);
 										var currentPage=$('.numPage.active').text();
-										goPage(currentPage,10,'table2','barcon2');
+										goPage(currentPage,pageSize,'table2','barcon2');
 										
 										$('.look-detail').hide();
 										$('.mask').hide();										
@@ -1035,7 +1036,7 @@ function goDatasource(userId,content){
 						//re-layer  
 						var currentPage=$('.numPage.active').text();
 						//重新进行分页以达到刷新的目的--完成BUG-40
-						goPage(currentPage,10,'table2','barcon2');
+						goPage(currentPage,pageSize,'table2','barcon2');
 					}
 					
 					});
@@ -1219,7 +1220,7 @@ function powerList(conId,content){
 			}
 			$("#table3 tr[name='powerData']").remove();
 			$('#table3').append($(tablestr));
-			goPage(1,10,'table3','barcon3');
+			goPage(1,pageSize,'table3','barcon3');
 		},  
 		error : function() {   
 			$.dialog("异常！");  
