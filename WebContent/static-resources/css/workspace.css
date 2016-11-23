@@ -1596,6 +1596,7 @@ ul.root_tree li div {
 }
 
 .stream-con .part li, .provide .listPart li, .conList .part li {
+    position: relative;
     height: 40px;
     line-height: 40px;
     padding-left: 10px;
@@ -1605,7 +1606,25 @@ ul.root_tree li div {
 .stream-con .part li:hover, .provide .listPart li:hover, .conList .part li:hover {
     background: #F0F0F0;
 }
+.stream-con .part li:hover i.closeL,
+.listHover li:hover i.closeL
+{
+    display: block;
+}
 
+.stream-con .part li i,
+.listHover li i
+{
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background: url(../images/closeIcon.png) no-repeat center center;
+    background-size: 15px 15px;
+}
 .conVisitedBg{
     background: #CCEBF8;
 }
