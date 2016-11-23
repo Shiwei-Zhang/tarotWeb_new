@@ -601,6 +601,20 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
         }
     });
 
+    //副本IDchange事件
+    $('#idNameE').change(function(){
+        var $valName=$(this).children('option:selected').val();
+        if($valName=='None'){
+            $('.settings').show();
+            $('.saving').hide();
+            //TODO
+        }else if($valName!='None'){
+            $('.settings').hide();
+            $('.saving').show();
+            //TODO
+        }
+    });
+
 
     //warningBtn controller resource has changed
     if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('warningBtn')) {
@@ -633,13 +647,13 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
     //增加参数列表的每一列
     function addList() {
         $('.whiteContainer .plusBtn').unbind('click').click(function () {
-            var new_obj = $("<li><span contenteditable='true'>172.0.0.1</span> <span contenteditable='true'>172.0.0.1</span><i class='closeL'></i></li></li>");
+            var new_obj = $("<li><span contenteditable='true'>0.0.0.1</span> <span contenteditable='true'>0.0.0.2</span><i class='closeL'></i></li></li>");
             $('.ipContainerA').append(new_obj);
             //参数列表的列
             delList();
         });
         $('.blockContainer .plusBtn').unbind('click').click(function () {
-            var new_obj = $("<li><span contenteditable='true'>172.0.0.1</span> <span contenteditable='true'>172.0.0.1</span><i class='closeL'></i></li></li>");
+            var new_obj = $("<li><span contenteditable='true'>0.0.0.1</span> <span contenteditable='true'>0.0.0.2</span><i class='closeL'></i></li></li>");
             $('.ipContainerB').append(new_obj);
             //参数列表的列
             delList();

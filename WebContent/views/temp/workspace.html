@@ -801,8 +801,9 @@
 								<ul class="paramList">
 									<li>
 										<span class="Tname">副本ID</span>
-										<select>
-											<option value="">None</option>
+										<select id="idNameE">
+											<option value="None">None</option>
+											<option value="">副本1</option>
 										</select>
 									</li>
 									<li>
@@ -846,11 +847,11 @@
 														<div class="line"><input type="radio" name="second"> 周期从 <input class="spinner-text"
 																														value="1" type="number" max="58" min="1">
 															- <input
-																	class="spinner-text" type="number" max="59" min="2">
+																	class="spinner-text" type="number" max="59" min="2" value="2">
 															秒
 														</div>
 														<div class="line"><input type="radio" name="second"> 从 <input value="0" type="number" max="59" min="0">
-															秒开始,每 <input type="number" max="59" min="1">
+															秒开始,每 <input type="number" max="59" min="1" value="1">
 															秒执行一次
 														</div>
 														<div class="line"><input type="radio" name="second" id="sencond_appoint"> 指定</div>
@@ -934,7 +935,7 @@
 															允许的通配符[, - * /]
 														</div>
 														<div class="line"><input type="radio" name="min"> 周期从 <input value="1" type="number" max="58" min="1">
-															- <input type="number" max="59" min="2">
+															- <input type="number" max="59" min="2" value="2">
 															分钟
 														</div>
 														<div class="line"><input type="radio" name="min"> 从 <input value="0" type="number" max="59" min="0">
@@ -1235,11 +1236,6 @@
 													<span contenteditable="true">172.0.0.1</span>
 													<i class="closeL"></i>
 												</li>
-												<li>
-													<span contenteditable="true">172.0.0.1</span>
-													<span contenteditable="true">172.0.0.1</span>
-													<i class="closeL"></i>
-												</li>
 											</ul>
 											<p class="ipAddPart clearFix">
 												<span class="plusBtn">增加</span>
@@ -1264,11 +1260,6 @@
 													<span contenteditable="true">172.0.0.2</span>
 													<i class="closeL"></i>
 												</li>
-												<li>
-													<span contenteditable="true">172.0.0.2</span>
-													<span contenteditable="true">172.0.0.2</span>
-													<i class="closeL"></i>
-												</li>
 											</ul>
 											<p class="ipAddPart clearFix">
 												<span class="plusBtn">增加</span>
@@ -1278,7 +1269,8 @@
 								</ul>
 								<div class="btnPart">
 									<p>发布</p>
-									<p>创建</p>
+									<p class="settings" style="display: block">创建</p>
+									<p class="saving" style="display: none">保存</p>
 									<p class="jobBtn">JOB</p>
 									<p>删除</p>
 									<span>
@@ -2225,6 +2217,7 @@
     //工作区数据源栏下tableName
     var tableNameMap = new Map();
 	$.resizeW();
+
 
 	//TODO deleting
     //urlId = 'http://localhost:800/';

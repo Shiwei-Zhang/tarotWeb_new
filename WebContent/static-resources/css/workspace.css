@@ -3008,8 +3008,8 @@ right style
 }
 
 .btn input {
-    width: 92%;
-    /*width: 247px;*/
+    /*width: 92%;*/
+    width: 323px;
     height: 25px;
     background-color: white;
     border: 1px lightgray solid;
