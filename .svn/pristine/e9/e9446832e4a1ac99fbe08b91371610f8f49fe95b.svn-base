@@ -177,7 +177,6 @@ var user_ = $.getCookie('userId');
 	
 	//编辑面板关闭
 	$('.bi-close1').unbind().click(function(){
-		$.resizeW();
 		$('.biData').hide( 'size');
 		$('.mask').css({"zIndex":"100"}).hide();
 		chartId = '';
@@ -388,7 +387,6 @@ var user_ = $.getCookie('userId');
 	});
 	
 	$('.showbiData').unbind('click').click(function () {
-		$.resizeW();
 		templateId = $(this).attr('data-templateid');
 		chartId = '';
 		init(templateId);//初始化页面

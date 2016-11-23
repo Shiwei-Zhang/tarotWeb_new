@@ -1414,7 +1414,6 @@ ul.root_tree li div {
 }
 
 .dataMinC .paramList li {
-    position: relative;
     height: 40px;
     line-height: 40px;
     margin-bottom: 20px;
@@ -1430,20 +1429,6 @@ ul.root_tree li div {
     width: 81%;
     line-height: 38px;
     border: 1px solid #dcdcdc;
-}
-.dataMinC .paramList li input {
-    height: 38px;
-    width: 81%;
-    line-height: 38px;
-    border: 1px solid #dcdcdc;
-}
-.dataMinC .paramList li input.showValue {
-    position: absolute;
-    width: 100px;
-    top: 3px;
-    left: 82px;
-    height: 36px;
-    border: none;
 }
 
 .dataMinL-top .practice {

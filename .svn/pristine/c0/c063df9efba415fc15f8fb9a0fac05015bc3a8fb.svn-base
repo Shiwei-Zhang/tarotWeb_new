@@ -10,23 +10,12 @@ var dbtype;
 var detailId;
 var interfaceName=[];
 var flowId_global;
-var pageSize=13;
 $(function(){
 	//注销登录
 	$('.logout').click(function(){
 		window.location.href="/TarotIDE/logout";
 	})
 });
-
-//dataMini实现下拉框可编辑
-$(function(){
-    $('.dataSe').change(function(){
-        document.getElementsByClassName('showValue')[0].value=
-            document.getElementsByClassName('dataSe')[0].options[document.getElementsByClassName('dataSe')[0].selectedIndex].value;
-    })
-});
-
-
 
 $(function(){
     $('.paramMain:before').click(function () {
@@ -99,7 +88,7 @@ $(function(){
     //增加参数列表的每一列
     function addList() {
         $('.addBtn').unbind('click').click(function () {
-            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true' class='noBorderR'>int</span><i class='closeL'></i></li>");
+            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true'>int</span><i class='closeL'></i></li>");
             $('.paramMain').append(new_obj);
             //参数列表的列
             delList();
@@ -258,16 +247,6 @@ $(function(){
          console.log('save...');
          //TODO
      });
-
-
-
-     $(function () {
-         var $box=$('.tabs-wrap');
-         $box.find('li').click(function () {
-             $(this).addClass('active').siblings('li').removeClass('active');
-             $('.tabs-panels').children('div').eq($(this).index()).show().siblings('div').hide();
-         })
-     })
  });
     //controller end
 
@@ -502,9 +481,9 @@ $(function(){
         $('.add4NavEvent').next().addClass('showCon');
         $('.partN input,.connectionEvent').val('');
         $('.paramMain').empty();
-        $('.paramMain').append('<li><span class="">参数名称</span><span class="noBorderR">类型</span></li>'
+        $('.paramMain').append('<li><span class="">参数名称</span><span class="">类型</span></li>'
 						+'<li><span class="" contenteditable="true">column1</span>'
-						+'<span contenteditable="true" class="noBorderR">int</span><i class="closeL"></i></li>');
+						+'<span contenteditable="true">int</span><i class="closeL"></i></li>');
         $('.mainEvent').html('');
         $('.partN input').css('border-color','#dedede');      
     };
@@ -607,11 +586,6 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
         console.log('warningBtn~~~');
         //TODO
     }
-
-   /* if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('closeL')) {
-
-        //TODO
-    }*/
 
     //white list  black list
     if (tar.tagName.toLowerCase() === 'p' && $(tar).hasClass('ipList')) {
@@ -908,7 +882,7 @@ function goDatasource(userId,content){
                     }
                 });
 			}
-			goPage(1,pageSize,'table2','barcon2');
+			goPage(1,10,'table2','barcon2');
 			//查看按钮
 			$('.look').click(function(){
 				$('.look-input').html('');
@@ -995,7 +969,7 @@ function goDatasource(userId,content){
 										//修改之后刷新--完成BUG-64
 										goDatasource(userId,null);
 										var currentPage=$('.numPage.active').text();
-										goPage(currentPage,pageSize,'table2','barcon2');
+										goPage(currentPage,10,'table2','barcon2');
 										
 										$('.look-detail').hide();
 										$('.mask').hide();										
@@ -1061,7 +1035,7 @@ function goDatasource(userId,content){
 						//re-layer  
 						var currentPage=$('.numPage.active').text();
 						//重新进行分页以达到刷新的目的--完成BUG-40
-						goPage(currentPage,pageSize,'table2','barcon2');
+						goPage(currentPage,10,'table2','barcon2');
 					}
 					
 					});
@@ -1254,7 +1228,7 @@ function powerList(conId,content){
 			}
 			$("#table3 tr[name='powerData']").remove();
 			$('#table3').append($(tablestr));
-			goPage(1,pageSize,'table3','barcon3');
+			goPage(1,10,'table3','barcon3');
 		},  
 		error : function() {   
 			$.dialog("异常！");  

@@ -439,7 +439,9 @@
 											</li>
 											<li>
 												<span>接口名称</span>
-												<input type="text" value="AGP、PCI-E 16X">
+												<select>
+													<option value="">AGP、PCI-E 16X</option>
+												</select>
 											</li>
 											<li>
 												<span>数据连接</span>
@@ -454,11 +456,9 @@
 												</select>
 											</li>
 											<li>
-												<span>Tarns字段</span>
-												<input class="showValue" type="text" value="请选择或输入">
-												<select class="dataSe">
-													<option value="test1">test1</option>
-													<option value="test2">test2</option>
+													<span>Tarns字段</span>
+												<select>
+													<option value="">test</option>
 												</select>
 											</li>
 										</ul>
@@ -478,7 +478,9 @@
 											</li>
 											<li>
 												<span>表名</span>
-												<input type="text" value="接口">
+												<select>
+													<option value="">接口</option>
+												</select>
 											</li>
 											<li>
 												<span>模式</span>

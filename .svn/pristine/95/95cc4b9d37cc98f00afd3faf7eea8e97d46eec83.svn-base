@@ -18,16 +18,6 @@ $(function(){
 	})
 });
 
-//dataMini实现下拉框可编辑
-$(function(){
-    $('.dataSe').change(function(){
-        document.getElementsByClassName('showValue')[0].value=
-            document.getElementsByClassName('dataSe')[0].options[document.getElementsByClassName('dataSe')[0].selectedIndex].value;
-    })
-});
-
-
-
 $(function(){
     $('.paramMain:before').click(function () {
         console.log('ok')

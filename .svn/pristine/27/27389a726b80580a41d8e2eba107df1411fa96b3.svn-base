@@ -27,8 +27,8 @@
 		}
 		return null;
 	};
-	$(window).on('resize', $.resizeW);
-	$.resizeW = function() {
+	$(window).on('resize', $.resizeW());
+	$.resizeW = function(window) {
 		var $winW;
 		$winW = $(window).width();
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 205);
