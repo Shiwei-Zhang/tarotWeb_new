@@ -721,7 +721,7 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
 
         //TODO
     }
-    //
+    //warningPart
     if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('warningBtn')) {
         console.log('warningBtn~~~~');
         $('.warningPart,.mask').show();
