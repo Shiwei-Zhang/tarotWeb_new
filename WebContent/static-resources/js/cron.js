@@ -1,4 +1,5 @@
-﻿/**
+﻿
+/**
  * 每周期
  */
 function everyTime(dom) {

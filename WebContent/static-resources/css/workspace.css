@@ -198,6 +198,17 @@ p {
     color: #fff;
 }
 
+/*bi borderCenterS*/
+.borderCenterS{
+    background: url("../images/fullIcon.png")no-repeat center center;
+    background-size: 32px 32px;
+}
+.borderCenterSed{
+    background: url("../images/fulledIcon.png")no-repeat center center;
+    background-size: 32px 32px;
+}
+
+
 /*module for menu*/
 .module-data-navigation, .module-data, .module-manager {
     float: left;
@@ -2008,7 +2019,15 @@ ul.root_tree li div {
     box-sizing: border-box;
     border: 1px solid #D2D2D2;
 }
-
+.deployRight{
+    position: relative;
+}
+.deployRight .saveB{
+    position: absolute;
+    bottom: 25px;
+    right:20px;
+    height: 30px;
+}
 .deployRight .sureBtn {
     width: 60px;
     height: 30px;

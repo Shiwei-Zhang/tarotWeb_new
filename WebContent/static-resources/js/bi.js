@@ -2888,7 +2888,7 @@ var user_ = $.getCookie('userId');
 		}
 		
 		//中心位置
-		var $centerDom = $('<div class="border-center" style="width:30px; height: 30px; position: absolute;z-index:999; dispaly:none;"></div>');
+		var $centerDom = $('<div class="border-center borderCenterS" style="width:30px; height: 30px; position: absolute;z-index:104; dispaly:none;"></div>');
 		var centerPosition = {
 				left: positionLeft.left + ( width - $centerDom.width() )/2,
 				top: positionLeft.top + ( height - $centerDom.height() )/2,
@@ -2900,13 +2900,13 @@ var user_ = $.getCookie('userId');
 		$centerDom.attr('data-width', width).attr('data-height', height).attr('data-left', positionLeft.left).attr('data-top', positionLeft.top);//当前最外围div的宽高
 		$templateContainer.append( $centerDom );
 		$centerDom.unbind('mouseover').mouseover(function(){
-			if(isDraggable){
-				$(this).css('background-color', '#777620');
+			/*if(isDraggable){*/
+				$(this).addClass('borderCenterSed');
 				$(this).attr('data-checked', 1);
-			}
+			/*}*/
 		});
 		$centerDom.unbind('mouseout').mouseout(function(){
-			$(this).css('background-color', '');
+			$(this).removeClass('borderCenterSed');
 			$(this).attr('data-checked', 0);
 		});
 		

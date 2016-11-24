@@ -42,9 +42,6 @@
     white-space: nowrap;
     border-width: 1px;
     border-style: solid;
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
 }
 .tabs li.tabs-selected a.tabs-inner {
     font-weight: bold;
@@ -52,7 +49,6 @@
 }
 .tabs li.tabs-selected a:hover.tabs-inner {
     cursor: default;
-    pointer: default;
 }
 .tabs li a.tabs-close,
 .tabs-p-tool {
@@ -366,4 +362,14 @@
     background: transparent;
     filter: none;
     color: #0088CC;
+}
+.panel-body-noborder,
+.tabs-panels-noborder
+{
+    height: 288px;!important;
+}
+.panel {
+    overflow: hidden;
+    text-align: left;
+    height: 290px;
 }
