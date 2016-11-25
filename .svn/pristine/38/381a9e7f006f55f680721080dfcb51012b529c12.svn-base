@@ -2120,7 +2120,7 @@
 
         get_node_point_in:function(node){
         	var p = this.get_node_offset(node);
-			p.x = p.x+3;			
+			p.x = p.x+this.opts.pspace+3;			
             return p;
         },
 
@@ -2164,7 +2164,7 @@
         get_expander_point_p:function(node){
             var p = this.get_node_point_in(node);
             var ex_p = {};           
-            ex_p.x = p.x;
+            ex_p.x = p.x - this.opts.pspace;;
             ex_p.y = p.y - Math.ceil(this.opts.pspace/2);
             return ex_p;
         },
@@ -2985,14 +2985,10 @@
                     expander.style.visibility = 'hidden';
                 }
                 if(!node.isroot){
-                	if(node.parent.isroot){
-                		var p_expanderp= this.layout.get_expander_point_p(node);
-     					expanderp.style.left = (_offset.x + p_expanderp.x) + 'px';
-     					expanderp.style.top = (_offset.y + p_expanderp.y) + 'px';	
-     					expanderp.style.display = '';
-                	}else{
-                		expanderp.style.display = 'none';
-                	}
+                    var p_expanderp= this.layout.get_expander_point_p(node);
+ 					expanderp.style.left = (_offset.x + p_expanderp.x) + 'px';
+ 					expanderp.style.top = (_offset.y + p_expanderp.y) + 'px';	
+ 					expanderp.style.display = '';
                  }
             }
         },

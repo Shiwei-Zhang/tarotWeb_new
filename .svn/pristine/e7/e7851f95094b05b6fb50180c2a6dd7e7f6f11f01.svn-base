@@ -237,7 +237,7 @@
 	  			                    var nodeWidth = node._data.view.width;
 	  		                        var dy = node.get_location().y - shadow_h-scrollTop;
 	  		                        var dx = node.get_location().x - shadow_w;
-	  		                        if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth&&target_node.isroot){
+	  		                        if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth){
 	  		                        	//这里定义式样
 	  		                        	$($("jmnode[nodeid='"+node.id+"']")[0]).addClass("selected");
 	  		                        	//暂时先都出现磁铁线
@@ -297,7 +297,7 @@
 	  	                   var nodeWidth = node._data.view.width;
 	                         var dy = node.get_location().y - shadow_h-scrollTop;
 	                         var dx = node.get_location().x - shadow_w;
-	                         if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth&&target_node.isroot){
+	                         if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth){
 	  	                       	//表示可以融合节点,此时的node_before表示被融合的节点
 	  	                       	flag = false;
 	  	                       	node_before = node;

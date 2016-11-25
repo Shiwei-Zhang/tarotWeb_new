@@ -14,7 +14,7 @@
     color: #333;
     font-size: 12px;
 }
-.dispatchPart .tabs {
+.tabs {
     list-style-type: none;
     height: 26px;
     margin: 0px;
@@ -23,7 +23,7 @@
     border-style: solid;
     border-width: 0 0 1px 0;
 }
-.dispatchPart  .tabs li {
+.tabs li {
     float: left;
     display: inline-block;
     margin: 0 4px -1px 0;
@@ -31,7 +31,7 @@
     position: relative;
     border: 0;
 }
- .tabs li a.tabs-inner {
+.tabs li a.tabs-inner {
     display: inline-block;
     text-decoration: none;
     margin: 0;
@@ -43,14 +43,14 @@
     border-width: 1px;
     border-style: solid;
 }
- .tabs li.tabs-selected a.tabs-inner {
+.tabs li.tabs-selected a.tabs-inner {
     font-weight: bold;
     outline: none;
 }
- .tabs li.tabs-selected a:hover.tabs-inner {
+.tabs li.tabs-selected a:hover.tabs-inner {
     cursor: default;
 }
- .tabs li a.tabs-close,
+.tabs li a.tabs-close,
 .tabs-p-tool {
     position: absolute;
     font-size: 1px;

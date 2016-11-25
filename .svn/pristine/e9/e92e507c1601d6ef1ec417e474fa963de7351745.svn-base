@@ -29,6 +29,10 @@
 	width: 99.7%;
 	overflow-y: hidden;
 }
+
+.tab2_2{
+	font-size:14px;
+}
 </style>
 
 </head>
@@ -49,7 +53,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<div style="height:25px;"><button class="logout">注销</button></div>
+		<!--<div style="height:25px;"><button class="logout">注销</button></div>-->
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -61,10 +65,9 @@
 			<div id="manag" class="manag" style="display: none;">
 				<h6 class="man1">目录管理</h6>
 				<h6 class="man2">数据连接管理</h6>
-				<h6 class="man3">用户管理</h6>
-				<h6 class="man4">业务代码维护</h6>
-				<h6 class="man5">内部数据类型维护</h6>
-				<h6 class="man6">外部数据类型维护</h6>
+				<h6 class="man3">业务代码维护</h6>
+				<h6 class="man4">内部数据类型维护</h6>
+				<h6 class="man5">外部数据类型维护</h6>
 			</div>
 		</div>
 	</div>
@@ -404,10 +407,10 @@
 							</ul>
 						</div>
 						<!--画布四周缩放按钮-->
-						<div class="fullScreen bi-chart-edit bi-chart-group" style="display: none;"></div>
-						<div class="rotateIcon" style="display: none;"></div>
-						<div class="zoomIcon"  style="display: none;"></div>
-						<div class="dubblePart bi-chart-delete bi-chart-group" style="display: none;">
+						<div class="fullScreen bi-chart-edit bi-chart-group" style="display:none;"></div>
+						<div class="rotateIcon" style="display:none;"></div>
+						<div class="zoomIcon"  style="display:none;"></div>
+						<div class="dubblePart bi-chart-delete bi-chart-group" style="display:none;">
 							<!-- <span class="deleteIcon"></span> -->
 							<span class="copyIcon"></span>
 							<span class="jtIcon"></span>
@@ -425,80 +428,73 @@
 									<div class="dataMinT">
 										<span>训练模型</span>
 									</div>
-									<div class="dataMinC dataMinCl datamining-train">
+									<div class="dataMinC dataMinCl">
 										<ul class="paramList">
-											<li class="train-type">
+											<li>
 												<span>模型类型</span>
 												<select>
-													<option value="naivebayes">朴素贝叶斯类型</option>
-													<option value="linearregression">线性回归类型</option>
-													<option value="logisticregression">逻辑回归类型</option>
-													<option value="ridgeregression">岭回归类型</option>
-													<option value="svm">支持向量机SVM类型</option>
-													<option value="kmeans">K-means聚类类型</option>
-													<option value="decisiontreesregression">回归树类型</option>
-													<option value="decisiontreesclassifier">分类树类型</option>
-													<option value="als">ALS推荐类型</option>
+													<option value="">xx类型</option>
 												</select>
 											</li>
-											<li class="source-type">
+											<li>
 												<span>类型</span>
 												<select>
-													<option value="interface">接口</option>
-													<option value="datasource">数据源</option>
+													<option value="">接口</option>
 												</select>
 											</li>
-											<li class="interface">
+											<li>
 												<span>接口名称</span>
-												<!-- <select>
-													<option value="">AGP、PCI-E 16X</option>
-												</select> -->
-												<input class="interfaceName" type="text" placeholder="请输入接口名称"/>
+												<input type="text" value="AGP、PCI-E 16X">
 											</li>
-											<li class="datasource datasource-connection">
+											<li>
 												<span>数据连接</span>
 												<select>
-													<option value="">请选择数据连接</option>
+													<option value="">test</option>
 												</select>
 											</li>
-											<li  class="datasource datasource-tables">
+											<li>
 												<span>数据源表</span>
 												<select>
-													<option value="">请选择表</option>
+													<option value="">test</option>
 												</select>
 											</li>
-											<li class="datasource datasource-columns">
-													<span>Trans字段</span>
-												<select>
-													<option value="">请选择或者填写字段</option>
+											<li>
+												<span>Tarns字段</span>
+												<input class="showValue" type="text" value="请选择或输入">
+												<select class="dataSe">
+													<option value="test1">test1</option>
+													<option value="test2">test2</option>
 												</select>
 											</li>
 										</ul>
 									</div>
 								</div>
-								<div class="savePart datamining-target">
+								<div class="savePart">
 									<div class="dataMinT">
-										保存目标
+										save_target
 									</div>
 									<div class="dataMinC dataMinCr">
 										<ul class="paramList">
-											<li class="datasource-connection">
+											<li>
 												<span>数据连接</span>
 												<select>
-													<option value="">请选择数据连接</option>
+													<option value="">xx类型</option>
 												</select>
 											</li>
 											<li>
 												<span>表名</span>
-												<!-- <select>
-													<option value="">接口</option>
-												</select> -->
-												<input  class="tableName"  type="text" placeholder="请输入目标表名"/>
+												<input type="text" value="接口">
+											</li>
+											<li>
+												<span>模式</span>
+												<select>
+													<option value="">AGP、PCI-E 16X</option>
+												</select>
 											</li>
 										</ul>
 										<div class="btnPart">
-											<p class="datamining-test">Test</p>
-											<p class="datamining-save">保存</p>
+											<p>保存</p>
+											<p>Test</p>
 										</div>
 									</div>
 								</div>
@@ -507,43 +503,38 @@
 								<ul class="tabs tabs2">
 									<li class="thistab"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
 								</ul>
-								<div class="dataMinFile data-mining-log">
-									<!-- <p>log1</p>
+								<div class="dataMinFile">
+									<p>log1</p>
 									<p>log2</p>
 									<p>log3</p>
 									<p>log4</p>
 									<p>log5</p>
-									<p>log6</p> -->
+									<p>log6</p>
 								</div>
 							</div>
 						</div>
-						<div class="dataMinR datamining-attr">
+						<div class="dataMinR">
 							<div class="dataMinRtop">
 								属性
 							</div>
 							<div class="dataMinR-prop">
-								<ul class="propContainer naivebayes-attr">
+								<ul class="propContainer">
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark">
+										<input type="text">
 									</li>
 									<li>
-										<span>smoothing</span>
-										<input type="text" class="smoothing" value="1.0">
+										<span>步长</span>
+										<input type="text">
 									</li>
 									<li>
-										<span>thresholds</span>
-										<input type="text" class="thresholds">
-									</li>
-									<li>
-										<span>model type</span>
-										<!-- <input type="text" class="modelType"> -->
-										<select class="modelType">
-											<option value="multinomial">multinomial</option>
-											<option value="bernoulli">bernoulli</option>
-										</select>
+										<span>最大区间</span>
+										<input type="text">
 									</li>
 								</ul>
+							</div>
+							<div class="dataMinRsave">
+								<p class="saveBtn">保存</p>
 							</div>
 						</div>
 					</div>
@@ -553,7 +544,7 @@
 					<!--dataMining end-->
 
 					<!--Controller start-->
-					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display: none">
+					<div class="center-bodyer controll-bodyer module-controller controller-template" style="display:none">
 
 						<!--content部分-->
 						<div class="content1 contentEvent">
@@ -1098,7 +1089,6 @@
 														<div class="line"><input type="radio" name="year" onclick="everyTime(this)"> 每年</div>
 														<div class="line"><input type="radio" name="year" onclick="cycle(this)">周期 从 <input class="numberspinner" style="width:90px;" data-options="min:2013,max:3000" value="2013"> - <input class="numberspinner" style="width:90px;" data-options="min:2014,max:3000" value="2014"></div>
 													</div>
-													<input type="hidden" name="cron" style="display: none" value="* * * * * ? " id="cron" readonly="readonly">
 												</div>
 											</div>
 										</div>
@@ -1724,10 +1714,10 @@
 										<option value="like">like</option>
 									</select>
 									<input type="text" class="bi-filter-operate-content">
-									<i class="closeB bi-filter-close" style="display: none;"></i>
+									<i class="closeB bi-filter-close" style="display:none;"></i>
 									<i class="plusIcon createMenu bi-filter-add"></i>
 								</div>
-								<div class="filterMain bi-filter-related" style="display: none;">
+								<div class="filterMain bi-filter-related" style="display:none;">
 									<select class="seleIdName bi-filter-related-orand">
 										<option value="OR" selected>OR</option>
 										<option value="AND" selected>AND</option>
@@ -1849,7 +1839,7 @@
 						</ul>
 					</li>
 
-					<li class="titlePart bi-variable" style="display: none;">
+					<li class="titlePart bi-variable" style="display:none;">
 						<h2 class="tabT"><i class="fa fa-caret-right"></i>变量名</h2>
 						<ul class="detail">
 							<li title="变量名以@开头">@<input type='text' name='variable' placeholder="变量名" title="请输入变量名"/></li>
@@ -1861,7 +1851,7 @@
 	</div>
 
 	 <!-- bi数据源选择 -->
-    <div class="add4-con biDataSource bi-datasource biDataStyle" style="display: none;">
+    <div class="add4-con biDataSource bi-datasource biDataStyle" style="display:none;">
 		<i class="closeA bi-close2"></i>
 		<ul class="add4Nav">
 			<li>数据接口</li>
@@ -1982,32 +1972,6 @@
 
 	<!--checkTemplate end-->
 
-	<!--newControllerPart start-->
-	<div class="add3-con newControllerStyle newControllerPart" style="display: none;">
-		<div class="addT">
-			<span>创建Controller</span> <i class="closeA"></i>
-		</div>
-		<div class="addList addListEvent">
-			<div class="namePart">
-				<label for="newName">Name</label><input type="text" id="newName">
-			</div>
-			<ul class="menu1List">
-				<li><i class="single"></i><span>Home / Flow1</span></li>
-				<li><i class="single"></i><span>Home / Flow2</span></li>
-				<li><i class="single"></i><span>Home / Flow3</span></li>
-				<li><i class="single"></i><span>Home / Flow4</span></li>
-				<li><i class="single singleChecked"></i><span>Home / Flow5</span></li>
-				<li><i class="single"></i><span>Home / Flow6</span></li>
-				<li><i class="single"></i><span>Home / Flow7</span></li>
-			</ul>
-		</div>
-		<div class="addFoot">
-			<span class="sure">确定</span> <span class="cancel">取消</span>
-		</div>
-	</div>
-	<!--newControllerPart end-->
-
-
 	<!--bi charTemp start-->
 
 	<div class="biCharTemp bi-template-layout-setting" style="display: none">
@@ -2053,7 +2017,7 @@
 				<i class="ovalIcon ovalIconed"></i>
 				<span>忽略</span>
 			</p>
-			<p class="newController">
+			<p>
 				<i class="ovalIcon"></i>
 				<span>新建controller</span>
 			</p>
@@ -2124,10 +2088,8 @@
 
 
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-	<!--cron-->
-	<script src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
-	<!--<script type="text/javascript" src="../../static-resources/js/jquery.easyui.min.js"></script>-->
-	<!--<script type="text/javascript" src="../../static-resources/js/cron.js"></script>-->
+	<script
+		src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
 	<script src="../../static-resources/js/comm.js"></script>
 	<script src="../../static-resources/js/context.js"></script>
 	<script src="../../static-resources/js/workspace.js"></script>
@@ -2143,8 +2105,10 @@
 	<script src="../../static-resources/js/test.js"></script>
     <!-- by gjc -->
     <script src="../../static-resources/js/controller.js"></script>
+	<!--cron-->
+	<script type="text/javascript" src="../../static-resources/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../static-resources/js/cron.js"></script>
 	<script type="text/javascript">
-    var dataConnections_global = new Array();
     var userId = $.getCookie('userId').id;
     var userName=$.getCookie('userId').name;
     var urlId=location.origin + '/TarotIDE';
@@ -2172,8 +2136,10 @@
             	var rootTrees = data.rootTrees;
             	var dataConns = data.dataConns;
             	var functionsList = data.functionsList;
+            	var conversionRules = data.conversionRules;
             	//赋予全局变量dataConnections_global
             	dataConnections_global = dataConns;
+            	conversionRules_global = conversionRules;
             	initDataConnsAndFunctionsList(dataConns,functionsList);
                 var htmlstr = "";
                 htmlstr = loop(htmlstr,rootTrees);
@@ -2215,6 +2181,7 @@
 		$(functionsList).each(function(index,item){
 			functionName = item.name;
 			parameters = item.parameters;
+			functionsMap.put(functionName,parameters);
 			if(parameters.length>0){
 				number = parameters.length-1;
 				placeholders=new Array();
@@ -2232,7 +2199,7 @@
 			//str = placeholders.join().replace(/\"/g,"");
 			str = placeholders.join();
 			formula = functionName+"("+str+")";  */
-			var sysdom = '<p fk = "0" textValue = "'+functionName+'" level="3" functionName="'+functionName+'" parameters="'+parameters+'" columnType="'+columnType+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable">'+functionName+'</p>';
+			var sysdom = '<p fk = "0" textValue = "'+functionName+'" level="3" functionName="'+functionName+'" columnType="'+columnType+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable">'+functionName+'</p>';
 			sysdoms+=sysdom;
 		});
 		$('.syb_con').html($(sysdoms));
@@ -2387,6 +2354,8 @@ function renameMenuForHome(){
     }
     var mType;
 	function getUserPower(menuId,menuType){
+		$('.root_tree div').removeClass('visitedBg');
+		$('#' + menuId).addClass('visitedBg');
 		selectedMenuId = menuId;
 		mType=menuType;
 		UserPowerList(selectedMenuId,menuType,null);
@@ -2422,7 +2391,7 @@ function renameMenuForHome(){
 		     dataType:"json",
 		     success:function(data) {
 		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
-				if($('.managers').hasClass('visitedBg')){
+				if($('.managers').hasClass('header_active')){
 		    	 $('.module-manager').show();
 				}
 		    	 var tablestr="";
@@ -2497,7 +2466,7 @@ function renameMenuForHome(){
 		      }
 	 	});
 
-		/*if($('.flows').hasClass('visitedBg')){
+		/*if($('.flows').hasClass('header_active')){
 			$('.module-manager').hide();
 			console.log('in')
 		}*/
@@ -2579,13 +2548,19 @@ function renameMenuForHome(){
         }else{
         	//刷新目录管理
             $(".root_tree div[name='singleShow']").parent().hide();
-            $('.root_tree div').removeClass('visitedBg');
+        	if(!$(".root_tree div").hasClass("header_active") || $(".root_tree .header_active").attr('name')=='singleShow'){
         		var $this = $(".root_tree div[name='doubleShow']").eq(0);
-        		$this.addClass('visitedBg');
+        		$this.addClass('header_active');
                 var menuId=$this.attr('id');
                 var menuType=$this.attr('menutype');
                 getUserPower(menuId,menuType);
-        	
+        	}else{
+        		var $this = $(".root_tree div[name='doubleShow']").eq(0);
+        		$this.addClass('header_active');
+                var menuId=$this.attr('id');
+                var menuType=$this.attr('menutype');
+                getUserPower(menuId,menuType);
+        	}
     	}
     }
 
@@ -2892,8 +2867,5 @@ function renameMenuForHome(){
 <script src="../../static-resources/js/echarts/theme/walden.js"></script>
 <script src="../../static-resources/js/echarts/theme/westeros.js"></script>
 <script src="../../static-resources/js/echarts/theme/wonderland.js"></script>
-
-<!-- DATA MINING RELATED -->
-<script src="../../static-resources/js/datamining.js"></script>
 </body>
 </html>

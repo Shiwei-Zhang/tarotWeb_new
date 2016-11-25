@@ -177,13 +177,12 @@ var user_ = $.getCookie('userId');
 	
 	//编辑面板关闭
 	$('.bi-close1').unbind().click(function(){
-
+		$.resizeW();
 		$('.biData').hide( 'size');
 		$('.mask').css({"zIndex":"100"}).hide();
 		chartId = '';
 		//重置页面
 		rest4bi();
-		$.resizeW();
 	});
 	//取消或者关闭数据源面板
 	$('.bi-close2, .bi-cancel').unbind().click(function(){
@@ -2300,11 +2299,6 @@ var user_ = $.getCookie('userId');
 							$('#' + parentId).hide('fade', function(){
 								$('#' + parentId).remove();
 							});
-							
-							//删除当前对象数据边线
-							delete borderMap4Chart[parentId + '-left'];
-							delete borderMap4Chart[parentId + '-center'];
-							delete borderMap4Chart[parentId + '-right'];
 						}
 						$.hideLoading();
 					}
@@ -2895,7 +2889,6 @@ var user_ = $.getCookie('userId');
 		
 		//中心位置
 		var $centerDom = $('<div class="border-center borderCenterS" style="width:30px; height: 30px; position: absolute;z-index:104; dispaly:none;"></div>');
-		//$centerDom.css('display','none');
 		var centerPosition = {
 				left: positionLeft.left + ( width - $centerDom.width() )/2,
 				top: positionLeft.top + ( height - $centerDom.height() )/2,

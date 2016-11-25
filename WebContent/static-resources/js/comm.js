@@ -29,12 +29,14 @@
 	};
 	$(window).on('resize', $.resizeW);
 	$.resizeW = function() {
-		var $winW;
-		$winW = $(window).width();
+		var $winW = $(document).width();
+		//var winW=document.getElementsByTagName('body')[0].clientWidth;
+		//var $winH = $(window).height();
+		//$winW = $winH < 900 ? $winW - 17 : $winW;
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 205);
-		$('.dataMinL').css('width',($(window).width()-201-345));
-		$('.module-core').css('width',($(window).width()-201-351));
-	}
+		$('.dataMinL').css('width',($winW-201-345));
+		$('.module-core').css('width',($winW-201-351));
+	};
 	$.isEmpty = function(obj){
 		if(!obj){//'', null, undefined
 			return true;

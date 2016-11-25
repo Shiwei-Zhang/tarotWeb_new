@@ -99,8 +99,7 @@
             if(container=="jsmind_container"){
                 showTip.innerHTML='<p onclick="set_flag(this,1);">断点</p>'+
                     '<p onclick="set_flag(this,2);">监控数据</p>'+
-                    '<p onclick="set_flag(this,2);">监控数据</p>'+
-                    '<p onclick="delete_node(node);">删除节点</p>';
+                    '<p onclick="set_flag(this,3);">数据出口</p>';
             }else{
             	showTip.innerHTML='';
             }
@@ -231,7 +230,7 @@
 	                    if(node.id != src_node.id){
 	                        var dy = node.get_location().y - shadow_h;
 	                        var dx = node.get_location().x - shadow_w;
-	                        if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth&&this.target_node.isroot){
+	                        if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth){
 	                        	//这里定义式样
 	                        	$($("jmnode[nodeid='"+node.id+"']")[0]).addClass("selected");
 	                        	//暂时先都出现磁铁线
@@ -478,7 +477,7 @@
                     if(node.direction == target_direct && node.id != src_node.id){
                         var dy = node.get_location().y - shadow_h;
                         var dx = node.get_location().x - shadow_w;
-                        if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth&&target_node.isroot){
+                        if(dy<10 && dy>-10&&dx<5&&dx>-nodeWidth){
                         	//表示可以融合节点,此时的node_before表示被融合的节点
                         	flag = false;
                         	node_before = node;

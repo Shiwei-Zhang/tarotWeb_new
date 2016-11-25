@@ -1728,7 +1728,7 @@ ul.root_tree li div {
 
 .addT span {
     height: 56px;
-    /*width: 56px;*/
+    width: 56px;
     line-height: 56px;
     float: left;
 }
@@ -1762,31 +1762,7 @@ ul.root_tree li div {
 .add3EventTwo .menu1List li .single {
     margin-right: 15px;
 }
-.newControllerStyle{
-    z-index: 141;
-}
-.newControllerStyle .namePart{
-    height: 40px;
-    margin-bottom: 22px;
-}
-.newControllerStyle .namePart label{
-    display: inline-block;
-    width: 54px;
-}
-.newControllerStyle .namePart input{
-    height: 38px;
-    line-height: 38px;
-    width:467px;
-    padding-left:15px;
-    border:1px solid #dcdcdc;
-}
-.newControllerStyle .menu1List li{
-    height: 30px;
-    line-height: 30px;
-}
-.newControllerStyle .menu1List li i{
-    margin-right:10px;
-}
+
 .downIcon {
     display: inline-block;
     width: 0;
@@ -2100,7 +2076,7 @@ ul.root_tree li div {
 }
 
 .deployStateD {
-    height: 61px;
+    height: 300px;
 }
 
 .deployStateD i,
@@ -2469,7 +2445,7 @@ ul.root_tree li div {
     background: #fff;
     color: #4178BE;
     border-bottom: 1px solid #fff;
-    border-right: 1px #bbb solid;
+    border-right: 1px #bbbbbb solid;
 }
 
 .closeTab {

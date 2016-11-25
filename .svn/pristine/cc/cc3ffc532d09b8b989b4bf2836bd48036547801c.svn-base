@@ -35,8 +35,8 @@ $(function(){
     //TODO
     $('.folder').unbind('click').on('click', 'li div', function () {
 
-    	$('.folder li div').removeClass('visitedBg');
-        $(this).addClass('visitedBg');
+    	$('.folder li div').removeClass('header_active');
+        $(this).addClass('header_active');
         console.log($(this).attr('menutype'));
         if($('.flows').hasClass('header_active')){
         $('.module-data-right-navigation').show();
@@ -66,7 +66,7 @@ $(function(){
 
         //隐藏所有
         $('.module-manager').hide();
-        $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
+        $('.module-flow, .module-bi, .module-datamining, .module-controller').hide();
 
         //2.controller, 3.flow, 4.datamining, 5.bi
         showType($idName, $dataType)
@@ -76,11 +76,9 @@ $(function(){
     //工作区管理按钮点击事件
     $('.managers').off('click').on('click', function (e) {
         e.stopPropagation();
-        $('#manag').show();
-    });
-    $('.manag h6').off('click').on('click', function () {
         $('.managers').addClass('header_active');
         $('.flows').removeClass('header_active');
+        $('#manag').show();
     });
     $('html').off('click').on('click', function () {
         $('#manag').hide();
@@ -88,15 +86,9 @@ $(function(){
     $('.flows').unbind('click').click(function () {
         $('.managers').removeClass('header_active');
         $('.flows').addClass('header_active');
-        $('.root_tree div').removeClass('visitedBg');
-        if($('.module-data-all .thistab').attr("class").length>7){
-        	//被选中的选项卡的id
-            var a=$('.module-data-all .thistab').attr("class").split('-')[1].split(' ',1).toString();
-            $('.root_tree div[id='+a+']').addClass('visitedBg');
-        }
         $('.module-data,.module-data-navigation,.module-data-all,.content').show();
         $('.module-manager,.dataManager,#manag').hide();
-        $(".root_tree div").eq(0).removeClass('visitedBg');
+        $(".root_tree div").eq(0).removeClass('header_active');
         console.log('flow...');
         // add by tyd
         refreshMenu(refreshEnum[0]);
@@ -289,7 +281,7 @@ $(function(){
 
 
     //非目录管理权限的单选框
-    $('.mainEvent,.add3EventOne,.add3EventTwo').unbind('click').click(function (e) {
+    $('.mainEvent,.add3-con').unbind('click').click(function (e) {
         e = e || window.event;
         var tar = e.target || e.srcElement;
         if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('single')) {
@@ -426,7 +418,7 @@ $(function(){
 	    });
     });
 
-    window.tabCheck=function ($idName, $dataType, $fileName){
+    function tabCheck($idName, $dataType, $fileName){
         //TODO
     	if($('.flows').hasClass('header_active')){
         var isExist = false;
@@ -438,7 +430,7 @@ $(function(){
             }
         });
         var iconType;
-        //2是controller，3是flow，4是datamining，5是bi,6是controller发布
+        //2是controller，3是flow，4是datamining，5是bi
         if($dataType==2){
             iconType='controllerIcon';
         }else if($dataType==3){
@@ -447,17 +439,15 @@ $(function(){
             iconType='DataMicon';
         }else if($dataType==5){
             iconType='biIcon';
-        }else if($dataType==6){
-            iconType='controllerIcon';
         }
         if( !isExist ){
             $('.tabsEvent li').removeClass('thistab');
             $('.tabsEvent').append(
-                '<li class="thistab tabs-'+ $idName +'" data_type="'+$dataType+'" idName="'+$idName+'"><a tab="tab1_1"><span class="'+iconType+'"></span><span class="name_m" title='+$fileName+'>' + $fileName + '</span><span class="close_m"><i class="closeTab"></i></span></a></li>'
+                '<li class="thistab tabs-'+ $idName +'" data_type="'+$dataType+'" idName="'+$idName+'"><a tab="tab1_1"><span class="'+iconType+'"></span><span class="name_m" title="Co Flow">' + $fileName + '</span><span class="close_m"><i class="closeTab"></i></span></a></li>'
             );
             //隐藏其他页面
             $('.module-manager').hide();
-            $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
+            $('.module-flow, .module-bi, .module-datamining, .module-controller').hide();
             //显示当前对象
             showType($idName, $dataType);
 
@@ -480,15 +470,13 @@ $(function(){
                     $('.datamining-' + objIdName).hide();
                 }else if(objDataType==5){
                     $('.bi-' + objIdName).hide();
-                }else if(objDataType==6){
-                    $('.controllDeployEvent-' + objIdName).hide();
                 }
                 $liObj.hide();
 
                 if($liObj.hasClass('thistab')){
                     if($('.tabsEvent li').length > 0){
                         $('.module-manager').hide();
-                        $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
+                        $('.module-flow, .module-bi, .module-datamining, .module-controller').hide();
                         var i = 0;
                         while($($('.tabsEvent li')[i]).css('display') == 'none'){
                             i++
@@ -502,7 +490,7 @@ $(function(){
             });
         }else{
             $('.module-manager').hide();
-            $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
+            $('.module-flow, .module-bi, .module-datamining, .module-controller').hide();
             $('.tabsEvent li').removeClass('thistab');
             $('.tabs-' + $idName).addClass('thistab').show();
 
@@ -512,8 +500,8 @@ $(function(){
     }
 
     //loading related data
-    window.showType=function ($idName, $dataType){
-        //TODO 2是controller，3是flow，4是datamining，5是bi，6是controllerDeploy
+    function showType($idName, $dataType){
+        //TODO 2是controller，3是flow，4是datamining，5是bi
     	if($('.flows').hasClass('header_active')){
         if($dataType == 2){
             //TODO Loading controller data and mask
@@ -524,15 +512,12 @@ $(function(){
             $('.flow-template').show();
         }else if($dataType == 4){
             //TODO Loading datamining data and mask
-        	dataMiningInit($idName);
             $('.datamining-template').show();
         }else if($dataType == 5){
+            //TODO Loading bi data and mask
         	$('.showbiData').attr('data-templateid', $idName);
         	biInit($idName);
             $('.bi-template').show();
-        }else if($dataType == 6){
-            //TODO Loading controllerDeploy
-            $('.controllDeployEvent').show();
         }
     	}
 
@@ -670,6 +655,17 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
     });
 
 
+    //warningBtn controller resource has changed
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('warningBtn')) {
+        console.log('warningBtn~~~');
+        //TODO
+    }
+
+   /* if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('closeL')) {
+
+        //TODO
+    }*/
+
     //white list  black list
     if (tar.tagName.toLowerCase() === 'p' && $(tar).hasClass('ipList')) {
         $(tar).siblings().removeClass('ipListed');
@@ -725,58 +721,12 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
 
         //TODO
     }
-    //warningBtn controller resource has changed
+    //warningPart
     if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('warningBtn')) {
-        console.log('warningBtn~~~');
+        console.log('warningBtn~~~~');
         $('.warningPart,.mask').show();
+
         //TODO
-        warningBox();
-    }
-
-    //warningBox
-    function warningBox(){
-        $('.warningPart').unbind('click').click(function (e) {
-            e = e || window.event;
-            var tar = e.target || e.srcElement;
-            var $checkedEle='';
-            if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('ovalIcon')) {
-                $('.ovalIcon').removeClass('ovalIconed');
-                $(tar).addClass('ovalIconed');
-            }
-            $checkedEle=$('.warningContent').find('.ovalIconed').parent().attr('class');
-            if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('cancel')) {
-                $('.warningPart,.mask').hide();
-            }
-            if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('sure')) {
-                //TODO
-                //console.log($(checkedEle).className);
-                if($checkedEle=='newController'){
-                    console.log('newController');
-                    $('.newControllerPart,.mask').show();
-                    newControllE();
-                    $('.warningPart').hide();
-                }else {
-                    $('.warningPart,.mask').hide();
-                }
-
-            }
-        });
-        function newControllE(){
-            $('.newControllerPart .single').unbind('click').click(function () {
-                $('.single').removeClass('singleChecked');
-                $(this).addClass('singleChecked');
-            });
-            $('.newControllerPart .closeA').unbind('click').click(function () {
-                $('.newControllerPart').hide();
-            });
-            $('.newControllerPart .cancel').unbind('click').click(function () {
-                $('.newControllerPart').hide();
-            });
-            $('.newControllerPart .sure').unbind('click').click(function () {
-                $('.newControllerPart').hide();
-                //TODO
-            });
-        }
     }
 
 });
@@ -801,6 +751,27 @@ $('.jobList .killBtn').unbind().click(function(){
 });
 
 //controllDeployEvent end
+
+
+//warningPart
+$('.warningPart').unbind('click').click(function (e) {
+    e = e || window.event;
+    var tar = e.target || e.srcElement;
+    if (tar.tagName.toLowerCase() === 'i' && $(tar).hasClass('ovalIcon')) {
+        $('.ovalIcon').removeClass('ovalIconed');
+        $(tar).addClass('ovalIconed');
+    }
+    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('cancel')) {
+        $('.warningPart,.mask').hide();
+    }
+    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('sure')) {
+        //TODO
+
+        $('.warningPart,.mask').hide();
+    }
+});
+
+
 
 
 //下拉框变化显示不同table
@@ -1422,19 +1393,11 @@ function generateFun(power, domCls,menutype){
 	    {text: '发布', auth: release, action:function(e){
 	    	e.preventDefault();
 	    	console.log('发布controller');
-            if($('.flows').hasClass('header_active')){
-                $('.module-data-right-navigation').show();
-            }
-            var dataType=6;
-            var idName=$(this).attr('id');
-            var fileName = ($currentRightDom.children('span').html()+'发布');
-            tabCheck(idName, dataType, fileName);
-
-	    	//$('.controllDeployEvent').show();
+	    	$('.controllDeployEvent').show();
 	    }},
         {text: '添加', auth: addAuth, subMenu:[
             {text:'添加文件夹',auth: addAuth, action:function(e){
-                e.preventDefault(); 
+                e.preventDefault();
                 console.log('添加文件夹');
                 var folderName = '新建文件夹';
                 addMenu($currentRightDom.attr("id"),menuTypeEnum[0],folderName);
