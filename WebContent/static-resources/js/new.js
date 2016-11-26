@@ -774,7 +774,7 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
                 $('.newControllerPart,.mask').hide();
             });
             $('.newControllerPart .sure').unbind('click').click(function () {
-                $('.newControllerPart').hide();
+                $('.newControllerPart,.mask').hide();
                 //TODO
             });
         }
@@ -962,7 +962,7 @@ function goDatasource(userId,content){
 		data:data,
 		success:function(data){
 			console.log(data);
-			$('#table2').append('<tr class="firTr"><th>数据库类型</th><th>数据连接名称</th><th>主机地址</th><th>创建时间</th><th>修改时间</th><th class="w100"></th></tr>');
+			$('#table2').append('<tr class="firTr" style="margin-bottom: -20px"><th>数据库类型</th><th>数据连接名称</th><th>主机地址</th><th>创建时间</th><th>修改时间</th><th class="w100"></th></tr>');
 			for(var i=0 ;i<data.length ; i++){
 				var createTime = new Date(data[i].CREATE_TIME).toLocaleString();
 				if(data[i].UPDATE_TIME!=null){
@@ -1154,7 +1154,6 @@ function goDatasource(userId,content){
 			});
 			//权限管理
 			$('.power').click(function(){
-                $($('.table3 td')).each(function(index,item){$(item).css('width',$('.table3').width()/7)});
 				$('#itemValue3').val('');
 				conId = $(this).data('id');
 				powerList(conId,null);
@@ -1341,6 +1340,7 @@ function powerList(conId,content){
 			}
 			$("#table3 tr[name='powerData']").remove();
 			$('#table3').append($(tablestr));
+            $($('.table3 td')).each(function(index,item){$(item).css('width',$('.table3').width()/7)});
 			goPage(1,pageSize,'table3','barcon3');
 		},  
 		error : function() {   
