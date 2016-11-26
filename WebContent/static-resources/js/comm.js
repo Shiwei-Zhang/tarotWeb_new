@@ -33,6 +33,8 @@
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
 		$('.dataMinL').css('width',($winW-201-345));
 		$('.module-core').css('width',($winW-201-351));
+
+
 	};
 	$.isEmpty = function(obj){
 		if(!obj){//'', null, undefined

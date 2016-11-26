@@ -759,7 +759,6 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
                 }else {
                     $('.warningPart,.mask').hide();
                 }
-
             }
         });
         //创建controller页面事件
@@ -775,7 +774,7 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
                 $('.newControllerPart,.mask').hide();
             });
             $('.newControllerPart .sure').unbind('click').click(function () {
-                $('.newControllerPart,.mask').hide();
+                $('.newControllerPart').hide();
                 //TODO
             });
         }
@@ -981,6 +980,9 @@ function goDatasource(userId,content){
 						+'<div class="power" data-id=' + data[i].ID + '>权限管理</div>'
 						+'<div class="delete" data-id=' + data[i].ID + '>删除</div></div></div>'+'</td></tr>');
 				}
+                $($('.table2 td')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+                $($('.table2 th')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+                $('.w100').each(function(index,item){$(item).css('width',$('.table2').width()*0.08)});
                 $('.table2').unbind('click').click(function (e) {
                     e = e || window.event;
                     var tar = e.target || e.srcElement;
@@ -1152,6 +1154,7 @@ function goDatasource(userId,content){
 			});
 			//权限管理
 			$('.power').click(function(){
+                $($('.table3 td')).each(function(index,item){$(item).css('width',$('.table3').width()/7)});
 				$('#itemValue3').val('');
 				conId = $(this).data('id');
 				powerList(conId,null);
@@ -1329,7 +1332,7 @@ function powerList(conId,content){
 				if(!power){
 					isAdd = 1;
 				}
-				tablestr+='<tr id = "cuserPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'
+				tablestr+='<tr class="borderRight" id = "cuserPower'+data[i].ID+'" isadd="'+isAdd+'" name="powerData" style="display: block;" onclick="signClick('+data[i].ID+');">'
 				+'<td value="'+data[i].NAME+'">'+data[i].NAME+'</td>'
 				+'<td  value="'+data[i].LOGIN_ID+'">'+data[i].LOGIN_ID+'</td>'
 				+'<td>'+data[i].E_MAIL+'</td><td>'
