@@ -201,11 +201,11 @@ p {
 /*bi borderCenterS*/
 .borderCenterS{
     background: url("../images/fullIcon.png")no-repeat center center;
-    background-size: 32px 32px;
+    background-size: 120px 120px;
 }
 .borderCenterSed{
     background: url("../images/fulledIcon.png")no-repeat center center;
-    background-size: 32px 32px;
+    background-size: 120px 120px;
 }
 
 

@@ -755,25 +755,27 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
                     $('.newControllerPart,.mask').show();
                     newControllE();
                     $('.warningPart').hide();
+                    $('.mask').show();
                 }else {
                     $('.warningPart,.mask').hide();
                 }
 
             }
         });
+        //创建controller页面事件
         function newControllE(){
             $('.newControllerPart .single').unbind('click').click(function () {
                 $('.single').removeClass('singleChecked');
                 $(this).addClass('singleChecked');
             });
             $('.newControllerPart .closeA').unbind('click').click(function () {
-                $('.newControllerPart').hide();
+                $('.newControllerPart,.mask').hide();
             });
             $('.newControllerPart .cancel').unbind('click').click(function () {
-                $('.newControllerPart').hide();
+                $('.newControllerPart,.mask').hide();
             });
             $('.newControllerPart .sure').unbind('click').click(function () {
-                $('.newControllerPart').hide();
+                $('.newControllerPart,.mask').hide();
                 //TODO
             });
         }

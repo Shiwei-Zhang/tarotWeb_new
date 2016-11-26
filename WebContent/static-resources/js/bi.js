@@ -2094,7 +2094,7 @@ var user_ = $.getCookie('userId');
 			},
 			stop: function( event, ui ){
 				isDraggable = false;
-				
+
 				//是否放置中心位置
 				var position = null, width = null, height = '';
 		    	var checked = $('.border-center[data-checked="1"]');
@@ -2894,7 +2894,7 @@ var user_ = $.getCookie('userId');
 		}
 		
 		//中心位置
-		var $centerDom = $('<div class="border-center borderCenterS" style="width:30px; height: 30px; position: absolute;z-index:104; dispaly:none;"></div>');
+		var $centerDom = $('<div class="border-center borderCenterS" style="width:120px; height: 120px; position: absolute;z-index:104; dispaly:none;"></div>');
 		//$centerDom.css('display','none');
 		var centerPosition = {
 				left: positionLeft.left + ( width - $centerDom.width() )/2,
