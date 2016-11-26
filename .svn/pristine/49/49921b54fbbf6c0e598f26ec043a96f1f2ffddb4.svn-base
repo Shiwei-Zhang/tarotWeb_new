@@ -52,7 +52,6 @@ input[type="button"] {
 
 .header_active {
     background-color: #d2d2d2;
-    border:1px solid #A0A0A0;
 }
 
 .container, .content, .module-data-all {
@@ -170,7 +169,8 @@ p {
 
 #manag {
     width: 140px;
-    height: 180px;
+    height: 150px;
+    /*height: 60px;*/
     background-color: #FFF;
     position: absolute;
     z-index: 200;
@@ -201,11 +201,11 @@ p {
 /*bi borderCenterS*/
 .borderCenterS{
     background: url("../images/fullIcon.png")no-repeat center center;
-    background-size: 36px 36px;
+    background-size: 120px 120px;
 }
 .borderCenterSed{
     background: url("../images/fulledIcon.png")no-repeat center center;
-    background-size: 36px 36px;
+    background-size: 120px 120px;
 }
 
 
@@ -418,7 +418,7 @@ ul.root_tree li div {
 }
 
 .bicharlistStyle div {
-    height: 24px;
+    height: 27px;
     line-height: 27px;
     padding-left: 10px;
     cursor: pointer;
@@ -2481,15 +2481,7 @@ ul.root_tree li div {
     background-size: 16px 16px;
     background-position: 1px 5px;
 }
-.closeTab:hover {
-    margin-right: 5px;
-    display: inline-block;
-    width: 20px;
-    height: 22px;
-    background: url(../images/closeTabed.png) no-repeat;
-    background-size: 16px 16px;
-    background-position: 1px 5px;
-}
+
 .tabs .flow {
     background-image: url('./../images/flow-s.png');
     background-repeat: no-repeat;
@@ -2823,9 +2815,10 @@ right style
 }
 
 .module-prop .prop {
-    height: 32px;
-    line-height: 32px;
-    padding-left: 27px;
+    height: 40px;
+    line-height: 40px;
+    /*padding-left: 5px;*/
+    padding-left: 8%;
     font-size: 16px;
     border-top: 1px #DCDCDC solid;
     background-color: #ededed;
@@ -3078,7 +3071,7 @@ right style
 
 .btn input {
     /*width: 92%;*/
-    width: 331px;
+    width: 323px;
     height: 25px;
     background-color: white;
     border: 1px lightgray solid;

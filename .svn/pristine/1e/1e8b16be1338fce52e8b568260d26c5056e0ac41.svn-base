@@ -1190,7 +1190,7 @@ var user_ = $.getCookie('userId');
 							layoutId = data.id;
 							layoutName = data.name;
 							$('.bi-template-layout').append(
-									$('<div class="bi-layout" data-layoutid="'+ layoutId + '" data-templateid="' + data.templateId +'" data-chartframegroupid="'+ data.chartFrameGroupId + '" data-height="'+data.height+'" data-width="'+data.width+'" data-theme="'+data.theme+'">'+layoutName+'</div>') );
+									$('<div class="bi-layout" style="margin-top:5px;" data-layoutid="'+ layoutId + '" data-templateid="' + data.templateId +'" data-chartframegroupid="'+ data.chartFrameGroupId + '" data-height="'+data.height+'" data-width="'+data.width+'" data-theme="'+data.theme+'">'+layoutName+'</div>') );
 							bindLayoutEvent();
 						}
 					}else{
@@ -2477,7 +2477,7 @@ var user_ = $.getCookie('userId');
     	var width = layout.width;
     	
     	$('.bi-template-layout').append(
-    			$('<div class="bi-layout" data-layoutid="'+ layoutId + '" data-templateid="' + templateId +'" data-chartframegroupid="'+ chartFrameGroupId + '" data-height="'+height+'" data-width="'+width+'" data-theme="'+layout.theme+'">'+name+'</div>') );
+    			$('<div class="bi-layout" style="margin-top:5px;" data-layoutid="'+ layoutId + '" data-templateid="' + templateId +'" data-chartframegroupid="'+ chartFrameGroupId + '" data-height="'+height+'" data-width="'+width+'" data-theme="'+layout.theme+'">'+name+'</div>') );
     	bindLayoutEvent();
     };
     //chart渲染到页面
@@ -2488,7 +2488,7 @@ var user_ = $.getCookie('userId');
 		var templateId = chart.templateId;
 		var filter = chart.filter
 		$('.bi-chart-list').append( 
-				$('<div class="bi-edit" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '" data-charttype="'+chart.classType+'" data-filter="'+filter+'">'+name+'</div>') );
+				$('<div class="bi-edit" style="margin-top:5px;" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '" data-charttype="'+chart.classType+'" data-filter="'+filter+'">'+name+'</div>') );
 		//绑定点击和拖拽事件
 		biEditBindEvent();
 	};
@@ -2921,7 +2921,7 @@ var user_ = $.getCookie('userId');
 		}
 		
 		//中心位置
-		var $centerDom = $('<div class="border-center borderCenterS" style="width:36px; height: 36px; position: absolute;z-index:104; dispaly:none;"></div>');
+		var $centerDom = $('<div class="border-center borderCenterS" style="width:120px; height: 120px; position: absolute;z-index:104; dispaly:none;"></div>');
 		//$centerDom.css('display','none');
 		var centerPosition = {
 				left: positionLeft.left + ( width - $centerDom.width() )/2,

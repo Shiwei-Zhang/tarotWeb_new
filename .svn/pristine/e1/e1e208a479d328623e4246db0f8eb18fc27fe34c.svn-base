@@ -1101,7 +1101,6 @@
 														<div class="line"><input type="radio" name="year" onclick="everyTime(this)"> 每年</div>
 														<div class="line"><input type="radio" name="year" onclick="cycle(this)">周期 从 <input class="numberspinner" style="width:90px;" data-options="min:2013,max:3000" value="2013"> - <input class="numberspinner" style="width:90px;" data-options="min:2014,max:3000" value="2014"></div>
 													</div>
-													<input type="hidden" name="cron" style="display: none" value="* * * * * ? " id="cron" readonly="readonly">
 												</div>
 											</div>
 										</div>
@@ -1985,32 +1984,6 @@
 
 	<!--checkTemplate end-->
 
-	<!--newControllerPart start-->
-	<div class="add3-con newControllerStyle newControllerPart" style="display: none;">
-		<div class="addT">
-			<span>创建Controller</span> <i class="closeA"></i>
-		</div>
-		<div class="addList addListEvent">
-			<div class="namePart">
-				<label for="newName">Name</label><input type="text" id="newName">
-			</div>
-			<ul class="menu1List">
-				<li><i class="single singleChecked"></i><span>Home / Flow1</span></li>
-				<li><i class="single"></i><span>Home / Flow2</span></li>
-				<li><i class="single"></i><span>Home / Flow3</span></li>
-				<li><i class="single"></i><span>Home / Flow4</span></li>
-				<li><i class="single"></i><span>Home / Flow5</span></li>
-				<li><i class="single"></i><span>Home / Flow6</span></li>
-				<li><i class="single"></i><span>Home / Flow7</span></li>
-			</ul>
-		</div>
-		<div class="addFoot">
-			<span class="sure">确定</span> <span class="cancel">取消</span>
-		</div>
-	</div>
-	<!--newControllerPart end-->
-
-
 	<!--bi charTemp start-->
 
 	<div class="biCharTemp bi-template-layout-setting" style="display: none">
@@ -2056,7 +2029,7 @@
 				<i class="ovalIcon ovalIconed"></i>
 				<span>忽略</span>
 			</p>
-			<p class="newController">
+			<p>
 				<i class="ovalIcon"></i>
 				<span>新建controller</span>
 			</p>
@@ -2129,8 +2102,8 @@
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 	<!--cron-->
 	<script src="http://cdn.bootcss.com/jqueryui/1.12.0-rc.2/jquery-ui.min.js"></script>
-	<!--<script type="text/javascript" src="../../static-resources/js/jquery.easyui.min.js"></script>-->
-	<!--<script type="text/javascript" src="../../static-resources/js/cron.js"></script>-->
+	<script type="text/javascript" src="../../static-resources/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../static-resources/js/cron.js"></script>
 	<script src="../../static-resources/js/comm.js"></script>
 	<script src="../../static-resources/js/context.js"></script>
 	<script src="../../static-resources/js/workspace.js"></script>
