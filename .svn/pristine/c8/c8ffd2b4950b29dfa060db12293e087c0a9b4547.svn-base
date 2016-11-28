@@ -169,8 +169,8 @@ p {
 }
 
 #manag {
-    width: 106px;
-    height: 120px;
+    width: 140px;
+    height: 180px;
     background-color: #FFF;
     position: absolute;
     z-index: 200;
@@ -2552,9 +2552,6 @@ ul.root_tree li div {
 }
 
 /*flow start*/
-.codePart{
-    float: left !important;
-}
 .module-flow {
     height: 100%;
     position: relative;

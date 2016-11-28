@@ -23,7 +23,6 @@
     				var flowid = event.target.getAttribute('flowid');
     				var sourceid = event.target.getAttribute('sourceid');
     				var functionName = event.target.getAttribute('functionName');
-    				var functionType = event.target.getAttribute('functionType');
     				var paramNumber = event.target.getAttribute('paramNumber');
     				var columnType = event.target.getAttribute('columnType');
     				var fixed = event.target.getAttribute('fixed');
@@ -33,7 +32,7 @@
     				}else{
     					line_color = _jm2.options.view.line_color;
     				}
-    				return $( "<jmnode id='jmnodeModel' style='border-color:"+line_color+"' functionName='"+functionName+"' functionType='"+functionType+"' columnType='"+columnType+"' paramNumber='"+paramNumber+"' fixed='"+fixed+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
+    				return $( "<jmnode id='jmnodeModel' style='border-color:"+line_color+"' functionName='"+functionName+"' columnType='"+columnType+"' paramNumber='"+paramNumber+"' fixed='"+fixed+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
     			}
     		});
 		};
@@ -117,7 +116,7 @@
     	        	var level = 1;
     	        	var sourceids = new Array();
     	        	var source_type=0;
-    	        	var data = jd.construct_data(null,null,null,null,null,null,level,topic,line_color,sourceids,pk,flowid,null,source_type);
+    	        	var data = jd.construct_data(null,null,null,null,null,level,topic,line_color,sourceids,pk,flowid,null,source_type);
     	        	var index = target_node.index;
     	        	var node = this.jm.add_node(target_node.parent, nodeid, topic,data,index);
     	        	logic_node_num++;
@@ -128,7 +127,7 @@
     	        	nodeid = jsMind.util.uuid.newid();
     	        	pk = jsMind.util.uuid.newid();
     	        	source_type = 1;
-    	        	data = jd.construct_data(null,null,null,null,null,null,level,topic,line_color,null,pk,flowid,sourceid,source_type);
+    	        	data = jd.construct_data(null,null,null,null,null,level,topic,line_color,null,pk,flowid,sourceid,source_type);
     	        	topic = topic.substring(topic.indexOf(".")+1);
     	        	jd.add_node(node, nodeid, topic,data);
     	        	//把目标节点移到父节点上
@@ -153,7 +152,6 @@
     	        	var level2 = $('#jmnodeModel').attr('level');
     	        	var fk2 = $('#jmnodeModel').attr('fk');
     	        	var functionName2 = $('#jmnodeModel').attr('functionName');
-    	        	var functionType2 = $('#jmnodeModel').attr('functionType');
     	        	var paramNumber2 = $('#jmnodeModel').attr('paramNumber');
         			var columnType2 = $('#jmnodeModel').attr('columnType');
     	        	var fixed2 = $('#jmnodeModel').attr('fixed');
@@ -164,15 +162,14 @@
             			var level = $(this).attr('level');;
             			var topic = $(this).attr('textValue');
             			var functionName = $(this).attr('functionName');
-            			var functionType = $(this).attr('functionType');
             			var paramNumber = $(this).attr('paramNumber');
             			var columnType = $(this).attr('columnType');
             			var fixed = $(this).attr('fixed');
             			var fk = 0;
-            			data = jd.construct_data(functionName,functionType,columnType,paramNumber,fixed,fk,level,topic,line_color);
+            			data = jd.construct_data(functionName,columnType,paramNumber,fixed,fk,level,topic,line_color);
                     	var newnode = jd.add_node(target_node.parent, newnodeid, topic,data,target_node.index);
                     	//创建新节点
-                    	data = jd.construct_data(functionName2,functionType2,columnType2,paramNumber2,fixed2,fk2,level2,source_name2,line_color);
+                    	data = jd.construct_data(functionName2,columnType2,paramNumber2,fixed2,fk2,level2,source_name2,line_color);
         	        	var node = jd.add_node(newnode, nodeid2, topic2,data);
         	        	//把目标节点移到父节点上
         	        	jd.move_node(target_node.id, beforeid, newnodeid, "-1");
@@ -314,7 +311,7 @@
 	  	                }
 	  	                if(flag){
 	  	                    //在这里对磁铁吸引进行判断
-	  	                    if(target_node.data.level==2||target_node.data.level==4||target_node.data.functionType==2){
+	  	                    if(target_node.data.level==2||target_node.data.level==4||target_node.data.level==5){
 	  	                    	$.dialog("不能在该节点添加子节点！");
 	  	                    }else{
 	  	                    	  var source_name = $('#jmnodeModel').html();
@@ -327,7 +324,6 @@
 	  	                    	  var flowid = $('#jmnodeModel').attr('flowid');
 	  	                    	  var sourceid = $('#jmnodeModel').attr('sourceid');
 	  	                    	  var functionName = $('#jmnodeModel').attr('functionName');
-	  	                    	  var functionType = $('#jmnodeModel').attr('functionType');
 	  	                    	  var paramNumber = $('#jmnodeModel').attr('paramNumber');
 	  	          			      var columnType = $('#jmnodeModel').attr('columnType');
 	  	                    	  var fixed = $('#jmnodeModel').attr('fixed');
@@ -337,7 +333,7 @@
 	  		      				  var pk = jsMind.util.uuid.newid();
 	  		      				  var nodeid = jsMind.util.uuid.newid();
   		      					  //拖进来的节点一定是底层节点，所以不用sourceids
-	  		      				  var data = jd.jm.construct_data(functionName,functionType,columnType,paramNumber,fixed,fk,level,source_name,line_color,null,pk,flowid,sourceid,source_type);
+	  		      				  var data = jd.jm.construct_data(functionName,columnType,paramNumber,fixed,fk,level,source_name,line_color,null,pk,flowid,sourceid,source_type);
 	  		      				  //如果父节点没有子节点则用add_node，否则用insert_node_before
 	  		      				  if(node_before){
 	  		      					jd.jm.insert_node_before(node_before, nodeid, topic, data);

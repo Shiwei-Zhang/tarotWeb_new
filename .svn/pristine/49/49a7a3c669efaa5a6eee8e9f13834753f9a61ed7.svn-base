@@ -8,7 +8,7 @@ var powerEnum2 = ["0b10","0b01"];
 var maxPower2 = "0b11";
 var dbtype;
 var flowId_global;
-var pageSize=15;
+var pageSize=13;
 $(function(){
 	//注销登录
 	$('.logout').click(function(){
@@ -38,9 +38,9 @@ $(function(){
     	$('.folder li div').removeClass('visitedBg');
         $(this).addClass('visitedBg');
         console.log($(this).attr('menutype'));
-       // if($('.flows').hasClass('header_active')){
+        if($('.flows').hasClass('header_active')){
         $('.module-data-right-navigation').show();
-        //}
+        }
         var idName=$(this).attr('id');
         var dataType=$(this).attr('menutype');
         var fileName = $(this).children().last().text();
@@ -77,22 +77,14 @@ $(function(){
     $('.managers').off('click').on('click', function (e) {
         e.stopPropagation();
         $('#manag').show();
+    });
+    $('.manag h6').off('click').on('click', function () {
         $('.managers').addClass('header_active');
         $('.flows').removeClass('header_active');
     });
     $('html').off('click').on('click', function () {
         $('#manag').hide();
-        headerActive();
     });
-    function headerActive(){
-        if($('#manag').css('display')=='none' && $('.module-data').css('display')=='block'){
-            $('.managers').removeClass('header_active');
-            $('.flows').addClass('header_active');
-        }else if($('.dataManager').css('display')=='block'){
-            $('.managers').addClass('header_active');
-            $('.flows').removeClass('header_active');
-        }
-    };
     $('.flows').unbind('click').click(function () {
         $('.managers').removeClass('header_active');
         $('.flows').addClass('header_active');
@@ -554,13 +546,10 @@ $(function(){
         	
 		}else{
 			$('.dataManager, .user').show();
+			$('.user').css('background-color','gray');
 		}
 	})
-	
-	$('.man4').click( function(){
-		$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1,.center-table2,.power-detail,.users-manage').hide();
-		$('.dataManager,.business_logic').show();
-	})
+
 
 
 	//数据连接管理
@@ -932,7 +921,7 @@ function searchItem2(){
 }
 
 function goDatasource(userId,content){
-	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1,.power-detail,.users-manage').hide();
+	$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1,.power-detail').hide();
     $('.dataManager,.center-table2').show();
     $('.task,#manag').hide();
 
@@ -952,7 +941,7 @@ function goDatasource(userId,content){
 		data:data,
 		success:function(data){
 			console.log(data);
-			$('#table2').append('<tr class="firTr"><th>数据库类型</th><th>数据连接名称</th><th>主机地址</th><th>创建时间</th><th>修改时间</th><th class="w100" style="padding-left: 31px;">更多操作</th></tr>');
+			$('#table2').append('<tr class="firTr" style="margin-bottom: -20px"><th>数据库类型</th><th>数据连接名称</th><th>主机地址</th><th>创建时间</th><th>修改时间</th><th class="w100"></th></tr>');
 			for(var i=0 ;i<data.length ; i++){
 				var createTime = formatDateTime(new Date(data[i].CREATE_TIME));
 				if(data[i].UPDATE_TIME!=null){
@@ -965,18 +954,25 @@ function goDatasource(userId,content){
 				if(powerConjunction(data[i].POWER,powerEnum2[0])&&powerConjunction(data[i].POWER,powerEnum2[1])){
 				$('#table2').append('<tr name="powerData" class="borderRight"><td>'+data[i].SOURCE_TYPE+'</td><td value="'+data[i].NAME+'">'+data[i].NAME+'</td><td>'
 						+data[i].IP+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
-						+'<td class="w100" style="width:130px;">'
-						+'<span style="margin-left:13px;" class="look" title="查看" data-id=' + data[i].ID +' data-name='+data[i].NAME+ '>'
-						+'<i class="fa fa-eye" /></span>&nbsp;&nbsp;'
-						+'<span class="power" title="权限管理" data-id=' + data[i].ID + '>'
-						+'<i class="fa fa-plug" /></span>&nbsp;&nbsp;'
-						+'<span class="delete" title="删除" data-id=' + data[i].ID + '>'
-						+'<i class="fa fa-trash" /></span></td></tr>');
+						+'<td class="w100"><span class="presh"><span class="mark"/></span>'
+						+'<div class="task"><div class="look" data-id=' + data[i].ID +' data-name='+data[i].NAME+ '>查看</div>'
+						+'<div class="power" data-id=' + data[i].ID + '>权限管理</div>'
+						+'<div class="delete" data-id=' + data[i].ID + '>删除</div></div></div>'+'</td></tr>');
 				}
+                $($('.table2 td')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+                $($('.table2 th')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+                $('.w100').each(function(index,item){$(item).css('width',$('.table2').width()*0.08)});
+                $('.table2').unbind('click').click(function (e) {
+                    e = e || window.event;
+                    var tar = e.target || e.srcElement;
+                    if (tar.tagName.toLowerCase() === 'span' && $(tar).hasClass('mark')) {
+                        $('.task').hide();
+                        $(tar).parent().next().show();
+                    }else {
+                        $('.task').hide();
+                    }
+                });
 			}
-            $($('.table2 td')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
-            $($('.table2 th')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
-            $('.table2 .w100').each(function(index,item){$(item).css('width',$('.table2').width()*0.08)});
 			goPage(1,pageSize,'table2','barcon2');
 			//查看按钮
 			$('.look').click(function(){
@@ -1735,43 +1731,32 @@ function refreshUsersList(){
 				+'<td style="width:186px;">'+updateTime+'</td>'
 				+'<td class="status">'+isActivation+'</td>'
 				+'<td>'+isSystemuser+'</td>'
-				+'<td class="w100" style="width:110px;">'
-				+'<span class="stop" title="停用" data-index="'+i+'" data-id='+data[i].id+' data-status='+data[i].isActivation+'>'
+				+'<td class="w100" style="width:130px;">'
+				+'<span class="stop" title="停用" data-id='+data[i].id+' data-status='+data[i].isActivation+'>'
 				+'<i class="fa fa-minus-circle" /></span>&nbsp;' 
 				+'<span title="编辑" data-id='+data[i].id+'>'
 				+'<i class="fa fa-pencil-square-o" /></span>&nbsp;' 
-				+'<span class="resetPwd" title="重置密码" data-id='+data[i].id+'>'
+				+'<span title="重置密码" data-id='+data[i].id+'>'
 				+'<i class="fa fa-key" /></span>&nbsp;'
-				+'<span class="deleteUser" title="删除" data-index="'+i+'" data-id='+data[i].id+'>'
+				+'<span title="删除" data-id='+data[i].id+'>'
 				+'<i class="fa fa-trash" /></span></td></tr>';
 			}
 			$("#users_T tr[name='userData']").remove();
 			$('#users_T').append($(tablestr));
 			goPage(1,pageSize,'users_T','barconUsers');
-			$('.stop').unbind('click').click(function (e) {
-				var uId = $(this).attr('data-id');
-				var isAct = $(this).attr('data-status');
-				var index = $(this).attr('data-index');
-				if(confirm('确认' + (isAct == 1?'锁定':'启用')+ '该用户吗？')){
-					stop(uId, isAct == 1?0:1, index);
+			$('.stop').click(function(){
+				var uId = $(this).data('id');
+				var isAct = $(this).data('status');
+				if(isAct==1){
+					var mymessage=confirm('确认锁定该用户吗？');
+					var isActivation=0;
+				}else{
+					var mymessage=confirm('确认启用该用户吗？');
+					var isActivation=1;
 				}
-			})
-			$('.resetPwd').unbind('click').click(function (e) {
-				var uId = $(this).attr('data-id');
-				if(confirm('确认重置该用户的密码？')){
-					resetPwd(uId);
-				}
-			})
-			$('.deleteUser').unbind('click').click(function (e) {
-				var uId = $(this).attr('data-id');
-				var index = $(this).attr('data-index');
-				var tr = $('#users_T tr[name="userData"]:eq(' + index +')');
-				if(confirm('确认删除该用户吗？')){
-					deleteUser(uId);
-					$(tr).remove();
-					var currentPage=$('.numPage.active').text();
-					//重新进行分页以达到刷新的目的--完成BUG-40
-					goPage(currentPage,pageSize,'users_T','barconUsers');
+				if(mymessage==true){
+					stop(uId,isActivation);
+					refreshUsersList();
 				}
 			})
 		},  
@@ -1781,7 +1766,7 @@ function refreshUsersList(){
 	})
 }
 	
-function stop(uId,isActivation, index){
+function stop(uId,isActivation){
 	$.ajax({
 		type:"POST",
 		url:urlId+"/modifyActivation",
@@ -1791,43 +1776,7 @@ function stop(uId,isActivation, index){
 		},
 		dataType:"json",
 		success:function(data){
-			if(data){
-				$.dialog('修改状态成功');
-				
-				var tr = $('#users_T tr[name="userData"]:eq(' + index +')');
-				$(tr.children()[9]).text(data.isActivation?'启用':'锁定');
-				
-				$(tr.children()[11]).children().first().attr('data-status', data.isActivation);
-			}
-			
-		}
-	})
-}
-
-function resetPwd(uId){
-	$.ajax({
-		type:"POST",
-		url:urlId+"/updateForAdmin",
-		data:{
-			userId: uId
-		},
-		dataType:"json",
-		success:function(data){
-			$.dialog('修改密码成功，密码是'+data);
-		}
-	})
-}
-
-function deleteUser(uId){
-	$.ajax({
-		type:"POST",
-		url:urlId+"/deleteForAdmin",
-		data:{
-			userId: uId
-		},
-		dataType:"json",
-		success:function(data){
-			$.dialog(data);
+			alert('修改状态成功');
 		}
 	})
 }

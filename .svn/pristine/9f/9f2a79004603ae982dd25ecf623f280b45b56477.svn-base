@@ -1080,8 +1080,6 @@ var user_ = $.getCookie('userId');
 			charts[ids[1]] = JSON.stringify(positionAttr);
 		}
 		charts['theme'] = templateObjMap['theme'];
-		charts['width'] = $('.bi-template-container').width();
-		charts['height'] = $('.bi-template-container').height();
 		sessionStorage.setItem( 'chartsMap', JSON.stringify(charts) );
 		window.open(gotoUrl);
 		$.hideLoading();

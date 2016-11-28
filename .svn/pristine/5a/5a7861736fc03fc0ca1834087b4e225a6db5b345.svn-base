@@ -14,8 +14,8 @@
 					needLogin = false; //是否需要登录
 					var user= {
 							name:nameAndId[0],
-							id:nameAndId[1],
-							isAdmin:nameAndId[2]};
+							id:nameAndId[1]};
+					
 					return user;
 				}
 			}
@@ -33,7 +33,8 @@
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
 		$('.dataMinL').css('width',($winW-201-345));
 		$('.module-core').css('width',($winW-201-351));
-		$('.codePart').css('width',($('.module-data-all').width()-351));//flow-code
+
+
 	};
 	$.isEmpty = function(obj){
 		if(!obj){//'', null, undefined

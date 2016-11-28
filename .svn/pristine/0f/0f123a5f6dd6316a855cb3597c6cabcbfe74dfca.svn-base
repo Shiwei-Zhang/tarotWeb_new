@@ -169,8 +169,8 @@ p {
 }
 
 #manag {
-    width: 106px;
-    height: 120px;
+    width: 140px;
+    height: 180px;
     background-color: #FFF;
     position: absolute;
     z-index: 200;
@@ -418,7 +418,7 @@ ul.root_tree li div {
 }
 
 .bicharlistStyle div {
-    height: 25px;
+    height: 24px;
     line-height: 27px;
     padding-left: 10px;
     cursor: pointer;
@@ -2036,10 +2036,6 @@ ul.root_tree li div {
 
 }
 
-.dispatchPart .timeControl{
-    max-height: 342px;
-}
-
 .deployLeft, .deployRight {
     float: left;
     width: 49%;
@@ -2552,9 +2548,6 @@ ul.root_tree li div {
 }
 
 /*flow start*/
-.codePart{
-    float: left !important;
-}
 .module-flow {
     height: 100%;
     position: relative;
@@ -2598,17 +2591,14 @@ ul.root_tree li div {
 .dt_d .dt_con p {
     font-size: 14px;
     color: #1e1e1e;
+    margin-top: 5px;
     padding-left: 10px;
-    height: 25px;
-    line-height: 25px;
+    height: 20px;
     cursor: pointer;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .dt_d .dt_con p:hover {
-    background: #eaeaea;
+    background: #CCEBF8;
 }
 
 .dt_d .dt_fun p.dtt {
@@ -3204,11 +3194,10 @@ right style
 
 .table2 tr th {
     width: 288px;
-    height: 40px;
+    height: 50px;
     font-size: 14px;
     text-align: left;
     padding-left: 20px;
-    box-sizing: border-box;
     color: #1E1E1E;
     background-color: #fff;
 }
@@ -3219,24 +3208,22 @@ right style
     font-size: 14px;
     text-align: left;
     padding-left: 20px;
-    box-sizing: border-box;
     color: #1E1E1E;
     background-color: #fff;
 }
 
 .users_T tr th {
-    width: 96px;
-    height: 44px;
+    width: 89px;
+    height: 50px;
     font-size: 14px;
     text-align: left;
-    box-sizing: border-box;
     padding-left: 20px;
     color: #1E1E1E;
     background-color: #fff;
 }
 
 .table1 tr th {
-    height: 40px;
+    height: 50px;
     font-size: 14px;
     color: #1E1E1E;
     background-color: #fff;
@@ -3246,7 +3233,7 @@ right style
 }
 
 .table1 tr td {
-    height: 40px;
+    height: 48px;
     font-size: 14px;
     color: #1E1E1E;
     border-bottom: 1px solid #D1D6D6;
@@ -3261,7 +3248,7 @@ right style
 
 .table2 tr td, .table3 tr td {
     width: 288px;
-    height: 40px;
+    height: 48px;
     font-size: 14px;
     text-align: left;
     padding-left: 20px;
@@ -3272,8 +3259,8 @@ right style
 }
 
  .users_T tr td {
-    width: 96px;
-    height: 42px;
+    width: 104px;
+    height: 48px;
     font-size: 14px;
     text-align: left;
     padding-left: 20px;
@@ -3301,10 +3288,6 @@ right style
     cursor: pointer;
 }
 
-tr td.w100 span:hover {
-    color: #4178BE;
-}
-
 .table1 .firTr, .table2 .firTr {
     display: block;
     border: 1px solid #D1D6D6;
@@ -3324,7 +3307,6 @@ tr td.w100 span:hover {
 /*增删改查width*/
 .w50 {
     width: 58px;
-    padding:0 !important;
     text-align: center !important;
 }
 
@@ -3342,11 +3324,63 @@ tr td.w100 span:hover {
     cursor: pointer;
 }
 
+.presh {
+    position: relative;
+}
+
+.table2 .mark {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 16px;
+    background: url("../images/more.png") no-repeat center center;
+    background-size: 40px 20px;
+    vertical-align: bottom;
+}
+
 .fa-tasks {
     cursor: pointer;
     position: relative;
     top: 0px;
     right: 0px;
+}
+
+.task {
+    display: none;
+    position: absolute;
+    right: 31px;
+    top: 44px;
+    z-index: 100;
+    width: 140px;
+    /*height: 45px;*/
+    /*padding: 16px 0;*/
+    background-color: #FFF;
+    border: 1px #F0F0F0 solid;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.task div {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.task div:hover {
+    background: #56b0e2;
+    color: #feffff;
+}
+
+.task .look:before {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    content: '';
 }
 
 .add2-sel, .edit-sel, .add2-f table input, .look-detail table input,
@@ -3493,8 +3527,7 @@ tr td.w100 span:hover {
 }
 
 .table1 tr:nth-child(even),
-.table2 tr:nth-child(even),
-.users_T tr:nth-child(even){
+.table2 tr:nth-child(even) {
     background: #FAFAFA;
 }
 

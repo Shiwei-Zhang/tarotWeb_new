@@ -256,7 +256,7 @@
 	                	var strokeStyle = 'rgba(0,0,0,0.3)';
 		                if(this.jm.options.container=="jsmind_container2"){
 		                	var selected_node = this.jm.get_selected_node();
-		                	if(this.target_node.data.level==4||this.target_node.data.functionType==2){
+		                	if(this.target_node.data.level==4||this.target_node.data.level==5){
 		                		strokeStyle = error_color;
 		                	}else if(this.target_node.data.fixed==1&&this.target_node.data.paramNumber==sibling_nodes.length&&selected_node.parent!=this.target_node){
 		                		strokeStyle = error_color;
@@ -436,7 +436,7 @@
             	var pk = jsMind.util.uuid.newid();
             	var source_type = 0;
             	var sourceids = new Array();
-            	var data = jd.construct_data(null,null,null,null,null,null,null,level,topic,line_color,sourceids,pk,flowid,null,source_type);
+            	var data = jd.construct_data(null,null,null,null,null,level,topic,line_color,sourceids,pk,flowid,null,source_type);
             	var index = target_node.index;
             	var nodeid = jsMind.util.uuid.newid();
             	var node = jd.add_node(target_node.parent, nodeid, topic,data,index);
@@ -464,13 +464,12 @@
         			jqueryDom.css('visibility','hidden');
         			var topic = $(this).attr('textValue');
         			var functionName = $(this).attr('functionName');
-        			var functionType = $(this).attr('functionType');
         			var paramNumber = $(this).attr('paramNumber');
         			var columnType = $(this).attr('columnType');
         			var fixed = $(this).attr('fixed');
         			var level = $(this).attr('level');
         			var fk = 0;
-        			data = jd.construct_data(functionName,functionType,columnType,paramNumber,fixed,fk,level,topic,line_color);
+        			data = jd.construct_data(functionName,columnType,paramNumber,fixed,fk,level,topic,line_color);
                 	var newnode = jd.add_node(target_node.parent, newnodeid, topic,data,target_node.index);
                 	//把目标节点移到父节点上
                 	jd.move_node(target_node.id, "_first_", newnodeid, "-1");
@@ -528,7 +527,7 @@
                 		this.jm.move_node(src_node.id, beforeid, target_node.id, target_direct);
                 	}else{
                 		var selected_node = this.jm.get_selected_node();
-                		if(target_node.data.level==4||target_node.data.functionType==2){
+                		if(target_node.data.level==4||target_node.data.level==5){
                         	$.dialog("不能在该节点添加子节点！");
                         	return;
                         }
@@ -571,17 +570,21 @@
                     	if(src_node.parent.isroot){
     						$('.new_column_name').show();
     						$('.new_constant_value').hide();
-    						if(src_node.data.functionType==2){
+    						if(src_node.data.level==5){
     							$('.new_constant_value').show();
     						}
                 		}else{
                 			$('.new_column_name').hide();
     						$('.new_constant_value').hide();
-    						if(src_node.data.functionType==2){
+    						if(src_node.data.level==5){
     							$('.new_constant_value').show();
     						}
                 		}
                 	}
+                    //在这里对磁铁吸引进行判断
+                	if(target_node.data.level==2||target_node.data.level==4||target_node.data.level==5){
+                    	$.dialog("不能在该节点添加子节点！");
+                    }
                 }else{
                 	$("jmnode").removeClass("selected");
                 	this.fuse_node(node_before,beforeid);

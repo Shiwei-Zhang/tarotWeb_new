@@ -1264,7 +1264,7 @@
         		var level = 1;
         		var source_type = 0;
         		var sourceids = new Array();
-        		var data = jm.construct_data(null,null,null,null,null,null,level,topic,line_color,sourceids,pk,flowId_global,null,source_type);
+        		var data = jm.construct_data(null,null,null,null,null,level,topic,line_color,sourceids,pk,flowId_global,null,source_type);
             	var node = jm.add_node(selected_node.parent, newnodeid, topic,data,index);
             	logic_node_num++;
             	//把选中节点移到父节点上
@@ -1292,12 +1292,11 @@
     			var level = $(this).attr('level');
     			var topic = $(this).attr('textValue');
     			var functionName = $(this).attr('functionName');
-    			var functionType = $(this).attr('functionType');
     			var paramNumber = $(this).attr('paramNumber');
     			var columnType = $(this).attr('columnType');
     			var fixed = $(this).attr('fixed');
     			var fk = 0;
-    			var data = jd.construct_data(functionName,functionType,columnType,paramNumber,fixed,fk,level,topic,line_color);
+    			var data = jd.construct_data(functionName,columnType,paramNumber,fixed,fk,level,topic,line_color);
             	var node = jd.add_node(selected_node.parent, newnodeid, topic,data,selected_node.index);
             	//把选中节点移到父节点上
             	jd.move_node(selected_node.id, "_last_", node.id, "-1");
@@ -1676,13 +1675,10 @@
         		var nodeid = parentNode.id;
             	var children = parentNode.children;
             	var line_color = this.options.view.line_color;
-            	var fixed = parentNode.data.fixed;
-            	var paramNumber = parentNode.data.paramNumber;
-            	var functionType = parentNode.data.functionType;
-            	if(fixed==1&&children.length!=paramNumber&&functionType!=2){
+            	if(parentNode.data.fixed==1&&children.length!=parentNode.data.paramNumber){
             		parentNode.data.border_color = error_color;
             		$('jmnode[nodeid="'+nodeid+'"]').css('border-color',error_color);
-            	}else if(fixed==0&&children.length<paramNumber-1){
+            	}else if(parentNode.data.fixed==0&&children.length<parentNode.data.paramNumber-1){
             		parentNode.data.border_color = error_color;
             		$('jmnode[nodeid="'+nodeid+'"]').css('border-color',error_color);
             	}else{
@@ -1695,11 +1691,7 @@
                 var paramDataType;
             	$.each(children,function(index,item){
             		columnType = item.data.columnType;
-            		if(fixed==0&&index>=paramNumber-1){
-            			paramDataType = parameters[paramNumber-1].paramDataType;
-            		}else{
-            			paramDataType = parameters[index].paramDataType;
-            		}
+            		paramDataType = parameters[index].paramDataType;
             		if(columnType!=paramDataType){
                 		var newArray = $.grep( conversionRules_global, function(n,i){
                     		return n.theType==columnType&&n.depType==paramDataType&&n.type==1;
@@ -1717,12 +1709,12 @@
         	}
         },
         //创建data
-        construct_data:function(functionName,functionType,columnType,paramNumber,fixed,fk,level,source_name,line_color,sourceids,pk,flowid,source_id,source_type){
+        construct_data:function(functionName,columnType,paramNumber,fixed,fk,level,source_name,line_color,sourceids,pk,flowid,source_id,source_type){
         	var data;
         	if(this.options.container=='jsmind_container'){
         		data = {"sourceids":sourceids,"level":level,"pk":pk,"line_color":line_color,"border_color":line_color,"source_name":source_name,"flowid":flowid,"sourceid":source_id,"sourceType":source_type,"isSave":0,"isInterface":0,"isDebug":0,"isCheck":0,"sql":"","subMind":"","params":"","joins":"","saveTargets":"","exportColumns":""};
         	}else{
-        		data = {"fk":fk,"level":level,"source_name":source_name,"line_color":line_color,"border_color":line_color,"constantValue":"","functionName":functionName,"functionType":functionType,"columnType":columnType,"paramNumber":paramNumber,"fixed":fixed};
+        		data = {"fk":fk,"level":level,"source_name":source_name,"line_color":line_color,"border_color":line_color,"constantValue":"","functionName":functionName,"columnType":columnType,"paramNumber":paramNumber,"fixed":fixed};
         	}
         	return data;
         },
@@ -2899,13 +2891,13 @@
 						//初始化tableName
 						$('.new_column_name').show();
 						$('.new_constant_value').hide();
-						if(node.data.functionType==2){
+						if(node.data.level==5){
 							$('.new_constant_value').show();
 						}
 					}else{
 						$('.new_column_name').hide();
 						$('.new_constant_value').hide();
-						if(node.data.functionType==2){
+						if(node.data.level==5){
 							$('.new_constant_value').show();
 						}
 					}	

@@ -67,8 +67,8 @@
 				<h6 class="man2">数据连接管理</h6>
 				<h6 class="man3">个人信息维护</h6>
 				<h6 class="man4">业务代码维护</h6>
-				<!--<h6 class="man5">内部数据类型维护</h6>
-				<h6 class="man6">外部数据类型维护</h6>-->
+				<h6 class="man5">内部数据类型维护</h6>
+				<h6 class="man6">外部数据类型维护</h6>
 			</div>
 		</div>
 	</div>
@@ -980,6 +980,7 @@
 									</li>
 									<li class="timeControl">
 										<span class="Tname">时间控件</span>
+                                        <!--<input type="text" name="cron" style="width:100%;" value="* * * * * ? "  readonly="readonly">-->
 										<div class="easyui-layout" style="display:inline-block;width:616px;height:340px;border:1px rgb(202, 196, 196) solid;">
 											<div data-options="region:'center',border:false" >
 												<div class="easyui-tabs" data-options="fit:true,border:false">
@@ -1238,75 +1239,9 @@
 														<div class="line"><input type="radio" name="year" onclick="everyTime(this)"> 每年</div>
 														<div class="line"><input type="radio" name="year" onclick="cycle(this)">周期 从 <input class="numberspinner" style="width:90px;" data-options="min:2013,max:3000" value="2013"> - <input class="numberspinner" style="width:90px;" data-options="min:2014,max:3000" value="2014"></div>
 													</div>
+													<input type="hidden" name="cron" style="display: none" value="* * * * * ? " id="cron" readonly="readonly">
 												</div>
 											</div>
-											<div data-options="region:'south',border:false" style="height:10px;display: none">
-												<fieldset style="border-radius: 3px;height:10px;">
-													<legend>表达式</legend>
-													<table style="height: 10px;">
-														<tbody>
-														<tr>
-															<td ></td>
-															<td  align="center">
-																秒
-															</td>
-															<td  align="center">
-																分钟
-															</td>
-															<td  align="center">
-																小时
-															</td>
-															<td  align="center">
-																日
-															</td>
-															<td  align="center">
-																月<br/>
-															</td>
-															<td  align="center">
-																星期
-															</td>
-															<td align="center">
-																年
-															</td>
-														</tr>
-														<tr>
-															<td  >
-																表达式字段:
-															</td>
-															<td  >
-																<input type="text" name="v_second" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td  >
-																<input type="text" name="v_min" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_hour" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_day" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_mouth" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_week" class="col" value="?" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_year"  class="col" readonly="readonly"/>
-															</td>
-														</tr>
-														<tr>
-															<td  >
-																Cron表达式:
-															</td>
-															<td colspan="7">
-																<input type="text" name="cron" style="width:100%;" value="* * * * * ? " id="cron" readonly="readonly"/>
-															</td>
-														</tr>
-														</tbody>
-													</table>
-												</fieldset>
-										     </div>
 										</div>
 									</li>
 									<li class="deployStateD deployState">
@@ -1631,7 +1566,7 @@
 					</table>
 				</div>
 			</div>
-			<div class="business_logic clearFix" style="display: none;">
+			<div class="business_logic" style="display: none;">
 				<div class="group">
 			        <div class="group_add">
 			        	<span>业务组</span>
@@ -1684,7 +1619,7 @@
 			            </div>
 			        </div>
 			    </div>
-			    <div class="eum" style="margin: 0">
+			    <div class="eum">
 			        <div class="eum_add">
 			        	<span>业务枚举</span>
 			            <input type="button" value="+"/>
@@ -1754,9 +1689,9 @@
                 </tr> -->
             </table>
         </div>
-        <div class="btn-group clearFix">
-			<input class="sure" type="button" value="确定"/>
-            <input class="cancel" type="button" value="取消"/>
+        <div class="btn-group">
+            <input type="button" value="取消"/>
+            <input type="button" value="确定"/>
         </div>
     </div>
     <div class="mask"></div>
