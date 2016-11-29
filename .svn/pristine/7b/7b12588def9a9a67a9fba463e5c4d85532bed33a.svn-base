@@ -24,6 +24,8 @@ $(function(){
     })
 });
 
+
+
 $(function(){
     $('.paramMain:before').click(function () {
         console.log('ok')
@@ -47,6 +49,9 @@ $(function(){
         }
         tabCheck(idName, dataType, fileName);
         //初始化事件
+
+
+
     });
 
     //module-data-right-navigation
@@ -437,8 +442,6 @@ $(function(){
             //TODO Loading flow data and mask
         	getFlowIdByMenuId($idName);
             $('.flow-template').show();
-            //设置属性input宽度
-            $('.module-prop .prop input').css('width',250-$('.module-prop .prop span:first-child').width());
         }else if($dataType == 4){
             //TODO Loading datamining data and mask
         	dataMiningInit($idName);
@@ -524,20 +527,20 @@ $(function(){
 		$('.add-user').show();
 		$('.mask').show();
 		$('.userAdd input[type="text"]').val('');
-		$('.userAdd input[type="password"]').val('');
 		$('.userAdd input[type="date"]').val('');
+		
 	});
     
     window.addUser=function(){
     	var jsonObj = new Object();
-		jsonObj.name =$('.userAdd .name').val();
-		jsonObj.loginId =$('.userAdd .loginId').val();
-		jsonObj.password =$('.userAdd .pwd').val();
-		jsonObj.gender =$(".userAdd input[name='gender']:checked").val();
-		jsonObj.birth =$('.userAdd #birth').val();
-		jsonObj.phone =$('.userAdd .phone').val();
-		jsonObj.eMail =$('.userAdd .email').val();
-		jsonObj.isSystemuser =$(".userAdd input[name='isAdmin']:checked").val();
+		jsonObj.name =$('.name').val();
+		jsonObj.loginId =$('.loginId').val();
+		jsonObj.password =$('.pwd').val();
+		jsonObj.gender =$("input[name='gender']").val();
+		jsonObj.birth =$('#birth').val();
+		jsonObj.phone =$('.phone').val();
+		jsonObj.eMail =$('.email').val();
+		jsonObj.isSystemuser =$("input[name='isAdmin']").val();
 		console.log(jsonObj);
 		$.ajax({
 			type:"POST",
@@ -1380,10 +1383,13 @@ function generateFun(power, domCls,menutype){
                 $('.module-data-right-navigation').show();
             }
             var dataType=6;
-            var idName=$currentRightDom.attr('id');
+            var idName=$(this).attr('id');
             var fileName = ($currentRightDom.children('span').html()+'发布');
             tabCheck(idName, dataType, fileName);
+
             var controllerId = $('li.thistab').attr('conId');
+            getJobPlanIds(controllerId);
+	    	//$('.controllDeployEvent').show();
 	    }},
         {text: '添加', auth: addAuth, subMenu:[
             {text:'添加文件夹',auth: addAuth, action:function(e){
@@ -1721,9 +1727,7 @@ function refreshUsersList(){
 				$('.edit-user').show();
 				$('.mask').show();
 				var uId = $(this).attr('data-id');
-				$(".userEdit input[type='text']").val('');
-				$(".userEdit input[type='date']").val('');
-				$(".userEdit input[type='radio']").removeAttr('checked');
+				//$('.userEdit').html('');
 				$.ajax({
 					type:"POST",
 					url:urlId+"/getUserByUid",
@@ -1732,15 +1736,45 @@ function refreshUsersList(){
 					success:function(data){
 						$('.edit-user .name').val(data.name);
 						$('.edit-user .loginId').val(data.loginId);
-						var birth = formatDateTime(new Date(data.birth)).split(' ')[0];
+						//$('.edit-user input[name="gender"]:radio[value='+data.gender+']').attr('checked','true');
+						var birth = new Date(data.birth).toLocaleDateString();
 						$('.edit-user .birth').val(birth);
 						$('.edit-user .phone').val(data.phone);
 						$('.edit-user .email').val(data.eMail);
-						$('.edit-user input[name="gender"]:radio[value='+data.gender+']').attr('checked','true');
-						$('.edit-user input[name="isAdmin"]:radio[value='+data.isSystemuser+']').attr('checked','true');
+						$('.edit-user input[name="isAdmin"]').val(data.isSystemuser);
 					}
 				})
 			})
+		    
+		    window.EditOkUser=function(){
+		    	var jsonObj = new Object();
+				jsonObj.name =$('.name').val();
+				jsonObj.loginId =$('.loginId').val();
+				jsonObj.password =$('.pwd').val();
+				jsonObj.gender =$("input[name='gender']").val();
+				jsonObj.birth =$('#birth').val();
+				jsonObj.phone =$('.phone').val();
+				jsonObj.eMail =$('.email').val();
+				jsonObj.isSystemuser =$("input[name='isAdmin']").val();
+				console.log(jsonObj);
+				$.ajax({
+					type:"POST",
+					url:urlId+"/register",
+					dataType:"json",
+					contentType: "application/json",
+					data:JSON.stringify(jsonObj),
+					success:function(data){
+						$('.add-user').css("display","none");
+						$('.mask').css("display","none");
+						$('.addUser-table').css("display","block");
+						$.dialog('新增用户成功');
+						console.log(data);
+						refreshUsersList();
+					}
+				});
+		    	
+		    }
+			
 			$('.resetPwd').unbind('click').click(function (e) {
 				var uId = $(this).attr('data-id');
 				if(confirm('确认重置该用户的密码？')){
@@ -1753,6 +1787,10 @@ function refreshUsersList(){
 				var tr = $('#users_T tr[name="userData"]:eq(' + index +')');
 				if(confirm('确认删除该用户吗？')){
 					deleteUser(uId);
+					$(tr).remove();
+					var currentPage=$('.numPage.active').text();
+					//重新进行分页以达到刷新的目的--完成BUG-40
+					goPage(currentPage,pageSize,'users_T','barconUsers');
 				}
 			})
 		},  
@@ -1785,34 +1823,6 @@ function stop(uId,isActivation, index){
 	})
 }
 
-function EditOkUser(){
-	var jsonObj = new Object();
-	jsonObj.name =$('.userEdit .name').val();
-	jsonObj.loginId =$('.userEdit .loginId').val();
-	jsonObj.gender =$('.userEdit input[name="gender"]:checked').val();
-	jsonObj.birth =$('.userEdit .birth').val();
-	jsonObj.phone =$('.userEdit .phone').val();
-	jsonObj.eMail =$('.userEdit .email').val();
-	jsonObj.isSystemuser =$('.userEdit input[name="isAdmin"]:checked').val();
-	console.log(jsonObj);
-	$.ajax({
-		type:"POST",
-		url:urlId+"/updateUserMessage",
-		dataType:"json",
-		contentType: "application/json",
-		data:JSON.stringify(jsonObj),
-		success:function(data){
-			$('.edit-user').css("display","none");
-			$('.mask').css("display","none");
-			$('.editUser-table').css("display","block");
-			$.dialog('修改用户信息成功');
-			console.log(data);
-			refreshUsersList();
-		}
-	});
-	
-}
-
 function resetPwd(uId){
 	$.ajax({
 		type:"POST",
@@ -1837,25 +1847,6 @@ function deleteUser(uId){
 		dataType:"json",
 		success:function(data){
 			$.dialog(data);
-			refreshUsersList();
-		}
-	})
-}
-
-function loginIdValidation(){
-	var loginId = $('.loginId').val();
-	$.ajax({
-		type:"POST",
-		url:urlId+"/loginIdValidation",
-		data:{
-			loginId: loginId
-		},
-		dataType:"json",
-		success:function(data){
-			if(data == 1){
-				$.dialog("账号已存在");
-			}
-			
 		}
 	})
 }

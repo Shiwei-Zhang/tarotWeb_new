@@ -1486,7 +1486,7 @@ ul.root_tree li div {
     padding-left: 10px;
 }
 
-/*.dataMinR {
+.dataMinR {
     position: absolute;
     right: 0;
     z-index: 130;
@@ -1529,7 +1529,7 @@ ul.root_tree li div {
     background-color: white;
     border: 1px lightgray solid;
     cursor: pointer;
-}*/
+}
 .propContainer li span {
     display: inline-block;
     width: 54px;
@@ -2656,36 +2656,6 @@ ul.root_tree li div {
     height: 18px;
     padding-left: 2px;
     border: 1px solid #d8d8d8;
-}
-
-.dt_serch{
-    position: relative;
-}
-.dt_serch select{
-    width:128px;
-    height: 25px;
-    line-height: 25px;
-    outline: none;
-}
-.dt_serch input{
-    position: absolute;
-    top: 28px;
-    left: 2px;
-    width: 100px;
-    height: 20px;
-    line-height: 20px;
-    border: none;
-    outline: none;
-}
-.dt_serch .bigIcon{
-    position: absolute;
-    top: 30px;
-    right: 17px;
-    width: 15px;
-    height: 15px;
-    background: url(../images/serchIcon.png)no-repeat center center;
-    background-size: 12px 12px;
-    cursor: pointer;
 }
 
 .line_fun {

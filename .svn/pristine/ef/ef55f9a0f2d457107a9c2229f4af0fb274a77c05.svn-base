@@ -503,14 +503,11 @@ var getAttrs = function($trainType){
 	return attrs;
 }
 
-//Double验证^\d+(\.\d*)?$（只能输入非负数）
-var rgexp = new RegExp(/^\d+(\.\d*)?$/);
-//Integer、Long验证^[0-9]*$（只能输入非零的正整数）
-var rgexp2 = new RegExp(/^\+?[1-9][0-9]*$/);
-//Integer、Long验证^\-[1-9][]0-9"*$（只能输入非零的负整数）
-var rgexp3 = new RegExp(/^\-[1-9][0-9]*$/);
-//Integer、Long验证^[0-9]*$（只能输入可为零的正整数）
-var rgexp4 = new RegExp(/^\+?[0-9][0-9]*$/);
+//Double验证^\d+(\.\d*)?$
+var rgexp = new RegExp(/^(-?\d+)\.(\d+)?/);
+//Integer、Long验证^[0-9]*$
+var rgexp2 = new RegExp(/^[0-9]*$/);
+
 //朴素贝叶斯 属性信息
 var bayesianAttrs = function(){
 	var remark = $('.naivebayes-attr .remark').val();
@@ -520,20 +517,6 @@ var bayesianAttrs = function(){
 	if(!remark || !smoothing || !thresholds || !modelType){
 		return null;
 	}
-	
-	if(!rgexp.test(smoothing)){
-		$.dialog("smoothing只能输入小数");
-		return null;
-	}
-	var num = [];
-	num=thresholds.split(",");
-		for(var i = 0;i<num.length;i++){
-			if(!rgexp.test(num[i]) & !rgexp2.test(num[i])){
-				$.dialog("thresholds只能输入小数或正整数数组，用 逗号(,)隔开");
-				return null;
-			}
-		}
-	
 	var bayesian = {};
 	//备注
 	bayesian['remark'] = remark;
@@ -554,25 +537,24 @@ var linearRegressionAttrs = function(){
 	var solver = $('.linearRegression-attr .solver').val();
 	var standardization = $('.linearRegression-attr .standardization').val();
 	var tol = $('.linearRegression-attr .tol').val();
-	if(!remark || !elasticNetParam || !fitIntercept || !maxIter || !regParam || !solver || !standardization){
+	if(!remark || !elasticNetParam || !fitIntercept || !maxIter || !regParam || !solver || !standardization || !tol){
 		return null;
 	}
 	
 	if(!rgexp.test(elasticNetParam)){
-		$.dialog("elasticNetParam只能输入非负数");
+		$.dialog("elasticNetParam只能输入小数");
 		return null;
 	}
 	if(!rgexp.test(regParam)){
-		$.dialog("regParam只能输入非负数");
+		$.dialog("regParam只能输入小数");
 		return null;
 	}
-	var num = new Number(tol);
-	if(!rgexp.test(num)){
-		$.dialog("tol只能输入非负数");
+	if(!rgexp.test(tol)){
+		$.dialog("tol只能输入小数");
 		return null;
 	}
-	if(!rgexp4.test(maxIter)){
-		$.dialog("maxIter只能输入正整数");
+	if(!rgexp2.test(maxIter)){
+		$.dialog("maxIter只能输入整数");
 		return null;
 	}
 	var linearRegression = {};
@@ -605,34 +587,25 @@ var logisticRegressionAttrs = function(){
 	}
 	
 	if(!rgexp.test(elasticNetParam)){
-		$.dialog("elasticNetParam只能输入非负数");
+		$.dialog("elasticNetParam只能输入小数");
 		return null;
 	}
 	if(!rgexp.test(regParam)){
-		$.dialog("regParam只能输入非负数");
+		$.dialog("regParam只能输入小数");
 		return null;
 	}
-	var num = new Number(tol);
-	if(!rgexp.test(num)){
-		$.dialog("tol只能输入非负数");
+	if(!rgexp.test(tol)){
+		$.dialog("tol只能输入小数");
 		return null;
 	}
 	if(!rgexp.test(threshold)){
-		$.dialog("threshold只能输入非负数");
+		$.dialog("threshold只能输入小数");
 		return null;
 	}
-	if(!rgexp4.test(maxIter)){
-		$.dialog("maxIter只能输入正整数");
+	if(!rgexp2.test(maxIter)){
+		$.dialog("maxIter只能输入整数");
 		return null;
 	}
-	var num = [];
-	num=thresholds.split(",");
-		for(var i = 0;i<num.length;i++){
-			if(!rgexp.test(num[i]) & !rgexp2.test(num[i])){
-				$.dialog("thresholds只能输入小数或正整数数组，用 逗号(,)隔开");
-				return null;
-			}
-		}
 	
 	var logisticRegression = {};
 	//备注
@@ -664,20 +637,19 @@ var ridgeregressionAttrs = function(){
 	}
 	
 	if(!rgexp.test(elasticNetParam)){
-		$.dialog("elasticNetParam只能输入非负数");
+		$.dialog("elasticNetParam只能输入小数");
 		return null;
 	}
 	if(!rgexp.test(regParam)){
-		$.dialog("regParam只能输入非负数");
+		$.dialog("regParam只能输入小数");
 		return null;
 	}
-	var num = new Number(tol);
-	if(!rgexp.test(num)){
-		$.dialog("tol只能输入非负数");
+	if(!rgexp.test(tol)){
+		$.dialog("tol只能输入小数");
 		return null;
 	}
-	if(!rgexp4.test(maxIter)){
-		$.dialog("maxIter只能输入正整数");
+	if(!rgexp2.test(maxIter)){
+		$.dialog("maxIter只能输入整数");
 		return null;
 	}
 	
@@ -707,19 +679,19 @@ var svmAttrs = function(){
 	}
 	
 	if(!rgexp.test(stepSize)){
-		$.dialog("stepSize只能输入非负数");
+		$.dialog("stepSize只能输入小数");
 		return null;
 	}
-	if(!rgexp.test(regParm)){
-		$.dialog("regParm只能输入非负数");
+	if(!rgexp.test(regParam)){
+		$.dialog("regParam只能输入小数");
 		return null;
 	}
 	if(!rgexp.test(miniBatchFraction)){
-		$.dialog("miniBatchFraction只能输入非负数");
+		$.dialog("miniBatchFraction只能输入小数");
 		return null;
 	}
-	if(!rgexp4.test(numIterations)){
-		$.dialog("numIterations只能输入正整数");
+	if(!rgexp2.test(numIterations)){
+		$.dialog("numIterations只能输入整数");
 		return null;
 	}
 	
@@ -746,29 +718,6 @@ var kmeansAttrs = function(){
 	if(!remark || !initSteps || !k || !maxIter || !seed || !tol){
 		return null;
 	}
-	
-	if(!rgexp2.test(initSteps)){
-		$.dialog("initSteps只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp2.test(k)){
-		$.dialog("k只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp4.test(maxIter)){
-		$.dialog("maxIter只能输入正整数");
-		return null;
-	}
-	if(!rgexp3.test(seed)){
-		$.dialog("seed只能输入非零的负整数");
-		return null;
-	}
-	var num = new Number(tol);
-	if(!rgexp.test(num)){
-		$.dialog("tol只能输入非负数");
-		return null;
-	}
-	
 	var kmeans = {};
 	//备注
 	kmeans['remark'] = remark
@@ -797,36 +746,6 @@ var decisiontreesregressionAttrs = function(){
 	if(!remark || !cacheNodeIds || !checkpointInterval || !impurity || !maxBins || !maxDepth || !maxMemoryInMB || !minInfoGain || !minInstancesPerNode || !seed){
 		return null;
 	}
-	
-	if(!rgexp2.test(checkpointInterval)){
-		$.dialog("checkpointInterval只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp2.test(maxBins)){
-		$.dialog("maxBins只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp4.test(maxDepth)){
-		$.dialog("maxDepth只能输入正整数");
-		return null;
-	}
-	if(!rgexp4.test(maxMemoryInMB)){
-		$.dialog("maxMemoryInMB只能输入正整数");
-		return null;
-	}
-	if(!rgexp2.test(minInstancesPerNode)){
-		$.dialog("minInstancesPerNode只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp4.test(seed)){
-		$.dialog("seed只能输入正整数");
-		return null;
-	}
-	if(!rgexp.test(minInfoGain)){
-		$.dialog("minInfoGain只能输入非负数");
-		return null;
-	}
-	
 	var decisiontreesregression = {};
 	//备注
 	decisiontreesregression['remark'] = remark
@@ -845,58 +764,20 @@ var decisiontreesregressionAttrs = function(){
 
 //分类树类型  属性信息
 var decisiontreesclassifierAttrs = function(){
-	var remark = $('.decisiontreesclassifier-attr .remark').val();
-	var cacheNodeIds = $('.decisiontreesclassifier-attr .cacheNodeIds').val();
-	var checkpointInterval = $('.decisiontreesclassifier-attr .checkpointInterval').val();
-	var impurity = $('.decisiontreesclassifier-attr .impurity').val();
-	var maxBins = $('.decisiontreesclassifier-attr .maxBins').val();
-	var maxDepth = $('.decisiontreesclassifier-attr .maxDepth').val();
-	var maxMemoryInMB = $('.decisiontreesclassifier-attr .maxMemoryInMB').val();
-	var minInfoGain = $('.decisiontreesclassifier-attr .minInfoGain').val();
-	var minInstancesPerNode = $('.decisiontreesclassifier-attr .minInstancesPerNode').val();
-	var seed = $('.decisiontreesclassifier-attr .seed').val();
-	var thresholds = $('.decisiontreesclassifier-attr .thresholds').val();
+	var remark = $('.decisiontreesregression-attr .remark').val();
+	var cacheNodeIds = $('.decisiontreesregression-attr .cacheNodeIds').val();
+	var checkpointInterval = $('.decisiontreesregression-attr .checkpointInterval').val();
+	var impurity = $('.decisiontreesregression-attr .impurity').val();
+	var maxBins = $('.decisiontreesregression-attr .maxBins').val();
+	var maxDepth = $('.decisiontreesregression-attr .maxDepth').val();
+	var maxMemoryInMB = $('.decisiontreesregression-attr .maxMemoryInMB').val();
+	var minInfoGain = $('.decisiontreesregression-attr .minInfoGain').val();
+	var minInstancesPerNode = $('.decisiontreesregression-attr .minInstancesPerNode').val();
+	var seed = $('.decisiontreesregression-attr .seed').val();
+	var thresholds = $('.decisiontreesregression-attr .thresholds').val();
 	if(!remark || !cacheNodeIds || !checkpointInterval || !impurity || !maxBins || !maxDepth || !maxMemoryInMB || !minInfoGain || !minInstancesPerNode || !seed || !thresholds){
 		return null;
 	}
-	
-	if(!rgexp2.test(checkpointInterval)){
-		$.dialog("checkpointInterval只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp2.test(maxBins)){
-		$.dialog("maxBins只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp4.test(maxDepth)){
-		$.dialog("maxDepth只能输入正整数");
-		return null;
-	}
-	if(!rgexp4.test(maxMemoryInMB)){
-		$.dialog("maxMemoryInMB只能输入正整数");
-		return null;
-	}
-	if(!rgexp2.test(minInstancesPerNode)){
-		$.dialog("minInstancesPerNode只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp4.test(seed)){
-		$.dialog("seed只能输入正整数");
-		return null;
-	}
-	if(!rgexp.test(minInfoGain)){
-		$.dialog("minInfoGain只能输入非负数");
-		return null;
-	}
-	var num = [];
-	num=thresholds.split(",");
-		for(var i = 0;i<num.length;i++){
-			if(!rgexp.test(num[i]) & !rgexp2.test(num[i])){
-				$.dialog("thresholds只能输入小数或正整数数组，用 逗号(,)隔开");
-				return null;
-			}
-		}
-	
 	var decisiontreesclassifier = {};
 	//备注
 	decisiontreesclassifier['remark'] = remark
@@ -926,28 +807,6 @@ var alsAttrs = function(){
 	if(!remark || !numBlocks || !rank || !iterations || !lambda || !implicitPrefs || !alpha){
 		return null;
 	}
-	
-	if(!rgexp3.test(numBlocks)){
-		$.dialog("numBlocks只能输入非零的负整数");
-		return null;
-	}
-	if(!rgexp2.test(rank)){
-		$.dialog("rank只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp2.test(iterations)){
-		$.dialog("iterations只能输入非零的正整数");
-		return null;
-	}
-	if(!rgexp.test(lambda)){
-		$.dialog("lambda只能输入非负数");
-		return null;
-	}
-	if(!rgexp.test(alpha)){
-		$.dialog("alpha只能输入非零的正整数");
-		return null;
-	}
-	
 	var als = {};
 	//备注
 	als['remark'] = remark

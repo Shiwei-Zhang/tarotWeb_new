@@ -146,21 +146,12 @@
 									<li class="tab2_1 tab_con2">
 										<div style="position: relative;">
 											<div class="dt_d">
-												<div class="dt_fun dt_serch">
+												<div class="dt_fun">
 													<p class="dtt">
 														<span data-cls="col_con" class="active_t">字段</span> <span
 															data-cls="syb_con" >函数</span>
 													</p>
-													<select id="Scontainer" onchange="selectChange()">
-														<option value="value1">value1</option>
-														<option value="value2">value2</option>
-														<option value="value3">value3</option>
-														<option value="value4">value4</option>
-														<option value="value5">value5</option>
-														<option value="other">other</option>
-													</select>
-													<input id="showVal">
-													<span class="bigIcon"></span>
+													<input type="text" placeholder="搜索" />
 												</div>
 												<div id="_column_trans" class="dt_con">
 													<div class="col_con" style="display: block;">
@@ -520,12 +511,12 @@
 								</div>
 							</div>
 						</div>
-						<!--<div class="dataMinR datamining-attr">
+						<div class="dataMinR datamining-attr">
 							<div class="dataMinRtop">
 								属性
 							</div>
 							<div class="dataMinR-prop">
-								<ul class="propContainer naivebayes-attr">&lt;!&ndash; 朴素贝叶斯 &ndash;&gt;
+								<ul class="propContainer naivebayes-attr"><!-- 朴素贝叶斯 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -540,14 +531,14 @@
 									</li>
 									<li>
 										<span>model type</span>
-										&lt;!&ndash; <input type="text" class="modelType"> &ndash;&gt;
+										<!-- <input type="text" class="modelType"> -->
 										<select class="modelType">
 											<option value="multinomial">multinomial</option>
 											<option value="bernoulli">bernoulli</option>
 										</select>
 									</li>
 								</ul>
-								<ul class="propContainer linearRegression-attr" style="display:none">&lt;!&ndash; 线性回归 &ndash;&gt;
+								<ul class="propContainer linearRegression-attr" style="display:none"><!-- 线性回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -589,7 +580,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer logisticRegression-attr" style="display:none">&lt;!&ndash; 逻辑回归 &ndash;&gt;
+								<ul class="propContainer logisticRegression-attr" style="display:none"><!-- 逻辑回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -633,7 +624,7 @@
 										<input type="text" class="threshold" value="0.5">
 									</li>
 								</ul>
-								<ul class="propContainer ridgeregression-attr" style="display:none">&lt;!&ndash; 岭回归 &ndash;&gt;
+								<ul class="propContainer ridgeregression-attr" style="display:none"><!-- 岭回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -675,7 +666,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer svm-attr" style="display:none">&lt;!&ndash; 支持向量机SVM类型 &ndash;&gt;
+								<ul class="propContainer svm-attr" style="display:none"><!-- 支持向量机SVM类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -697,7 +688,7 @@
 										<input type="text" class="miniBatchFraction" value="1.0">
 									</li>
 								</ul>
-								<ul class="propContainer kmeans-attr" style="display:none">&lt;!&ndash; K-means聚类类型 &ndash;&gt;
+								<ul class="propContainer kmeans-attr" style="display:none"><!-- K-means聚类类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -723,7 +714,7 @@
 										<input type="text" class="tol" value="1.0E-4">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesregression-attr" style="display:none">&lt;!&ndash; 回归树类型 &ndash;&gt;
+								<ul class="propContainer decisiontreesregression-attr" style="display:none"><!-- 回归树类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -770,7 +761,7 @@
 										<input type="text" class="seed" value="926680331">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesclassifier-attr" style="display:none">&lt;!&ndash; 分类树类型 &ndash;&gt;
+								<ul class="propContainer decisiontreesclassifier-attr" style="display:none"><!-- 分类树类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -821,7 +812,7 @@
 										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 								</ul>
-								<ul class="propContainer als-attr" style="display:none">&lt;!&ndash; ALS推荐类型 &ndash;&gt;
+								<ul class="propContainer als-attr" style="display:none"><!-- ALS推荐类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -855,7 +846,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>-->
+						</div>
 					</div>
 
 
@@ -1641,20 +1632,20 @@
 								</tr>
 								<tr>
 									<th>登录名</th>
-									<td><input type="text" class="loginId" onblur="loginIdValidation()"/></td>
+									<td><input type="text" class="loginId"/></td>
 								</tr>
 								<tr>
 									<th>密码</th>
-									<td><input type="password" class="pwd"/></td>
+									<td><input type="text" class="pwd"/></td>
 								</tr>
 								<tr>
 									<th>重复密码</th>
-									<td><input type="password" class="repeatPwd"/></td>
+									<td><input type="text" class="repeatPwd"/></td>
 								</tr>
 								<tr>
 									<th>性别</th>
 									<td>
-										<input type="radio" name="gender" value=0 checked="checked"/> 男
+										<input type="radio" name="gender" value=0 checked/> 男
 										<input type="radio" name="gender" value=1 /> 女
 									</td>
 								</tr>
@@ -1673,7 +1664,7 @@
 								<tr>
 									<th>是否管理员</th>
 									<td>
-										<input type="radio" name="isAdmin" value="0" checked="checked"/> 否
+										<input type="radio" name="isAdmin" value="0" checked/> 否
 										<input type="radio" name="isAdmin" value="1" /> 是
 									</td>
 								</tr>
@@ -1699,13 +1690,13 @@
 								<tr>
 									<th>性别</th>
 									<td>
-										<input type="radio" name="gender" value=0 /> 男
+										<input type="radio" name="gender" value=0 checked/> 男
 										<input type="radio" name="gender" value=1 /> 女
 									</td>
 								</tr>
 								<tr>
 									<th>生日</th>
-									<td><input type="date" class="birth"/></td>
+									<td><input type="date" id="birth"/></td>
 								</tr>
 								<tr>
 									<th>电话</th>
@@ -1718,13 +1709,13 @@
 								<tr>
 									<th>是否管理员</th>
 									<td>
-										<input type="radio" name="isAdmin" value="0" /> 否
+										<input type="radio" name="isAdmin" value="0" checked/> 否
 										<input type="radio" name="isAdmin" value="1" /> 是
 									</td>
 								</tr>
 							</table>
 						</div>
-						<input type="button" class="table-user" onclick="EditOkUser()" value="确认修改" />
+						<input type="button" class="table2-but" onclick="EditOkUser()" value="确认修改" />
 					</div>
 				</div>
 			</div>
@@ -2529,14 +2520,6 @@
     var tableNameMap = new Map();
 	$.resizeW();
 
-	//函数选择框change事件
-	function selectChange(){
-		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());
-	}
-	$('.dt_serch .bigIcon').unbind('click').click(function () {
-		//TODO
-		console.log('serch~~~')
-	});
 
 	//TODO deleting
     //urlId = 'http://localhost:800/';
@@ -2650,7 +2633,7 @@
             },
             success:function(data) {
                 //console.log(data);
-                var isShow = showNum(maxPower);
+                var isShow = showType(maxPower);
                 if(menuId==0&&menuType==menuTypeEnum[0]){
                     $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span class="rootTitle" style="margin-left: 4px">' + name + '</span></div><ul></ul></li>'));
                     renameMenuForHome();
@@ -2939,7 +2922,7 @@ function renameMenuForHome(){
 						 }
 					 }
 			 	 );
-    			/*  var isShow = showNum(currentUserPowerStr);
+    			/*  var isShow = showType(currentUserPowerStr);
     			 $("#"+selectedMenuId).attr("name",isShow);
 		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr); */
 		    	 //清空signArray
@@ -3124,7 +3107,7 @@ function renameMenuForHome(){
         for(var i=0;i<data.length;i++){
             var type = data[i].type;
             var childrens = data[i].childrens;
-            var isShow = showNum(data[i].power);
+            var isShow = showType(data[i].power);
             if(type==1){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
                 '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
@@ -3244,7 +3227,7 @@ function renameMenuForHome(){
         return source.replace(/[^0-9]/ig, "");
     }
     //工具类方法：定义显示类型
-    function showNum(source){
+    function showType(source){
         var isShow="";
         if(powerConjunction(source,powerEnum[3])&&powerConjunction(source,powerEnum[4])){
             isShow="doubleShow";

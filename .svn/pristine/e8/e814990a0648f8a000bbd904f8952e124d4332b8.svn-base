@@ -24,6 +24,8 @@ $(function(){
     })
 });
 
+
+
 $(function(){
     $('.paramMain:before').click(function () {
         console.log('ok')
@@ -47,6 +49,9 @@ $(function(){
         }
         tabCheck(idName, dataType, fileName);
         //初始化事件
+
+
+
     });
 
     //module-data-right-navigation
@@ -437,8 +442,6 @@ $(function(){
             //TODO Loading flow data and mask
         	getFlowIdByMenuId($idName);
             $('.flow-template').show();
-            //设置属性input宽度
-            $('.module-prop .prop input').css('width',250-$('.module-prop .prop span:first-child').width());
         }else if($dataType == 4){
             //TODO Loading datamining data and mask
         	dataMiningInit($idName);

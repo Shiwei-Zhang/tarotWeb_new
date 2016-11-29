@@ -37,9 +37,6 @@
 
 </head>
 <body>
-<!--状态改变按钮-->
-<button class="change_Btn" style="position: absolute;top: 0;left: 1148px;">改变</button></div>
-<button class="save_Btn" style="position: absolute;top: 0;left: 1200px;">保存</button></div>
 	<!--header start-->
 	<div class="f-header">
 		<div class="left-header">
@@ -56,8 +53,7 @@
         <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
-		<div style="height:25px;">
-			<button class="logout">注销</button></div>
+		<div style="height:25px;"><button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -71,8 +67,8 @@
 				<h6 class="man2">数据连接管理</h6>
 				<h6 class="man3">个人信息维护</h6>
 				<h6 class="man4">业务代码维护</h6>
-				<!--<h6 class="man5">内部数据类型维护</h6>
-				<h6 class="man6">外部数据类型维护</h6>-->
+				<h6 class="man5">内部数据类型维护</h6>
+				<h6 class="man6">外部数据类型维护</h6>
 			</div>
 		</div>
 	</div>
@@ -101,7 +97,9 @@
 				<div class="module-data-all">
 					<div class="module-data-right-navigation" style="display: none">
 						<ul class="tabs tabs1 tabsEvent clearFix">
-
+							<!--<li class="thistab"><a tab="tab1_1"><span class="flow"></span><span class="name_m" title="Co Flow">Co Flow1</span><span class="close_m"><i class="fa  fa-close-m"></i></span></a></li>
+                        <li><a tab="tab1_2"><span class="biIcon"></span><span class="name_m" title="Data2 sfsfasfa">BI</span><span class="close_m"><i class="fa fa-close-m"></i></span></a></li>
+                        <li><a tab="tab1_3"><span class="controllerIcon"></span><span class="name_m" title="Co Flow">Controller</span><span class="close_m"><i class="fa fa-close-m"></i></span></a></li>-->
 						</ul>
 					</div>
 
@@ -135,39 +133,42 @@
 								<ul class="tabs tabs2">
 									<li><a tab="tab2_1"><span class="flow"></span><p>转换</p></a></li>
 									<li><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
+									<li><a tab="tab2_3"><span class="debug"></span><p class="textArea">调试</p></a></li>
 									<li><a tab="tab2_4"><span class="mointor"></span><p class="textArea">数据监控</p></a></li>
 									<li class="monitor nochangetab"><a tab="tab2_4"> <span
 											class="debug"></span> <span class="runing"></span> <span
 											class="stop"></span> <span class="wait"></span> <span
-											class="next"></span>
+											class="next"></span> <!-- <span class="next1"></span>
+                                        <span class="prev"></span> -->
 									</a></li>
 								</ul>
 								<ul class="tab_conbox">
 									<li class="tab2_1 tab_con2">
 										<div style="position: relative;">
 											<div class="dt_d">
-												<div class="dt_fun dt_serch">
+												<div class="dt_fun">
 													<p class="dtt">
 														<span data-cls="col_con" class="active_t">字段</span> <span
 															data-cls="syb_con" >函数</span>
 													</p>
-													<select id="Scontainer" onchange="selectChange()">
-														<option value="value1">value1</option>
-														<option value="value2">value2</option>
-														<option value="value3">value3</option>
-														<option value="value4">value4</option>
-														<option value="value5">value5</option>
-														<option value="other">other</option>
-													</select>
-													<input id="showVal">
-													<span class="bigIcon"></span>
+													<input type="text" placeholder="搜索" />
 												</div>
 												<div id="_column_trans" class="dt_con">
 													<div class="col_con" style="display: block;">
-
+														<!-- <p jmType = "2" textValue = "id" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">id</p>
+					                                    <p jmType = "2" textValue = "name" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">name</p>
+					                                    <p jmType = "2" textValue = "sex" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">sex</p>
+					                                    <p jmType = "2" textValue = "value" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">value</p>
+					                                    <p jmType = "2" textValue = "email" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">email</p>
+					                                    <p jmType = "2" textValue = "phone" level="4" flowId="0" sourceId="0" line_color="#1abc9c" class="draggable">phone</p> -->
 													</div>
 													<div class="syb_con"style="display: none">
-
+														<!-- <p fk = "0" textValue = "?+?" level="3" class="draggable">加</p>
+				                                    	<p fk = "0" textValue = "?-?" level="3" class="draggable">减</p>
+				                                    	<p fk = "0" textValue = "?*?" level="3" class="draggable">乘</p>
+				                                    	<p fk = "0" textValue = "?/?" level="3" class="draggable">除</p>
+				                                    	<p fk = "0" textValue = "sin(?)" level="3" class="draggable">sin</p>
+				                                    	<p fk = "0" textValue = "cos(?)" level="3" class="draggable">cos</p> -->
 													</div>
 												</div>
 											</div>
@@ -520,12 +521,12 @@
 								</div>
 							</div>
 						</div>
-						<!--<div class="dataMinR datamining-attr">
+						<div class="dataMinR datamining-attr">
 							<div class="dataMinRtop">
 								属性
 							</div>
 							<div class="dataMinR-prop">
-								<ul class="propContainer naivebayes-attr">&lt;!&ndash; 朴素贝叶斯 &ndash;&gt;
+								<ul class="propContainer naivebayes-attr"><!-- 朴素贝叶斯 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -540,14 +541,14 @@
 									</li>
 									<li>
 										<span>model type</span>
-										&lt;!&ndash; <input type="text" class="modelType"> &ndash;&gt;
+										<!-- <input type="text" class="modelType"> -->
 										<select class="modelType">
 											<option value="multinomial">multinomial</option>
 											<option value="bernoulli">bernoulli</option>
 										</select>
 									</li>
 								</ul>
-								<ul class="propContainer linearRegression-attr" style="display:none">&lt;!&ndash; 线性回归 &ndash;&gt;
+								<ul class="propContainer linearRegression-attr" style="display:none"><!-- 线性回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -589,7 +590,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer logisticRegression-attr" style="display:none">&lt;!&ndash; 逻辑回归 &ndash;&gt;
+								<ul class="propContainer logisticRegression-attr" style="display:none"><!-- 逻辑回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -633,7 +634,7 @@
 										<input type="text" class="threshold" value="0.5">
 									</li>
 								</ul>
-								<ul class="propContainer ridgeregression-attr" style="display:none">&lt;!&ndash; 岭回归 &ndash;&gt;
+								<ul class="propContainer ridgeregression-attr" style="display:none"><!-- 岭回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -675,7 +676,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer svm-attr" style="display:none">&lt;!&ndash; 支持向量机SVM类型 &ndash;&gt;
+								<ul class="propContainer svm-attr" style="display:none"><!-- 支持向量机SVM类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -697,7 +698,7 @@
 										<input type="text" class="miniBatchFraction" value="1.0">
 									</li>
 								</ul>
-								<ul class="propContainer kmeans-attr" style="display:none">&lt;!&ndash; K-means聚类类型 &ndash;&gt;
+								<ul class="propContainer kmeans-attr" style="display:none"><!-- K-means聚类类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -723,7 +724,7 @@
 										<input type="text" class="tol" value="1.0E-4">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesregression-attr" style="display:none">&lt;!&ndash; 回归树类型 &ndash;&gt;
+								<ul class="propContainer decisiontreesregression-attr" style="display:none"><!-- 回归树类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -770,7 +771,7 @@
 										<input type="text" class="seed" value="926680331">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesclassifier-attr" style="display:none">&lt;!&ndash; 分类树类型 &ndash;&gt;
+								<ul class="propContainer decisiontreesclassifier-attr" style="display:none"><!-- 分类树类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -821,7 +822,7 @@
 										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 								</ul>
-								<ul class="propContainer als-attr" style="display:none">&lt;!&ndash; ALS推荐类型 &ndash;&gt;
+								<ul class="propContainer als-attr" style="display:none"><!-- ALS推荐类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -855,7 +856,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>-->
+						</div>
 					</div>
 
 
@@ -979,6 +980,7 @@
 									</li>
 									<li class="timeControl">
 										<span class="Tname">时间控件</span>
+                                        <!--<input type="text" name="cron" style="width:100%;" value="* * * * * ? "  readonly="readonly">-->
 										<div class="easyui-layout" style="display:inline-block;width:616px;height:340px;border:1px rgb(202, 196, 196) solid;">
 											<div data-options="region:'center',border:false" >
 												<div class="easyui-tabs" data-options="fit:true,border:false">
@@ -1237,75 +1239,9 @@
 														<div class="line"><input type="radio" name="year" onclick="everyTime(this)"> 每年</div>
 														<div class="line"><input type="radio" name="year" onclick="cycle(this)">周期 从 <input class="numberspinner" style="width:90px;" data-options="min:2013,max:3000" value="2013"> - <input class="numberspinner" style="width:90px;" data-options="min:2014,max:3000" value="2014"></div>
 													</div>
+													<input type="hidden" name="cron" style="display: none" value="* * * * * ? " id="cron" readonly="readonly">
 												</div>
 											</div>
-											<div data-options="region:'south',border:false" style="height:10px;">
-												<fieldset style="border-radius: 3px;height:10px;">
-													<legend>表达式</legend>
-													<table style="height: 10px;">
-														<tbody>
-														<tr>
-															<td ></td>
-															<td  align="center">
-																秒
-															</td>
-															<td  align="center">
-																分钟
-															</td>
-															<td  align="center">
-																小时
-															</td>
-															<td  align="center">
-																日
-															</td>
-															<td  align="center">
-																月<br/>
-															</td>
-															<td  align="center">
-																星期
-															</td>
-															<td align="center">
-																年
-															</td>
-														</tr>
-														<tr>
-															<td  >
-																表达式字段:
-															</td>
-															<td  >
-																<input type="text" name="v_second" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td  >
-																<input type="text" name="v_min" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_hour" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_day" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_mouth" class="col" value="*" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_week" class="col" value="?" readonly="readonly"/>
-															</td>
-															<td >
-																<input type="text" name="v_year"  class="col" readonly="readonly"/>
-															</td>
-														</tr>
-														<tr>
-															<td  >
-																Cron表达式:
-															</td>
-															<td colspan="7">
-																<input type="text" name="cron" style="width:100%;" value="* * * * * ? " id="cron" readonly="readonly"/>
-															</td>
-														</tr>
-														</tbody>
-													</table>
-												</fieldset>
-										     </div>
 										</div>
 									</li>
 									<li class="deployStateD deployState">
@@ -1641,20 +1577,20 @@
 								</tr>
 								<tr>
 									<th>登录名</th>
-									<td><input type="text" class="loginId" onblur="loginIdValidation()"/></td>
+									<td><input type="text" class="loginId"/></td>
 								</tr>
 								<tr>
 									<th>密码</th>
-									<td><input type="password" class="pwd"/></td>
+									<td><input type="text" class="pwd"/></td>
 								</tr>
 								<tr>
 									<th>重复密码</th>
-									<td><input type="password" class="repeatPwd"/></td>
+									<td><input type="text" class="repeatPwd"/></td>
 								</tr>
 								<tr>
 									<th>性别</th>
 									<td>
-										<input type="radio" name="gender" value=0 checked="checked"/> 男
+										<input type="radio" name="gender" value=0 checked/> 男
 										<input type="radio" name="gender" value=1 /> 女
 									</td>
 								</tr>
@@ -1673,7 +1609,7 @@
 								<tr>
 									<th>是否管理员</th>
 									<td>
-										<input type="radio" name="isAdmin" value="0" checked="checked"/> 否
+										<input type="radio" name="isAdmin" value="0" checked/> 否
 										<input type="radio" name="isAdmin" value="1" /> 是
 									</td>
 								</tr>
@@ -1699,13 +1635,13 @@
 								<tr>
 									<th>性别</th>
 									<td>
-										<input type="radio" name="gender" value=0 /> 男
+										<input type="radio" name="gender" value=0 checked/> 男
 										<input type="radio" name="gender" value=1 /> 女
 									</td>
 								</tr>
 								<tr>
 									<th>生日</th>
-									<td><input type="date" class="birth"/></td>
+									<td><input type="date" id="birth"/></td>
 								</tr>
 								<tr>
 									<th>电话</th>
@@ -1718,17 +1654,17 @@
 								<tr>
 									<th>是否管理员</th>
 									<td>
-										<input type="radio" name="isAdmin" value="0" /> 否
+										<input type="radio" name="isAdmin" value="0" checked/> 否
 										<input type="radio" name="isAdmin" value="1" /> 是
 									</td>
 								</tr>
 							</table>
 						</div>
-						<input type="button" class="table-user" onclick="EditOkUser()" value="确认修改" />
+						<input type="button" class="table2-but" onclick="EditOkUser()" value="确认修改" />
 					</div>
 				</div>
 			</div>
-			<div class="business_logic clearFix" style="display: none;">
+			<div class="business_logic" style="display: none;">
 				<div class="group">
 			        <div class="group_add">
 			        	<span>业务组</span>
@@ -1781,7 +1717,7 @@
 			            </div>
 			        </div>
 			    </div>
-			    <div class="eum" style="margin: 0">
+			    <div class="eum">
 			        <div class="eum_add">
 			        	<span>业务枚举</span>
 			            <input type="button" value="+"/>
@@ -1851,9 +1787,9 @@
                 </tr> -->
             </table>
         </div>
-        <div class="btn-group clearFix">
-			<input class="sure" type="button" value="确定"/>
-            <input class="cancel" type="button" value="取消"/>
+        <div class="btn-group">
+            <input type="button" value="取消"/>
+            <input type="button" value="确定"/>
         </div>
     </div>
     <div class="mask"></div>
@@ -2529,14 +2465,6 @@
     var tableNameMap = new Map();
 	$.resizeW();
 
-	//函数选择框change事件
-	function selectChange(){
-		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());
-	}
-	$('.dt_serch .bigIcon').unbind('click').click(function () {
-		//TODO
-		console.log('serch~~~')
-	});
 
 	//TODO deleting
     //urlId = 'http://localhost:800/';
@@ -2650,7 +2578,7 @@
             },
             success:function(data) {
                 //console.log(data);
-                var isShow = showNum(maxPower);
+                var isShow = showType(maxPower);
                 if(menuId==0&&menuType==menuTypeEnum[0]){
                     $('.root_tree').append($('<li data-title="'+ name + '"><div id="'+data+'" menuType="'+menuType+'" power="'+maxPower+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data+','+menuType+');"><i class="fa fa-folder-open_ folder_title"></i><span class="rootTitle" style="margin-left: 4px">' + name + '</span></div><ul></ul></li>'));
                     renameMenuForHome();
@@ -2939,7 +2867,7 @@ function renameMenuForHome(){
 						 }
 					 }
 			 	 );
-    			/*  var isShow = showNum(currentUserPowerStr);
+    			/*  var isShow = showType(currentUserPowerStr);
     			 $("#"+selectedMenuId).attr("name",isShow);
 		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr); */
 		    	 //清空signArray
@@ -3124,7 +3052,7 @@ function renameMenuForHome(){
         for(var i=0;i<data.length;i++){
             var type = data[i].type;
             var childrens = data[i].childrens;
-            var isShow = showNum(data[i].power);
+            var isShow = showType(data[i].power);
             if(type==1){
                 htmlstr+='<li data-title="'+data[i].name+'">'+
                 '<div id="'+data[i].id+'" menuType="'+data[i].type+'" power="'+data[i].power+'" name="'+isShow+'" class="folder_self" onclick="getUserPower('+data[i].id+','+data[i].type+');" ><i class="fa fa-folder-open_ folder_title"></i><span>'+data[i].name+'</span></div>'+
@@ -3244,7 +3172,7 @@ function renameMenuForHome(){
         return source.replace(/[^0-9]/ig, "");
     }
     //工具类方法：定义显示类型
-    function showNum(source){
+    function showType(source){
         var isShow="";
         if(powerConjunction(source,powerEnum[3])&&powerConjunction(source,powerEnum[4])){
             isShow="doubleShow";
