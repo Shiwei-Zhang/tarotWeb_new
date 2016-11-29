@@ -117,194 +117,6 @@ $(function(){
         }
     });
 
-    /*var contextMenu = function(){
-        context.init({preventDoubleContext: false});
-
-        context.attach('.folder .home', [
-            {text: '添加', subMenu:[
-                {text:'添加文件夹', action:function(e){
-                    e.preventDefault();
-                    console.log('添加文件夹');
-                    //modified by tyd
-                    var folderName = '新建文件夹';
-                    addMenu("menuId0",menuTypeEnum[0],folderName);
-                }},
-                {text:'添加逻辑流', action:function(e){
-                    e.preventDefault();
-                    console.log('添加逻辑流');
-                    //modified by tyd
-                    var folderName = '新建逻辑流';
-                    addMenu("menuId0",menuTypeEnum[2],folderName);
-                }},
-                {text:'添加报表', action:function(e){
-                    e.preventDefault();
-                    console.log('添加BI');
-                    //modified by tyd
-                    var folderName = '新建报表';
-                    addMenu("menuId0",menuTypeEnum[3],folderName);
-                }},
-                {text:'添加挖掘模型', action:function(e){
-                    e.preventDefault();
-                    console.log('添加DataMining');
-                    //modified by tyd
-                    var folderName = '新建DataMining';
-                    addMenu("menuId0",menuTypeEnum[4],folderName);
-                }},
-                {text:'添加控制器', action:function(e){
-                    e.preventDefault();
-                    console.log('添加Controller');
-                    //modified by tyd
-                    var folderName = '新建控制器';
-                    addMenu("menuId0",menuTypeEnum[1],folderName);
-                }},
-            ]}
-        ]);
-        context.attach('.folder .folder_self', [
-            {text: '添加', subMenu:[
-                {text:'添加文件夹', action:function(e){
-                    e.preventDefault();
-                    console.log('添加文件夹');
-
-                    //modified by tyd
-                    var folderName = '新建文件夹';
-                    addMenu($currentRightDom.attr("id"),menuTypeEnum[0],folderName);
-                }},
-                {text:'添加逻辑流', action:function(e){
-                    e.preventDefault();
-                    console.log('添加');
-                    //modified by tyd
-                    var folderName = '新建逻辑流';
-                    addMenu($currentRightDom.attr("id"),menuTypeEnum[2],folderName);
-                }},
-                {text:'添加报表', action:function(e){
-                    e.preventDefault();
-                    console.log('添加BI');
-                    //modified by tyd
-                    var folderName = '新建报表';
-                    addMenu($currentRightDom.attr("id"),menuTypeEnum[4],folderName);
-                }},
-                {text:'添加挖掘模型', action:function(e){
-                    e.preventDefault();
-                    console.log('添加DataMining');
-                    //modified by tyd
-                    var folderName = '新建DataMining';
-                    addMenu($currentRightDom.attr("id"),menuTypeEnum[3],folderName);
-                }},
-                {text:'添加控制器', action:function(e){
-                    e.preventDefault();
-                    console.log('添加Controller');
-                    //modified by tyd
-                    var folderName = '新建控制器';
-                    addMenu($currentRightDom.attr("id"),menuTypeEnum[1],folderName);
-                }},
-            ]},
-            {text: '删除', action:function(e){
-                e.preventDefault();
-                console.log('删除当前文件（夹）');
-                //modified by tyd
-                var menuId = $currentRightDom.attr("id");
-                var menuType = $currentRightDom.attr("menuType");
-                deleteMenu(menuId,menuType);
-            }},
-            {divider: true},
-            {text: '重命名', action:function(e){
-                e.preventDefault();
-                console.log('重命名');
-
-                if($currentRightDom){
-                    var text = $currentRightDom.children().last().text();
-                    $currentRightDom.children().last().remove();
-                    $currentRightDom.append($('<input type="text" value="'+ text + '" />'));
-                    $('.folder input').select();
-
-                    $('.folder input').unbind('keydown').keydown(function(e){
-                        if (e.keyCode == "13") {//keyCode=13是回车键
-                            var val = $currentRightDom.children().last().val();
-                            if(/['"#$%&\^*]/.test(val)){
-                                $.dialog("不能包含特殊字符！");
-                                return;
-                            }else if(val == ""){
-                                $.dialog("不能为空！");
-                                return;
-                            }
-                            var menuId=$currentRightDom.attr("id");
-                            var name=$currentRightDom.children().last().val();
-                            var type=$currentRightDom.attr("menuType");
-                            updateMenu(menuId,name,type);
-                            $currentRightDom.children().last().remove();
-                            $currentRightDom.append($('<span>' + val + '</span>'));
-
-                            $currentRightDom = null;
-                        }
-                    });
-                }
-            }},
-        ]);
-
-        context.attach('.folder .folder_child', [
-            {text: '删除', action:function(e){
-                e.preventDefault();
-                console.log('删除当前文件（夹）');
-                //modified by tyd
-                var menuId = $currentRightDom.attr("id");
-                var menuType = $currentRightDom.attr("menuType");
-                deleteMenu(menuId,menuType);
-            }},
-            {divider: true},
-            {text: '重命名', action:function(e){
-                e.preventDefault();
-                console.log('重命名');
-
-                if($currentRightDom){
-                    var text = $currentRightDom.children().last().text();
-                    $currentRightDom.children().last().remove();
-                    $currentRightDom.append($('<input type="text" value="'+ text + '" />'));
-                    $('.folder input').select();
-
-                    $('.folder input').unbind('keydown').keydown(function(e){
-                        if (e.keyCode == "13") {//keyCode=13是回车键
-                            var val = $currentRightDom.children().last().val();
-                            if(/['"#$%&\^*]/.test(val)){
-                                $.dialog("不能包含特殊字符！");
-                                return;
-                            }else if(val == ""){
-                                $.dialog("不能为空！");
-                                return;
-                            }
-                            var id=$currentRightDom.attr("id");
-                            var name=$currentRightDom.children().last().val();
-                            var type=$currentRightDom.attr("menuType");
-                            updateMenu(id,name,type);
-                            $currentRightDom.children().last().remove();
-                            $currentRightDom.append($('<span>' + val + '</span>'));
-
-                            $currentRightDom = null;
-                        }
-                    });
-                }
-            }},
-        ]);
-    };
-    context.attach('.module-data-navigation', [
-       {header: '请选中文件，文件夹或者home'}
-    ]);
-    //contextMenu();
-
-
-    window.$currentRightDom = null;
-    $('.root_tree div').unbind('mousedown').mousedown(function(event, a){
-        if(event.which == 3 || a == 'right'){
-            $currentRightDom = $(this);
-            console.log($currentRightDom.html());
-        }
-
-        if($(this).html().indexOf('input') > 0){
-            console.log('is current element.');
-            return;
-        }
-        resetFolder();
-    });*/
-
     window.resetFolder = function(){
         var parentDom = $('.folder input');
         if(parentDom && parentDom.length > 0){
@@ -323,7 +135,7 @@ $(function(){
             parentDom.parent().append($('<span>' + text + '</span>'));
             parentDom.remove();
         }
-    }
+    };
     //
     /*******add by tyd*******/
     $('.new_table_name input').bind('input propertychange', function() {
@@ -813,6 +625,7 @@ $(function(){
     };
     $.jqtab(".tabs1",".tab_con1");
     $.jqtab(".tabs2",".tab_con2");
+    $.jqtab(".tabs3",".tab_con3");
     //end--
 
     $('#tabbox2 .dtt span').click(function(e){

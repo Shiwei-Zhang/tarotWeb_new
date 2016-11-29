@@ -16,6 +16,7 @@ $(function(){
 	})
 });
 
+/*
 //dataMini实现下拉框可编辑
 $(function(){
     $('.dataSe').change(function(){
@@ -23,6 +24,7 @@ $(function(){
             document.getElementsByClassName('dataSe')[0].options[document.getElementsByClassName('dataSe')[0].selectedIndex].value;
     })
 });
+*/
 
 $(function(){
     $('.paramMain:before').click(function () {
@@ -66,7 +68,6 @@ $(function(){
         //2.controller, 3.flow, 4.datamining, 5.bi
         showType($idName, $dataType)
     });
-
 
     //工作区管理按钮点击事件
     $('.managers').off('click').on('click', function (e) {
