@@ -575,7 +575,7 @@ $(function(){
 			$('.personalInfo').show();
 			$('.btnEvent li span').removeClass('selected');
 			$('.btnEvent li span').first().addClass('selected');
-			refreshUser();
+			refreshUser(userId);
 		}
 	})
 	
@@ -2075,6 +2075,7 @@ function EditOkUser(){
 			$.dialog('修改用户信息成功');
 			console.log(data);
 			refreshUsersList(null);
+			refreshUser();
 		}
 	});	
 }
@@ -2163,8 +2164,6 @@ function refreshUser(){
 		},
 		dataType:"json",
 		success:function(data){
-			$('.showMessage').show();
-			$('.changeP').hide();
 			$('.updateMessage').show();
 			$('.editUserBtn').hide();
 			$('.showMessage .name').text(data.name);

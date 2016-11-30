@@ -181,265 +181,30 @@
 
 									<li class="tab2_2 tab_con2">
 										<div>
-											<p>log1</p>
-											<p>log1</p>
-											<p>log1</p>
-											<p>log1</p>
-											<p>log1</p>
-											<p>log1</p>
+											
 										</div>
 									</li>
 
 									<li class="tab2_4 tab_con2">
 										<div>
-											<ul class="navBar">
-												<li class="navBar_1 bg"><span>员工合同</span></li>
-												<li class="navBar_2"><span>员工在职时间戳</span></li>
-												<li class="navBar_3"><span>按月统计员工KPI及考勤</span></li>
+											<ul class="tabs tabs3" style="font-size: 12px">
+												<li><a tab="tab3_1"><span class="flow"></span><p>员工合同</p></a></li>
+												<li><a tab="tab3_2"><span class="log"></span><p class="textArea">员工在职时间戳</p></a></li>
+												<li><a tab="tab3_3"><span class="mointor"></span><p class="textArea">按月统计员工KPI及考勤</p></a>
+												</li>
 											</ul>
-											<ul class="nav_conbox" style="font-size: 14px">
-												<li class="conBox_1" style="display: block">
-													<table class="tableStyle" style="">
-														<tr class="firTr">
-															<th>Column1</th>
-															<th>Column2</th>
-															<th>Column3</th>
-															<th>Column4</th>
-															<th>Column5</th>
-															<th>Column6</th>
-															<th>Column7</th>
-															<th>Column8</th>
-															<th style="border-right: 1px solid #ddd">Column9</th>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-													</table>
+											<ul class="tab_conbox">
+												<li class="tab3_1 tab_con3">
+													11111
 												</li>
-												<li class="conBox_2" style="display: none">
-													<table class="tableStyle" style="">
-														<tr class="firTr">
-															<th>Column1</th>
-															<th>Column2</th>
-															<th>Column3</th>
-															<th>Column4</th>
-															<th>Column5</th>
-															<th>Column6</th>
-															<th>Column7</th>
-															<th>Column8</th>
-															<th style="border-right: 1px solid #ddd">Column9</th>
-														</tr>
-														<tr>
-															<td>B</td>
-															<td>1</td>
-															<td>B</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>B</td>
-															<td>1</td>
-															<td>B</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>B</td>
-															<td>1</td>
-															<td>B</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>B</td>
-															<td>1</td>
-															<td>B</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-													</table>
+
+												<li class="tab3_2 tab_con3">
+													222222
+
 												</li>
-												<li class="conBox_3" style="display: none">
-													<table class="tableStyle" style="">
-														<tr class="firTr">
-															<th>Column1</th>
-															<th>Column2</th>
-															<th>Column3</th>
-															<th>Column4</th>
-															<th>Column5</th>
-															<th>Column6</th>
-															<th>Column7</th>
-															<th>Column8</th>
-															<th style="border-right: 1px solid #ddd">Column9</th>
-														</tr>
-														<tr>
-															<td>C</td>
-															<td>1</td>
-															<td>C</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>C</td>
-															<td>1</td>
-															<td>C</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>C</td>
-															<td>1</td>
-															<td>C</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>C</td>
-															<td>1</td>
-															<td>C</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>C</td>
-															<td>1</td>
-															<td>C</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>C</td>
-															<td>1</td>
-															<td>C</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-														<tr>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-															<td>abc</td>
-															<td>A</td>
-															<td>1</td>
-															<td>a</td>
-															<td>abc</td>
-														</tr>
-													</table>
+
+												<li class="tab3_3 tab_con3">
+													33333
 												</li>
 											</ul>
 										</div>
@@ -727,7 +492,7 @@
 										</ul>
 									</div>
 								</div>
-								<!--<div class="savePart datamining-target" style="display: none">
+								<div class="savePart datamining-target">
 									<div class="dataMinT">
 										保存目标
 									</div>
@@ -741,9 +506,9 @@
 											</li>
 											<li>
 												<span>表名</span>
-												&lt;!&ndash; <select>
+												<!-- <select>
 													<option value="">接口</option>
-												</select> &ndash;&gt;
+												</select> -->
 												<input  class="tableName"  type="text" placeholder="请输入目标表名"/>
 											</li>
 										</ul>
@@ -752,7 +517,7 @@
 											<p class="datamining-save">保存</p>
 										</div>
 									</div>
-								</div>-->
+								</div>
 							</div>
 							<div class="dataMinL-bottom">
 								<ul class="tabs tabs2">
@@ -768,12 +533,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="dataMinR datamining-attr">
+						<!--<div class="dataMinR datamining-attr">
 							<div class="dataMinRtop">
 								属性
 							</div>
 							<div class="dataMinR-prop">
-								<ul class="propContainer naivebayes-attr"><!-- 朴素贝叶斯 -->
+								<ul class="propContainer naivebayes-attr">&lt;!&ndash; 朴素贝叶斯 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -788,14 +553,14 @@
 									</li>
 									<li>
 										<span>model type</span>
-										<!-- <input type="text" class="modelType"> -->
+										&lt;!&ndash; <input type="text" class="modelType"> &ndash;&gt;
 										<select class="modelType">
 											<option value="multinomial">multinomial</option>
 											<option value="bernoulli">bernoulli</option>
 										</select>
 									</li>
 								</ul>
-								<ul class="propContainer linearRegression-attr" style="display:none"><!-- 线性回归 -->
+								<ul class="propContainer linearRegression-attr" style="display:none">&lt;!&ndash; 线性回归 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -837,7 +602,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer logisticRegression-attr" style="display:none"><!-- 逻辑回归 -->
+								<ul class="propContainer logisticRegression-attr" style="display:none">&lt;!&ndash; 逻辑回归 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -881,7 +646,7 @@
 										<input type="text" class="threshold" value="0.5">
 									</li>
 								</ul>
-								<ul class="propContainer ridgeregression-attr" style="display:none"><!-- 岭回归 -->
+								<ul class="propContainer ridgeregression-attr" style="display:none">&lt;!&ndash; 岭回归 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -923,7 +688,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer svm-attr" style="display:none"><!-- 支持向量机SVM类型 -->
+								<ul class="propContainer svm-attr" style="display:none">&lt;!&ndash; 支持向量机SVM类型 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -945,7 +710,7 @@
 										<input type="text" class="miniBatchFraction" value="1.0">
 									</li>
 								</ul>
-								<ul class="propContainer kmeans-attr" style="display:none"><!-- K-means聚类类型 -->
+								<ul class="propContainer kmeans-attr" style="display:none">&lt;!&ndash; K-means聚类类型 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -971,7 +736,7 @@
 										<input type="text" class="tol" value="1.0E-4">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesregression-attr" style="display:none"><!-- 回归树类型 -->
+								<ul class="propContainer decisiontreesregression-attr" style="display:none">&lt;!&ndash; 回归树类型 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -991,7 +756,7 @@
 										<input type="text" class="maxDepth" value="5">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesclassifier-attr" style="display:none"><!-- 分类树类型 -->
+								<ul class="propContainer decisiontreesclassifier-attr" style="display:none">&lt;!&ndash; 分类树类型 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -1015,7 +780,7 @@
 										<input type="text" class="maxDepth" value="5">
 									</li>
 								</ul>
-								<ul class="propContainer als-attr" style="display:none"><!-- ALS推荐类型 -->
+								<ul class="propContainer als-attr" style="display:none">&lt;!&ndash; ALS推荐类型 &ndash;&gt;
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -1049,7 +814,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>
+						</div>-->
 					</div>
 
 
@@ -1841,7 +1606,8 @@
 							</table>
 							
 							<div class="editUserBtn" style="display:none;">
-								<span class="user-but saveUser">保存</span><span class="user-but cancelUser">取消</span>
+								<input type="button" class="user-but cancelUser" value="取消" />&nbsp;&nbsp;&nbsp;
+								<input type="button" class="user-but saveUser" value="保存" />
 							</div>
 						</div>
 						<div class="changeP">
@@ -1851,7 +1617,7 @@
 							<div class="upPwd">
 								<span class="pwdGroup">原  密  码：<span class="ssss"></span></span><input type="password" class="oldPwd"/><br/>
 								<span class="pwdGroup">新  密  码：<span class="ssss"></span></span><input type="password" class="newPwd"/><br/>
-								<span class="pwdGroup">重 复 密 码 ：<span class="ssss"></span></span><input type="password" class="repeat"/><br/>
+								<span class="pwdGroup">重 复 密 码：<span class="ssss"></span></span><input type="password" class="repeat"/><br/>
 							</div>
 							<input type="button" class="rePwd"  value="确认"/>
 						</div>
