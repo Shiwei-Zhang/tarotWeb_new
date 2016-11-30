@@ -31,7 +31,7 @@
 	$.resizeW = function() {
 		var $winW = $(document).width();
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
-		$('.dataMinL').css('width',($winW-201));
+		$('.dataMinL').css('width',($winW-201-345));
 		$('.module-core').css('width',($winW-201-351));
 		$('.codePart').css('width',($('.module-data-all').width()-351));//flow-code
 	};

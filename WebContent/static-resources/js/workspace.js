@@ -648,6 +648,12 @@ $(function(){
         $('.' + cls).show();
     });
 
+    $('.navBar li').unbind('click').click(function () {
+        $(this).addClass('bg').siblings('li').removeClass('bg');
+        $('.nav_conbox').children('li').eq($(this).index()).show().siblings('li').hide();
+    });
+
+
 });
 
 function edittest(){

@@ -187,23 +187,78 @@
 
 									<li class="tab2_4 tab_con2">
 										<div>
-											<ul class="tabs tabs3" style="font-size: 12px">
-												<li><a tab="tab3_1"><span class="flow"></span><p>员工合同</p></a></li>
-												<li><a tab="tab3_2"><span class="log"></span><p class="textArea">员工在职时间戳</p></a></li>
-												<li><a tab="tab3_3"><span class="mointor"></span><p class="textArea">按月统计员工KPI及考勤</p></a>
-												</li>
+											<ul class="navBar">
+												<li class="navBar_1 bg"><span>员工合同</span></li>
+												<li class="navBar_2"><span>员工在职时间戳</span></li>
+												<li class="navBar_3"><span>按月统计员工KPI及考勤</span></li>
 											</ul>
-											<ul class="tab_conbox">
-												<li class="tab3_1 tab_con3">
-													11111
+											<ul class="nav_conbox" style="font-size: 14px">
+												<li class="conBox_1" style="display: block">
+													<table class="tableStyle" style="">
+														<tr class="firTr">
+															<th>Column1</th>
+															<th>Column2</th>
+															<th>Column3</th>
+															<th>Column4</th>
+															<th>Column5</th>
+															<th>Column6</th>
+															<th>Column7</th>
+															<th>Column8</th>
+															<th style="border: 1px solid #ddd">Column9</th>
+														</tr>
+														<tr>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+															<td>abc</td>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+														</tr>
+														<tr>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+															<td>abc</td>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+														</tr>
+														<tr>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+															<td>abc</td>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+														</tr>
+														<tr>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+															<td>abc</td>
+															<td>A</td>
+															<td>1</td>
+															<td>a</td>
+															<td>abc</td>
+														</tr>
+													</table>
 												</li>
 
-												<li class="tab3_2 tab_con3">
+												<li class="conBox_2" style="display: none">
 													222222
 
 												</li>
 
-												<li class="tab3_3 tab_con3">
+												<li class="conBox_3" style="display: none">
 													33333
 												</li>
 											</ul>
@@ -492,7 +547,7 @@
 										</ul>
 									</div>
 								</div>
-								<div class="savePart datamining-target">
+								<!--<div class="savePart datamining-target" style="display: none">
 									<div class="dataMinT">
 										保存目标
 									</div>
@@ -506,9 +561,9 @@
 											</li>
 											<li>
 												<span>表名</span>
-												<!-- <select>
+												&lt;!&ndash; <select>
 													<option value="">接口</option>
-												</select> -->
+												</select> &ndash;&gt;
 												<input  class="tableName"  type="text" placeholder="请输入目标表名"/>
 											</li>
 										</ul>
@@ -517,7 +572,7 @@
 											<p class="datamining-save">保存</p>
 										</div>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<div class="dataMinL-bottom">
 								<ul class="tabs tabs2">
@@ -533,12 +588,12 @@
 								</div>
 							</div>
 						</div>
-						<!--<div class="dataMinR datamining-attr">
+						<div class="dataMinR datamining-attr">
 							<div class="dataMinRtop">
 								属性
 							</div>
 							<div class="dataMinR-prop">
-								<ul class="propContainer naivebayes-attr">&lt;!&ndash; 朴素贝叶斯 &ndash;&gt;
+								<ul class="propContainer naivebayes-attr"><!-- 朴素贝叶斯 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -553,14 +608,14 @@
 									</li>
 									<li>
 										<span>model type</span>
-										&lt;!&ndash; <input type="text" class="modelType"> &ndash;&gt;
+										<!-- <input type="text" class="modelType"> -->
 										<select class="modelType">
 											<option value="multinomial">multinomial</option>
 											<option value="bernoulli">bernoulli</option>
 										</select>
 									</li>
 								</ul>
-								<ul class="propContainer linearRegression-attr" style="display:none">&lt;!&ndash; 线性回归 &ndash;&gt;
+								<ul class="propContainer linearRegression-attr" style="display:none"><!-- 线性回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -602,7 +657,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer logisticRegression-attr" style="display:none">&lt;!&ndash; 逻辑回归 &ndash;&gt;
+								<ul class="propContainer logisticRegression-attr" style="display:none"><!-- 逻辑回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -646,7 +701,7 @@
 										<input type="text" class="threshold" value="0.5">
 									</li>
 								</ul>
-								<ul class="propContainer ridgeregression-attr" style="display:none">&lt;!&ndash; 岭回归 &ndash;&gt;
+								<ul class="propContainer ridgeregression-attr" style="display:none"><!-- 岭回归 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -688,7 +743,7 @@
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
-								<ul class="propContainer svm-attr" style="display:none">&lt;!&ndash; 支持向量机SVM类型 &ndash;&gt;
+								<ul class="propContainer svm-attr" style="display:none"><!-- 支持向量机SVM类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -710,7 +765,7 @@
 										<input type="text" class="miniBatchFraction" value="1.0">
 									</li>
 								</ul>
-								<ul class="propContainer kmeans-attr" style="display:none">&lt;!&ndash; K-means聚类类型 &ndash;&gt;
+								<ul class="propContainer kmeans-attr" style="display:none"><!-- K-means聚类类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -736,7 +791,7 @@
 										<input type="text" class="tol" value="1.0E-4">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesregression-attr" style="display:none">&lt;!&ndash; 回归树类型 &ndash;&gt;
+								<ul class="propContainer decisiontreesregression-attr" style="display:none"><!-- 回归树类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -783,7 +838,7 @@
 										<input type="text" class="seed" value="926680331">
 									</li>
 								</ul>
-								<ul class="propContainer decisiontreesclassifier-attr" style="display:none">&lt;!&ndash; 分类树类型 &ndash;&gt;
+								<ul class="propContainer decisiontreesclassifier-attr" style="display:none"><!-- 分类树类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -834,7 +889,7 @@
 										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 								</ul>
-								<ul class="propContainer als-attr" style="display:none">&lt;!&ndash; ALS推荐类型 &ndash;&gt;
+								<ul class="propContainer als-attr" style="display:none"><!-- ALS推荐类型 -->
 									<li>
 										<span>备注</span>
 										<input type="text" class="remark">
@@ -868,7 +923,7 @@
 									</li>
 								</ul>
 							</div>
-						</div>-->
+						</div>
 					</div>
 
 
@@ -1615,8 +1670,12 @@
 						</ul>
 					</div>
 					<div class="personalEdit">
-						<div class="showMessage"></div>
-						<div class="changeP"></div>
+						<div class="showMessage">
+
+						</div>
+						<div class="changeP">
+
+						</div>
 					</div>
 				</div>
 
