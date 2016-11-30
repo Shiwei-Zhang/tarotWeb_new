@@ -833,18 +833,6 @@ $('.jobList .killBtn').unbind().click(function(){
 //controllDeployEvent end
 
 
-//个人信息详情页
-
-var personalInfo=function(){
-    //个人信息、更改密码选项卡
-    $('.btnEvent li').unbind('click').click(function(){
-        console.log('selected');
-        $('.btnEvent li span').removeClass('selected');
-        $(this).children().removeClass('selected').addClass('selected');
-    })
-};
-personalInfo();
-
 //下拉框变化显示不同table
 
 function show_detail(obj){

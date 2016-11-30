@@ -2808,12 +2808,11 @@ ul.root_tree li div {
     vertical-align: top;
     text-align: center;
     cursor: pointer;
-    background: #f0f0f0;
 }
 
 #tabbox2 .dtt span.active_t {
     background-color: #56b0e2;
-    color: #fff;
+    color: white;
 }
 
 .tab-btn-group {

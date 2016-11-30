@@ -151,8 +151,7 @@
 														<span data-cls="col_con" class="active_t">字段</span> <span
 															data-cls="syb_con" >函数</span>
 													</p>
-													<input type="text" id="words" style="display: block">
-													<select id="Scontainer" onchange="selectChange()" style="display: none">
+													<select id="Scontainer" onchange="selectChange()">
 														<option value="value1">value1</option>
 														<option value="value2">value2</option>
 														<option value="value3">value3</option>
@@ -160,7 +159,7 @@
 														<option value="value5">value5</option>
 														<option value="other">other</option>
 													</select>
-													<input type="text" id="showVal" class="showVal" style="display: none;">
+													<input id="showVal">
 													<span class="bigIcon"></span>
 												</div>
 												<div id="_column_trans" class="dt_con">
@@ -185,28 +184,16 @@
 										</div>
 									</li>
 
+									<li class="tab2_3 tab_con2">
+										<div>
+											debug<br /> debug<br /> debug<br /> debug<br /> debug<br />
+											debug<br /> debug<br />
+										</div>
+									</li>
+
 									<li class="tab2_4 tab_con2">
 										<div>
-											<ul class="tabs tabs3" style="font-size: 12px">
-												<li><a tab="tab3_1"><span class="flow"></span><p>员工合同</p></a></li>
-												<li><a tab="tab3_2"><span class="log"></span><p class="textArea">员工在职时间戳</p></a></li>
-												<li><a tab="tab3_3"><span class="mointor"></span><p class="textArea">按月统计员工KPI及考勤</p></a>
-												</li>
-											</ul>
-											<ul class="tab_conbox">
-												<li class="tab3_1 tab_con3">
-													11111
-												</li>
-
-												<li class="tab3_2 tab_con3">
-													222222
-
-												</li>
-
-												<li class="tab3_3 tab_con3">
-													33333
-												</li>
-											</ul>
+											<h5 style="margin-left: 10px;">监控数据</h5>
 										</div>
 									</li>
 								</ul>
@@ -1607,18 +1594,8 @@
 				</table>
 			</div>
 			<div class="user" style="display: none;">
-				<div class="personalInfo clearFix">
-					<div class="menuList">
-						<ul class="btnEvent">
-							<li class="message"><span>个人信息</span></li>
-							<li class="changePassword"><span class="selected">更改密码</span></li>
-						</ul>
-					</div>
-					<div class="personalEdit">
-						<div class="showMessage"></div>
-						<div class="changeP"></div>
-					</div>
-				</div>
+				asd
+
 
 			</div>
 			<div class="users-manage" style="display: none;">
@@ -1918,24 +1895,8 @@
 
 					<ul class="paramMain">
 						<li><span class="">参数名称</span><span class="noBorderR">类型</span></li>
-						<li><span class="" contenteditable="true">column1</span><select>
-								<option value="int">int</option>
-								<option value="tinyint">tinyint</option>
-								<option value="smallint">smallint</option>
-								<option value="mediumint">mediumint</option>
-								<option value="integer">integer</option>
-								<option value="bigint">bigint</option>
-								<option value="bit">bit</option>
-								<option value="real">real</option>
-								<option value="double">double</option>
-								<option value="float">float</option>
-								<option value="decimal">decimal</option>
-								<option value="numeric">numeric</option>
-								<option value="char">char</option>
-								<option value="date">date</option>
-								<option value="time">time</option>
-								<option value="year">year</option>
-						    </select><i class="closeL"></i></li>
+						<li><span class="" contenteditable="true">column1</span><span
+							contenteditable="true" class="noBorderR">int</span><i class="closeL"></i></li>
 					</ul>
 					<p class="addBtn clearFix">添加</p>
 				</div>

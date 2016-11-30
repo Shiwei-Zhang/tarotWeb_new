@@ -16,7 +16,6 @@ $(function(){
 	})
 });
 
-/*
 //dataMini实现下拉框可编辑
 $(function(){
     $('.dataSe').change(function(){
@@ -24,7 +23,6 @@ $(function(){
             document.getElementsByClassName('dataSe')[0].options[document.getElementsByClassName('dataSe')[0].selectedIndex].value;
     })
 });
-*/
 
 $(function(){
     $('.paramMain:before').click(function () {
@@ -68,6 +66,7 @@ $(function(){
         //2.controller, 3.flow, 4.datamining, 5.bi
         showType($idName, $dataType)
     });
+
 
     //工作区管理按钮点击事件
     $('.managers').off('click').on('click', function (e) {
@@ -343,24 +342,7 @@ $(function(){
         });
         //增加参数列表的每一列
         $('.addBtn').off('click').click(function () {
-            var new_obj = $('<li><span contenteditable="true">column1</span><select>\
-            <option value="int">int</option>\
-            <option value="tinyint">tinyint</option>\
-            <option value="smallint">smallint</option>\
-            <option value="mediumint">mediumint</option>\
-            <option value="integer">integer</option>\
-            <option value="bigint">bigint</option>\
-            <option value="bit">bit</option>\
-            <option value="real">real</option>\
-            <option value="double">double</option>\
-            <option value="float">float</option>\
-            <option value="decimal">decimal</option>\
-            <option value="numeric">numeric</option>\
-            <option value="char">char</option>\
-            <option value="date">date</option>\
-            <option value="time">time</option>\
-            <option value="year">year</option>\
-            </select><i class="closeL"></i></li>');
+            var new_obj = $("<li><span contenteditable='true'>column1</span><span contenteditable='true' class='noBorderR'>int</span><i class='closeL'></i></li>");
             $('.paramMain').append(new_obj);
             //参数列表删除
             $('.paramMain .closeL').unbind('click').click(function () {
@@ -503,24 +485,7 @@ $(function(){
         $('.paramMain').empty();
         $('.paramMain').append('<li><span class="">参数名称</span><span class="noBorderR">类型</span></li>'
 						+'<li><span class="" contenteditable="true">column1</span>'
-						+'<select>\
-            <option value="int">int</option>\
-            <option value="tinyint">tinyint</option>\
-            <option value="smallint">smallint</option>\
-            <option value="mediumint">mediumint</option>\
-            <option value="integer">integer</option>\
-            <option value="bigint">bigint</option>\
-            <option value="bit">bit</option>\
-            <option value="real">real</option>\
-            <option value="double">double</option>\
-            <option value="float">float</option>\
-            <option value="decimal">decimal</option>\
-            <option value="numeric">numeric</option>\
-            <option value="char">char</option>\
-            <option value="date">date</option>\
-            <option value="time">time</option>\
-            <option value="year">year</option>\
-            </select><i class="closeL"></i></li>');
+						+'<span contenteditable="true" class="noBorderR">int</span><i class="closeL"></i></li>');
         $('.mainEvent').html('');
         $('.partN input').css('border-color','#dedede');      
     };
@@ -832,18 +797,6 @@ $('.jobList .killBtn').unbind().click(function(){
 
 //controllDeployEvent end
 
-
-//个人信息详情页
-
-var personalInfo=function(){
-    //个人信息、更改密码选项卡
-    $('.btnEvent li').unbind('click').click(function(){
-        console.log('selected');
-        $('.btnEvent li span').removeClass('selected');
-        $(this).children().removeClass('selected').addClass('selected');
-    })
-};
-personalInfo();
 
 //下拉框变化显示不同table
 

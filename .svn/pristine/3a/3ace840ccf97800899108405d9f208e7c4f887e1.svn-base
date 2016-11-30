@@ -634,15 +634,6 @@ $(function(){
         }
         $('#tabbox2 .dtt span').removeClass('active_t');
         $(this).addClass('active_t');
-        var dataCls=$(this).attr('data-cls');
-        if(dataCls=="col_con"){
-            $('#words').show();
-            $('#Scontainer,#showVal').hide();
-        }else if(dataCls=="syb_con"){
-            $('#words').hide();
-            $('#Scontainer,#showVal').show();
-        }
-
         var cls =  $(this).data('cls');
         $('#tabbox2 .dt_con div').hide();
         $('.' + cls).show();

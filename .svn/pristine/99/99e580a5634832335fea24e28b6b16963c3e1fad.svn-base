@@ -151,8 +151,7 @@
 														<span data-cls="col_con" class="active_t">字段</span> <span
 															data-cls="syb_con" >函数</span>
 													</p>
-													<input type="text" id="words" style="display: block">
-													<select id="Scontainer" onchange="selectChange()" style="display: none">
+													<select id="Scontainer" onchange="selectChange()">
 														<option value="value1">value1</option>
 														<option value="value2">value2</option>
 														<option value="value3">value3</option>
@@ -160,7 +159,7 @@
 														<option value="value5">value5</option>
 														<option value="other">other</option>
 													</select>
-													<input type="text" id="showVal" class="showVal" style="display: none;">
+													<input id="showVal">
 													<span class="bigIcon"></span>
 												</div>
 												<div id="_column_trans" class="dt_con">
@@ -1609,14 +1608,13 @@
 			<div class="user" style="display: none;">
 				<div class="personalInfo clearFix">
 					<div class="menuList">
-						<ul class="btnEvent">
-							<li class="message"><span>个人信息</span></li>
-							<li class="changePassword"><span class="selected">更改密码</span></li>
+						<ul>
+							<li class=""><span>个人信息</span></li>
+							<li><span>跟改密码</span></li>
 						</ul>
 					</div>
-					<div class="personalEdit">
-						<div class="showMessage"></div>
-						<div class="changeP"></div>
+					<div class="personaEdit">
+
 					</div>
 				</div>
 
