@@ -83,6 +83,47 @@ $(function(){
     $('.manager').on('click', function(event){
         console.log('manager...');
     });
+    
+    //查看源字段
+    var SourceField=function(){
+        //TODO
+        /*$.ajax({
+            url: urlId + '',
+            type:'POST',
+            dataType:"json",
+            data:'',
+            success:function(data) {
+
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        });*/
+        $('.one-btn input').unbind('click').click(function () {
+            $('.sourceFieldEvent,.mask').show();
+        });
+        $('.sourceFieldEvent .single').unbind('click').click(function () {
+            if ($(this).hasClass('singleChecked')) {
+                $(this).removeClass('singleChecked');
+            } else {
+                $(this).addClass('singleChecked')
+            }
+        });
+        $('.sourceFieldEvent .closeA').unbind('click').click(function () {
+            $('.sourceFieldEvent,.mask').hide();
+        });
+        //确定按钮
+        $('.sourceFieldEvent .sureC').unbind('click').click(function () {
+            $('.sourceFieldEvent,.mask').hide();
+            //TODO
+        });
+        //取消按钮
+        $('.sourceFieldEvent .closeC').unbind('click').click(function () {
+            $('.sourceFieldEvent,.mask').hide();
+        })
+    };
+    SourceField();
+    
     $('.btns input').on('click', function(event){
         $('input').removeClass('selected');
         $(this).addClass('selected');

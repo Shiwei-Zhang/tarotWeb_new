@@ -1599,6 +1599,8 @@ function selectSaveTargetBynodeId(nodeId){
 	});
 }
 
+
+
 function generateFun(power, domCls,menutype){
 	var id = '123456';
 	$('#dropdown-' + id).remove();
@@ -1608,11 +1610,6 @@ function generateFun(power, domCls,menutype){
 	var readAuth = powerConjunction(power,powerEnum[3]);
 	var grentAuth = powerConjunction(power,powerEnum[4]);
 	var release = false;
-	if(menutype==0){
-		var sourceLook = true; 
-		var sourceDel = true; 
-	}
-	
 	if(menutype==2){
 		release = true;
 	}else{
@@ -1706,54 +1703,13 @@ function generateFun(power, domCls,menutype){
                     }
                 });
             }
-        }},
-        {text: '查看源数据',auth:sourceLook, action:function(e){
-             e.preventDefault();
-             console.log("查看源数据");
-             var sourceId = $currentRightDom.attr("sourceid");
-             lookSouceData(sourceId)
-         }},
-         {text: '删除',auth:sourceDel, action:function(e){
-              e.preventDefault();
-              console.log('删除当前数据源');
-         }}
+        }}
     ], id);
-    context.attach('#_source_add', [
-         {header: '请选中数据源'}
-    ]);
     context.attach('.module-data-navigation', [
          {header: '请选中文件，文件夹或者home'}
     ]);
 	
 } 
-
-function lookSouceData(sourceId){
-	$('.columnSd').show();
-	$('.columnSd .closeA,.columnSd .closeC').on('click',function(){
-        $('.columnSd').hide();
-    });
-	$.ajax({
-		type:"POST",
-		url:urlId+"/selectBySourceDataId",
-		dataType:"json",
-		data:{sourceDataId:sourceId},
-		success:function(data){
-			console.log(data);
-			for(var i=0;i<data.length;i++){
-				var createTime=formatDateTime(new Date(data[i].createTime));
-				if(data[i].updateTime!=null){
-					var updateTime = formatDateTime(new Date(data[i].updateTime));
-				}else{
-					var updateTime = '';
-				}
-				$('.tableSd').append('<tr><td>'+data[i].id+'</td><td>'+data[i].sourceDataId+'</td><td>'+data[i].name+'</td><td>'
-						+data[i].type+'</td><td>'+data[i].length+'</td><td>'+data[i].precision+'</td><td>'+data[i].scale+'</td><td>'
-						+createTime+'</td><td>'+updateTime+'</td></tr>');
-			}
-			
-		}
-	})
-}
 
 
 //搜索框

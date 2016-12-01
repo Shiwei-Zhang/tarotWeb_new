@@ -33,6 +33,8 @@
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
 		$('.dataMinL').css('width',($winW-201-345));
 		$('.module-core').css('width',($winW-201-351));
+		$('.business_logic .wStyle').css('width',($winW-80)/3);
+
 		$('.codePart').css('width',($('.module-data-all').width()-351));//flow-code
 	};
 	$.isEmpty = function(obj){

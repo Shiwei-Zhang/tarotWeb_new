@@ -77,9 +77,6 @@ var bindEvent4FTP = function(){
                 		  var filePaths = data.path;
                 		  var $ul = $this.next();
                 		  var $li = $ul.find('li');
-						  if(files.length<1){
-							  return;
-						  }
                 		  renderList($li, files,fileTypes, filePaths );
                 		  $ul.show();
                 	  }

@@ -239,6 +239,7 @@ p {
     height: 28px;
     line-height: 28px;
     font-weight: bold;
+    font-size: 12px;
 }
 
 .folder .home i {
@@ -260,9 +261,9 @@ p {
 }
 
 .folder {
-    /*height: 96%;*/
     height: 813px;
     overflow: auto;
+    font-size: 12px;
 }
 
 .folder ul {
@@ -282,6 +283,10 @@ p {
 
 .folder_self i.fa.controllerIcon {
     /*margin-right: 5px;*/
+}
+
+.folder ul li span {
+    margin-left: 5px;
 }
 
 .folder ul li ul li {
@@ -1417,16 +1422,21 @@ ul.root_tree li div {
 
 .dataMinL-top .dataMinC {
     /*height: ;*/
-    padding: 20px 20px 0 20px;
+    padding: 20px 0 0 20px;
 }
 
 .dataMinL-top .dataMinC .paramList {
     height: 440px;
 }
-
+.dataMinL-top .dataMinC .btnPart{
+    height: 30px;
+    margin-right: 26px;
+}
 .dataMinC .paramList li {
     position: relative;
+    width: 50%;
     height: 40px;
+    float: left;
     line-height: 40px;
     margin-bottom: 20px;
 }
@@ -1438,13 +1448,13 @@ ul.root_tree li div {
 
 .dataMinC .paramList li select {
     height: 38px;
-    width: 81%;
+    width: 84%;
     line-height: 38px;
     border: 1px solid #dcdcdc;
 }
 .dataMinC .paramList li input {
-    height: 38px;
-    width: 81%;
+    height: 36px;
+    width: 83.5%;
     line-height: 38px;
     border: 1px solid #dcdcdc;
 }
@@ -1458,9 +1468,8 @@ ul.root_tree li div {
 }
 
 .dataMinL-top .practice {
-    width: 49%;
+    width: 100%;
     height: 100%;
-    float: left;
     border: 1px solid #c9c9c9;
     margin-right: 20px;
 }
@@ -1841,15 +1850,20 @@ ul.root_tree li div {
     font-weight: 400;
 }
 
-.addRoot .menu1, .addRoot .menu2 {
+.addRoot .menu1, .addRoot .menu2 ,
+.ftp-childrens .menu1, .ftp-childrens .menu2
+{
     margin-left: 27px;
 }
 
-.addRoot .menu1 .menu1List, .addRoot .menu2 .menu2List {
+.addRoot .menu1 .menu1List, .addRoot .menu2 .menu2List ,
+.ftp-childrens .menu1 .menu1List, .ftp-childrens .menu2 .menu2List
+{
     margin-left: 26px;
 }
 
-.menu1 .menu1List li, .menu2 .menu2List li {
+.menu1 .menu1List li, .menu2 .menu2List li
+{
     min-height: 25px;
 }
 
@@ -1857,11 +1871,15 @@ ul.root_tree li div {
     display: inline-block;
 }
 
-.addRoot p {
+.addRoot p ,
+.ftp-childrens p
+{
     height: 20px;
 }
 
-.addRoot p span {
+.addRoot p span ,
+.ftp-childrens p span
+{
     margin-left: 16px;
 }
 
@@ -3299,7 +3317,6 @@ right style
 }
 .personalInfo .changeP {
 	display:none;
-	
 }
 .personalEdit .changeP .upPwdTitle {
 	margin:30px auto 30px 30px;
@@ -3364,6 +3381,7 @@ right style
     width:102px;
 	margin: 15px 0 20px 10px;
     border:1px solid #ddd;
+    cursor: pointer;
 }
 .personalEdit .userImage .userImg{
 	background: url(../../static-resources/images/headerIcon.png) no-repeat center center;
@@ -3406,8 +3424,9 @@ right style
 
 .personalInfo .showMessage .userLook td input[type=text],
 .personalInfo .showMessage .userLook td input[type=date]{
-	height:30px;
-	width:627px;
+    height: 30px;
+    width: 610px;
+    padding-left: 15px;
 }
 .personalInfo .showMessage .userLook td input[type=radio]{
     margin-left: 19px;
@@ -3753,7 +3772,7 @@ right style
 .add2-sel, .edit-sel, .add2-f table input, .look-detail table input,
 .edit-conn table input, .add-user table input, .edit-user table input {
     width: 465px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     height: 34px;
     border: 0px;
 }
@@ -3775,8 +3794,8 @@ right style
 
 .table2-but {
     position: relative;
-    left: 488px;
-    bottom: -9px;
+    left: 500px;
+    bottom: -22px;
     background-color: #fff;
     color: #5CACEE;
     border-color: #5CACEE;
@@ -3807,7 +3826,7 @@ right style
 .edit-conn .h4 span,
 .add-user .h4 span,
 .edit-user .h4 span {
-    margin-left: 15px;
+    margin-left: 28px;
     float: left;
     height: 60px;
     line-height: 60px;
@@ -3862,13 +3881,13 @@ right style
 
 .add2-f table td, .look-detail table td, .edit-conn table td, .add-user table td, .edit-user table td {
     border: 1px #DEDEDE solid;
-    width: 465px;
+    width: 480px;
     height: 36px;
     background-color: #ffffff;
 }
 
 .add2-table2, .addUser-table, .editUser-table {
-    height: 380px;
+    height: 296px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -4044,7 +4063,7 @@ right style
     margin: 0 40px;
     overflow-y: scroll;
 }
-
+/*
 .dataContainerA .mainList li {
     height: 30px;
     line-height: 30px;
@@ -4052,20 +4071,20 @@ right style
     float: left;
     font-size: 14px;
     color: #646464;
-}
+}*/
 
-.dataContainerA .mainList li i {
+/*.dataContainerA .mainList li i {
     display: inline-block;
     margin-right: 16px;
-}
+}*/
 
-.dataContainerA .downIcon {
+/*.dataContainerA .downIcon {
     position: absolute;
     top: 107px;
     right: 47px;
     border: 6px solid transparent;
     border-top-color: #8f8d90;
-}
+}*/
 
 .dataContainerB {
     height: 496px;;
@@ -4288,7 +4307,7 @@ right style
 .add-user .fa-trash2,
 .edit-user .fa-trash2 {
     margin-top: 17px;
-    margin-right: 10px;
+    margin-right: 18px;
     float: right;
     display: inline-block;
     width: 30px;
@@ -4536,7 +4555,7 @@ button, input, select {
 }
 
 .columnSet_C .tableContainer {
-    width: 97%;
+    width: 97.5%;
     /*max-height: 490px;*/
     max-height: 650px;
     margin: 20px;
@@ -4546,10 +4565,10 @@ button, input, select {
 .tableContainer tr td {
     border: 1px solid #ddd;
 }
-.columnSet_C .tableContainer .contentTitle,
-.jobContainer .tableContainer .contentTitle
+.columnSet_C .tableContainer .contentTitle th,
+.jobContainer .tableContainer .contentTitle th
 {
-    border-bottom: 1px solid #8c8c8c !important;
+    border-bottom: 1px solid #8c8c8c;
 }
 .columnSet_C .tableContainer .contentTitle,
 .tableContainer tr:nth-child(odd){
