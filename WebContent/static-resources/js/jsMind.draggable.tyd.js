@@ -11,12 +11,6 @@
         this.jm = jm;
         this.container = jm.options.container;
         window.initDragable = function(){
-        	$('#_source_add p').unbind('mousedown').mousedown(function(e, a){
-        	    if(e.which == 3 || a == 'right'){
-        	        $currentRightDom = $(this);
-        	        generateFun(null,"#_source_add p",0);
-        	    }
-        	})
         	$( ".draggable" ).draggable({
     			drag: function(event) {
     			},

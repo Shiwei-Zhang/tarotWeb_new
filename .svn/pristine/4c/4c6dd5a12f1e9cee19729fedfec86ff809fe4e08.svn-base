@@ -87,15 +87,13 @@
 			<!-- navigation -->
 			<div class="module-data-navigation">
 				<div class="title">目录</div>
-				<div class="scrollContainer">
-					<div class="folder">
-						<div class="home" id="0">
-							<i class="fa fa-file-o fa-caret-down"></i>Home
-						</div>
-						<ul class="root_tree">
-
-						</ul>
+				<div class="folder">
+					<div class="home" id="0">
+						<i class="fa fa-file-o fa-caret-down"></i>Home
 					</div>
+					<ul class="root_tree">
+
+					</ul>
 				</div>
 			</div>
 
@@ -184,7 +182,12 @@
 
 									<li class="tab2_2 tab_con2">
 										<div>
-
+											<p>log1</p>
+											<p>log1</p>
+											<p>log1</p>
+											<p>log1</p>
+											<p>log1</p>
+											<p>log1</p>
 										</div>
 									</li>
 
@@ -723,10 +726,6 @@
 												</select>
 											</li>
 										</ul>
-										<div class="btnPart">
-											<p class="datamining-test">Test</p>
-											<p class="datamining-save">保存</p>
-										</div>
 									</div>
 								</div>
 								<!--<div class="savePart datamining-target" style="display: none">
@@ -1987,7 +1986,7 @@
 				</div>
 			</div>
 			<div class="business_logic clearFix" style="display: none;">
-				<div class="group wStyle">
+				<div class="group">
 			        <div class="group_add">
 			        	<span>业务组</span>
 			            <input type="button" value="+"/>
@@ -2000,7 +1999,7 @@
 			            </div>-->
 			        </div>
 		    	</div>
-			    <div class="type wStyle">
+			    <div class="type">
 			        <div class="type_self">
 			            <div class="type_self_add">
 			            	<span>业务类型</span>
@@ -2039,7 +2038,7 @@
 			            </div>
 			        </div>
 			    </div>
-			    <div class="eum wStyle" style="margin: 0">
+			    <div class="eum" style="margin: 0">
 			        <div class="eum_add">
 			        	<span>业务枚举</span>
 			            <input type="button" value="+"/>
@@ -2217,84 +2216,6 @@
 					<th>Scale</th>
 					<th>Nullable</th>
 					<th>Description</th>
-					<th>Is_index</th>
-					<th>Index-type</th>
-				</tr>
-				<tr>
-				<td><i class="single columnOne"></i></td>
-				<td contenteditable="true">column1</td>
-				<td><i class="single columnTwo"></i></td>
-				<td class="colSelect">
-					<select>
-						<option value="int">int</option>
-						<option value="tinyint">tinyint</option>
-						<option value="smallint">smallint</option>
-						<option value="mediumint">mediumint</option>
-						<option value="integer">integer</option>
-						<option value="bigint">bigint</option>
-						<option value="bit">bit</option>
-						<option value="real">real</option>
-						<option value="double">double</option>
-						<option value="float">float</option>
-						<option value="decimal">decimal</option>
-						<option value="numeric">numeric</option>
-						<option value="char">char</option>
-						<option value="date">date</option>
-						<option value="time">time</option>
-						<option value="year">year</option>
-						<option value="varchar">year</option>
-						<option value="timestamp">year</option>
-						<option value="datetime">year</option>
-						<option value="blob">year</option>
-						<option value="tinyblob">year</option>
-						<option value="longblob">year</option>
-					</select>
-				</td>
-				<td contenteditable="true">0</td>
-				<td contenteditable="true">0</td>
-				<td contenteditable="true">0</td>
-				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true">xxxx</td>
-				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true">xxxx</td>
-			</tr>
-				<tr>
-					<td><i class="single columnOne"></i></td>
-					<td contenteditable="true">column1</td>
-					<td><i class="single columnTwo"></i></td>
-					<td class="colSelect">
-						<select>
-							<option value="int">int</option>
-							<option value="tinyint">tinyint</option>
-							<option value="smallint">smallint</option>
-							<option value="mediumint">mediumint</option>
-							<option value="integer">integer</option>
-							<option value="bigint">bigint</option>
-							<option value="bit">bit</option>
-							<option value="real">real</option>
-							<option value="double">double</option>
-							<option value="float">float</option>
-							<option value="decimal">decimal</option>
-							<option value="numeric">numeric</option>
-							<option value="char">char</option>
-							<option value="date">date</option>
-							<option value="time">time</option>
-							<option value="year">year</option>
-							<option value="varchar">year</option>
-							<option value="timestamp">year</option>
-							<option value="datetime">year</option>
-							<option value="blob">year</option>
-							<option value="tinyblob">year</option>
-							<option value="longblob">year</option>
-						</select>
-					</td>
-					<td contenteditable="true">0</td>
-					<td contenteditable="true">0</td>
-					<td contenteditable="true">0</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2331,12 +2252,46 @@
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
 					<td contenteditable="true">xxxx</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
-					<td contenteditable="true">column1</td>
+					<td contenteditable="true">column2</td>
+					<td><i class="single columnTwo"></i></td>
+					<td class="colSelect">
+						<select>
+							<option value="int">int</option>
+							<option value="tinyint">tinyint</option>
+							<option value="smallint">smallint</option>
+							<option value="mediumint">mediumint</option>
+							<option value="integer">integer</option>
+							<option value="bigint">bigint</option>
+							<option value="bit">bit</option>
+							<option value="real">real</option>
+							<option value="double">double</option>
+							<option value="float">float</option>
+							<option value="decimal">decimal</option>
+							<option value="numeric">numeric</option>
+							<option value="char">char</option>
+							<option value="date">date</option>
+							<option value="time">time</option>
+							<option value="year">year</option>
+							<option value="varchar">year</option>
+							<option value="timestamp">year</option>
+							<option value="datetime">year</option>
+							<option value="blob">year</option>
+							<option value="tinyblob">year</option>
+							<option value="longblob">year</option>
+						</select>
+					</td>
+					<td contenteditable="true">20</td>
+					<td contenteditable="true">20</td>
+					<td contenteditable="true">20</td>
+					<td><i class="single columnThree"></i></td>
+					<td contenteditable="true">xxx</td>
+				</tr>
+				<tr>
+					<td><i class="single columnOne"></i></td>
+					<td contenteditable="true">column3</td>
 					<td><i class="single columnTwo"></i></td>
 					<td class="colSelect">
 						<select>
@@ -2368,9 +2323,7 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
-					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true">xxx</td>
 				</tr>
 			</table>
 		</div>
@@ -2822,70 +2775,9 @@
 	</div>
 	<!--bi charTemp end-->
 
-	<!--查看源字段 start-->
-	<div class="columnSet sourceFieldEvent" style="display: none">
-		<div class="columnSet_T clearFix">
-			<span class="columnTleft">查看源字段</span>
-			<span class="columnTclose"><i class="closeA"></i></span>
-		</div>
-		<div class="columnSet_C">
-			<table class="tableContainer" cellspacing="0">
-				<tr class="contentTitle">
-					<th>Name</th>
-					<th>Type</th>
-					<th>Length</th>
-					<th>Precision</th>
-					<th>Scale</th>
-					<th>Nullable</th>
-					<th>Description</th>
-				</tr>
-				<tr>
-					<td>table1.column1</td>
-					<td>int</td>
-					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
-					<td><i class="single"></i></td>
-					<td>2016-07-21</td>
-				</tr>
-				<tr>
-					<td>table1.column1</td>
-					<td>int</td>
-					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
-					<td><i class="single"></i></td>
-					<td>2016-07-21</td>
-				</tr>
-				<tr>
-					<td>table1.column1</td>
-					<td>int</td>
-					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
-					<td><i class="single"></i></td>
-					<td>2016-07-21</td>
-				</tr>
-				<tr>
-					<td>table1.column1</td>
-					<td>int</td>
-					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
-					<td><i class="single"></i></td>
-					<td>2016-07-21</td>
-				</tr>
-			</table>
-		</div>
-		<div class="columnSet_B clearFix">
-			<span class="sureC">确定</span>
-			<span class="closeC">取消</span>
-		</div>
-	</div>
-
-	<!--查看源字段 end-->
 
 	<div class="mask" style="display: none;"></div>
+
 
 	<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
 	<script
@@ -2931,6 +2823,7 @@
     //工作区数据源栏下tableName
     var tableNameMap = new Map();
 	$.resizeW();
+
 	//函数选择框change事件
 	function selectChange(){
 		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());
