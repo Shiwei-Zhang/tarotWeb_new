@@ -28,6 +28,19 @@ body {
     user-select: none;
 }
 
+/*.scrollContainer{
+    position: relative;
+    top: 0;
+    height: 813px;
+    overflow: hidden;
+}*/
+/*.module-data-navigation .iScrollVerticalScrollbar.iScrollLoneScrollbar{
+    position: absolute;
+    top: 0;
+    width: 2px;
+    left: 190px;
+    !*color: rgba(0,0,0,.3);*!
+}*/
 ul li {
     list-style: none;
 }
@@ -3389,7 +3402,7 @@ right style
     bottom: 5px;
     background-color: #5CACEE;
     color: #fff;
-    border:1px solid #5CACEE;
+    border-color: #5CACEE;
     font-size: 15px;
     height: 32px;
     width: 74px;
@@ -3822,24 +3835,20 @@ right style
 
 .look-button {
     height: 60px;
-    background: #f9f9f9;
-    border-top: 1px solid #e6e6e6;
 }
 
 .edit-button {
     height: 60px;
     display: none;
-    background: #f9f9f9;
-    border-top:1px solid #e6e6e6;
 }
 
 .table2-but {
     position: relative;
     left: 500px;
-    bottom: -15px;
+    bottom: -22px;
     background-color: #fff;
     color: #5CACEE;
-    border:1px solid #5CACEE;
+    border-color: #5CACEE;
     height: 27px;
     width: 51px;
 }
@@ -3851,7 +3860,7 @@ right style
     bottom: -9px;
     background-color: #fff;
     color: #5CACEE;
-    border:1px solid #5CACEE;
+    border-color: #5CACEE;
     height: 27px;
     width: 66px;
 }
@@ -3922,31 +3931,17 @@ right style
 
 .add2-f table td, .look-detail table td, .edit-conn table td, .add-user table td, .edit-user table td {
     border: 1px #DEDEDE solid;
-    width: 465px;
+    width: 480px;
     height: 36px;
-    padding-left:15px;
     background-color: #ffffff;
 }
-.add2-f .tab-button{
-    height: 56px;
-    background: #f9f9f9;
-    border-top:1px solid #e6e6e6;
+
+.add2-table2, .addUser-table, .editUser-table {
+    height: 296px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-.add2-table2{
-    height: 305px;
-}
-.addUser-table {
-    height: 365px;
-}
-.editUser-table .userEdit{
-    max-height: 305px;
-    overflow-y: scroll;
-}
-.edit-user .table-user {
-    position: relative;
-    left: 540px;
-    bottom: -90px;
-}
+
 .fenye {
     width: 100%
 }
@@ -3972,7 +3967,7 @@ right style
 
 .barcon button.active, .barcon button:active {
     background-color: #5CACEE;
-    border:1px solid #5CACEE;
+    border-color: #5CACEE;
     color: #fff;
 }
 
@@ -3983,7 +3978,7 @@ right style
 
 .barcon button.disabled:active {
     background-color: #EBEBEB !important;
-    border:1px solid #ccc;
+    border-color: #ccc;
     color: #999;
 }
 
@@ -4591,8 +4586,6 @@ button, input, select {
 .tableContainer tr th {
     padding: 0 20px;
     text-align: left;
-    word-break: keep-all;
-    white-space: nowrap;
 }
 
 .tableContainer tr td.colSelect {

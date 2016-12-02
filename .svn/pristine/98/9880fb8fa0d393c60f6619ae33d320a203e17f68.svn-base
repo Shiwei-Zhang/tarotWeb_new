@@ -3927,11 +3927,7 @@ right style
     padding-left:15px;
     background-color: #ffffff;
 }
-.add2-f .tab-button{
-    height: 56px;
-    background: #f9f9f9;
-    border-top:1px solid #e6e6e6;
-}
+
 .add2-table2{
     height: 305px;
 }

@@ -1956,7 +1956,7 @@
 								</tr>
 								<tr>
 									<th>登录名</th>
-									<td><span class="loginId"></span></td>
+									<td><input type="text" class="loginId" disabled /></td>
 								</tr>
 								<tr>
 									<th>性别</th>
@@ -2986,6 +2986,7 @@
 		var secondType;
 		var columnType;
 		var functionType;
+		var sysdoms = '';
 		var sysdoms2 = '';
 		var optiondoms = '<option value="all">全部</option>';
 		var sysdom;
@@ -3007,28 +3008,33 @@
 				}
 			}
 			fixed=item.fixed;
-			sysdom = '<p fk = "0" textValue = "'+functionName+'" level="3" functionType="'+functionType+'" functionName="'+functionCode+'" columnType="'+columnType+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable">'+functionName+'</p>';
+			/* $(parameters).each(function(i,element){
+				if(i>0){
+					placeholders[i-1] = "?";
+				}
+			});
+			if(fixed==0){
+				placeholders[parameters.length-2] = "...";
+			}
+			//str = placeholders.join().replace(/\"/g,"");
+			str = placeholders.join();
+			formula = functionName+"("+str+")";  */
+			sysdom = '<p fk = "0" class="'+functionName+' tipso_style" textValue = "'+functionName+'" level="3" functionType="'+functionType+'" functionName="'+functionCode+'" columnType="'+columnType+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable">'+functionName+'</p>';
+			//sysdoms+=sysdom;
 			
 			/**************************************
 			|* tip document-- http://www.dowebok.com/147.html
 			|***************************************/
-			var content = '1.函数名：<br/>' + functionName + '<br/>2.含义：<br/>'+item.annotation+'<br/>';
-			var paramStr;
-			if(item.fixed==1){
-				paramStr = '3.入参类型（'+number+'个）：<br/>';
-			}else{
-				var realNumber = number-1;
-				paramStr = '3.入参类型（'+realNumber+'个或'+realNumber+'个以上）：<br/>';
-			}
-			if(parameters.length>1){
+			var content = '1.函数名：<br/>' + functionName + '<br/>';
+			if(parameters.length>0){
+				var paramStr = '2.参数类型：<br/>';
 				$.each(parameters, function(index, item){
-					if(index<number){
-						paramStr += item.paramDataType+' ';
-					}
+					paramStr += item.paramDataType + ' ' + item.paramName + ', ';
 				});
+				
+				content += paramStr.substring(0, paramStr.length - 2);
 			}
-			paramStr+='<br/>4.出参类型：<br/>'+columnType;
-			content+=paramStr;
+			
 			var $sysdom =  $(sysdom);
 			$sysdom.tipso({
 				useTitle: false,
@@ -3038,6 +3044,7 @@
 				content: content
 			});
 			 $('.syb_con').append( $sysdom );
+			
 			if(functionName!='constant'){
 				sysdom2 = '<p fk = "0" textValue = "'+functionName+'" level="3" functionType="'+functionType+'" functionName="'+functionCode+'" columnType="'+columnType+'" firstType="'+firstType+'" secondType="'+secondType+'" paramNumber="'+number+'" fixed="'+fixed+'">'+functionName+'</p>';
 				sysdoms2+=sysdom2;
@@ -3047,6 +3054,7 @@
 			optiondom = '<option value="'+item.id+'">'+item.name+'</option>';
 			optiondoms+=optiondom;
 		});
+		//$('.syb_con').html($(sysdoms));
 		$('#showTip_jsmind_container2').html($(sysdoms2));
 		$('#Scontainer').html($(optiondoms));
 	}

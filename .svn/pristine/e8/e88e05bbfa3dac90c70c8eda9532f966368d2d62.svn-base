@@ -2024,7 +2024,7 @@ function refreshUsersList(str){
 					dataType:"json",
 					success:function(data){
 						$('.edit-user .name').val(data.name);
-						$('.edit-user .loginId').text(data.loginId);
+						$('.edit-user .loginId').val(data.loginId);
 						var birth = formatDateTime(new Date(data.birth)).split(' ')[0];
 						$('.edit-user .birth').val(birth);
 						$('.edit-user .phone').val(data.phone);
@@ -2081,7 +2081,7 @@ function stop(uId,isActivation, index){
 function EditOkUser(){
 	var jsonObj = new Object();
 	jsonObj.name =$('.userEdit .name').val();
-	jsonObj.loginId =$('.userEdit .loginId').text();
+	jsonObj.loginId =$('.userEdit .loginId').val();
 	jsonObj.gender =$('.userEdit input[name="gender"]:checked').val();
 	jsonObj.birth =$('.userEdit .birth').val();
 	jsonObj.phone =$('.userEdit .phone').val();

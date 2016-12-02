@@ -1956,7 +1956,7 @@
 								</tr>
 								<tr>
 									<th>登录名</th>
-									<td><span class="loginId"></span></td>
+									<td><input type="text" class="loginId" disabled /></td>
 								</tr>
 								<tr>
 									<th>性别</th>
