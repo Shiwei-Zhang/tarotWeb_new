@@ -620,7 +620,6 @@
 						</div>
 					</div>
 
-
 					<!--BI start-->
 					<div class="BI-bodyer module-bi bi-template" style="display: none;">
 						<div class="biAddLeft">
@@ -664,9 +663,7 @@
 					</div>
 					<!--BI end-->
 
-
 					<!--dataMining start-->
-
 					<div class="dataMining-bodyer module-datamining datamining-template" style="display: none">
 						<div class="dataMinL">
 							<div class="dataMinL-top">
@@ -1053,9 +1050,6 @@
 							</div>
 						</div>
 					</div>
-
-
-
 					<!--dataMining end-->
 
 					<!--Controller start-->
@@ -1145,7 +1139,6 @@
 					<!--Controller end-->
 
 					<!--controllerDeploy start-->
-
 					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
 						<div class="deployLeft">
 							<div class="deployTitle">
@@ -1611,7 +1604,6 @@
 						</div>
 					</div>
 
-
                     <!--controller warning start-->
                     <div class="warningPart" style="display: none">
                         <p class="warningT">
@@ -1654,7 +1646,6 @@
                         </div>
                     </div>
                     <!--jobList end-->
-
 					<!--controllerDeploy end-->
 
 				</div>
@@ -1698,7 +1689,6 @@
 					</div>
 					<!-- manager start-->
 				</div>
-
 			</div>
 		</div>
 
@@ -2103,22 +2093,7 @@
         </div>
         <div class="d-content">
             <table>
-               <!--  <tr>
-                    <td>IP</td>
-                    <td><input /></td>
-                </tr>
-                <tr>
-                    <td>port</td>
-                    <td><input /></td>
-                </tr>
-                <tr>
-                    <td>username</td>
-                    <td><input /></td>
-                </tr>
-                <tr>
-                    <td>password</td>
-                    <td><input /></td>
-                </tr> -->
+
             </table>
         </div>
         <div class="btn-group clearFix">
@@ -3217,10 +3192,9 @@ function renameMenuForHome(){
 		var data = his1.getList();
 		$('#searchInfo').empty();
 		if(data!=null){
-		 for(var i =data.length-1;i>=0;i--){
-			
-			$('#searchInfo').prepend('<li class="history1">'+data[i].title+'</li>');
-		} 
+			 for(var i =data.length-1;i>=0;i--){
+				$('#searchInfo').prepend('<li class="history1">'+data[i].title+'</li>');
+			}
 		}
 		console.log(data);
 		console.log(mType);
@@ -3233,7 +3207,6 @@ function renameMenuForHome(){
 		     data:{menuId: menuId, content:content, userId:userId},
 		     dataType:"json",
 		     success:function(data) {
-		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
 				if($('.managers').hasClass('visitedBg')){
 		    	 $('.module-manager').show();
 				}
@@ -3242,7 +3215,6 @@ function renameMenuForHome(){
 		    	 for(var i=0;i<data.length;i++){
 		        	 var power = data[i].POWER;
 		        	 var checkboxStr = "";
-
                      for(var j=0;j<powerEnum.length;j++){
                     		if(j==3){
                         		if(powerConjunction(power,powerEnum[3])){
@@ -3311,11 +3283,6 @@ function renameMenuForHome(){
 		           $.dialog("异常！");
 		      }
 	 	});
-
-		/*if($('.flows').hasClass('visitedBg')){
-			$('.module-manager').hide();
-			console.log('in')
-		}*/
 	}
 	function savePower(){
 		var powerArray = new Array();
@@ -3365,9 +3332,6 @@ function renameMenuForHome(){
 						 }
 					 }
 			 	 );
-    			/*  var isShow = showNum(currentUserPowerStr);
-    			 $("#"+selectedMenuId).attr("name",isShow);
-		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr); */
 		    	 //清空signArray
 	    		 signArray = [];
 		    	 //$('.root_tree').children().show();
@@ -3391,13 +3355,6 @@ function renameMenuForHome(){
         //刷新目录树
         if(type==1){
             $(".root_tree div[name='singleShow']").parent().show();
-    		/* var idName=$(this).attr('id');
-    		var dataType=$('.visitedBg').attr('menutype');
-            var fileName = $('.visitedBg').children().last().text();
-            if(dataType == 1){//文件夹
-            	return;
-            } */
-            //tabCheck(idName, dataType, fileName);
         }else{
         	//刷新目录管理
             $(".root_tree div[name='singleShow']").parent().hide();
@@ -3425,7 +3382,6 @@ function renameMenuForHome(){
             type:'POST',
             dataType:"json",
             contentType: "application/json",
-            // data:JSON.stringify({userId:userId}),
             success:function(data) {
 				str+='<option selected>请选择数据连接</option>';
                 $(data).each(function(index,item){

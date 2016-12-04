@@ -18,19 +18,15 @@ $(function(){
 
 $(function(){
     $('.paramMain:before').click(function () {
-        console.log('ok')
+
     });
 
     //目录树点击事件
     //TODO
     $('.folder').unbind('click').on('click', 'li div', function () {
-
     	$('.folder li div').removeClass('visitedBg');
         $(this).addClass('visitedBg');
-        console.log($(this).attr('menutype'));
-       // if($('.flows').hasClass('header_active')){
         $('.module-data-right-navigation').show();
-        //}
         var idName=$(this).attr('id');
         var dataType=$(this).attr('menutype');
         var fileName = $(this).children().last().text();
@@ -43,7 +39,6 @@ $(function(){
 
     //module-data-right-navigation
     $('.tabsEvent').off('click').on('click','li', function (e) {
-
         if($(this).hasClass('thistab')){
         	return ;
         }
@@ -91,7 +86,6 @@ $(function(){
         $('.module-data,.module-data-navigation,.module-data-all,.content').show();
         $('.module-manager,.dataManager,#manag').hide();
         $(".root_tree div").eq(0).removeClass('visitedBg');
-        console.log('flow...');
         // add by tyd
         refreshMenu(refreshEnum[0]);
     });
@@ -207,8 +201,7 @@ $(function(){
     	        }
         	})
         })
-    };
-
+    }
 
     //非目录管理权限的单选框
     $('.mainEvent,.add3EventOne,.add3EventTwo').unbind('click').click(function (e) {
@@ -294,7 +287,6 @@ $(function(){
         $('.look-detail .h4 span').html('查看');
         $('.mask').hide();
     });
-
     
     $('.add4').off('click').click(function () {
     	$('.mask').show();
@@ -324,7 +316,7 @@ $(function(){
                         $(data).each(function(index,item){
                             var tableNames=item.tableName;
                             for(var i=0;i<tableNames.length;i++){
-                                str+='<li><i class="single"></i><span>'+tableNames[i]+'</span></li>';
+                                str+='<li class="liStyle"><i class="single"></i><span>'+tableNames[i]+'</span></li>';
                             }
                             $('.mainEvent').html(str);
                         });
@@ -439,7 +431,7 @@ $(function(){
             showType($idName, $dataType);
         }
     }
-    }
+    };
 
     //loading related data
     window.showType=function ($idName, $dataType){
@@ -485,7 +477,7 @@ $(function(){
         $('.paramMain li:gt(1)').remove();
         $('.mainEvent').html('');
         $('.partN input').css('border-color','#dedede');      
-    };
+    }
 
     //目录管理点击事件
     $('.man1').click(function () {
@@ -538,7 +530,7 @@ $(function(){
 			$('.btnEvent li span').first().addClass('selected');
 			refreshUser();
 		}
-	})
+	});
 	
 	//个人信息详情页
 
@@ -556,13 +548,13 @@ $(function(){
 		$('.showMessage').show();
     	$('.changeP').hide();
     	refreshUser();
-    })
+    });
 	
 	$('.changePassword').click( function(){
 		$('.showMessage').hide();
     	$('.changeP').show();
     	$('.changeP .upPwd input').val('');
-    })
+    });
     window.pwdValidation=function(userName,oldPwd){
 		$.ajax({
 			type:"POST",
@@ -580,7 +572,7 @@ $(function(){
 				}
 			}
 		});	
-	}
+	};
 	
 	window.updatePwd=function(userId,newPwd){
 		$.ajax({
@@ -598,7 +590,7 @@ $(function(){
 				}
 			}
 		});	
-	}
+	};
     
     $(".rePwd").click( function(){
     	var oldPwd = $('.upPwd .oldPwd').val();
@@ -609,7 +601,6 @@ $(function(){
     		return null;
     	}
     	var bok=true;
-    	//pwdValidation(userName,oldPwd);
     	$.ajax({
 			type:"POST",
 			url:urlId+"/isPwdCorrect",
@@ -639,7 +630,7 @@ $(function(){
         	updatePwd(userId,newPwd);
     	}
     	
-	})
+	});
 	
 	$('.updateMessage').click(function(){
 		$('.updateMessage').hide();
@@ -663,7 +654,7 @@ $(function(){
 		var email1 = $(".userLook .email").text();
 		$('.userLook .email').html("<input type='text' value='"+email1+"' />");
 		
-	})
+	});
 	
 	$(".saveUser").click(function(){
 		var jsonObj = new Object();
@@ -694,16 +685,16 @@ $(function(){
 				refreshUser();
 			}
 		});	
-	})
+	});
 	
 	$(".cancelUser").click(function(){
 		refreshUser();
-	})
+	});
 	
 	$('.man4').click( function(){
 		$('.module-data-navigation,.module-data-all,.manager-bodyer,.content,.center-table1,.center-table2,.power-detail,.user,.users-manage').hide();
 		$('.dataManager,.business_logic').show();
-	})
+	});
 	
 	//添加用户
 	$('.addUser').unbind('click').click(function (e) {
@@ -746,7 +737,7 @@ $(function(){
 			}
 		});
     	
-    }
+    };
 
 	//数据源管理页面---添加按钮
 	$('.add2').click(function(){
@@ -760,10 +751,8 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				$('#result').html('');
-				//console.log(data);
 				var optionStr='';
 				for(var i=0;i<data.length;i++){
-					//console.log(data[i].code);
 					optionStr+='<option value="'+data[i].code+'">'+data[i].name+'</option>';
 				}
 				$('.add2-input').append('<tr><th>数据类型</th><td><select name = "sel" class="add2-sel" id="selectType" '
@@ -779,7 +768,6 @@ $(function(){
 
 
 //controllDeployEvent start
-
 $('.controllDeployEvent').unbind('click').click(function (e) {
     e = e || window.event;
     var tar = e.target || e.srcElement;
@@ -798,9 +786,6 @@ $('.controllDeployEvent').unbind('click').click(function (e) {
         }
 
     }
-
-    
-
 
     //发布类型change事件
     $('#deployType').change(function(){
@@ -964,16 +949,10 @@ $('.jobList .killBtn').unbind().click(function(){
 
 //controllDeployEvent end
 
-
-
-
 //下拉框变化显示不同table
-
 function show_detail(obj){
 	var opt = obj.options[obj.selectedIndex];
-	//console.log("The option you select is:"+opt.text+"("+opt.value+")");
 	dbtype=opt.value;
-
 	$.ajax({
 		type:"POST",
 		url:urlId+"/selectBusinessEnumByBusinessType",
@@ -987,7 +966,6 @@ function show_detail(obj){
 				if(data.length == 0){
 					return ;
 				}
-				
 				var conAddStr='<tr><th><input type="hidden" value="数据连接名">数据连接名</th><td><input type="text" id="conName"></td></tr>';
 				for(var i=0;i<data.length;i++){
 					conAddStr+='<tr><th><input type="hidden" value="'+data[i].code+'">'+ data[i].name+'</th><td><input type="text"/></td>';
@@ -996,7 +974,7 @@ function show_detail(obj){
 			}
 		}
 	});
-};
+}
 
 //添加数据源----保存按钮
 function addConnection(){
@@ -1031,7 +1009,7 @@ function addConnection(){
 			goDatasource(userId,null);		
 		}
 	})
-};
+}
 //添加数据源----测试按钮
 function testConnection(){
 	var testArray = new Array();
@@ -1041,9 +1019,7 @@ function testConnection(){
 		var Obj = new Object();
 		Obj.name = thTest.eq(i).val();
 		Obj.value = tableTest.eq(i).val();
-		//console.log(Obj);
 		testArray.push(Obj);
-		//console.log(testArray);
 	}
 	var jsonObj = new Object();
 	jsonObj.powerArray=testArray;
@@ -1102,7 +1078,6 @@ function searchItemUsers(){
 			$('#searchInfoUsers').prepend('<li class="history4">'+data[i].title+'</li>');
 		} 
 	}
-	console.log(data);
 	refreshUsersList(str);
 }
 
@@ -1119,7 +1094,6 @@ function goDatasource(userId,content){
 		url=urlId+"/selectDataConnection";
 		data={userId: userId}
 	}
-	/*$.dialog(user);*/
 	$.ajax({
 		type:"POST",
 		url:url,
@@ -1204,7 +1178,6 @@ function goDatasource(userId,content){
 							$(".add2-table2 input:text").click(function(){ 
 							    $(this).select();
 							});
-							//console.log(shuju.businessType.name);
 							$("#selectType1 option[value='"+shuju.businessType.code+"']").attr("selected",true);
 							//编辑页面保存按钮
 							$('.edit-save').unbind('click').click(function(){
@@ -1216,16 +1189,13 @@ function goDatasource(userId,content){
 									var Obj = new Object();
 									Obj.name = thEdit.eq(i).val();
 									Obj.value = tableEdit.eq(i).val();
-									/*console.log(Obj);*/
 									powerArray.push(Obj);
-									/*console.log(powerArray);*/
 								}
 								var jsonObj = new Object();
 								jsonObj.conType=conType;
 								jsonObj.connectionName =$($(".lookTable tr td input")[0]).val();
 								jsonObj.id =conId ;
 								jsonObj.enumArray=powerArray;
-								/*console.log(jsonObj);*/
 								$.ajax({
 									type:"POST",
 									url:urlId+"/upDateDataConnection",
@@ -1254,9 +1224,7 @@ function goDatasource(userId,content){
 									var Obj = new Object();
 									Obj.name = thEdit.eq(i).val();
 									Obj.value = tableEdit.eq(i).val();
-									/*console.log(Obj);*/
 									powerArray.push(Obj);
-									/*console.log(powerArray);*/
 								}
 								var jsonObj = new Object();
 								jsonObj.powerArray=powerArray;
@@ -1348,7 +1316,6 @@ function goDatasource(userId,content){
 					Obj.isadd=isAdd;
 					powerArray.push(Obj);
 				}
-				//console.log(powerArray);
 				var jsonObj = new Object();
 				jsonObj.powerArray=powerArray;
 				console.log(JSON.stringify(jsonObj));
@@ -1381,12 +1348,8 @@ function goDatasource(userId,content){
 									}
 								}
 						);
-						/*var isShow = showType(currentUserPowerStr);
-		    			 $("#"+menuIdPre+selectedMenuId).attr("name",isShow);
-				    	 $("#"+menuIdPre+selectedMenuId).attr("power",currentUserPowerStr);*/
 						//清空signArray
 						signArray2 = [];
-						//console.log(data);
 						$.dialog("修改成功！");
 					},  
 					error : function() {   
@@ -1402,7 +1365,7 @@ function goDatasource(userId,content){
 				if(signArray2.indexOf(id)==-1){
 					signArray2.push(id);
 				}
-			}
+			};
 			//工具类方法：校验菜单权限
 			window.powerConjunction = function(power,powerTarget){
 				var result = power&powerTarget;
@@ -1438,8 +1401,6 @@ function searchItem3(){
 	}
 }
 function powerList(conId,content){
-	console.log(conId);
-	console.log(content);
 	$('.power-detail').show();
 	$('.center-table2').hide();
 	if(content!=null){
@@ -1455,7 +1416,6 @@ function powerList(conId,content){
 		dataType:"json",
 		data:data,
 		success:function(data){
-			/*console.log('显示'+data);*/
 			var tablestr="";
 			for(var i=0 ;i<data.length ; i++){
 				var power = data[i].POWER;
@@ -1510,7 +1470,7 @@ function interfaceNames(){
 	var tableName = $('.partN input').val();
 	var flowId = flowId_global;
 	if(tableName==""){
-		$('.partN input').css('border-color','red')
+		$('.partN input').css('border-color','red');
 		$('.sureEvent').hide();
 		return;
 	}
@@ -1521,14 +1481,11 @@ function interfaceNames(){
 		dataType:"json",
 		data:{tableName:tableName,flowId:flowId},
 		success:function(data){
-			console.log(data)
 			if(data==true){
-				$('.partN input').css('border-color','green')
-				//$('.sureEvent').removeClass('disabled');
+				$('.partN input').css('border-color','green');
 				$('.sureEvent').show();
 			}else{
-				$('.partN input').css('border-color','red')
-				//$('.sureEvent').addClass('disabled');
+				$('.partN input').css('border-color','red');
 				$('.sureEvent').hide();
 			}
 		}
@@ -1554,7 +1511,7 @@ function selectSaveTargetBynodeId(nodeId){
 				saveTargetMap[targetId]=saverel;
 				var dom = $('<div class="target" data-id="'+item.nstrId+'"><label>'+item.savetable+'</label><span class="edit"><i class="fa fa-pencil-square-o"></i></span> <span class="trash2"><i class="fa fa-trash2"></i></span></div>');
 				$('.targets').append(dom);
-			})
+			});
 			edittest();
 		}
 	});
@@ -1626,7 +1583,7 @@ function generateFun(power, domCls,menutype){
                 console.log('添加Controller');
                 var folderName = '新建控制器';
                 addMenu($currentRightDom.attr("id"),menuTypeEnum[1],folderName);
-            }},
+            }}
         ]},
         {text: '删除', auth: deleteAuth, action:function(e){
             e.preventDefault();
@@ -1847,7 +1804,6 @@ $('body').unbind('click').click(function (e) {
     }
     ,deleteCookie: function(name) {
         this.setCookie(name, '', -1, {"path" : this.path});
-        //console.log(document.cookie);
     }
     ,initRow : function(title, link, other) {
         return '{"title":"'+title+'", "link":"'+link+'", "other":"'+other+'"}';
@@ -1857,7 +1813,6 @@ $('body').unbind('click').click(function (e) {
         try {
             json = JSON.parse(jsonStr);
         } catch(e) {
-            //alert('parse error');return;
             json = eval(jsonStr);
         }
         
@@ -1873,7 +1828,6 @@ $('body').unbind('click').click(function (e) {
         link = link.replace(/\s+/g, "");
         other = other.replace(/\s+/g, "");
         console.log(link);
-        //alert(jsonStr); return;
         if(title==""){
         	return null;
         }
@@ -1901,8 +1855,7 @@ $('body').unbind('click').click(function (e) {
         } else {
             jsonStr = '['+ this.initRow(title, link, other) +']';
         }
-        
-        //alert(jsonStr);
+
         this.jsonData = this.parse2Json(jsonStr);
         this.setCookie(this.key, jsonStr, this.cacheTime, {"path" : this.path});
     }
@@ -1952,7 +1905,6 @@ function refreshUsersList(str){
 		dataType:"json",
 		data:{content:str},
 		success:function(data){
-			/*console.log('显示'+data);*/
 			var tablestr="";
 			for(var i=0 ;i<data.length ; i++){
 				var birth = new Date(data[i].birth).toLocaleDateString();
@@ -2009,7 +1961,7 @@ function refreshUsersList(str){
 				if(confirm('确认' + (isAct == 1?'锁定':'启用')+ '该用户吗？')){
 					stop(uId, isAct == 1?0:1, index);
 				}
-			})
+			});
 			$('.editUser').unbind('click').click(function (e) {
 				$('.edit-user').show();
 				$('.mask').show();
@@ -2033,13 +1985,13 @@ function refreshUsersList(str){
 						$('.edit-user input[name="isAdmin"]:radio[value='+data.isSystemuser+']').attr('checked','true');
 					}
 				})
-			})
+			});
 			$('.resetPwd').unbind('click').click(function (e) {
 				var uId = $(this).attr('data-id');
 				if(confirm('确认重置该用户的密码？')){
 					resetPwd(uId);
 				}
-			})
+			});
 			$('.deleteUser').unbind('click').click(function (e) {
 				var uId = $(this).attr('data-id');
 				var index = $(this).attr('data-index');
@@ -2067,13 +2019,10 @@ function stop(uId,isActivation, index){
 		success:function(data){
 			if(data){
 				$.dialog('修改状态成功');
-				
 				var tr = $('#users_T tr[name="userData"]:eq(' + index +')');
 				$(tr.children()[9]).text(data.isActivation?'启用':'锁定');
-				
 				$(tr.children()[11]).children().first().attr('data-status', data.isActivation);
 			}
-			
 		}
 	})
 }
@@ -2087,7 +2036,6 @@ function EditOkUser(){
 	jsonObj.phone =$('.userEdit .phone').val();
 	jsonObj.eMail =$('.userEdit .email').val();
 	jsonObj.isSystemuser =$('.userEdit input[name="isAdmin"]:checked').val();
-	console.log(jsonObj);
 	$.ajax({
 		type:"POST",
 		url:urlId+"/updateUserMessage",
@@ -2147,7 +2095,6 @@ function loginIdValidation(loginId){
 				$.dialog("账号已存在");
 				return;
 			}
-			
 		}
 	})
 }

@@ -4118,6 +4118,15 @@ right style
     margin: 0 40px;
     overflow-y: scroll;
 }
+.mainList .liStyle{
+    height: 25px;
+    line-height: 25px;
+}
+.mainList .liStyle span{
+    margin-left:15px;
+}
+
+
 /*
 .dataContainerA .mainList li {
     height: 30px;

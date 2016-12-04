@@ -101,10 +101,6 @@ $(function(){
             data:{uuid:uuid_global,action:actionType,tableName:tableName,lines:20},
             success:function(data) {
             	$('.stop,.wait,.next').addClass('selected');
-            	/*var itemStr="";
-            	$.each(data,function(index,item){
-            		itemStr+=item+'<br>';
-            	});*/
             	$('#tabbox2 .tab_con2').eq(1).append(data+'<br>');
             	console.log(data);
             },
@@ -124,11 +120,9 @@ $(function(){
             left: 24,
             color: '#48000'
         });
-        console.log('changeBtn~~~')
     });
     $('.save_Btn').unbind('click').click(function(){
         $('.changeTip').css('display','none');
-        console.log('saveBtn~~~')
     });
 
     $('.debug').on('click', function(event){
@@ -401,59 +395,8 @@ $(function(){
         });
         $('.columnSetEvent .sureC').on('click',function(){
         	$('.columnSetEvent').hide();
-            /*var columnList = new Array();
-            $('.columnSetEvent tr').each(function(index,item){
-                //console.log($(this).hasClass('contentTitle'))
-               if($(this).hasClass('contentTitle')) {
-                   return true;
-               }
-
-                var columnIssave,
-                    columnPk,
-                    columnName,
-                    columnType,
-                    columnLength,
-                    columnPrecision,
-                    columnScale,
-                    description,
-                    nullAble,
-                    columnNullAble;
-                $(this).find('.single').each(function(index,item){
-                    if($(item).hasClass('columnOne')){
-                        columnName=$(this).parent().next().html();
-                        $(this).hasClass('singleChecked')?columnIssave=1:columnIssave=0;
-                    }else if($(item).hasClass('columnTwo')){
-                        $(this).hasClass('singleChecked')?columnPk=1:columnPk=0;
-                        columnType=$(this).parent().next().children().val();
-                        columnLength=$(this).parent().next().next().html();
-                        columnPrecision=$(this).parent().next().next().next().html();
-                        columnScale=$(this).parent().next().next().next().next().html();
-                    }else if($(item).hasClass('columnThree')){
-                        $(this).hasClass('singleChecked')?nullAble=1:nullAble=0;
-                        description=$(this).parent().next().html();
-                    }
-                });
-
-                var columnObj = new Object();
-                columnObj.isSave=columnIssave;
-                columnObj.name =columnName;
-                columnObj.pk=columnPk;
-                columnObj.type=columnType;
-                columnObj.lenght=columnLength;
-                columnObj.precision=columnPrecision;
-                columnObj.scale=columnScale;
-                columnObj.nullable=nullAble;
-                columnObj.description=description;
-                columnList.push(columnObj);
-
-            });
-            var bigObj = new Object();
-            bigObj.nodeId=columnList;*/
         })
     });
-
-
-
 
     $('.tl_header .close, .btn_group input:eq(0)').on('click', function(event){
         $('.target_layer').hide();
@@ -513,7 +456,6 @@ $(function(){
         	targetsMap.get(pk).push(target);
         	node.data.isSave = 1;
         	//追加.targets页面元素
-        	//var dom = $('<div class="target" data-id="'+targetId+'"><label>'+tableName+'</label><span class="edit"><i class="fa fa-pencil-square-o"></i></span> <span class="trash2"><i class="fa fa-trash2"></i></span></div>');
         	var dom = $('<div class="target" data-id="'+targetId+'"><label>'+tableName+'</label><span class="trash2"><i class="fa fa-trash2"></i></span></div>');
     		$('.targets').append(dom);
     	}
@@ -542,12 +484,8 @@ $(function(){
                 console.log(e)
             }
         });
-    }
+    };
     window.addFilterRecord = function(){
-        console.log('filter...');
-
-        //$('.filter').show();
-        //$('.filter:eq(0)').hide();
         var dom = $('<div class="filter">' +  $('.filter')[0].innerHTML + '</div>');
         $('.filters').append(dom);
         $('.filter .operations').show();
@@ -564,9 +502,6 @@ $(function(){
     };
 
     window.addGroupRecord = function(){
-        console.log('group...');
-        //$('.group').show();
-        //$('.group:eq(0)').hide();
         var dom = $('<div class="group">' +  $('.group')[0].innerHTML + '</div>');
         $('.groups').append(dom);
 
@@ -580,9 +515,6 @@ $(function(){
     };
 
     window.addOrderRecord = function(){
-        console.log('order...');
-        //$('.order').show();
-        //$('.order:eq(0)').hide();
         var dom = $('<div class="order">' +  $('.order')[0].innerHTML + '</div>');
         $('.orders').append(dom);
 
