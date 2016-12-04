@@ -468,7 +468,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="join_"><i class="fa fa-caret-right"></i>
-										连接</span>
+										Join</span>
 
 								</div>
 
@@ -509,7 +509,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="filter_"><i class="fa fa-caret-right"></i>
-										过滤</span> <span><i class="fa plus_icon filter_plus"></i></span>
+										Filter</span> <span><i class="fa plus_icon filter_plus"></i></span>
 								</div>
 								<div class="panel filter_panel" style="display: none;">
 									<div class="filters">
@@ -543,7 +543,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="group_"><i class="fa fa-caret-right"></i>
-										分组</span> <span><i class="fa plus_icon group_plus"></i></span>
+										Group</span> <span><i class="fa plus_icon group_plus"></i></span>
 								</div>
 								<div class="panel group_panel" style="display: none;">
 									<div class="groups">
@@ -563,7 +563,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="order_"><i class="fa fa-caret-right"></i>
-										排序</span> <span><i class="fa plus_icon order_plus"></i></span>
+										Order</span> <span><i class="fa plus_icon order_plus"></i></span>
 								</div>
 								<div class="panel order_panel" style="display: none;">
 									<div class="orders">
@@ -585,7 +585,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="target_"><i class="fa fa-caret-right"></i>
-										存储</span> <span><i class="fa plus_icon target_plus"></i></span>
+										Save_target</span> <span><i class="fa plus_icon target_plus"></i></span>
 								</div>
 								<div class="panel target_panel" style="display: none;">
 									<div class="targets"></div>
@@ -619,6 +619,7 @@
 							</div>
 						</div>
 					</div>
+
 
 					<!--BI start-->
 					<div class="BI-bodyer module-bi bi-template" style="display: none;">
@@ -663,7 +664,9 @@
 					</div>
 					<!--BI end-->
 
+
 					<!--dataMining start-->
+
 					<div class="dataMining-bodyer module-datamining datamining-template" style="display: none">
 						<div class="dataMinL">
 							<div class="dataMinL-top">
@@ -1050,6 +1053,9 @@
 							</div>
 						</div>
 					</div>
+
+
+
 					<!--dataMining end-->
 
 					<!--Controller start-->
@@ -1139,6 +1145,7 @@
 					<!--Controller end-->
 
 					<!--controllerDeploy start-->
+
 					<div class="controllDeploy-bodyer deploy-template controllDeployEvent" style="display: none">
 						<div class="deployLeft">
 							<div class="deployTitle">
@@ -1604,6 +1611,7 @@
 						</div>
 					</div>
 
+
                     <!--controller warning start-->
                     <div class="warningPart" style="display: none">
                         <p class="warningT">
@@ -1646,6 +1654,7 @@
                         </div>
                     </div>
                     <!--jobList end-->
+
 					<!--controllerDeploy end-->
 
 				</div>
@@ -1689,6 +1698,7 @@
 					</div>
 					<!-- manager start-->
 				</div>
+
 			</div>
 		</div>
 
@@ -2093,7 +2103,22 @@
         </div>
         <div class="d-content">
             <table>
-
+               <!--  <tr>
+                    <td>IP</td>
+                    <td><input /></td>
+                </tr>
+                <tr>
+                    <td>port</td>
+                    <td><input /></td>
+                </tr>
+                <tr>
+                    <td>username</td>
+                    <td><input /></td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td><input /></td>
+                </tr> -->
             </table>
         </div>
         <div class="btn-group clearFix">
@@ -2607,7 +2632,7 @@
     <div class="add4-con biDataSource bi-datasource biDataStyle" style="display: none;">
 		<i class="closeA bi-close2"></i>
 		<ul class="add4Nav">
-			<li>数据接口</li>
+			<li>数据源</li>
 		</ul>
 		<div class="optionA showCon">
 			<div class="dataContainerA">
@@ -3192,9 +3217,10 @@ function renameMenuForHome(){
 		var data = his1.getList();
 		$('#searchInfo').empty();
 		if(data!=null){
-			 for(var i =data.length-1;i>=0;i--){
-				$('#searchInfo').prepend('<li class="history1">'+data[i].title+'</li>');
-			}
+		 for(var i =data.length-1;i>=0;i--){
+			
+			$('#searchInfo').prepend('<li class="history1">'+data[i].title+'</li>');
+		} 
 		}
 		console.log(data);
 		console.log(mType);
@@ -3207,6 +3233,7 @@ function renameMenuForHome(){
 		     data:{menuId: menuId, content:content, userId:userId},
 		     dataType:"json",
 		     success:function(data) {
+		    	 //var tablestr='<tr style="display: block;" ><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>Username</th><th>Date</th><th>增</th><th>删</th><th>改</th><th>查</th><th>赋予</th></tr>';
 				if($('.managers').hasClass('visitedBg')){
 		    	 $('.module-manager').show();
 				}
@@ -3215,6 +3242,7 @@ function renameMenuForHome(){
 		    	 for(var i=0;i<data.length;i++){
 		        	 var power = data[i].POWER;
 		        	 var checkboxStr = "";
+
                      for(var j=0;j<powerEnum.length;j++){
                     		if(j==3){
                         		if(powerConjunction(power,powerEnum[3])){
@@ -3283,6 +3311,11 @@ function renameMenuForHome(){
 		           $.dialog("异常！");
 		      }
 	 	});
+
+		/*if($('.flows').hasClass('visitedBg')){
+			$('.module-manager').hide();
+			console.log('in')
+		}*/
 	}
 	function savePower(){
 		var powerArray = new Array();
@@ -3332,6 +3365,9 @@ function renameMenuForHome(){
 						 }
 					 }
 			 	 );
+    			/*  var isShow = showNum(currentUserPowerStr);
+    			 $("#"+selectedMenuId).attr("name",isShow);
+		    	 $("#"+selectedMenuId).attr("power",currentUserPowerStr); */
 		    	 //清空signArray
 	    		 signArray = [];
 		    	 //$('.root_tree').children().show();
@@ -3355,6 +3391,13 @@ function renameMenuForHome(){
         //刷新目录树
         if(type==1){
             $(".root_tree div[name='singleShow']").parent().show();
+    		/* var idName=$(this).attr('id');
+    		var dataType=$('.visitedBg').attr('menutype');
+            var fileName = $('.visitedBg').children().last().text();
+            if(dataType == 1){//文件夹
+            	return;
+            } */
+            //tabCheck(idName, dataType, fileName);
         }else{
         	//刷新目录管理
             $(".root_tree div[name='singleShow']").parent().hide();
@@ -3382,6 +3425,7 @@ function renameMenuForHome(){
             type:'POST',
             dataType:"json",
             contentType: "application/json",
+            // data:JSON.stringify({userId:userId}),
             success:function(data) {
 				str+='<option selected>请选择数据连接</option>';
                 $(data).each(function(index,item){
@@ -3403,36 +3447,13 @@ function renameMenuForHome(){
 			contentType: "application/json",
 			success:function(data) {
 				if(flowId_global){
-					var flowInfo = flowInfosMap.get(flowId_global);
-					if(flowInfo&&!flowInfo.editable){
-						window.clearInterval(flowInfo.log_timer);
-				    	window.clearInterval(flowInfo.checkaccept_timer);
-					}else{
-						var jsmindStr = create_jsmindStr();
-						jsmindStrsMap.put(flowId_global,jsmindStr);
-					}
+					var jsmindStr = create_jsmindStr();
+					jsmindStrsMap.put(flowId_global,jsmindStr);
 					clear_panel_();
 				}
 				/********************以上是保存上一个flow并清空，以下是展现下一个flow**********************/
 				//赋值全局变量flowId_global
 				flowId_global = data;
-				var flowInfo = flowInfosMap.get(flowId_global);
-				if(flowInfo&&!flowInfo.editable){
-					$('.module-prop .save').attr('disabled','disabled');
-            		$('.debug,.runing').addClass('selected');
-            		_jm1.disable_edit();
-            		_jm2.disable_edit();
-            		if(flowInfo.runType==3){
-            			checkaccept_timer(flowInfo,flowInfo.uuid);
-            		}
-            		log_timer(flowInfo,flowInfo.uuid);
-				}else{
-					$('.module-prop .save').removeAttr('disabled');
-					_jm1.enable_edit();
-					_jm2.enable_edit();
-					$('.debug,.runing').removeClass('selected');
-					$('.stop,.wait,.next').addClass('selected');
-				}
 				var jsmindStr_new = jsmindStrsMap.get(flowId_global);
 				var sourceDatas = sourceDatasMap.get(flowId_global);
 				if(!jsmindStr_new){
@@ -3525,8 +3546,6 @@ function renameMenuForHome(){
 	}
 	function clear_panel_(){
 		$('.dt_conL').empty();
-		$('.col_con').empty();
-		$('.tab2_2').empty();
 		_jm1.show();
 		_jm2.show();
 		subtreeMap.clear();

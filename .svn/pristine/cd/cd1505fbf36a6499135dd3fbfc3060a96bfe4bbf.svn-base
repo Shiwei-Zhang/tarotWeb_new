@@ -45,12 +45,7 @@ $(function(){
         var $dataType = $(this).attr('data_type');
         var $idName = $(this).attr('idName');
         $(this).addClass('thistab').siblings().removeClass('thistab');
-        $('.root_tree div').removeClass('visitedBg');
-        if($('.module-data-all .thistab').attr("class").length>7){
-        	//被选中的选项卡的id
-            var a=$('.module-data-all .thistab').attr("class").split('-')[1].split(' ',1).toString();
-            $('.root_tree div[id='+a+']').addClass('visitedBg');
-        }
+
         //隐藏所有
         $('.module-manager').hide();
         $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
@@ -425,13 +420,8 @@ $(function(){
                         while($($('.tabsEvent li')[i]).css('display') == 'none'){
                             i++
                         }
-                        //$('.tabsEvent li').removeClass('thistab');
-                        //if($('.tabsEvent .thistab').next().index()!=-1 && !$($('.tabsEvent .thistab').next()).css("display","none")){
-                        if($('.tabsEvent .thistab').nextAll().index()!=-1){
-                        	$($('.tabsEvent .thistab').next()).addClass('thistab');
-                        }else{
-                        	$($('.tabsEvent .thistab').prev()).addClass('thistab');
-                        }
+                        $('.tabsEvent li').removeClass('thistab');
+                        $($('.tabsEvent li')[i]).addClass('thistab');
                         
                         $('.root_tree div').removeClass('visitedBg');
                         if($('.module-data-all .thistab').attr("class").length>7){
@@ -1186,8 +1176,13 @@ function goDatasource(userId,content){
 							$('#result2').empty();
 							$('.edit-button').show();
 							$('.look-button').hide();
+							$('.look-input tr td').empty();
 							$('.lookTable tr td').empty();
 							$('.look-detail .h4 span').html('编辑');
+							$($('.look-input tr td')[0]).append($('<select class="add2-sel" id="selectType1">'
+									+'<option  selected=""  value="">- - - - - - Type'
+									+'</option><option value="mysql">MY SQL</option><option value="oracle">ORACLE</option>'
+									+'<option value="sqlserver">SQL SERVER</option></select>'));
 							$($('.lookTable tr td')[0]).append($('<input  value='+ conName+' />'));
 							for(var i=1;i<$('.lookTable tr td').length;i++){
 								$($('.lookTable tr td')[i]).append($('<input  value='+ shuju.dataConnectEnumValue[i-1].value+' />'));
@@ -1199,7 +1194,7 @@ function goDatasource(userId,content){
 							//编辑页面保存按钮
 							$('.edit-save').unbind('click').click(function(){
 								var powerArray = new Array();
-								var conType = $('.look-input td').text();
+								var conType = $('#selectType1').val();
 								var tableEdit=$('.lookTable').find(':text');
 								var thEdit=$('.lookTable').find(':hidden');
 								for(var i=1;i<tableEdit.length;i++){
@@ -1234,7 +1229,7 @@ function goDatasource(userId,content){
 							//编辑页面测试按钮
 							$('.edit-test').unbind('click').click(function(){
 								var powerArray = new Array();
-								var conType = $('.look-input td').text();
+								var conType = $('#selectType1').val();
 								var tableEdit=$('.lookTable').find(':text');
 								var thEdit=$('.lookTable').find(':hidden');
 								for(var i=1;i<tableEdit.length;i++){

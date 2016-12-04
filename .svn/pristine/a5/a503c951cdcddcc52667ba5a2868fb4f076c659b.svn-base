@@ -468,7 +468,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="join_"><i class="fa fa-caret-right"></i>
-										连接</span>
+										Join</span>
 
 								</div>
 
@@ -509,7 +509,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="filter_"><i class="fa fa-caret-right"></i>
-										过滤</span> <span><i class="fa plus_icon filter_plus"></i></span>
+										Filter</span> <span><i class="fa plus_icon filter_plus"></i></span>
 								</div>
 								<div class="panel filter_panel" style="display: none;">
 									<div class="filters">
@@ -543,7 +543,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="group_"><i class="fa fa-caret-right"></i>
-										分组</span> <span><i class="fa plus_icon group_plus"></i></span>
+										Group</span> <span><i class="fa plus_icon group_plus"></i></span>
 								</div>
 								<div class="panel group_panel" style="display: none;">
 									<div class="groups">
@@ -563,7 +563,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="order_"><i class="fa fa-caret-right"></i>
-										排序</span> <span><i class="fa plus_icon order_plus"></i></span>
+										Order</span> <span><i class="fa plus_icon order_plus"></i></span>
 								</div>
 								<div class="panel order_panel" style="display: none;">
 									<div class="orders">
@@ -585,7 +585,7 @@
 							<div class="prop1">
 								<div class="title">
 									<span class="target_"><i class="fa fa-caret-right"></i>
-										存储</span> <span><i class="fa plus_icon target_plus"></i></span>
+										Save_target</span> <span><i class="fa plus_icon target_plus"></i></span>
 								</div>
 								<div class="panel target_panel" style="display: none;">
 									<div class="targets"></div>
@@ -3403,36 +3403,13 @@ function renameMenuForHome(){
 			contentType: "application/json",
 			success:function(data) {
 				if(flowId_global){
-					var flowInfo = flowInfosMap.get(flowId_global);
-					if(flowInfo&&!flowInfo.editable){
-						window.clearInterval(flowInfo.log_timer);
-				    	window.clearInterval(flowInfo.checkaccept_timer);
-					}else{
-						var jsmindStr = create_jsmindStr();
-						jsmindStrsMap.put(flowId_global,jsmindStr);
-					}
+					var jsmindStr = create_jsmindStr();
+					jsmindStrsMap.put(flowId_global,jsmindStr);
 					clear_panel_();
 				}
 				/********************以上是保存上一个flow并清空，以下是展现下一个flow**********************/
 				//赋值全局变量flowId_global
 				flowId_global = data;
-				var flowInfo = flowInfosMap.get(flowId_global);
-				if(flowInfo&&!flowInfo.editable){
-					$('.module-prop .save').attr('disabled','disabled');
-            		$('.debug,.runing').addClass('selected');
-            		_jm1.disable_edit();
-            		_jm2.disable_edit();
-            		if(flowInfo.runType==3){
-            			checkaccept_timer(flowInfo,flowInfo.uuid);
-            		}
-            		log_timer(flowInfo,flowInfo.uuid);
-				}else{
-					$('.module-prop .save').removeAttr('disabled');
-					_jm1.enable_edit();
-					_jm2.enable_edit();
-					$('.debug,.runing').removeClass('selected');
-					$('.stop,.wait,.next').addClass('selected');
-				}
 				var jsmindStr_new = jsmindStrsMap.get(flowId_global);
 				var sourceDatas = sourceDatasMap.get(flowId_global);
 				if(!jsmindStr_new){
@@ -3525,8 +3502,6 @@ function renameMenuForHome(){
 	}
 	function clear_panel_(){
 		$('.dt_conL').empty();
-		$('.col_con').empty();
-		$('.tab2_2').empty();
 		_jm1.show();
 		_jm2.show();
 		subtreeMap.clear();

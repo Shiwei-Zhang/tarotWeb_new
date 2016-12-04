@@ -1,76 +1,25 @@
+/**
+ * Created by zhanghaijun on 2016/9/12.
+ */
 $(function(){
+	var uuid_global;
+	var log_timer;
+	var checkaccept_timer;
 	var removeSocketSession = function(){
-		$('.module-prop .save').removeAttr('disabled');
-		_jm1.enable_edit();
-		_jm2.enable_edit();
 		$('.debug,.runing').removeClass('selected');
-		var flowInfo = flowInfosMap.get(flowId_global);
-		flowInfo.editable = true;
-		window.clearInterval(flowInfo.log_timer);
-    	window.clearInterval(flowInfo.checkaccept_timer);
-    	var uuid = flowInfo.uuid;
+		window.clearInterval(log_timer);
+    	window.clearInterval(checkaccept_timer);
 		$.ajax({
 			url: urlId + '/release/removeSocketSession',
             type:'POST',
             dataType:"json",
-            data:{uuid:uuid},
+            data:{uuid:uuid_global},
             success:function(data) {
             },
             error : function() {
                 $.dialog("移除SocketSession出现异常！");
             }
 		});
-	};
-	window.checkaccept_timer = function(flowInfo,uuid){
-		flowInfo.checkaccept_timer = window.setInterval(function(){
-    		$.ajax({
-                url: urlId + '/release/checkacceptaction',
-                type:'POST',
-                dataType:"json",
-                async:false,
-                data:{uuid:uuid},
-                success:function(data) {
-                	if(data){
-                		$('.stop,.wait,.next').removeClass('selected');
-                	}
-                },
-                error : function() {
-                	removeSocketSession();
-                    $.dialog("校验是否可以发生指令出现异常！");
-                }
-            })
-    	},1000);
-	};
-	window.log_timer = function(flowInfo,uuid){
-		flowInfo.log_timer = window.setInterval(function(){
-    		$.ajax({
-                url: urlId + '/release/deployLogs',
-                type:'POST',
-                dataType:"json",
-                data:{jobId:uuid},
-                success:function(data) {
-                	var length = data.length;
-                	if(length>0){
-                		var itemStr="";
-                    	$.each(data,function(index,item){
-                    		itemStr+=item+'<br>';
-                    	});
-                    	$('#tabbox2 .tab_con2').eq(1).append(itemStr);
-                    	var lastJson = JSON.parse(data[length-1]);
-                    	if(lastJson.result_code==999||lastJson.result_code==998){
-                    		removeSocketSession();
-                    		if(lastJson.result_code==998){
-                    			$.dialog("连接超时！");
-                    		}
-                    	}
-                	}
-                },
-                error : function() {
-                	removeSocketSession();
-                    $.dialog("日志获取异常！");
-                }
-            })
-    	},1000);
 	};
 	var firetestdebugflow = function(runType){
 		$('#tabbox2 .tab_con2').eq(1).html('');
@@ -83,24 +32,59 @@ $(function(){
             	var dataJson = JSON.parse(data);
             	var uuid = dataJson.uuid;
             	var result_code = dataJson.result_code;
+            	uuid_global = uuid;
             	if(result_code==201){
-            		$('.module-prop .save').attr('disabled','disabled');
+            		$.dialog("发送成功！");
             		$('.debug,.runing').addClass('selected');
-            		_jm1.disable_edit();
-            		_jm2.disable_edit();
-                	var flowInfo = new Object();
-                	flowInfo.uuid = uuid;
-                	flowInfo.editable = false;
-                	flowInfo.runType = runType;
             		if(runType==3){
-            			checkaccept_timer(flowInfo,uuid);
+            			checkaccept_timer = window.setInterval(function(){
+                    		$.ajax({
+                                url: urlId + '/release/checkacceptaction',
+                                type:'POST',
+                                dataType:"json",
+                                async:false,
+                                data:{uuid:uuid},
+                                success:function(data) {
+                                	if(data){
+                                		$('.stop,.wait,.next').removeClass('selected');
+                                	}
+                                },
+                                error : function() {
+                                	removeSocketSession();
+                                    $.dialog("校验是否可以发生指令出现异常！");
+                                }
+                            })
+                    	},1000);
             		}
-            		log_timer(flowInfo,uuid);
-            		flowInfosMap.put(flowId_global,flowInfo);
+            		log_timer = window.setInterval(function(){
+                		$.ajax({
+                            url: urlId + '/release/deployLogs',
+                            type:'POST',
+                            dataType:"json",
+                            data:{jobId:uuid},
+                            success:function(data) {
+                            	var length = data.length;
+                            	if(length>0){
+                            		var itemStr="";
+                                	$.each(data,function(index,item){
+                                		itemStr+=item+'<br>';
+                                	});
+                                	$('#tabbox2 .tab_con2').eq(1).append(itemStr);
+                                	var lastJson = JSON.parse(data[length-1]);
+                                	if(lastJson.result_code==999){
+                                		removeSocketSession();
+                                	}
+                            	}
+                            },
+                            error : function() {
+                            	removeSocketSession();
+                                $.dialog("日志获取异常！");
+                            }
+                        })
+                	},1000);
             	}else{
-            		$.dialog("引擎任务忙，请稍后！");
+            		$.dialog("发送任务失败！");
             	}
-            	$('#tabbox2 .tab_con2').eq(1).append(data+'<br>');
             },
             error : function() {
                 $.dialog("发送任务异常！");
@@ -108,21 +92,17 @@ $(function(){
         });
 	};
 	var sendAction = function(actionType){
-		var uuid = flowInfosMap.get(flowId_global).uuid;
+		//TODO
+		var tableName='logic_'+flowId_global;
 		$.ajax({
             url: urlId + '/release/sendactions',
             type:'POST',
             dataType:"json",
-            data:{uuid:uuid,action:actionType,tableName:null,lines:20},
+            data:{uuid:uuid_global,action:actionType,tableName:tableName,lines:20},
             success:function(data) {
-            	var dataJson = JSON.parse(data);
-            	var result_code = dataJson.result_code;
-            	if(result_code==101){
-            		$('.stop,.wait,.next').addClass('selected');
-            	}else{
-            		$.dialog("引擎任务忙，请稍后！");
-            	}
+            	$('.stop,.wait,.next').addClass('selected');
             	$('#tabbox2 .tab_con2').eq(1).append(data+'<br>');
+            	console.log(data);
             },
             error : function() {
             	removeSocketSession();
