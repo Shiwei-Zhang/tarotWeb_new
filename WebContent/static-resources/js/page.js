@@ -19,7 +19,7 @@ function goPage(pno,psize,id,pageId){
 	var startRow = (currentPage - 1) * pageSize+1;//开始显示的行  31
 	console.log('开始行数'+startRow);
 	var endRow = currentPage * pageSize;//结束显示的行   40
-	endRow = (endRow > num)? num : endRow;    40
+	endRow = (endRow > num)? num : endRow;    //40
 	console.log('结束显示的行'+endRow);
 	//遍历显示数据实现分页
 	for(var i=0;i<num;i++){

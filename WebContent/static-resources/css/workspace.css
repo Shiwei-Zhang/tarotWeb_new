@@ -3594,6 +3594,8 @@ right style
     box-sizing: border-box;
     color: #1E1E1E;
     background-color: #fff;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
 .table3 tr th {
@@ -3763,7 +3765,7 @@ right style
 }
 
 .table1 .firTr, .table2 .firTr {
-    display: block;
+    display: inline-block;
     border: 1px solid #D1D6D6;
     border-bottom: 1px solid #A0A0A0
 }

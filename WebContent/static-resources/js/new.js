@@ -1100,7 +1100,6 @@ function goDatasource(userId,content){
 		dataType:"json",
 		data:data,
 		success:function(data){
-			console.log(data);
 			$('#table2').append('<tr class="firTr"><th>数据库类型</th><th>数据连接名称</th><th>主机地址</th><th>创建时间</th><th>修改时间</th><th class="w100" style="padding-left: 31px;">更多操作</th></tr>');
 			for(var i=0 ;i<data.length ; i++){
 				var createTime = formatDateTime(new Date(data[i].CREATE_TIME));
@@ -1110,7 +1109,6 @@ function goDatasource(userId,content){
 					var updateTime = '';
 				}
 
-				console.log(data[i].UPDATE_TIME+"**********"+updateTime);
 				if(powerConjunction(data[i].POWER,powerEnum2[0])&&powerConjunction(data[i].POWER,powerEnum2[1])){
 				$('#table2').append('<tr name="powerData" class="borderRight"><td>'+data[i].SOURCE_TYPE+'</td><td value="'+data[i].NAME+'">'+data[i].NAME+'</td><td>'
 						+data[i].IP+'</td><td>'+createTime+'</td><td>'+updateTime+'</td>'
@@ -1123,6 +1121,10 @@ function goDatasource(userId,content){
 						+'</span></td></tr>');
 				}
 			}
+            /*$($('.table2 th')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+            $($('.table2 td')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+            $('.table2 .w100').each(function(index,item){$(item).css('width',$('.table2').width()*0.08)});*/
+
             goPage(1,pageSize,'table2','barcon2');
 			//查看按钮
 			$('.look').click(function(){
@@ -1158,8 +1160,6 @@ function goDatasource(userId,content){
 						});
 						//查看页面编辑按钮
 						$('.edit2').unbind('click').click(function(){
-							/*$('.edit-conn').show();
-					        $('.look-detail').hide();*/
 							$('.mask').show();
 							$('#result2').empty();
 							$('.edit-button').show();

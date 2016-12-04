@@ -417,7 +417,9 @@ $(function () {
         visitedTag($('.partStream li:eq(0)'));
 
         //删除数据挖掘组件事件绑定
-        $('.partStream .closeL').unbind('click').click(function () {
+        $('.partStream .closeL').unbind('click').click(function (e) {
+            e = e || window.event;
+            e.stopPropagation?e.stopPropagation(): e.cancelBubble = true;
             //从列表中移除
             var parent = $(this).parent();
             var previous = parent.prev();
