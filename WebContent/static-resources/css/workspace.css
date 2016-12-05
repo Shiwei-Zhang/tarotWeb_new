@@ -199,7 +199,6 @@ p {
 }
 
 
-
 /*scrollbar style*/
 ::-webkit-scrollbar/*整体部分*/
 {
@@ -3016,7 +3015,7 @@ right style
 .module-prop {
     position: absolute;
     right: -1px;
-    width: 350px;
+    width: 354px;
     height: 840px;
     z-index: 100;
     margin-top: -28px;
@@ -3124,6 +3123,9 @@ right style
 .joins, .filters, .groups, .orders, .targets {
     padding-left: 26px;
     margin-top: 4px;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .joins select, .filters select, .targets select {
@@ -3899,7 +3901,9 @@ right style
     position: absolute;
     z-index: 101;
     top: 130px;
-    left: 434px;
+    left:0;
+    right:0;
+    margin:auto;
     display: none;
     border: 1px #F0F0F0 solid;
 }

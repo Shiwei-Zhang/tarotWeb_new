@@ -30,12 +30,17 @@
 	$(window).on('resize', $.resizeW);
 	$.resizeW = function() {
 		var $winW = $(document).width();
+		if($winW<=1440){
+			$winW=1440;
+		}else if($winW>=1920){
+			$winW=1920;
+		}
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 201);
 		$('.dataMinL').css('width',($winW-201-345));
 		$('.module-core').css('width',($winW-201-351));
 		$('.business_logic .wStyle').css('width',($winW-80)/3);
-
 		$('.codePart').css('width',($('.module-data-all').width()-351));//flow-code
+		console.log($winW)
 	};
 	$.isEmpty = function(obj){
 		if(!obj){//'', null, undefined

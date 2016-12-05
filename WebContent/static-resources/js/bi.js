@@ -1347,7 +1347,7 @@ var user_ = $.getCookie('userId');
 	                //console.log(tableName)
 	            	var str = '';
 	                for(var i=0;i<tableName.length;i++){
-	                    str+='<li><i class="single"></i><span>'+tableName[i]+'</span></li>';
+	                    str+='<li class="liStyle"><i class="single"></i><span>'+tableName[i]+'</span></li>';
 	                }
 	                $('.bi-mainList').empty().html( $( str ) );
 

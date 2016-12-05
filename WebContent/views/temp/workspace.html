@@ -1138,7 +1138,7 @@
 							<div class="deployContent deploy">
 								<ul class="paramList jobPlan">
 									<li>
-										<span class="Tname">副本ID</span>
+										<span class="Tname">副本</span>
 										<select id="idNameE" onchange="initReplica(this)"></select>
 									</li>
 									<li>
@@ -2207,9 +2207,9 @@
 				<td contenteditable="true">0</td>
 				<td contenteditable="true">0</td>
 				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true">xxxx</td>
+				<td contenteditable="true"></td>
 				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true">xxxx</td>
+				<td contenteditable="true"></td>
 			</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2245,9 +2245,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true"></td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true"></td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2283,9 +2283,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true"></td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true"></td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2321,9 +2321,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true"></td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true">xxxx</td>
+					<td contenteditable="true"></td>
 				</tr>
 			</table>
 		</div>
@@ -2796,8 +2796,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
+					<td></td>
+					<td></td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2805,8 +2805,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
+					<td></td>
+					<td></td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2814,8 +2814,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
+					<td></td>
+					<td></td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2823,8 +2823,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td>xxxx</td>
-					<td>xxxx</td>
+					<td></td>
+					<td></td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2884,6 +2884,7 @@
     //工作区数据源栏下tableName
     var tableNameMap = new Map();
 	$.resizeW();
+	$(window).on('resize', $.resizeW);
 	//函数选择框change事件
 	function selectChange(){
 		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());

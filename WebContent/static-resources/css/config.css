@@ -14,7 +14,7 @@
     border: 1px #CAC9C9 solid;
 }
 
-.group, .type, .eum {
+.business_logic .group, .type, .eum {
     min-height: 796px;
     max-height: 796px;
     height: 796px;
