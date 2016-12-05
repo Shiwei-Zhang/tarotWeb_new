@@ -56,7 +56,7 @@ input[type="button"] {
 }
 
 .container, .content, .module-data-all {
-    height: 840px;
+    height: 913px;
     box-sizing: border-box;
 }
 
@@ -248,8 +248,7 @@ p {
 
 .module-data-navigation {
     width: 201px;
-    /*height: 100%;*/
-    height: 840px;
+    height: 912px;
     background: #fff;
     border-right: 1px solid #B9B9B9;
     border-bottom: 1px solid #B9B9B9;
@@ -293,7 +292,7 @@ p {
 }
 
 .folder {
-    height: 813px;
+    height: 886px;
     overflow: scroll;
     font-size: 12px;
 }
@@ -2656,14 +2655,13 @@ ul.root_tree li div {
 }
 
 #tabbox1, #tabbox2 {
-    height: 390px;
+    height: 430px;
 }
 
 .tab_conbox {
     padding: 0;
     margin: 0;
-    /*height: 100%;*/
-    height: 392px;
+    height: 430px;
 }
 
 .tab_conbox li {
@@ -2811,13 +2809,12 @@ ul.root_tree li div {
 }
 
 #tabbox1 .dt_d .dt_con {
-    height: 318px;
+    height: 358px;
     overflow-y: auto;
 }
 
 #tabbox2 .dt_d .dt_con {
-    /*height: 324px;*/
-    height: 319px;
+    height: 352px;
     overflow-y: auto;
 }
 
@@ -3016,7 +3013,7 @@ right style
     position: absolute;
     right: -1px;
     width: 354px;
-    height: 840px;
+    height: 888px;
     z-index: 100;
     margin-top: -28px;
     border-left: 1px solid #B9B9B9;
@@ -4666,6 +4663,7 @@ button, input, select {
 
 .columnSet_B span.closeC {
     color: #767676;
+    margin-right:20px;
     border: 2px solid #767676;
 }
 
