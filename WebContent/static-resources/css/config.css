@@ -15,9 +15,9 @@
 }
 
 .business_logic .group, .type, .eum {
-    min-height: 796px;
-    max-height: 796px;
-    height: 796px;
+    min-height: 871px;
+    max-height: 871px;
+    height: 871px;
 }
 
 .business_logic > div:nth-child(2) {
@@ -90,8 +90,8 @@
 
 .type > div {
     border: 1px #CAC9C9 solid;
-    min-height: 387px;
-    max-height: 387px;
+    min-height: 425px;
+    max-height: 425px;
 }
 
 .type > div:last-child {
