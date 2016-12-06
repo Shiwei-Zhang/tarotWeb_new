@@ -711,8 +711,8 @@ ul.root_tree li div {
 .biDataL .biList {
     height: 220px;
     max-height: 220px;
-    overflow: auto;
-    /*margin-left: 10px;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .biDataL .biList li {
@@ -1604,9 +1604,13 @@ ul.root_tree li div {
     overflow: hidden;
 }
 .controll-bodyer .content2 .diary{
-    height: 235px;
-    max-height: 235px;
+    height: 310px;
+    max-height: 310px;
     overflow: scroll;
+}
+.controll-bodyer .content2 .diary li{
+    padding-left:10px;
+    line-height: 20px;
 }
 .content1 .stream, .content1 .provide, .content1 .con-right {
     /*width: 386px;*/
@@ -3054,6 +3058,7 @@ right style
 .module-prop .prop input {
     width: 115px;
     height: 20px;
+    max-width: 164px;
     padding-left: 10px;
     margin-left: 10px;
     vertical-align: 1px;
@@ -4389,13 +4394,14 @@ button, input, select {
 
 .target_layer {
     position: absolute;
-    left: 440px;
+    left: 0;
+    right:0;
+    margin:auto;
     z-index: 101;
     width: 600px;
     height: 500px;
     top: 100px;
     background-color: white;
-    /*border-radius: 2px;*/
     border: 1px solid #a9a9a9;
 }
 

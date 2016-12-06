@@ -27,7 +27,7 @@
 }
 
 #jsmind_container2 {
-	height: 404px;
+	height: 369px;
 	width: 99.7%;
 	overflow-y: hidden;
 }
@@ -778,15 +778,15 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>平滑参数</span>
+										<span>smoothing</span>
 										<input type="text" class="smoothing" value="1.0">
 									</li>
 									<li>
-										<span>阈值</span>
+										<span>thresholds</span>
 										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 									<li>
-										<span>模型类型</span>
+										<span>model type</span>
 										<!-- <input type="text" class="modelType"> -->
 										<select class="modelType">
 											<option value="multinomial">multinomial</option>
@@ -800,39 +800,39 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>弹性网参数</span>
+										<span>elasticNetParam</span>
 										<input type="text" class="elasticNetParam" value="0.0">
 									</li>
 									<li>
-										<span>适合截距</span>
+										<span>fitIntercept</span>
 										<select class="fitIntercept">
 											<option value="true">true</option>
 											<option value="false">false</option>
 										</select>
 									</li>
 									<li>
-										<span>最大迭代次数</span>
+										<span>maxIter</span>
 										<input type="text" class="maxIter" value="100">
 									</li>
 									<li>
-										<span>正则化参数</span>
+										<span>regParam</span>
 										<input type="text" class="regParam" value="0.0">
 									</li>
 									<li>
-										<span>求解</span>
+										<span>solver</span>
 										<select class="solver">
 											<option value="auto">auto</option>
 										</select>
 									</li>
 									<li>
-										<span>标准化</span>
+										<span>standardization</span>
 										<select class="standardization">
 											<option value="true">true</option>
 											<option value="false">false</option>
 										</select>
 									</li>
 									<li>
-										<span>容忍度</span>
+										<span>tol</span>
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
@@ -842,41 +842,41 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>弹性网参数</span>
+										<span>elasticNetParam</span>
 										<input type="text" class="elasticNetParam" value="0.0">
 									</li>
 									<li>
-										<span>适合截距</span>
+										<span>fitIntercept</span>
 										<select class="fitIntercept">
 											<option value="true">true</option>
 											<option value="false">false</option>
 										</select>
 									</li>
 									<li>
-										<span>最大迭代次数</span>
+										<span>maxIter</span>
 										<input type="text" class="maxIter" value="100">
 									</li>
 									<li>
-										<span>正则化参数</span>
+										<span>regParam</span>
 										<input type="text" class="regParam" value="0.0">
 									</li>
 									<li>
-										<span>标准化</span>
+										<span>standardization</span>
 										<select class="standardization">
 											<option value="true">true</option>
 											<option value="false">false</option>
 										</select>
 									</li>
 									<li>
-										<span>容忍度</span>
+										<span>tol</span>
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 									<li>
-										<span>阈值</span>
+										<span>thresholds</span>
 										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 									<li>
-										<span>阈值</span>
+										<span>threshold</span>
 										<input type="text" class="threshold" value="0.5">
 									</li>
 								</ul>
@@ -886,39 +886,39 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>弹性网参数</span>
+										<span>elasticNetParam</span>
 										<input type="text" class="elasticNetParam" value="0.0">
 									</li>
 									<li>
-										<span>适合截距</span>
+										<span>fitIntercept</span>
 										<select class="fitIntercept">
 											<option value="true">true</option>
 											<option value="false">false</option>
 										</select>
 									</li>
 									<li>
-										<span>最大迭代次数</span>
+										<span>maxIter</span>
 										<input type="text" class="maxIter" value="100">
 									</li>
 									<li>
-										<span>正则化参数</span>
+										<span>regParam</span>
 										<input type="text" class="regParam" value="0.0">
 									</li>
 									<li>
-										<span>求解</span>
+										<span>solver</span>
 										<select class="solver">
 											<option value="auto">auto</option>
 										</select>
 									</li>
 									<li>
-										<span>标准化</span>
+										<span>standardization</span>
 										<select class="standardization">
 											<option value="true">true</option>
 											<option value="false">false</option>
 										</select>
 									</li>
 									<li>
-										<span>容忍度</span>
+										<span>tol</span>
 										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
@@ -928,19 +928,19 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>迭代步长</span>
+										<span>stepSize</span>
 										<input type="text" class="stepSize" value="1.0">
 									</li>
 									<li>
-										<span>迭代次数</span>
+										<span>numIterations</span>
 										<input type="text" class="numIterations" value="100">
 									</li>
 									<li>
-										<span>正则化参数</span>
+										<span>regParm</span>
 										<input type="text" class="regParm" value="0.01">
 									</li>
 									<li>
-										<span>每次迭代参与计算的样本比例</span>
+										<span>miniBatchFraction</span>
 										<input type="text" class="miniBatchFraction" value="1.0">
 									</li>
 								</ul>
@@ -950,23 +950,23 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>初始步长</span>
+										<span>initSteps</span>
 										<input type="text" class="initSteps" value="5">
 									</li>
 									<li>
-										<span>聚类个数</span>
+										<span>k</span>
 										<input type="text" class="k" value="2">
 									</li>
 									<li>
-										<span>最大迭代次数</span>
+										<span>maxIter</span>
 										<input type="text" class="maxIter" value="20">
 									</li>
 									<li>
-										<span>随机种子</span>
+										<span>seed</span>
 										<input type="text" class="seed" value="-1689246527">
 									</li>
 									<li>
-										<span>容忍度</span>
+										<span>tol</span>
 										<input type="text" class="tol" value="1.0E-4">
 									</li>
 								</ul>
@@ -976,17 +976,17 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>信息增益的计算方法</span>
+										<span>impurity</span>
 										<select class="impurity">
 											<option value="variance">variance</option>
 										</select>
 									</li>
 									<li>
-										<span>最大划分数</span>
+										<span>maxBins</span>
 										<input type="text" class="maxBins" value="32">
 									</li>
 									<li>
-										<span>决策树的最大深度</span>
+										<span>maxDepth</span>
 										<input type="text" class="maxDepth" value="5">
 									</li>
 								</ul>
@@ -996,21 +996,21 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>分类的数量</span>
+										<span>numClasses</span>
 										<input type="text" class="numClasses" value="2">
 									</li>
 									<li>
-										<span>信息增益的计算方法</span>
+										<span>impurity</span>
 										<select class="impurity">
 											<option value="gini">gini</option>
 										</select>
 									</li>
 									<li>
-										<span>最大划分数</span>
+										<span>maxBins</span>
 										<input type="text" class="maxBins" value="32">
 									</li>
 									<li>
-										<span>决策树的最大深度</span>
+										<span>maxDepth</span>
 										<input type="text" class="maxDepth" value="5">
 									</li>
 								</ul>
@@ -1020,23 +1020,23 @@
 										<input type="text" class="remark">
 									</li>
 									<li>
-										<span>块数</span>
+										<span>numBlocks</span>
 										<input type="text" class="numBlocks" value="-1">
 									</li>
 									<li>
-										<span>隐语义因子的个数</span>
+										<span>rank</span>
 										<input type="text" class="rank" value="10">
 									</li>
 									<li>
-										<span>迭代次数</span>
+										<span>iterations</span>
 										<input type="text" class="iterations" value="10">
 									</li>
 									<li>
-										<span>惩罚函数的因数</span>
+										<span>lambda</span>
 										<input type="text" class="lambda" value="0.01">
 									</li>
 									<li>
-										<span>是否使用隐式偏好</span>
+										<span>implicitPrefs</span>
 										<select class="implicitPrefs">
 											<option value="false">false</option>
 											<option value="true">true</option>
@@ -1138,7 +1138,7 @@
 							<div class="deployContent deploy">
 								<ul class="paramList jobPlan">
 									<li>
-										<span class="Tname">副本</span>
+										<span class="Tname">副本ID</span>
 										<select id="idNameE" onchange="initReplica(this)"></select>
 									</li>
 									<li>
@@ -1735,14 +1735,13 @@
 						</table>
 					</div>
 					<div class="look-button">
-						<input type="button" class="table2-but test2" value="测试" />&nbsp;&nbsp;&nbsp;
-						<input type="button" class="table2-but edit2" value="编辑" />
-						<div id="result1" style="color: red;margin:-3px auto auto 20px;"></div>
+						<input type="button" class="table2-but edit2" value="编辑" />&nbsp;&nbsp;&nbsp;
+						<input type="button" class="table2-but save2" value="保存" />
 					</div>
 					<div class="edit-button">
 						<input type="button" class="table2-but edit-test" value="测试" />&nbsp;&nbsp;&nbsp;
 						<input type="button" class="table2-but edit-save" value="保存" />
-						<div id="result2" style="color: red;margin:-3px auto auto 20px;"></div>
+						<div id="result2" style="color: red;"></div>
 					</div>
 				</div>
 			</div>
@@ -2208,9 +2207,9 @@
 				<td contenteditable="true">0</td>
 				<td contenteditable="true">0</td>
 				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true"></td>
+				<td contenteditable="true">xxxx</td>
 				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true"></td>
+				<td contenteditable="true">xxxx</td>
 			</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2246,9 +2245,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2284,9 +2283,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2322,9 +2321,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 				</tr>
 			</table>
 		</div>
@@ -2802,8 +2801,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2811,8 +2810,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2820,8 +2819,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2829,8 +2828,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2889,7 +2888,6 @@
     //工作区数据源栏下tableName
     var tableNameMap = new Map();
 	$.resizeW();
-	$(window).on('resize', $.resizeW);
 	//函数选择框change事件
 	function selectChange(){
 		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());
@@ -3141,7 +3139,6 @@ function renameMenuForHome(){
             success:function(data) {
                 if($("#"+menuIdString)){
                     $("#"+menuIdString).parent().remove();
-                    $('.tabs-'+menuId).remove();
                 }
             },
             error : function() {
@@ -3164,10 +3161,6 @@ function renameMenuForHome(){
             },
             success:function(data) {
                 console.log("重命名成功！");
-                if($('.tabs-'+menuId).length>0){
-                	$('.tabs-'+menuId+' span.name_m').html(name);
-                    $('.tabs-'+menuId+' span.name_m').attr('title',name);
-                }
             },
             error : function() {
                 $.dialog("异常！");
@@ -3622,7 +3615,7 @@ function renameMenuForHome(){
     	    resetFolder();
     	});
     	$('.folder').unbind('mousedown').mousedown(function(e){
-			if($(e.target).attr('type')=='text' || $(e.target).attr('class')=='dropdown-submenu'){
+			if($(e.target).attr('type')=='text'){
 				console.log('当前点击：');
 				console.log(e.target);
 			}else{

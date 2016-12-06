@@ -27,7 +27,7 @@
 }
 
 #jsmind_container2 {
-	height: 404px;
+	height: 369px;
 	width: 99.7%;
 	overflow-y: hidden;
 }
@@ -1138,7 +1138,7 @@
 							<div class="deployContent deploy">
 								<ul class="paramList jobPlan">
 									<li>
-										<span class="Tname">副本</span>
+										<span class="Tname">副本ID</span>
 										<select id="idNameE" onchange="initReplica(this)"></select>
 									</li>
 									<li>
@@ -1735,14 +1735,13 @@
 						</table>
 					</div>
 					<div class="look-button">
-						<input type="button" class="table2-but test2" value="测试" />&nbsp;&nbsp;&nbsp;
-						<input type="button" class="table2-but edit2" value="编辑" />
-						<div id="result1" style="color: red;margin:-3px auto auto 20px;"></div>
+						<input type="button" class="table2-but edit2" value="编辑" />&nbsp;&nbsp;&nbsp;
+						<input type="button" class="table2-but save2" value="保存" />
 					</div>
 					<div class="edit-button">
 						<input type="button" class="table2-but edit-test" value="测试" />&nbsp;&nbsp;&nbsp;
 						<input type="button" class="table2-but edit-save" value="保存" />
-						<div id="result2" style="color: red;margin:-3px auto auto 20px;"></div>
+						<div id="result2" style="color: red;"></div>
 					</div>
 				</div>
 			</div>
@@ -2208,9 +2207,9 @@
 				<td contenteditable="true">0</td>
 				<td contenteditable="true">0</td>
 				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true"></td>
+				<td contenteditable="true">xxxx</td>
 				<td><i class="single columnThree"></i></td>
-				<td contenteditable="true"></td>
+				<td contenteditable="true">xxxx</td>
 			</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2246,9 +2245,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2284,9 +2283,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 				</tr>
 				<tr>
 					<td><i class="single columnOne"></i></td>
@@ -2322,9 +2321,9 @@
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 					<td><i class="single columnThree"></i></td>
-					<td contenteditable="true"></td>
+					<td contenteditable="true">xxxx</td>
 				</tr>
 			</table>
 		</div>
@@ -2802,8 +2801,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2811,8 +2810,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2820,8 +2819,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2829,8 +2828,8 @@
 					<td>table1.column1</td>
 					<td>int</td>
 					<td>0</td>
-					<td></td>
-					<td></td>
+					<td>xxxx</td>
+					<td>xxxx</td>
 					<td><i class="single"></i></td>
 					<td>2016-07-21</td>
 				</tr>
@@ -2889,7 +2888,6 @@
     //工作区数据源栏下tableName
     var tableNameMap = new Map();
 	$.resizeW();
-	$(window).on('resize', $.resizeW);
 	//函数选择框change事件
 	function selectChange(){
 		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());
@@ -3141,7 +3139,6 @@ function renameMenuForHome(){
             success:function(data) {
                 if($("#"+menuIdString)){
                     $("#"+menuIdString).parent().remove();
-                    $('.tabs-'+menuId).remove();
                 }
             },
             error : function() {
@@ -3164,10 +3161,6 @@ function renameMenuForHome(){
             },
             success:function(data) {
                 console.log("重命名成功！");
-                if($('.tabs-'+menuId).length>0){
-                	$('.tabs-'+menuId+' span.name_m').html(name);
-                    $('.tabs-'+menuId+' span.name_m').attr('title',name);
-                }
             },
             error : function() {
                 $.dialog("异常！");
