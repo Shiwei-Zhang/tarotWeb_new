@@ -1166,10 +1166,11 @@ function goDatasource(userId,content){
 						+'</span></td></tr>');
 				}
 			}
+            /*$($('.table2 th')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+            $($('.table2 td')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
+            $('.table2 .w100').each(function(index,item){$(item).css('width',$('.table2').width()*0.08)});*/
+
             goPage(1,pageSize,'table2','barcon2');
-            $($('.table2 th')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
-             $($('.table2 td')).each(function(index,item){$(item).css('width',($('.table2').width()-$('.table2').width()*0.08)/5)});
-             $('.table2 .w100').each(function(index,item){$(item).css('width',$('.table2').width()*0.08)});
 			//查看按钮
 			$('.look').click(function(){
 				$('.look-input').html('');
