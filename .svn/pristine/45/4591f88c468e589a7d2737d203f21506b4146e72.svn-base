@@ -1,0 +1,337 @@
+.business_logic {
+    height: 30px;
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: center;
+    padding:20px 0 0 20px;
+}
+
+.business_logic > div {
+    vertical-align: top;
+    width: 32%;
+    float: left;
+    margin-right: 20px;
+    border: 1px #CAC9C9 solid;
+}
+
+.business_logic .group, .type, .eum {
+    min-height: 871px;
+    max-height: 871px;
+    height: 871px;
+}
+
+.business_logic > div:nth-child(2) {
+    border: none;
+}
+
+.business_logic .disabled {
+    display: none;
+}
+
+.business_logic {
+    min-height: 600px;
+}
+
+.business_logic .group > div, .business_logic .type > div, .business_logic .eum > div {
+    width: 100%;
+    text-align: left;
+}
+
+.business_logic span {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.business_logic span:first-child {
+    width: 83%;
+}
+
+.business_logic .edit {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    margin-top: 4px;
+    opacity: .6;
+}
+
+.business_logic .close {
+    width: 25px;
+    height: 30px;
+    margin-left: 5px;
+    background-image: url('./../images/close.png');
+    background-repeat: no-repeat;
+    background-position: left 15px;
+}
+
+.business_logic .active {
+    background-color: #cbebf8;
+}
+
+.group_add, .type_self_add, .type_dep_add, .eum_add {
+    height: 40px;
+    background-color: #F3F3F5;
+    border-bottom: 1px #cacaca solid;
+}
+
+.group_add input, .type_self_add input, .type_dep_add input, .eum_add input {
+    float: right;
+    margin-right: 21px;
+    background-color: #279dda;
+    border: 1px #279dda solid;
+    margin-top: 10px;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.type > div {
+    border: 1px #CAC9C9 solid;
+    min-height: 425px;
+    max-height: 425px;
+}
+
+.type > div:last-child {
+    margin-top: 20px;
+}
+
+.group_records > div, .type_records > div > div, .eum_records > div > div {
+    border-bottom: 1px #F0F0F0 solid;
+    cursor: pointer;
+}
+
+.group_records > div:first-child, .type_records > div > div:first-child, .eum_records > div > div:first-child {
+    border-top: 1px #F0F0F0 solid;
+    cursor: pointer;
+}
+
+.group_records > div:hover, .type_records > div > div:hover {
+    background-color: #F0F0F0;
+}
+
+.business_logic .eum .eum_records {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.business_logic .eum .eum_child span {
+    text-align: left;
+    margin-top: -10px;
+    margin-left: 5px;
+}
+
+.business_logic .eum .eum_child span:first-child {
+    width: 25%;
+}
+
+.business_logic .eum .eum_child span:last-child {
+    width: 50%;
+}
+
+#enum_sortable > div {
+    height: 40px;
+}
+
+#enum_sortable > div:hover {
+    background-color: #F0F0F0;
+}
+
+/*API*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    background-color: #CCE8F8;
+    border: 1px solid #CCE8F8;
+}
+
+/***
+*DIALOG
+*/
+.dialog {
+    position: absolute;
+    z-index: 150;
+    width: 450px;
+    height: 150px;
+    top: 200px;
+    left: 450px;
+    border: 1px #DCDCDC solid;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.dialog > div {
+    width: 96%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dialog > div:first-child {
+    height: 50px;
+    padding-top: 10px;
+}
+
+.dialog > div input {
+    width: 100px;
+    height: 30px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.dialog > div input:first-child {
+    border: 1px gray solid;
+    color: gray;
+    margin-right: 10px;
+}
+
+.dialog > div input:last-child {
+    border: 1px deepskyblue solid;
+    color: deepskyblue;
+    margin-left: 10px;
+}
+
+.package-dialog {
+    display: none;
+}
+
+/***
+*Edit
+*/
+.edit-dialog {
+    position: absolute;
+    z-index: 101;
+    width: 450px;
+    height: 350px;
+    top: 110px;
+    left: 450px;
+    border: 1px #DCDCDC solid;
+    background-color: #fff;
+    text-align: center;
+}
+
+.edit-dialog .edit-title {
+    width: 100%;
+    height: 35px;
+    padding-top: 10px;
+    background-color: #F0F0F0;
+}
+
+.edit-dialog .edit-title span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.edit-dialog .edit-title span:first-child {
+    /*font-weight: bold;*/
+    font-size: 18px;
+    text-align: left;
+    width: 90%;
+}
+
+.edit-dialog .edit-title span:last-child {
+    width: 20px;
+    height: 20px;
+    background: url('./../images/closeIcon.png')no-repeat center center;
+    background-size: 20px 20px;
+    cursor: pointer;
+}
+
+.edit-dialog .d-content {
+    width: 450px;
+    min-height: 250px;
+    max-height: 250px;
+    margin: 0px auto;
+    overflow-y: auto;
+}
+
+.edit-dialog .d-content table {
+    border: none;
+    width: 416px;
+    margin-top:20px;
+}
+.edit-dialog .d-content table tr{
+    height: 40px;
+    line-height: 40px;
+}
+
+.edit-dialog .d-content table tr td input, .edit-dialog .d-content table tr td select {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px #DCDCDC solid;
+    padding-left: 10px;
+}
+
+.edit-dialog .d-content table tr td .icon {
+    border: 1px #DCDCDC solid;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 5px;
+    height: 30px;
+}
+
+.edit-dialog .d-content table tr td input.file {
+    opacity: 0;
+    margin-top: -24px;
+}
+
+.edit-dialog .btn-group {
+    margin-top: 10px;
+}
+
+.edit-dialog .btn-group input {
+    width: 100px;
+    height: 30px;
+    background-color: #ffffff;
+    cursor: pointer;
+    float: right;
+    margin-right:20px;
+}
+
+.edit-dialog .btn-group input.cancel {
+    border: 1px gray solid;
+    color: gray;
+}
+
+.edit-dialog .btn-group input.sure {
+    border: 1px deepskyblue solid;
+    color: deepskyblue;
+}
+
+/***
+*Layer2
+*/
+.layer2 {
+    position: absolute;
+    z-index: 101;
+    width: 50px;
+    height: 50px;
+    top: 300px;
+    left: 550px;
+}
+
+#enum_tip.tip_records {
+    font-size: 10px;
+    color: red;
+    margin-top: 10px;
+    text-align: right;
+    font-weight: 200;
+    margin-left: -10px;
+}
+.type_self .type_records{
+    max-height: 331px;
+    overflow-y: scroll;
+}
+.icon img {
+    width: 25px;
+    height: 25px;
+}
+
+.empty_records {
+    text-align: center;
+    color: #6b6f70;
+    opacity: 0.4;
+    margin-top: 20px;
+    font-weight: 200;
+}
