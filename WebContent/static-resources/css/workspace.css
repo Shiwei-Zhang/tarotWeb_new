@@ -5,9 +5,6 @@
 
 /*
 z-index
-
-
-
 bichartStyle:200
 biLeft:104
 .bideployStyle: 20
@@ -779,182 +776,11 @@ ul.root_tree li div {
 .biDataLbottom .otherThing li {
     float: left;
     width: 30px;
-    /*height: 30px;*/
     margin-left: 27px;
     margin-top: 7px;
     margin-bottom: 10px;
     cursor: pointer;
 }
-
-/*.biDataLbottom .twoMap .zxMap {
-    background: url("../images/zxIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .zxMap.selected {
-    background: url("../images/zxIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .zzMap {
-    background: url("../images/zzIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .zzMap.selected {
-    background: url("../images/zzIconed.png") no-repeat;
-    background-size: 30px 30px;
-}*/
-
-/*.biDataLbottom .twoMap .sdMap {
-    background: url("../images/sdIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .sdMap.selected {
-    background: url("../images/sdIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .kxMap {
-    background: url("../images/kxIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .kxMap.selected {
-    background: url("../images/kxIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .xxMap {
-    background: url("../images/xxIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .twoMap .xxMap.selected {
-    background: url("../images/xxIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .circleMap .btMap {
-    background: url("../images/btIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .circleMap .btMap.selected {
-    background: url("../images/btIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .circleMap .ldMap {
-    background: url("../images/ldIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .circleMap .ldMap.selected {
-    background: url("../images/ldIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .circleMap .ybMap {
-    background: url("../images/ybIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .circleMap .ybMap.selected {
-    background: url("../images/ybIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .powerMap .gxMap {
-    background: url("../images/gxIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .powerMap .gxMap.selected {
-    background: url("../images/gxIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .powerMap .jxMap {
-    background: url("../images/jxIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .powerMap .jxMap.selected {
-    background: url("../images/jxIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .varMap .xlMap {
-    background: url("../images/jxIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .varMap .xlMap.selected {
-    background: url("../images/jxIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .varMap .ycMap {
-    background: url("../images/ycIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .varMap .ycMap.selected {
-    background: url("../images/ycIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .dtMap {
-    background: url("../images/dtIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .dtMap.selected {
-    background: url("../images/dtIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .phMap {
-    background: url("../images/phIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .phMap.selected {
-    background: url("../images/phIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .ldtMap {
-    background: url("../images/ldtIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .ldtMap.selected {
-    background: url("../images/ldtIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .sjMap {
-    background: url("../images/sjIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .sjMap.selected {
-    background: url("../images/sjIconed.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .bgMap {
-    background: url("../images/bgIcon.png") no-repeat;
-    background-size: 30px 30px;
-}
-
-.biDataLbottom .otherThing .bgMap.selected {
-    background: url("../images/bgIconed.png") no-repeat;
-    background-size: 30px 30px;
-}*/
 
 .biDataLbottom .twoMap .zxMap {
     background: url(../images/bimapIcons.png)no-repeat;
@@ -1160,26 +986,6 @@ ul.root_tree li div {
     background-position: -70px -604px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*右侧部分*/
 .biDataR .filterPart .btnPart {
     font-size: 0;
@@ -1360,7 +1166,6 @@ ul.root_tree li div {
 
 .biData-C .biDataC {
     width: 100%;
-    /*height: 600px;*/
     height: 720px;
     float: left;
     border-bottom: 1px solid #ddd;
@@ -1502,75 +1307,6 @@ ul.root_tree li div {
     background: #56b1e0;
 }
 
-/*.CmainList li.mainSort{
-    position: relative;
-}*/
-/*.CmainList li.mainSort span,
-.CmainList li.mapList span
-{
-    width:58px;
-    float: left;
-}.CmainList li.mainSort select{
-     width: 350px;
-     height: 30px;
- }*/
-/*.CmainList li.mapList span.legend{
-    width: 35px;
-    height: 35px;
-    background: url(../images/mapList.png)no-repeat left center;
-    background-size: 186px 35px;
-    background-position: 0 0;
-    margin-right: 10px;
-}*/
-/*.CmainList li.mapList span.legendIcon2{
-    background-position: -37px 0;
-}
-.CmainList li.mapList span.legendIcon3{
-    background-position: -75px 0;
-}
-.CmainList li.mapList span.legendIcon4{
-    background-position: -113px 0;
-}
-.CmainList li.mapList span.legendIcon5{
-    background-position: -150px 0;
-}
-.CmainList li.mapList p{
-    float: right;
-    width: 145px;
-    text-align: center;
-}
-.CmainList li.mapList p span{
-    width: 60px;
-    height: 24px;
-    line-height: 24px;
-    font-size: 14px;
-    color: #56b1e0;
-    cursor: pointer;
-    margin-left: 10px;
-    border:1px solid #56b1e0;
-}
-.CmainList li.mapList p span.clicked{
-    color: #fcfef9;
-    background: #56b1e0;
-}
-.CmainList li.mainSort input{
-    width: 346px;
-}
-.CmainList li.mainSort .sortR{
-    margin-left: 25px;
-}
-.CmainList li.mainSort .down1{
-    position: absolute;
-    top: 12px;
-    left: 395px;
-    z-index: 106;
-}
-.CmainList li.mainSort .down2{
-    position: absolute;
-    top: 12px;
-    right: 17px;
-    z-index: 106;
-}*/
 .biDataCmain .CmainT span {
     width: 92px;
     height: 32px;
@@ -1595,10 +1331,7 @@ ul.root_tree li div {
 .biData-C .biDataR {
     float: left;
     width: 298px;
-    /* width: 22%; */
-    /* height: 600px; */
     height: 720px;
-    /* background: #fff; */
     margin-left: -300px;
     border: 1px solid #ddd;
     border-bottom: none;
@@ -1622,7 +1355,6 @@ ul.root_tree li div {
 }
 
 .dataMinL {
-    /*width:75%;*/
     width: 75%;
     height: 100%;
     float: left;
@@ -1651,7 +1383,6 @@ ul.root_tree li div {
 }
 
 .dataMinL-top .dataMinC {
-    /*height: ;*/
     padding: 20px 0 0 20px;
 }
 
@@ -1804,7 +1535,6 @@ ul.root_tree li div {
     width: 100%;
     height: 509px;
     padding: 20px 0;
-    /*border-bottom: 1px solid #e7e7e7;*/
     overflow: hidden;
 }
 .controll-bodyer .content2 .diary{
@@ -1817,18 +1547,13 @@ ul.root_tree li div {
     line-height: 20px;
 }
 .content1 .stream, .content1 .provide, .content1 .con-right {
-    /*width: 386px;*/
-    /*width: 28%;*/
     width: 31%;
     height: 509px;
     float: left;
     margin-left: 26px;
-    /*margin-left: 4%;*/
-    /*background: #f5f5f5;*/
 }
 
 .content1 .con-title {
-    /*width: 100%;*/
     height: 40px;
     padding: 0 10px;
     background: #F4F4F4;
@@ -1859,7 +1584,6 @@ ul.root_tree li div {
 
 .stream-con .part, .conList .part {
     max-height: 410px;
-    /*overflow: hidden;*/
 }
 
 .stream-con .part li, .provide .listPart li, .conList .part li {
@@ -1984,7 +1708,6 @@ ul.root_tree li div {
 
 .addT span {
     height: 56px;
-    /*width: 56px;*/
     line-height: 56px;
     float: left;
 }
@@ -2057,7 +1780,6 @@ ul.root_tree li div {
     width: 0;
     height: 0;
     vertical-align: -1px;
-    /*margin-left: 3px;*/
     border: 5px solid transparent;
     border-left-color: #8f8d90;
 }
@@ -2069,10 +1791,6 @@ ul.root_tree li div {
     height: 14px;
     width: 14px;
     display: inline-block;
-}
-
-.w50 .single {
-    /*margin-left: 15px;*/
 }
 
 .singleChecked {
@@ -2208,10 +1926,6 @@ ul.root_tree li div {
     cursor: pointer;
 }
 /*jobList end*/
-
-
-
-
 
 /*controllerDeploy start*/
 
@@ -2381,82 +2095,6 @@ ul.root_tree li div {
     display: inline-block;
 }
 
-
-
-/*timeControl start*/
-
-/*.dispatchPart .timeControl {
-    display: inline-block;
-    box-sizing: border-box;
-    vertical-align: -48px;
-    font-size: 12px;
-    width: 81%;
-    height: 310px;
-    border: 1px dashed #dcdcdc;
-}
-.timeControl .tabsT {
-    height: 26px;
-    background: #ddd;
-}
-
-.timeControl .tabsT li {
-    box-sizing: border-box;
-    float: left;
-    width: 40px;
-    height: 26px;
-    color: #313131;
-    line-height: 26px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.timeControl .tabsT li.active {
-    background: #56b0e2;
-    color: #fff;
-}
-.timeControl input[type="radio"] {
-    margin: 3px 3px 0 5px;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-.timeControl input[type="number"] {
-    width:45px;
-}
-.timeControl .panel-bodys{
-    !*width: 624px;*!
-    width: 100%;
-    height: 188px;
-}
-.timeControl .line {
-    height: 25px;
-    line-height: 25px;
-    margin: 3px;
-}
-.timeControl .imp {
-    padding-left: 24px;
-}
-.timeControl input[type="checkbox"] {
-    margin: 3px 3px 3px 4px;
-    vertical-align: middle;
-    cursor: pointer;
-}*/
-
-/*timeControl end*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .btnPart p {
     width: 60px;
     height: 30px;
@@ -2597,7 +2235,6 @@ ul.root_tree li div {
     border: 1px solid #e6e6e6;
     border-bottom: none;
     margin-bottom: 6px;
-    /*height: 184px;*/
     max-height: 229px;
     overflow: auto;
 }
@@ -2734,12 +2371,6 @@ ul.root_tree li div {
     text-overflow: ellipsis;
     margin-left: 4px;
 }
-/*.changeTip{
-    position: absolute;
-    top: 0;
-    left: 24px;
-    color: #fff;
-}*/
 .tabs .thistab {
     background: #fff;
     color: #4178BE;
@@ -3023,7 +2654,6 @@ ul.root_tree li div {
 
 .tabs2 {
     font-size: 12px;
-    /*border-right:1px solid #b6bccc;*/
     border-top: 1px solid #b6bccc;
 }
 
@@ -3277,8 +2907,6 @@ right style
     height: 30px;
     line-height: 30px;
     padding-top: 2px;
-    /*padding-left: 5px;*/
-    /*padding-left:3%;*/
     font-size: 14px;
     text-align: left;
     background-color: #ededed;
@@ -3401,7 +3029,6 @@ right style
 
 .trash {
     cursor: pointer;
-    /*margin-left: -8px;*/
     margin-left: -3%;
 }
 
@@ -3765,9 +3392,7 @@ right style
 .table1, .table2, .table3 {
     word-break: break-all;
     width: 100%;
-    /*height: 588px;*/
     height: 709px;
-    /*border: 1px #F0F0F0 solid;*/
     color: #1E1E1E;
     font-family: verdana, arial, sans-serif;
     font-size: 14px;
@@ -3777,7 +3402,6 @@ right style
 .users_T {
     word-break: break-all;
     width: 100%;
-    /*height: 588px;*/
     height: 709px;
     border: 1px #F0F0F0 solid;
     color: #1E1E1E;
@@ -3837,7 +3461,6 @@ right style
     color: #1E1E1E;
     border-bottom: 1px solid #D1D6D6;
     border-left: 1px solid #D1D6D6;
-    /*text-align: center;*/
 }
 
 .table1 tr td input {
@@ -3854,7 +3477,6 @@ right style
     box-sizing: border-box;
     border-bottom: 1px solid #D1D6D6;
     border-left: 1px solid #D1D6D6;
-    /*text-align: center;*/
 }
 
  .users_T tr td {
@@ -3867,7 +3489,6 @@ right style
     border-bottom: 1px solid #D1D6D6;
     border-left: 1px solid #D1D6D6;
     border-right: 1px solid #D1D6D6;
-    /*text-align: center;*/
 }
 
 .table3 tr td {
@@ -3875,14 +3496,12 @@ right style
 }
 
 .table2 tr td.w100, .table2 tr th.w100 {
-    /*width: 90px;*/
     width: 117px;
     position: relative;
     cursor: pointer;
 }
 
 .users_T tr td.w100, .users_T tr th.w100 {
-    /*width: 90px;*/
     width: 186px;
     position: relative;
     cursor: pointer;
@@ -4198,11 +3817,6 @@ right style
     background: #FAFAFA;
 }
 
-.pos-left {
-    /*margin-left: 510px;*/
-    /*margin-top: -8px;*/
-}
-
 .barcon button .btn-ok {
     background-color: #e6e4e4;
 }
@@ -4331,30 +3945,6 @@ right style
     margin-left:15px;
 }
 
-
-/*
-.dataContainerA .mainList li {
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    float: left;
-    font-size: 14px;
-    color: #646464;
-}*/
-
-/*.dataContainerA .mainList li i {
-    display: inline-block;
-    margin-right: 16px;
-}*/
-
-/*.dataContainerA .downIcon {
-    position: absolute;
-    top: 107px;
-    right: 47px;
-    border: 6px solid transparent;
-    border-top-color: #8f8d90;
-}*/
-
 .dataContainerB {
     height: 496px;;
     max-height: 496px;
@@ -4386,7 +3976,6 @@ right style
     width: 686px;
     height: 430px;
     position: relative;
-    /*overflow: hidden;*/
 }
 
 .dataContainerB .paramL .paramLl {
@@ -4451,9 +4040,6 @@ right style
     border-bottom: 1px solid #dcdcdc;
 }
 .paramL .addBtn {
-    /*position: absolute;
-    bottom: 0;
-    right:0;*/
     float: right;
     width: 35px;
     height: 20px;
@@ -4519,11 +4105,6 @@ right style
 }
 
 .fa-close-m {
-    /*width: 20px;
-    height: 25px;
-    background-image: url('./../images/close.png');
-    background-repeat: no-repeat;
-    background-position: left 7px;*/
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -4597,16 +4178,6 @@ right style
     background-repeat: no-repeat;
     background-position: left 8px;
 }
-
-/*.fa-trash2 {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-image: url(./../images/closeIcon.png);
-    background-repeat: no-repeat;
-    background-position: left 3px;
-    background-size: 20px 20px;
-}*/
 .fa-trash2 {
     width: 25px;
     height: 22px;
@@ -4663,10 +4234,6 @@ button, input, select {
 }
 
 .tl_header .title2 {
-    /*font-size: 26px;
-    font-weight: 400;
-    padding-left: 20px;
-    padding-top: 5px;*/
     height: 50px;
     line-height: 50px;
     font-size: 20px;
@@ -4808,8 +4375,6 @@ button, input, select {
     z-index: 107;
     width: 86%;
     height: 90%;
-    /* width: 1000px;
-     height: 730px;*/
     background: #fff;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
 }
@@ -4875,7 +4440,6 @@ button, input, select {
 
 .columnSet_C .tableContainer {
     width: 97.5%;
-    /*max-height: 490px;*/
     max-height: 650px;
     margin: 20px;
     border-collapse: collapse;
@@ -5229,14 +4793,4 @@ button, input, select {
     }
 }
 
-/*@media(min-width: 1920px) {
-    body{
-        width: 1920px;
-    }
-}
-@media(max-width: 1440px) {
-    body{
-        width: 1440px;
-    }
-}*/
 
