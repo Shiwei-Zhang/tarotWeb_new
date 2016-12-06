@@ -767,9 +767,9 @@ ul.root_tree li div {
 }
 
 .biDataL .biDataLbottom .detail li {
-    height: 30px;
+    /*height: 30px;*/
     line-height: 30px;
-    /*height: 50px;*/
+    height: 64px;
 }
 
 .biDataLbottom .twoMap li,
@@ -786,7 +786,7 @@ ul.root_tree li div {
     cursor: pointer;
 }
 
-.biDataLbottom .twoMap .zxMap {
+/*.biDataLbottom .twoMap .zxMap {
     background: url("../images/zxIcon.png") no-repeat;
     background-size: 30px 30px;
 }
@@ -804,9 +804,9 @@ ul.root_tree li div {
 .biDataLbottom .twoMap .zzMap.selected {
     background: url("../images/zzIconed.png") no-repeat;
     background-size: 30px 30px;
-}
+}*/
 
-.biDataLbottom .twoMap .sdMap {
+/*.biDataLbottom .twoMap .sdMap {
     background: url("../images/sdIcon.png") no-repeat;
     background-size: 30px 30px;
 }
@@ -954,27 +954,231 @@ ul.root_tree li div {
 .biDataLbottom .otherThing .bgMap.selected {
     background: url("../images/bgIconed.png") no-repeat;
     background-size: 30px 30px;
-}
+}*/
 
-/*
-.biDataLbottom .twoMap .zxMap,
-.biDataLbottom .twoMap .zzMap
-{
+.biDataLbottom .twoMap .zxMap {
     background: url(../images/bimapIcons.png)no-repeat;
     background-size: 176px 651px;
+    background-position: -12px -30px;
 }
-
 
 .biDataLbottom .twoMap .zxMap.selected{
     background: url("../images/bimapIconeds.png")no-repeat;
     background-size: 176px 651px;
-}
-
-
-.biDataLbottom .twoMap .zxMap{
     background-position: -12px -30px;
 }
-*/
+
+.biDataLbottom .twoMap .zzMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -30px;
+}
+
+.biDataLbottom .twoMap .zzMap.selected {
+    background: url("../images/bimapIconeds.png")no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -30px;
+}
+
+.biDataLbottom .twoMap .sdMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -132px -30px;
+}
+
+.biDataLbottom .twoMap .sdMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -132px -30px;
+}
+
+.biDataLbottom .twoMap .kxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -93px;
+}
+
+.biDataLbottom .twoMap .kxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -93px;
+}
+
+.biDataLbottom .twoMap .xxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -93px;
+}
+
+.biDataLbottom .twoMap .xxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -93px;
+}
+
+.biDataLbottom .circleMap .btMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -205px;
+}
+
+.biDataLbottom .circleMap .btMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -205px;
+}
+
+.biDataLbottom .circleMap .ldMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -206px;
+}
+
+.biDataLbottom .circleMap .ldMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -206px;
+}
+
+.biDataLbottom .circleMap .ybMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -132px -205px;
+}
+
+.biDataLbottom .circleMap .ybMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -132px -205px;
+}
+
+.biDataLbottom .powerMap .gxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -315px;
+}
+
+.biDataLbottom .powerMap .gxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -315px;
+}
+
+.biDataLbottom .powerMap .jxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -315px;
+}
+
+.biDataLbottom .powerMap .jxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -315px;
+}
+
+.biDataLbottom .varMap .xlMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -425px;
+}
+
+.biDataLbottom .varMap .xlMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -425px;
+}
+
+.biDataLbottom .varMap .ycMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -425px;
+}
+
+.biDataLbottom .varMap .ycMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -73px -425px;
+}
+
+.biDataLbottom .otherThing .dtMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -541px;
+}
+
+.biDataLbottom .otherThing .dtMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -541px;
+}
+
+.biDataLbottom .otherThing .phMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -71px -541px;
+}
+
+.biDataLbottom .otherThing .phMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -71px -541px;
+}
+
+.biDataLbottom .otherThing .ldtMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -130px -541px;
+}
+
+.biDataLbottom .otherThing .ldtMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -130px -541px;
+}
+
+.biDataLbottom .otherThing .sjMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -604px;
+}
+
+.biDataLbottom .otherThing .sjMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -12px -604px;
+}
+
+.biDataLbottom .otherThing .bgMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -70px -604px;
+}
+
+.biDataLbottom .otherThing .bgMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 176px 651px;
+    background-position: -70px -604px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*右侧部分*/
 .biDataR .filterPart .btnPart {
@@ -3120,6 +3324,7 @@ right style
 .joins, .filters, .groups, .orders, .targets {
     padding-left: 26px;
     margin-top: 4px;
+    height: 290px;
     max-height: 300px;
     overflow-y: scroll;
     overflow-x: hidden;
