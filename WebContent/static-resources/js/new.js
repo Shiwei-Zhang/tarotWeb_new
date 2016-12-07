@@ -370,14 +370,41 @@ $(function(){
             }
         });
         //点击导航关闭按钮显示提示信息
-        var $showTip=function(){
-            $('.confirmLayer').show();
+        var $showTip=function($liObj){
+            $('.confirmLayer,.mask_W').show();
             $('#popup_ok').unbind('click').click(function(){
-                $('.confirmLayer').hide();
+                $('.confirmLayer,.mask_W').hide();
+                if($liObj.hasClass('thistab')){
 
+                    if($('.tabsEvent li').length > 0){
+                        $('.module-manager').hide();
+                        $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
+                        var i = 0;
+                        while($($('.tabsEvent li')[i]).css('display') == 'none'){
+                            i++
+                        }
+                        if($('.tabsEvent .thistab').nextAll().index()!=-1){
+                            $($('.tabsEvent .thistab').next()).addClass('thistab');
+                        }else{
+                            $($('.tabsEvent .thistab').prev()).addClass('thistab');
+                        }
+                        $liObj.remove();
+                        $('.root_tree div').removeClass('visitedBg');
+                        if($('.module-data-all .thistab').attr("class").length>7){
+                            //被选中的选项卡的id
+                            var a=$('.module-data-all .thistab').attr("class").split('-')[1].split(' ',1).toString();
+                            $('.root_tree div[id='+a+']').addClass('visitedBg');
+                        }
+
+                        var needShowObj = $($('.tabsEvent li')[i]);
+                        showType(needShowObj.attr('idName'), needShowObj.attr('data_type'))
+                    }
+                }else{
+                    $liObj.remove();
+                }
             });
             $('#popup_cancel').unbind('click').click(function(){
-                $('.confirmLayer').hide();
+                $('.confirmLayer,.mask_W').hide();
             });
         };
 
@@ -418,7 +445,7 @@ $(function(){
                 var $liObj = $(this).parent().parent();
                 var objDataType = $liObj.attr('data_type');
                 var objIdName = $liObj.attr('idName');
-                $showTip();
+                $showTip($liObj);
                 if(objDataType==2){
                     $('.controller-' + objIdName).hide();
                 }else if(objDataType==3){
@@ -429,36 +456,6 @@ $(function(){
                     $('.bi-' + objIdName).hide();
                 }else if(objDataType==6){
                     $('.controllDeployEvent-' + objIdName).hide();
-                }
-
-
-                if($liObj.hasClass('thistab')){
-
-                    if($('.tabsEvent li').length > 0){
-                        $('.module-manager').hide();
-                        $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
-                        var i = 0;
-                        while($($('.tabsEvent li')[i]).css('display') == 'none'){
-                            i++
-                        }
-                        if($('.tabsEvent .thistab').nextAll().index()!=-1){
-                            $($('.tabsEvent .thistab').next()).addClass('thistab');
-                        }else{
-                            $($('.tabsEvent .thistab').prev()).addClass('thistab');
-                        }
-                        $liObj.remove();
-                        $('.root_tree div').removeClass('visitedBg');
-                        if($('.module-data-all .thistab').attr("class").length>7){
-                            //被选中的选项卡的id
-                            var a=$('.module-data-all .thistab').attr("class").split('-')[1].split(' ',1).toString();
-                            $('.root_tree div[id='+a+']').addClass('visitedBg');
-                        }
-
-                        var needShowObj = $($('.tabsEvent li')[i]);
-                        showType(needShowObj.attr('idName'), needShowObj.attr('data_type'))
-                    }
-                }else{
-                	$liObj.remove();
                 }
             });
         }else{
