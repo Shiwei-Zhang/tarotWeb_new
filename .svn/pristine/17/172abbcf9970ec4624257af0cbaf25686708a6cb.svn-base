@@ -308,7 +308,6 @@ $(function(){
         //input下拉菜单
         $('.connectionEvent').change(function(){
             var detailId = $(this).children('option:selected').val();
-            var detailId = $(this).children('option:selected').attr("value");
             if(detailId){
             	var str='';
                 $.ajax({

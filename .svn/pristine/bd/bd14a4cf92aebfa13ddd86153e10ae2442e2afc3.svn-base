@@ -39,8 +39,8 @@
 </head>
 <body>
 <!--状态改变按钮-->
-<!-- <button class="change_Btn" style="position: absolute;top: 0;left: 1148px;">改变</button>
-<button class="save_Btn" style="position: absolute;top: 0;left: 1200px;">保存</button> -->
+<button class="change_Btn" style="position: absolute;top: 0;left: 1148px;">改变</button>
+<button class="save_Btn" style="position: absolute;top: 0;left: 1200px;">保存</button>
 	<!--header start-->
 	<div class="f-header">
 		<div class="left-header">
@@ -52,8 +52,13 @@
 				<div class="logo_icon"></div>
 				<div>&nbsp;</div>
 			</div>
+
+			<!-- <div><div class="debug"></div><div>测试</div></div>
+        <div><div class="run"></div><div>运行</div></div> -->
 		</div>
 		<div class="right-header">
+		<div style="height:25px;">
+			<button class="logout">注销</button></div>
 			<div class="flows header_active">
 				<div class="flow"></div>
 				<div>工作区</div>
@@ -69,7 +74,6 @@
 				<h6 class="man4">业务代码维护</h6>
 				<!--<h6 class="man5">内部数据类型维护</h6>
 				<h6 class="man6">外部数据类型维护</h6>-->
-				<h6 class="logout">注销</h6>
 			</div>
 		</div>
 	</div>
@@ -1833,7 +1837,7 @@
 						</div>
 						<div class="changeP">
 							<div class="upPwdTitle">
-								<h4>更改密码</h4>
+								<span>更改密码</span>
 							</div>
 							<div class="upPwd">
 								<span class="pwdGroup">原  密  码：<span class="ssss"></span></span><input type="password" class="oldPwd"/><br/>
@@ -3150,15 +3154,9 @@ function renameMenuForHome(){
             },
             success:function(data) {
                 if($("#"+menuIdString)){
-                    
+                    $("#"+menuIdString).parent().remove();
+                    $('.tabs-'+menuId).remove();
                     //tabCheck(menuId, menuType, fileName);
-                    var $liObj = $('.tabs-'+menuId);
-                    if($liObj.length>0){
-                    	var a=true;
-                        closeTab($liObj,a);
-                    }else{
-                    	$("#"+menuIdString).parent().remove();
-                    }
                 }
             },
             error : function() {
