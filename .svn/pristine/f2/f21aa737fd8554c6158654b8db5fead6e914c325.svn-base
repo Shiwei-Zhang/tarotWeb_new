@@ -369,19 +369,6 @@ $(function(){
                 isExist = true;
             }
         });
-        //点击导航关闭按钮显示提示信息
-        var $showTip=function(){
-            $('.confirmLayer').show();
-            $('#popup_ok').unbind('click').click(function(){
-                $('.confirmLayer').hide();
-
-            });
-            $('#popup_cancel').unbind('click').click(function(){
-                $('.confirmLayer').hide();
-            });
-        };
-
-
         var iconType;
         //2是controller，3是flow，4是datamining，5是bi,6是controller发布
         if($dataType==2){
@@ -395,7 +382,6 @@ $(function(){
         }else if($dataType==6){
             iconType='controllerIcon';
         }
-
         if( !isExist ){
             $('.tabsEvent li').removeClass('thistab');
             $('.tabsEvent').append(
@@ -408,7 +394,6 @@ $(function(){
             showType($idName, $dataType);
 
             $('.close_m').unbind('click').click(function(e){
-                flag='';
                 e = e || window.event;
                 if(e.stopPropagation) { //W3C阻止冒泡方法
                     e.stopPropagation();
@@ -416,9 +401,9 @@ $(function(){
                     e.cancelBubble = true; //IE阻止冒泡方法
                 }
                 var $liObj = $(this).parent().parent();
+
                 var objDataType = $liObj.attr('data_type');
                 var objIdName = $liObj.attr('idName');
-                $showTip();
                 if(objDataType==2){
                     $('.controller-' + objIdName).hide();
                 }else if(objDataType==3){
@@ -430,10 +415,10 @@ $(function(){
                 }else if(objDataType==6){
                     $('.controllDeployEvent-' + objIdName).hide();
                 }
-
+                
 
                 if($liObj.hasClass('thistab')){
-
+                	
                     if($('.tabsEvent li').length > 0){
                         $('.module-manager').hide();
                         $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
@@ -442,18 +427,18 @@ $(function(){
                             i++
                         }
                         if($('.tabsEvent .thistab').nextAll().index()!=-1){
-                            $($('.tabsEvent .thistab').next()).addClass('thistab');
+                        	$($('.tabsEvent .thistab').next()).addClass('thistab');
                         }else{
-                            $($('.tabsEvent .thistab').prev()).addClass('thistab');
+                        	$($('.tabsEvent .thistab').prev()).addClass('thistab');
                         }
                         $liObj.remove();
                         $('.root_tree div').removeClass('visitedBg');
                         if($('.module-data-all .thistab').attr("class").length>7){
-                            //被选中的选项卡的id
+                        	//被选中的选项卡的id
                             var a=$('.module-data-all .thistab').attr("class").split('-')[1].split(' ',1).toString();
                             $('.root_tree div[id='+a+']').addClass('visitedBg');
                         }
-
+                        
                         var needShowObj = $($('.tabsEvent li')[i]);
                         showType(needShowObj.attr('idName'), needShowObj.attr('data_type'))
                     }

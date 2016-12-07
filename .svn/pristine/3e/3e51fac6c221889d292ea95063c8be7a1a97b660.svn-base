@@ -369,19 +369,6 @@ $(function(){
                 isExist = true;
             }
         });
-        //点击导航关闭按钮显示提示信息
-        var $showTip=function(){
-            $('.confirmLayer').show();
-            $('#popup_ok').unbind('click').click(function(){
-                $('.confirmLayer').hide();
-
-            });
-            $('#popup_cancel').unbind('click').click(function(){
-                $('.confirmLayer').hide();
-            });
-        };
-
-
         var iconType;
         //2是controller，3是flow，4是datamining，5是bi,6是controller发布
         if($dataType==2){
@@ -395,7 +382,6 @@ $(function(){
         }else if($dataType==6){
             iconType='controllerIcon';
         }
-
         if( !isExist ){
             $('.tabsEvent li').removeClass('thistab');
             $('.tabsEvent').append(
@@ -408,7 +394,6 @@ $(function(){
             showType($idName, $dataType);
 
             $('.close_m').unbind('click').click(function(e){
-                flag='';
                 e = e || window.event;
                 if(e.stopPropagation) { //W3C阻止冒泡方法
                     e.stopPropagation();
@@ -416,9 +401,9 @@ $(function(){
                     e.cancelBubble = true; //IE阻止冒泡方法
                 }
                 var $liObj = $(this).parent().parent();
+
                 var objDataType = $liObj.attr('data_type');
                 var objIdName = $liObj.attr('idName');
-                $showTip();
                 if(objDataType==2){
                     $('.controller-' + objIdName).hide();
                 }else if(objDataType==3){
@@ -430,10 +415,10 @@ $(function(){
                 }else if(objDataType==6){
                     $('.controllDeployEvent-' + objIdName).hide();
                 }
-
+                
 
                 if($liObj.hasClass('thistab')){
-
+                	
                     if($('.tabsEvent li').length > 0){
                         $('.module-manager').hide();
                         $('.module-flow, .module-bi, .module-datamining, .module-controller,.controllDeployEvent').hide();
@@ -442,18 +427,18 @@ $(function(){
                             i++
                         }
                         if($('.tabsEvent .thistab').nextAll().index()!=-1){
-                            $($('.tabsEvent .thistab').next()).addClass('thistab');
+                        	$($('.tabsEvent .thistab').next()).addClass('thistab');
                         }else{
-                            $($('.tabsEvent .thistab').prev()).addClass('thistab');
+                        	$($('.tabsEvent .thistab').prev()).addClass('thistab');
                         }
                         $liObj.remove();
                         $('.root_tree div').removeClass('visitedBg');
                         if($('.module-data-all .thistab').attr("class").length>7){
-                            //被选中的选项卡的id
+                        	//被选中的选项卡的id
                             var a=$('.module-data-all .thistab').attr("class").split('-')[1].split(' ',1).toString();
                             $('.root_tree div[id='+a+']').addClass('visitedBg');
                         }
-
+                        
                         var needShowObj = $($('.tabsEvent li')[i]);
                         showType(needShowObj.attr('idName'), needShowObj.attr('data_type'))
                     }
@@ -1099,11 +1084,6 @@ function testConnection(){
 				$('#result').append("连接失败");
 			}
 			$.hideLoading();
-		},
-		error:function(){
-			$('#result').html('');
-			$.dialog("连接异常");
-			$.hideLoading();
 		}
 	})
 }
@@ -1226,7 +1206,7 @@ function goDatasource(userId,content){
 							}
 						}
 						//查看页面测试按钮
-						$('.test2').unbind().click(function(){
+						$('.test2').click(function(){
 							$.showLoading();
 							var powerArray = new Array();
 							var conType = $('.look-input td').data('code');
@@ -1248,7 +1228,6 @@ function goDatasource(userId,content){
 							var jsonObj = new Object();
 							jsonObj.powerArray=powerArray;
 							jsonObj.dbtype = conType;
-							jsonObj.isAdd = 0;
 							console.log(jsonObj);
 							$.ajax({
 								type:"POST",
@@ -1263,11 +1242,6 @@ function goDatasource(userId,content){
 									}else{
 										$('#result1').append("连接失败");
 									}
-									$.hideLoading();
-								},
-								error:function(){
-									$('#result1').html('');
-									$.dialog("连接异常");
 									$.hideLoading();
 								}
 							})
@@ -1317,13 +1291,6 @@ function goDatasource(userId,content){
 								jsonObj.connectionName =$($(".lookTable tr td input")[0]).val();
 								jsonObj.id =conId ;
 								jsonObj.enumArray=powerArray;
-								var oldPwd = $('.lookTable input[type="password"').attr("value");
-								var newPwd = $('.lookTable input[type="password"').val();
-								if(oldPwd == newPwd){
-									jsonObj.isUpdate = 0;
-								}else{
-									jsonObj.isUpdate = 1;
-								}
 								$.ajax({
 									type:"POST",
 									url:urlId+"/upDateDataConnection",
@@ -1333,7 +1300,7 @@ function goDatasource(userId,content){
 									success:function(data){
 										//修改之后刷新--完成BUG-64
 										goDatasource(userId,null);
-										var currentPage=$('.center-table2 .numPage.active').text();
+										var currentPage=$('.numPage.active').text();
 										goPage(currentPage,pageSize,'table2','barcon2');
 										
 										$('.look-detail').hide();
@@ -1366,14 +1333,6 @@ function goDatasource(userId,content){
 								var jsonObj = new Object();
 								jsonObj.powerArray=powerArray;
 								jsonObj.dbtype = conType;
-								
-								var oldPwd = $('.lookTable input[type="password"').attr("value");
-								var newPwd = $('.lookTable input[type="password"').val();
-								if(oldPwd == newPwd){
-									jsonObj.isAdd = 0;
-								}else{
-									jsonObj.isAdd = 1;
-								}
 								console.log(jsonObj);
 								$.ajax({
 									type:"POST",
@@ -1388,11 +1347,6 @@ function goDatasource(userId,content){
 										}else{
 											$('#result2').append("连接失败");
 										}
-										$.hideLoading();
-									},
-									error:function(){
-										$('#result2').html('');
-										$.dialog("连接异常");
 										$.hideLoading();
 									}
 								})
@@ -1419,7 +1373,7 @@ function goDatasource(userId,content){
 						success:function(data){
 							$this.parent().parent().remove();
 							//re-layer  
-							var currentPage=$('.center-table2 .numPage.active').text()
+							var currentPage=$('.numPage.active').text();
 							//重新进行分页以达到刷新的目的--完成BUG-40
 							goPage(currentPage,pageSize,'table2','barcon2');
 						}
@@ -1839,14 +1793,12 @@ function lookSouceData(sourceId){
         $('.columnSd').hide();
         $('.mask').hide();
     });
-	$.showLoading();
 	$.ajax({
 		type:"POST",
 		url:urlId+"/selectSourceDataBySourceId",
 		dataType:"json",
 		data:{sourceId:sourceId},
 		success:function(data){
-			$.hideLoading();
 			$('.tableSd').empty();
 			console.log(data);
 			column = data.columnName;
@@ -1875,12 +1827,8 @@ function lookSouceData(sourceId){
 				}
 				$('.tableSd .sdTd').append('</tr>');
 			}
-		},
-		error : function() { 
-			$('.tableSd').empty();
-			$.dialog("读取数据异常！"); 
-			$.hideLoading();
-		}  
+			
+		}
 	})
 }
 
