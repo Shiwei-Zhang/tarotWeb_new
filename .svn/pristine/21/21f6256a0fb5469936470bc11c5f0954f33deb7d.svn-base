@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<project default="movewar" basedir=".">  
+    <!-- 路径信息 -->  
+	<property  name="project" value="TarotWeb"/>
+    <property name="classes" value="build/classes"/>  
+    <property name="build" value="build"/>  
+    <property name="lib" value="WebContent/WEB-INF/lib"/>  
+    <path id="weblib">    
+        <fileset dir="${lib}">  
+            <include name="*.jar"/>  
+        </fileset>    
+    </path>  
+      
+    <!-- 删除build文件夹 -->  
+    <target name="del" description="init target">  
+        <delete dir="${build}"></delete>  
+        <echo>删除build文件夹</echo>  
+    </target>  
+      
+    <!-- 移动配置文件 -->  
+    <target name="movepropertity" depends="del" description="">  
+        <!-- 将配置文件移动到war包目录下 -->  
+        <copy todir="${build}/classes">  
+            <fileset dir="src" id="propertityfile">  
+                <include name="*.xml"/>  
+                <include name="*.properties"/>  
+                <exclude name="**/*.java"/>  
+            </fileset>  
+        </copy>  
+    </target>  
+      
+    <!-- 编译src文件夹下的java文件到classes文件夹下 -->  
+    <target name="compile" depends="movepropertity" description="">  
+        <mkdir dir="${build}/classes"/>  
+        <javac srcdir="src" destdir="${classes}" encoding="UTF-8" includeantruntime="on">  
+            <classpath refid="weblib"></classpath>  
+        </javac>  
+        <echo>编译src文件夹下的java文件到classes文件夹下</echo>  
+    </target>  
+      
+    <!-- 打war包 -->  
+    <target name="war" depends="compile" description="">  
+        <war destfile="${build}/${project}.war" webxml="WebContent/WEB-INF/web.xml">  
+            <lib dir="${lib}"/>  
+            <classes dir="${classes}"/>  
+            <fileset dir="WebContent"/>  
+        </war>  
+        <echo>打war包</echo>  
+    </target>  
+      
+    <!-- 移动war包 -->  
+    <target name="movewar"  depends="war" description="movewar target">  
+        <echo>移动war包</echo>  
+    </target>  
+</project>  

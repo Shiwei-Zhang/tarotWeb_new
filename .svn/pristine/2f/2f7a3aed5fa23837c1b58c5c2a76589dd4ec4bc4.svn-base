@@ -505,15 +505,7 @@ $(function(){
             $('.datamining-template').show();
         }else if($dataType == 5){
         	$('.showbiData').attr('data-templateid', $idName);
-            /*if($.isEmpty(templateContainer)){
-            	biInit($idName);
-    		}else{
-    			$.confirm('确定要离开该报表吗？', function(){
-    				biInit($idName);
-    			});
-    		}*/
-            
-            biInit($idName);
+        	biInit($idName);
             $('.bi-template').show();
         }else if($dataType == 6){
             //TODO Loading controllerDeploy

@@ -1,0 +1,4819 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+z-index
+bichartStyle:200
+biLeft:104
+.bideployStyle: 20
+.dubblePart:201
+*/
+
+body {
+    margin: 0 auto;
+    /*background-color: #f6f6f6;*/
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    font: 14px 'arial', 'MicrosoftYaHei';
+    color: #1E1E1E;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+i {
+    cursor: pointer;
+}
+
+.clearFix {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+button {
+    cursor: pointer;
+}
+
+input[type="button"] {
+    cursor: pointer;
+}
+
+.header_active {
+    background-color: #d2d2d2;
+    border:1px solid #A0A0A0;
+}
+
+.container, .content, .module-data-all {
+    height: 913px;
+    box-sizing: border-box;
+}
+
+.w240 {
+    width: 240px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+.noBorderR{
+    border-right:none!important;
+}
+/* header*/
+
+.f-header {
+    height: 59px;
+    border-bottom: 1px #B6BCCC solid;
+    background-color: #dcdcdc;
+}
+
+.left-header {
+    margin-left: 20px;
+}
+
+.left-header > div {
+    display: table-cell;
+    height: 60px;
+    vertical-align: top;
+}
+
+.left-header > div > div:first-child {
+    width: 50px;
+    height: 50px;
+    margin-top: 7px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.left-header > div > div:last-child {
+    width: 50px;
+    height: 10px;
+    font-size: 8px;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.left-header .logo {
+    background-image: url('../images/tarot.png');
+}
+
+.left-header .logo_icon {
+    background-image: url('../images/data-any.png');
+}
+
+.right-header {
+    float: right;
+    margin-top: -55px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.right-header > div {
+    display: inline-block;
+    height: 46px;
+    width: 44px;
+}
+
+.right-header .flows {
+    cursor: pointer;
+    margin-right: -11px;
+}
+
+.right-header .managers {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.right-header > div > div:first-child {
+    width: 43px;
+    height: 33px;
+    font-size: 12px;
+    margin-bottom: 4px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.right-header > div > div:last-child {
+    width: 44px;
+    height: 20px;
+    font-size: 8px;
+    text-align: center;
+    margin-top: -8px;
+}
+
+.right-header .flow {
+    background-image: url('../images/flow.png');
+    cursor: pointer;
+}
+
+.right-header .manager {
+    background-image: url('../images/manager.png');
+    cursor: pointer;
+}
+
+/*.root_tree visited background*/
+.visitedBg {
+    background: #cce8f8;
+}
+
+#manag {
+    width: 106px;
+    height: 150px;
+    background-color: #FFF;
+    position: absolute;
+    z-index: 200;
+    top: 56px;
+    right: -1px;
+    display: none;
+    text-align: center;
+    border-left: 1px #dcdcdc solid;
+    border-bottom: 1px #dcdcdc solid;
+    border-right: 1px #dcdcdc solid;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+#manag h6 {
+    height: 30px;
+    line-height: 30px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+#manag h6:hover {
+    background: #56b0e2;
+    color: #fff;
+}
+
+
+/*scrollbar style*/
+::-webkit-scrollbar/*整体部分*/
+{
+    width: 5px;
+    height:5px;
+}
+
+::-webkit-scrollbar-track/*滑动轨道*/
+{
+    /*-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);*/
+    /*border-radius: 0px;*/
+    /*background: rgba(0,0,0,0.1);*/
+}
+
+::-webkit-scrollbar-thumb/*滑块*/
+{
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb:hover/*滑块效果*/
+{
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.3);
+}
+
+
+
+
+/*bi borderCenterS*/
+.borderCenterS{
+    background: url("../images/fullIcon.png")no-repeat center center;
+    background-size: 36px 36px;
+}
+.borderCenterSed{
+    background: url("../images/fulledIcon.png")no-repeat center center;
+    background-size: 36px 36px;
+}
+
+
+/*module for menu*/
+.module-data-navigation, .module-data, .module-manager {
+    float: left;
+}
+
+.module-data-navigation {
+    width: 201px;
+    height: 912px;
+    background: #fff;
+    border-right: 1px solid #B9B9B9;
+    border-bottom: 1px solid #B9B9B9;
+    margin-left: -1px; /**/
+}
+
+.title {
+    text-align: center;
+    padding-top: 2px;
+    font-size: 14px;
+    background-color: #e2e2e2;
+    height: 25px;
+    line-height: 25px;
+}
+
+/*folder style*/
+.folder .home {
+    padding-left: 10px;
+    height: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.folder .home i {
+    margin-right: 5px;
+}
+
+.folder div {
+    /*width: 97%;*/
+}
+
+.folder div:hover {
+    background-color: #f6f6f6;
+    cursor: pointer;
+}
+
+.folder div:visited {
+    background-color: red;
+    cursor: pointer;
+}
+
+.folder {
+    height: 886px;
+    overflow: scroll;
+    font-size: 12px;
+}
+
+.folder ul {
+    list-style: none;
+    margin-top: -5px;
+    padding-left: 20px;
+}
+
+.folder li {
+    /* width: 160px;
+     margin: 0px 0px;*/
+}
+
+.folder ul li ul {
+    margin-top: 0px;
+}
+
+.folder_self i.fa.controllerIcon {
+    /*margin-right: 5px;*/
+}
+
+.folder ul li span {
+    margin-left: 5px;
+}
+
+.folder ul li ul li {
+    line-height: 25px;
+}
+
+.folder ul li ul li span {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.folder input {
+    width: 90px;
+}
+
+ul.root_tree li div {
+    /*height: 28px;*/
+    line-height: 26px;
+    padding-left: 10px;
+}
+
+.folder_self span {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+/*end folder style*/
+
+/*canvas style start*/
+
+.listContent {
+    width: 140px;
+    max-height: 210px;
+    overflow: auto;
+    border: 1px solid #bbbab6;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+    background: #fff;
+}
+
+.listContent p {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.listContent p:hover {
+    color: #fff;
+    background: #56b0e2;
+}
+
+/*canvas style end*/
+
+/*BI start*/
+/*BI*/
+.BI-bodyer {
+    height: 887px;
+    position: relative;
+}
+
+.biAddLeft {
+    width: 128px;
+    height: 835px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #f6f6f6;
+    border-top: 1px solid #b9b9b9;
+    border-right: 1px solid #b9b9b9;
+}
+
+.biLeft {
+    height: 415px;
+}
+
+.biLeftTemp {
+    height: 420px;
+}
+
+.biLeft p,
+.biLeftTemp p {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #56b0e2;
+    text-align: center;
+    color: #f7ffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.choiceBtn span {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 20px;
+}
+
+.styleIcon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/styleIcon.png) no-repeat;
+    background-size: 15px 15px;
+    background-position: 0 4px;
+    vertical-align: middle;
+}
+
+.down_down {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/down_down.png") no-repeat;
+    background-size: 16px 10px;
+    vertical-align: middle;
+    background-position: 3px 6px;
+}
+
+.down_up {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/down_up.png) no-repeat;
+    background-size: 16px 10px;
+    vertical-align: middle;
+    background-position: 3px 6px;
+}
+
+.bicharlistStyle {
+    height: 360px;
+}
+
+.bicharlistStyle div {
+    height: 25px;
+    line-height: 27px;
+    padding-left: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bicharlistStyle div:hover {
+    background: #eaeaea;
+}
+
+/*canvas icon start*/
+.fullScreen,
+.rotateIcon,
+.zoomIcon,
+.dubblePart .deleteIcon,
+.dubblePart .copyIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: url("../images/canvasIcon.png") no-repeat;
+}
+
+.fullScreen {
+    position: absolute;
+    top: 210px;
+    z-index: 151;
+    background-size: 85px 57px;
+    background-position: -30px 4px;
+}
+
+.rotateIcon {
+    position: absolute;
+    top: 250px;
+    background-size: 85px 57px;
+    background-position: -60px 4px;
+}
+
+.zoomIcon {
+    position: absolute;
+    top: 280px;
+    background-size: 85px 57px;
+    background-position: 0 4px;
+}
+
+.dubblePart {
+    position: absolute;
+    top: 343px;
+    left: 10px;
+    z-index: 201;
+    width: 31px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #c9c9c9;
+    box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.dubblePart .jtIcon {
+    position: absolute;
+    top: 6px;
+    right: -23px;
+    width: 25px;
+    height: 38px;
+    background: url(../images/jtIcon.png) no-repeat;
+    background-size: 12px 19px;
+}
+
+.dubblePart .deleteIcon {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 4px;
+    background-size: 85px 57px;
+    background-position: 3px -34px;
+}
+
+.dubblePart .copyIcon {
+    display: inline-block;
+    cursor: pointer;
+    background-size: 85px 57px;
+    background-position: -27px -34px;
+}
+
+.dragIcons {
+    position: absolute;
+    top: 403px;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background: url(../images/dragIcon.png) no-repeat;
+    background-size: 100px 85px;
+}
+
+/*canvas icon end*/
+
+.biContainerStyle {
+    position: relative;
+    float: left;
+    width: 99.8%;
+    height: 836px;
+    margin-top: -21px;
+}
+
+.biFooter {
+    height: 49px;
+    border-top: 1px solid #ddd;
+    background: #f6f6f6;
+}
+
+.biFooter ul {
+    height: 49px;
+    padding-top: 10px;
+    float: right;
+}
+
+.biFooter ul li {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background: #56b0e2;
+    float: left;
+    margin-right: 10px;
+}
+
+.bideployStyle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 120;
+    margin: auto;
+    width: 400px;
+    height: 312px;
+    background: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.bideployStyle .addT {
+    height: 56px;
+    padding: 0 20px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #f9f9f9;
+}
+
+.bideployStyle .biContent {
+    height: 177px;
+    padding: 20px 30px 0;
+}
+
+.biContent .biUrl {
+    margin-right: 20px;
+}
+
+.biContent input {
+    width: 280px;
+    height: 38px;
+    padding-left: 10px;
+    border: 1px solid #ddd;
+}
+
+/*BI end*/
+
+/*biData start*/
+/*BI Data analysis*/
+.biData {
+    position: absolute;
+    top:  60px;
+    left: 0;
+    right: 0;
+    z-index: 105;
+    margin: auto;
+    height: 805px;
+    width:1390px;
+    margin-top: 22px;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.biData .fa {
+    width: 8px;
+    margin-right: 10px;
+}
+
+.biData .biData-T {
+    height: 44px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.biData .biData-T span {
+    height: 44px;
+    width: 120px;
+    text-align: center;
+    line-height: 44px;
+    font-size: 20px;
+    float: left;
+}
+
+.biData .biData-T i {
+    height: 44px;
+    line-height: 44px;
+    float: right;
+    margin-right: 20px;
+}
+
+.biData .biData-C {
+    margin: 20px;
+}
+
+.biData-C .biDataL {
+    width: 198px;
+    /* width: 14.9%; */
+    float: left;
+    height: 720px;
+    margin-left: -100%;
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+.biDataL .biPart {
+    height: 33px;
+    line-height: 33px;
+    padding-left: 10px;
+    text-align: center;
+    font-size: 12px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.biDataL .addPart {
+    height: 33px;
+    line-height: 33px;
+    color: #eaffff;
+    text-align: center;
+    background: #56b0e2;
+    cursor: pointer;
+}
+
+.biDataL .addPart .addIcon {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background: url(../images/addIcon.png) no-repeat center center;
+    vertical-align: -6px;
+    background-size: 15px 15px;
+}
+
+.biDataL .biList {
+    height: 220px;
+    max-height: 220px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.biDataL .biList li {
+    height: 22px;
+    line-height: 22px;
+    padding-left: 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.biDataL .biList li:hover {
+    background: #f8f8f8;
+}
+
+.biDataL .biDataLbottom .biDataLbottom_t {
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    background: #f8f8f8;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+
+.biDataL .biDataLbottom .menu, .biDataR .menuRight {
+    width: 100%;
+    border-top: none;
+}
+
+.biDataL .biDataLbottom .menu h2, .biDataR .menuRight h2 {
+    padding: 0 10px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    font-weight: normal;
+
+    background: #fff;
+    border-top: 1px solid #F0F0F0;
+    /*border-bottom: 1px solid #ddd;*/
+    cursor: pointer;
+}
+
+.biDataL .biDataLbottom .detail, .biDataR .detail {
+    display: none;
+    /*width: 100%;*/
+    /*height: 100px;*/
+    overflow: hidden;
+}
+
+.biDataL .biDataLbottom .detail.show, .biDataR .detail.show {
+    display: block;
+}
+
+.biDataL .biDataLbottom .detail li {
+    /*height: 30px;*/
+    line-height: 30px;
+    height: 64px;
+}
+
+.biDataLbottom .twoMap li,
+.biDataLbottom .circleMap li,
+.biDataLbottom .powerMap li,
+.biDataLbottom .varMap li,
+.biDataLbottom .otherThing li {
+    float: left;
+    width: 40px;
+    margin-left: 21px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.biDataLbottom .twoMap .zxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -16px -30px;
+}
+
+.biDataLbottom .twoMap .zxMap.selected{
+    background: url("../images/bimapIconeds.png")no-repeat;
+    background-size: 195px 706px;
+    background-position: -16px -30px;
+}
+
+.biDataLbottom .twoMap .zzMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -82px -30px;
+}
+
+.biDataLbottom .twoMap .zzMap.selected {
+    background: url("../images/bimapIconeds.png")no-repeat;
+    background-size: 195px 706px;
+    background-position: -82px -30px;
+}
+
+.biDataLbottom .twoMap .sdMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -148px -30px;
+}
+
+.biDataLbottom .twoMap .sdMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -148px -30px;
+}
+
+.biDataLbottom .twoMap .kxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -14px -103px;
+}
+
+.biDataLbottom .twoMap .kxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -14px -103px;
+}
+
+.biDataLbottom .twoMap .xxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -81px -102px;
+}
+
+.biDataLbottom .twoMap .xxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -81px -102px;
+}
+
+.biDataLbottom .circleMap .btMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -12px -213px;
+}
+
+.biDataLbottom .circleMap .btMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -12px -213px;
+}
+
+.biDataLbottom .circleMap .ldMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -79px -213px;
+}
+
+.biDataLbottom .circleMap .ldMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -79px -213px;
+}
+
+.biDataLbottom .circleMap .ybMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -145px -213px;
+}
+
+.biDataLbottom .circleMap .ybMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -145px -213px;
+}
+
+.biDataLbottom .powerMap .gxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 712px;
+    background-position: -16px -337px;
+}
+
+.biDataLbottom .powerMap .gxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 712px;
+    background-position: -16px -337px;
+}
+
+.biDataLbottom .powerMap .jxMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 712px;
+    background-position: -77px -337px;
+}
+
+.biDataLbottom .powerMap .jxMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 712px;
+    background-position: -77px -337px;
+}
+
+.biDataLbottom .varMap .xlMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -12px -462px;
+}
+
+.biDataLbottom .varMap .xlMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -12px -462px;
+}
+
+.biDataLbottom .varMap .ycMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -75px -463px;
+}
+
+.biDataLbottom .varMap .ycMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -75px -463px;
+}
+
+.biDataLbottom .otherThing .dtMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -12px -586px;
+}
+
+.biDataLbottom .otherThing .dtMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -12px -586px;
+}
+
+.biDataLbottom .otherThing .phMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -76px -586px;
+}
+
+.biDataLbottom .otherThing .phMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -76px -586px;
+}
+
+.biDataLbottom .otherThing .ldtMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -137px -586px;
+}
+
+.biDataLbottom .otherThing .ldtMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 706px;
+    background-position: -137px -586px;
+}
+
+.biDataLbottom .otherThing .sjMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 714px;
+    background-position: -12px -661px;
+}
+
+.biDataLbottom .otherThing .sjMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 714px;
+    background-position: -12px -661px;
+}
+
+.biDataLbottom .otherThing .bgMap {
+    background: url(../images/bimapIcons.png)no-repeat;
+    background-size: 195px 714px;
+    background-position: -70px -661px;
+}
+
+.biDataLbottom .otherThing .bgMap.selected {
+    background: url(../images/bimapIconeds.png)no-repeat;
+    background-size: 195px 714px;
+    background-position: -70px -661px;
+}
+
+/*右侧部分*/
+.biDataR .filterPart .btnPart {
+    font-size: 0;
+}
+
+.biDataR .filterPart .filterContainer {
+    max-height: 315px;
+    overflow: auto;
+}
+
+.biDataR .filterMain {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 0;
+}
+
+.biDataR .filterMain .plusIcon {
+    position: absolute;
+    right: 3px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/plusA.png) no-repeat;
+    background-size: 10px 11px;
+    background-position: 5px 5px;
+}
+
+.closeB {
+    width: 20px;
+    height: 20px;
+    background: url(../images/closeB.png) no-repeat;
+    background-size: 10px 11px;
+    background-position: 5px 5px;
+}
+
+.biDataR .filterMain .closeB {
+    position: absolute;
+    right: 2px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/closeB.png) no-repeat;
+    background-size: 10px 11px;
+    background-position: 5px 5px;
+}
+
+.biDataR .filterMain .seleIdName {
+    width: 68px;
+    margin-right: 6px;
+    border: 1px solid #dedede;
+}
+
+.biDataR .filterMain .seleList {
+    width: 45px;
+    margin-right: 6px;
+    border: 1px solid #dedede;
+}
+
+.biDataR .filterMain input {
+    width: 118px;
+    height: 18px;
+    border: 1px solid #dedede;
+}
+
+.biDataR .filterPart .btnPart span {
+    display: inline-block;
+    width: 116px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    color: #59b0e5;
+    text-align: center;
+    border: 1px solid #57b2e1;
+    background: #fff;
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.biDataR .btnPart span.runBtn {
+    width: 118px;
+}
+
+.biDataR .filterPart .btnPart span.clicked {
+    color: #fff;
+    background: #59b0e5;
+}
+
+.biDataR .sortPart select {
+    width: 116px;
+    height: 22px;
+    border: 1px solid #dedede;
+}
+
+.biDataR .detail {
+    padding-left: 26px;
+    padding-bottom: 20px;
+}
+
+.biDataR .titlePart .single,
+.biDataR .showPh .single,
+.biDataR .otherPart .single,
+.biDataR .bitoolboxStyle .single,
+.biDataR .bivisualStyle .single,
+.biDataR .bilabelStyle .single {
+    margin-right: 10px;
+}
+
+.biDataR .titlePart .titlePartT,
+.biDataR .otherPart .titlePartT,
+.biDataR .bitoolboxStyle .titlePartT,
+.biDataR .bivisualStyle .titlePartT,
+.biDataR .bilabelStyle .titlePartT {
+    margin-bottom: 10px;
+}
+
+.titlePart .mapIcon, .showPh .mapIcon {
+    margin-top: 10px;
+}
+
+.biDataR .titlePart input {
+    height: 18px;
+    width: 242px;
+    margin-bottom: 10px;
+}
+
+.biDataR .themePart select {
+    height: 22px;
+}
+
+.mapIcon span {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.mapIcon .showL {
+    background: url("../images/showLicon.png") no-repeat;
+}
+
+.mapIcon .showC {
+    background: url("../images/showCicon.png") no-repeat;
+}
+
+.mapIcon .showR {
+    background: url("../images/showRicon.png") no-repeat;
+}
+
+.mapIcon .showL,
+.mapIcon .showR,
+.mapIcon .showC {
+    background-size: 25px 20px;
+    background-position: 7px 9px;
+}
+
+.mapIcon span {
+    margin: 0 20px;
+    border: 1px solid transparent;
+}
+
+.mapIcon span.checked {
+    border: 1px solid #58b0e2;
+}
+
+.visualTextStyle {
+    margin-bottom: 10px;
+}
+
+.bivisualStyle .visualTextStyle input {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.bivisualStyle input.w240 {
+    height: 20px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+
+.biData-C .biDataC {
+    width: 100%;
+    height: 720px;
+    float: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.biData-C .biDataC .biDataCmain {
+    width: 850px;
+    padding: 0 300px 0 200px;
+}
+
+.biDataC .biDataCmain .CmainT {
+    height: 32px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: #f8f8f8;
+}
+
+.biDataCmain .CmainList {
+    margin: 20px 0 20px 20px;
+}
+
+.biDataCmain .CmainList .bichartStyle {
+    position: absolute;
+    z-index: 200;
+    width: 808px;
+    height: 512px;
+    border: 1px #dddddd solid;
+    margin-top: 40px;
+}
+
+.bichartStyle .bimainStyle {
+    width: 808px;
+    height: 512px;
+}
+
+.rowIcon {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    vertical-align: -10px;
+    background: url("../images/rowIcon.png") no-repeat center center;
+    background-size: 18px 16px;
+}
+
+.columnIcon {
+    display: inline-block;
+    width: 28px;
+    height: 24px;
+    vertical-align: -8px;
+    background: url("../images/columnIcon.png") no-repeat center center;
+    background-size: 16px 18px;
+}
+
+.biDataCmain .CmainList li {
+    /*height: 35px;*/
+    line-height: 35px;
+    font-size: 0;
+    margin-bottom: 4px;
+}
+
+.CmainList li p {
+    display: inline-block;
+    width: 58px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.bi-error {
+    float: left;
+    width: 368px;
+    color: red;
+    height: 26px;
+    margin-left: 58px;
+    line-height: 26px;
+}
+
+.CmainList li span {
+    display: inline-block;
+    /*width: 100px;*/
+    font-size: 12px;
+}
+
+.CmainList li input {
+    width: 735px;
+    height: 28px;
+    padding-left: 15px;
+    border: 1px solid #d3d3d3;
+}
+
+.CmainList .listContainer {
+    display: inline-block;
+    width: 745px;
+    max-width: 745px;
+    min-height: 28px;
+    vertical-align: -10px;
+    padding-left: 4px;
+    padding-top: 3px;
+    border: 1px solid #d3d3d3;
+}
+
+.CmainList .listContainer li {
+    float: left;
+    /*width:80px;*/
+    height: 25px;
+    line-height: 25px;
+    background: #f0f0f0;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+
+.CmainList .listContainer li .closeB {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-size: 11px 11px;
+    vertical-align: -11px;
+}
+
+.CmainList li.mapList p {
+    float: right;
+    width: 145px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.CmainList li.mapList p span {
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #56b1e0;
+    cursor: pointer;
+    margin-left: 10px;
+    border: 1px solid #56b1e0;
+}
+
+.CmainList li.mapList p span.clicked {
+    color: #fcfef9;
+    background: #56b1e0;
+}
+
+.biDataCmain .CmainT span {
+    width: 92px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;
+    float: left;
+}
+
+.biDataCmain .CmainT i {
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+    margin: 4px 20px 0 0;
+    text-align: center;
+    font-style: normal;
+    color: #fbffff;
+    background: #56b0e2;
+    float: right;
+}
+
+.biData-C .biDataR {
+    float: left;
+    width: 298px;
+    height: 720px;
+    margin-left: -300px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+.biDataR p {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;
+    background: #f8f8f8;
+}
+
+/*biData end*/
+
+/*dataMining-bodyer start*/
+
+.dataMining-bodyer {
+    width: 100%;
+    height: 100%;
+}
+
+.dataMinL {
+    width: 75%;
+    height: 100%;
+    float: left;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.dataMinL .dataMinL-top {
+    height: 549px;
+    padding: 20px;
+    background: #fff;
+}
+
+.dataMinL-top .dataMinT {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    background: #f0f0f0;
+}
+
+.dataMinL-top .dataMinT span {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+
+}
+
+.dataMinL-top .dataMinC {
+    padding: 20px 0 0 20px;
+}
+
+.dataMinL-top .dataMinC .paramList {
+    height: 440px;
+}
+.dataMinL-top .dataMinC .btnPart{
+    height: 30px;
+    margin-right: 26px;
+}
+.dataMinC .paramList li {
+    position: relative;
+    width: 50%;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.dataMinC .paramList li span {
+    display: inline-block;
+    width: 75px;
+}
+
+.dataMinC .paramList li select {
+    height: 38px;
+    width: 84%;
+    line-height: 38px;
+    border: 1px solid #dcdcdc;
+}
+.dataMinC .paramList li input {
+    height: 36px;
+    width: 83.5%;
+    line-height: 38px;
+    border: 1px solid #dcdcdc;
+}
+.dataMinC .paramList li input.showValue {
+    position: absolute;
+    width: 100px;
+    top: 3px;
+    left: 82px;
+    height: 36px;
+    border: none;
+}
+
+.dataMinL-top .practice {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #c9c9c9;
+    margin-right: 20px;
+}
+
+.dataMinL-top .savePart {
+    width: 48%;
+    height: 100%;
+    float: left;
+    border: 1px solid #c9c9c9;
+}
+
+.dataMinL .dataMinL-bottom {
+    height: 297px;
+}
+
+.dataMinL-bottom .tabs {
+    background: #f6f6f6;
+}
+
+.dataMinL-bottom .dataMinFile p {
+    height: 25px;
+    line-height: 25px;
+    padding-left: 10px;
+}
+
+.dataMinR {
+    position: absolute;
+    right: 0;
+    z-index: 130;
+    margin-top: -26px;
+    width: 345px;
+    height: 912px;
+    float: left;
+    border-left: 1px solid #b9b9b9;
+    box-sizing: border-box;
+    background: #f4f4f4;
+}
+
+.dataMinR .dataMinRtop {
+    height: 26px;
+    line-height: 26px;
+    background: #e2e2e2;
+    text-align: center;
+}
+
+.dataMinR .propContainer {
+    padding-left: 26px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.dataMinR .propContainer li {
+    margin-top: 10px;
+}
+.dataMinR .dataMinRsave{
+    position: absolute;
+    bottom: 10px;
+    left:10px;
+}
+.dataMinR .dataMinRsave p{
+    width: 323px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 12px;
+    background-color: white;
+    border: 1px lightgray solid;
+    cursor: pointer;
+}
+.propContainer li span {
+    display: inline-block;
+    width: 72px;
+    font-size: 12px;
+}
+
+.propContainer li input {
+    width: 207px;
+    height: 20px;
+    padding-left:15px;
+    line-height: 20px;
+    border: 1px solid #c8c8c8;
+}
+.propContainer li select {
+    width: 224px;
+    height: 22px;
+    line-height: 22px;
+    padding-left:12px;
+    outline: none;
+    border: 1px solid #c8c8c8;
+}
+
+/*dataMining-bodyer end*/
+
+/*controller start*/
+
+.controll-bodyer {
+    /*width: 76%;*/
+    height: 700px;
+}
+
+.controll-bodyer .content1 {
+    width: 100%;
+    height: 509px;
+    padding: 20px 0;
+    overflow: hidden;
+}
+.controll-bodyer .content2 .diary{
+    height: 310px;
+    max-height: 310px;
+    overflow: scroll;
+}
+.controll-bodyer .content2 .diary li{
+    padding-left:10px;
+    line-height: 20px;
+}
+.content1 .stream, .content1 .provide, .content1 .con-right {
+    width: 31%;
+    height: 509px;
+    float: left;
+    margin-left: 26px;
+}
+
+.content1 .con-title {
+    height: 40px;
+    padding: 0 10px;
+    background: #F4F4F4;
+}
+
+.con-title span {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+
+.con-title i {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    float: right;
+    background: url(../images/plus02.png) no-repeat 13px 5px;
+    margin-top: 5px;
+    background-size: 16px 16px;
+}
+
+.stream .stream-con, .con-right .conList {
+    position: relative;
+    height: 467px;
+    border: 1px solid #CAC9C9;
+}
+
+.stream-con .part, .conList .part {
+    max-height: 410px;
+}
+
+.stream-con .part li, .provide .listPart li, .conList .part li {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.stream-con .part li:hover, .provide .listPart li:hover, .conList .part li:hover {
+    background: #F0F0F0;
+}
+.stream-con .part li:hover i.closeL,
+.listHover li:hover i.closeL
+{
+    display: block;
+}
+
+.stream-con .part li i,
+.listHover li i
+{
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background: url(../images/closeIcon.png) no-repeat center center;
+    background-size: 15px 15px;
+}
+.conVisitedBg{
+    background: #CCEBF8;
+}
+
+.listConment .nameL {
+    float: left;
+}
+
+.listConment .nameR {
+    float: right;
+    margin-right: 38px;
+}
+
+.listConment li {
+    position: relative;
+}
+
+.listConment .iconDown {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 32px;
+    height: 32px;
+    border-top-color: #000;
+    background: url(../images/iconDown.png) no-repeat;
+    background-size: 14px 7px;
+    background-position: 9px 12px;
+}
+
+.listConment .nodeList {
+    display: none;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    z-index: 10;
+    background: #fff;
+    width: 100%;
+}
+
+.listConment .nodeList li {
+    height: 25px;
+    line-height: 25px;
+    text-align: right;
+    padding-right: 38px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.stream-con p, .con-right p {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fdfeff;
+    font-size: 14px;
+    cursor: pointer;
+    background: #56b0e2;
+    right: 20px;
+    bottom: 20px;
+}
+
+.add3-con {
+    display: none;
+    position: absolute;
+    width: 598px;
+    height: 598px;
+    border: 1px solid #F0F0F0;
+    background: #fff;
+    min-height: 598px;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.add3-con .addT {
+    height: 56px;
+    line-height: 56px;
+    font-size: 18px;
+    padding: 0 30px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #f9f9f9;
+    overflow: hidden;
+}
+
+.addT span {
+    height: 56px;
+    line-height: 56px;
+    float: left;
+}
+
+.closeA {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    background: url("../images/closeIcon.png") no-repeat center center;
+    background-size: 20px 20px;
+}
+
+.addT i {
+    float: right;
+    margin-top: 15px;
+    background: url("../images/closeIcon.png") no-repeat center center;
+    background-size: 25px 25px;
+}
+
+.addList {
+    height: 444px;
+    overflow: auto;
+    padding: 20px 30px 20px;
+}
+
+.add3EventTwo .menu1List li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.add3EventTwo .menu1List li .single {
+    margin-right: 15px;
+}
+.newControllerStyle{
+    z-index: 141;
+}
+.newControllerStyle .namePart{
+    height: 40px;
+    margin-bottom: 22px;
+}
+.newControllerStyle .namePart label{
+    display: inline-block;
+    width: 54px;
+}
+.newControllerStyle .namePart input{
+    height: 38px;
+    line-height: 38px;
+    width:467px;
+    padding-left:15px;
+    border:1px solid #dcdcdc;
+}
+.newControllerStyle .menu1List li{
+    height: 30px;
+    line-height: 30px;
+}
+.newControllerStyle .menu1List li i{
+    margin-right:10px;
+}
+.downIcon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: -3px;
+    border: 5px solid transparent;
+    border-top-color: #8f8d90;
+}
+
+.rightIcon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: -1px;
+    border: 5px solid transparent;
+    border-left-color: #8f8d90;
+}
+
+.single {
+    background: transparent url(../images/singleIcon.png) no-repeat center top;
+    background-size: 14px 28px;
+    vertical-align: middle;
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+}
+
+.singleChecked {
+    background-position: center bottom;
+}
+
+.addRoot .single {
+    margin-right: 16px;
+}
+
+.addRoot p span {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.addRoot .menu1, .addRoot .menu2 ,
+.ftp-childrens .menu1, .ftp-childrens .menu2
+{
+    margin-left: 27px;
+}
+
+.addRoot .menu1 .menu1List, .addRoot .menu2 .menu2List ,
+.ftp-childrens .menu1 .menu1List, .ftp-childrens .menu2 .menu2List
+{
+    margin-left: 26px;
+}
+
+.menu1 .menu1List li, .menu2 .menu2List li
+{
+    min-height: 25px;
+}
+
+.menu1 .menu1List li i, .menu2 .menu2List li i {
+    display: inline-block;
+}
+
+.addRoot p ,
+.ftp-childrens p
+{
+    height: 20px;
+}
+
+.addRoot p span ,
+.ftp-childrens p span
+{
+    margin-left: 16px;
+}
+
+.addFoot {
+    height: 56px;
+    line-height: 56px;
+    border-top: 1px solid #e6e6e6;
+    background: #f9f9f9;
+    padding-right: 30px;
+    overflow: hidden;
+}
+
+.addFoot span {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    float: right;
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+.addFoot span.cancel, .addFoot span.cancel1 {
+    color: #767676;
+    border: 2px solid #767676;
+}
+
+.addFoot span.sure, .addFoot span.sure1 {
+    color: #55afe1;;
+    border: 2px solid #55afe1;
+    margin-left: 20px;
+}
+
+.addFoot span.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: #767676;
+    border: 2px solid #767676;
+}
+
+.provide .con-con .con-list {
+    height: 202px;
+    border: 1px solid #CAC9C9;
+}
+
+.mar20 {
+    margin-top: 20px;
+}
+
+/*controller end*/
+
+/*jobList start*/
+.jobList{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin:auto;
+    z-index: 161;
+    width:898px;
+    height: 731px;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+.jobContainer{
+    height: 572px;
+    overflow: hidden;
+    padding: 20px;
+}
+.jobContainer .tableContainer {
+    width: 856px;
+    max-height: 600px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+.killBtn{
+    display: inline-block;
+    width: 38px;
+    height: 18px;
+    line-height: 18px;
+    border: 1px solid #56b1e0;
+    color: #56b1e0;
+    border-radius: 1px;
+    text-align: center;
+    cursor: pointer;
+}
+/*jobList end*/
+
+/*controllerDeploy start*/
+
+.controllDeploy-bodyer {
+    padding: 20px;
+    height: 846px;
+    background: #fff;
+}
+
+.deployLeft {
+    margin-right: 20px;
+}
+
+.deployLeft .deployTitle, .deployRight .deployTitle {
+    height: 40px;
+    background: #f0f0f0;
+}
+
+.deployLeft .deployTitle span,
+.deployRight .deployTitle span {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+
+.deployLeft .deployContent,
+.deployRight .deployContent {
+    font-size: 0;
+    height: 720px;
+    padding: 20px;
+    /*background: lightblue;*/
+}
+
+.deployContent .paramList > li,
+.dispatchPart > li,
+.webservicePart > li {
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+
+.deployContent .paramList > li .single,
+.dispatchPart > li .single,
+.webservicePart > li .single {
+    margin-top: 11px;
+}
+
+.deployContent .paramList > li .Tname,
+.dispatchPart > li .Tname,
+.webservicePart > li .Tname {
+    display: inline-block;
+    /*width: 50px;*/
+    float: left;
+    width: 18%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.deployContent .paramList > li select {
+    box-sizing: border-box;
+    width: 81%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #dcdcdc;
+    outline: none;
+}
+
+.deployContent .paramList > li select:focus {
+    border: 1px solid #149edd;
+}
+
+.deployContent .paramList > li > input:focus,
+.dispatchPart > li input:focus,
+.webservicePart > li input:focus {
+    border: 1px solid #149edd;
+}
+
+.deployContent .paramList > li > input,
+.dispatchPart > li > input,
+.webservicePart > li > input {
+    box-sizing: border-box;
+    width: 81%;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    border: 1px solid #dcdcdc;
+
+}
+
+.dispatchPart .timeControl{
+    max-height: 342px;
+}
+
+.deployLeft, .deployRight {
+    float: left;
+    width: 49%;
+    height: 846px;
+    box-sizing: border-box;
+    border: 1px solid #D2D2D2;
+}
+.deployRight{
+    position: relative;
+}
+.deployRight .saveB{
+    position: absolute;
+    bottom: 19px;
+    right:20px;
+    height: 30px;
+}
+.deployRight .sureBtn {
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background: #56b0e2;
+    float: right;
+}
+
+.deployRight .TipPart {
+    width: 310px;
+    float: left;
+    height: 260px;
+}
+
+.deployRight .TipPart li {
+    float: left;
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.deployRight .TipPart li span {
+    display: inline-block;
+    width: 91px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.deployRight .TipPart li .single {
+    margin-top: -2px;
+    margin-right: 10px;
+}
+
+/*dispatchPart*/
+.dispatchPart {
+    font-size: 14px;
+}
+
+.webservicePart {
+    font-size: 14px;
+}
+
+.deployStateD {
+    height: 121px;
+}
+
+.deployStateD i,
+.deployStateW i {
+    cursor: default;
+    font-style: normal;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.btnPart p {
+    width: 60px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 20px;
+    background: #56b0e2;
+    float: right;
+}
+
+.btnPart span {
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.btnPart span i {
+    font-style: normal;
+    cursor: default;
+}
+
+.btnPart span .warning {
+    cursor: pointer;
+}
+
+.warning {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../images/warningIcon.png) no-repeat;
+    background-size: 20px 20px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.warningPart .warningT {
+    height: 25px;
+    line-height: 25px;
+    margin-top: 60px;
+    padding-left: 51px;
+    margin-bottom: 18px;
+}
+
+.warningPart .warningT i {
+    font-style: normal;
+}
+
+.warningContent {
+    padding-left: 88px;
+    height: 125px;
+}
+
+.warningContent p {
+    height: 30px;
+    line-height: 30px;
+}
+
+.ovalIcon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../images/OvalIcon.png) no-repeat;
+    background-size: 14px 14px;
+    background-position: 5px 5px;
+    vertical-align: middle;
+}
+
+.ovalIconed {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("../images/OvalIconed.png") no-repeat;
+    background-size: 14px 14px;
+    background-position: 5px 5px;
+    vertical-align: middle;
+}
+
+.warningFooter {
+    height: 30px;
+    margin-right: 20px;
+}
+
+.warningFooter span {
+    width: 60px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 20px;
+    float: right;
+}
+
+.warningFooter span.sure {
+    color: #56b0e2;
+    border: 1px solid #56b0e2;
+}
+
+.warningFooter span.cancel {
+    color: #767676;
+    border: 1px solid #767676;
+}
+
+.ipPart {
+    height: 297px;
+}
+
+.ipPower {
+    height: 40px;
+}
+
+.ipList {
+    float: left;
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    background: #f0f0f0;
+    color: #242424;
+}
+
+.ipList.ipListed {
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background: #56b0e2;
+}
+
+.ipContainer {
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+    margin-bottom: 6px;
+    max-height: 229px;
+    overflow: auto;
+}
+
+.ipContainer li {
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+}
+.ipContainer li,
+.ipContainer li span {
+    height: 35px;
+    line-height: 35px;
+}
+.ipContainer li:hover i.closeL
+{
+    display: block;
+}
+.ipPart li i.closeL
+{
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background: url(../images/closeIcon.png) no-repeat center center;
+    background-size: 15px 15px;
+}
+.ipTitle {
+    background: #f9f9f9;
+}
+
+.ipContainer li span {
+    display: inline-block;
+    width: 285px;
+    padding-left: 20px;
+}
+
+.ipAddPart {
+    height: 20px;
+}
+
+.ipAddPart .plusBtn {
+    width: 40px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    background: #56b0e2;
+    float: right;
+}
+
+/*controllerDeploy end*/
+
+/*controller warning start*/
+
+.warningPart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 140;
+    margin: auto;
+    width: 330px;
+    height: 280px;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+/*controller warning end*/
+
+/*tabs for right body*/
+.module-data {
+    /*width: 87.3%;*/
+    height: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #B9B9B9;
+}
+
+.tabs {
+    height: 25px;
+    max-height: 25px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #B6BCCC;
+    background-color: #f0f0f0;
+}
+
+.tabs1 li {
+    width: 121px;
+    padding-left: 7px;
+}
+
+.tabs li {
+    position: relative;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1px solid #bbb;
+}
+
+.tabs1 li a span {
+    display: inline-block;
+    width: 20px;
+    height: 25px;
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.tabs1 li a span.biIcon {
+    margin-top: 5px;
+}
+
+.tabs1 li a span.DataMicon {
+    margin-top: 6px;
+}
+
+.tabs1 li a span.controllerIcon {
+    margin-top: 5px;
+}
+
+.tabs1 li a span.name_m {
+    width: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 4px;
+}
+.tabs .thistab {
+    background: #fff;
+    color: #4178BE;
+    border-bottom: 1px solid #fff;
+    border-right: 1px #bbb solid;
+}
+
+.closeTab {
+    margin-right: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+    background: url(../images/closeTab.png) no-repeat;
+    background-size: 16px 16px;
+    background-position: 1px 5px;
+}
+.closeTab:hover {
+    margin-right: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 22px;
+    background: url(../images/closeTabed.png) no-repeat;
+    background-size: 16px 16px;
+    background-position: 1px 5px;
+}
+.tabs .flow {
+    background-image: url('./../images/flow-s.png');
+    background-repeat: no-repeat;
+    background-position: 3px 5px;
+}
+
+.tabs .log {
+    background-image: url('./../images/log.png');
+    background-repeat: no-repeat;
+    background-position: 3px 5px;
+}
+
+.tabs .runing {
+    background-image: url('./../images/runing.png');
+    margin-right: 10px;
+    background-size: 18px 18px;
+}
+.tabs .runing.selected {
+    background-image: url('./../images/runinged.png');
+    margin-right: 10px;
+    background-size: 18px 18px;
+}
+
+.tabs .stop, .tabs .runing, .tabs .wait, .tabs .next {
+    background-repeat: no-repeat;
+    background-position: 3px 4px;
+}
+
+.tabs .stop {
+    background-image: url('./../images/stop.png');
+    background-size: 16px 16px;
+}
+.tabs .stop.selected {
+    background-image: url('./../images/stoped.png');
+    background-size: 16px 16px;
+}
+.tabs .wait {
+    background-image: url('./../images/wait.png');
+    background-size: 16px 16px;
+}
+.tabs .wait.selected {
+    background-image: url('./../images/waited.png');
+    background-size: 16px 16px;
+}
+.tabs .debug {
+    background: url('./../images/debug-s.png')no-repeat 1px 3px;
+    background-size: 20px 20px;
+}
+.tabs .debug.selected {
+    background: url('./../images/debug-sed.png')no-repeat 1px 3px;
+    background-size: 20px 20px;
+}
+
+.tabs .next {
+    background-image: url('./../images/next.png');
+    background-size: 19px 15px;
+}
+.tabs .next.selected {
+    background-image: url('./../images/nexted.png');
+    background-size: 19px 15px;
+}
+
+.tabs .mointor {
+    background: url('./../images/mointor.png')no-repeat;
+    background-position: 3px 7px;
+}
+
+/*navigation end*/
+
+.module-data-all {
+    overflow: hidden;
+}
+
+/*flow start*/
+.codePart{
+    float: left !important;
+}
+.module-flow {
+    height: 100%;
+    position: relative;
+}
+
+.module-core, .module-prop {
+    float: left;
+    font-size: 0;
+}
+
+.module-core {
+    width: 75%;
+    height: 100%;
+}
+
+#tabbox1, #tabbox2 {
+    height: 430px;
+}
+
+.tab_conbox {
+    padding: 0;
+    margin: 0;
+    height: 430px;
+}
+
+.tab_conbox li {
+    height: 100%;
+}
+
+.dt_d {
+    border-right: 1px solid #B9B9B9;
+    width: 128px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: #f6f6f6;
+}
+
+.dt_d .dt_con p {
+    font-size: 14px;
+    color: #1e1e1e;
+    padding-left: 10px;
+    height: 25px;
+    line-height: 25px;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.dt_d .dt_con p:hover {
+    background: #eaeaea;
+}
+
+.dt_d .dt_fun p.dtt {
+    height: 26px;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0;
+}
+
+.dt_d .dt_fun p.dts {
+    background-color: #56b0e2;
+    color: #FFF;
+    font-size: 14px;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
+}
+
+.dt_d input {
+    width: 124px;
+    height: 18px;
+    padding-left: 2px;
+    border: 1px solid #d8d8d8;
+}
+
+.dt_serch{
+    position: relative;
+}
+.dt_serch select{
+    width:128px;
+    height: 25px;
+    line-height: 25px;
+    outline: none;
+    border:1px solid #d8d8d8;
+}
+.dt_serch .showVal{
+    position: absolute;
+    top: 28px;
+    left: 2px;
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    border: none;
+    outline: none;
+}
+.dt_serch #words{
+    height: 23px;
+    border: 1px solid #d8d8d8;
+}
+.dt_serch .bigIcon{
+    position: absolute;
+    top: 30px;
+    right: 17px;
+    width: 15px;
+    height: 15px;
+    background: url(../images/serchIcon.png)no-repeat center center;
+    background-size: 12px 12px;
+    cursor: pointer;
+}
+
+.line_fun {
+    position: relative;
+    top: 3px;
+    left: 128px;
+    z-index: 100;
+    width: 20px;
+    height: 21px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: left 0px;
+    background-size: 23px 27px;
+}
+
+.line_fun.line_funDown {
+    left: 129px;
+}
+
+.line_active {
+    background-image: url('./../images/lineActive.png');
+    background-size: 20px 21px;
+}
+
+.line_disabled {
+    background-image: url('./../images/lineDisable.png');
+    background-size: 20px 21px;
+}
+
+.BI-bodyer .line_fun {
+    position: relative;
+    top: 5px;
+    left: 129px;
+    cursor: pointer;
+    z-index: 98;
+    width: 20px;
+    height: 21px;
+    background-repeat: no-repeat;
+    background-position: left 0;
+    background-size: 23px 27px;
+}
+
+.BI-bodyer .line_active {
+    background-image: url('./../images/lineActive.png');
+    background-size: 20px 21px;
+}
+
+.BI-bodyer .line_disabled {
+    background-image: url('./../images/lineDisable.png');
+    background-size: 20px 21px;
+}
+
+.tab_con1 {
+    position: relative;
+}
+
+#tabbox1 .dt_d .dt_con {
+    height: 358px;
+    overflow-y: auto;
+}
+
+#tabbox2 .dt_d .dt_con {
+    height: 352px;
+    overflow-y: auto;
+}
+
+.tabs2 {
+    font-size: 12px;
+    border-top: 1px solid #b6bccc;
+}
+
+.tabs2 span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    vertical-align: top;
+}
+
+.tabs2 p {
+    display: inline-block;
+    height: 25px;
+}
+
+.tabs2 .flow {
+    width: 20px;
+    background-position: 4px 5px;
+}
+
+.tabs2 li {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#tabbox2 .monitor {
+    float: right;
+    margin-right: -1px;
+}
+
+.cav_flow {
+    margin-top: -22px;
+}
+
+#tabbox2 p.dtt {
+    padding-left: 0px;
+}
+
+#tabbox2 .dtt span {
+    display: table-cell;
+    width: 64px;
+    height: 26px;
+    font-size: 12px;
+    font-family: "arial";
+    vertical-align: top;
+    text-align: center;
+    cursor: pointer;
+    background: #f0f0f0;
+}
+
+#tabbox2 .dtt span.active_t {
+    background-color: #56b0e2;
+    color: #fff;
+}
+
+.navBar{
+    font-size: 12px;
+    height: 40px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    padding-left:20px;
+}
+.navBar li{
+    float: left;
+    padding: 0 32px;
+    height: 39px;
+    line-height: 39px;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: none;
+}
+.navBar li.bg{
+    border-top: 2px solid #279ed8;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
+    background: #fff;
+}
+.conBox_1,
+.conBox_2,
+.conBox_3
+{
+    padding:20px;
+}
+.conBox_1 .tableStyle,
+.conBox_2 .tableStyle,
+.conBox_3 .tableStyle
+{
+    width:100%;
+    height:100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+.conBox_1 .tableStyle tr,
+.conBox_2 .tableStyle tr,
+.conBox_3 .tableStyle tr
+{
+    border: 1px solid #ddd;
+}
+.conBox_1 .tableStyle th,
+.conBox_2 .tableStyle th,
+.conBox_3 .tableStyle th,
+.conBox_1 .tableStyle td,
+.conBox_2 .tableStyle td,
+.conBox_3 .tableStyle td
+{
+    height: 33px;
+    line-height: 33px;
+    padding-left: 15px;
+    border: 1px solid #ddd;
+}
+.conBox_1 .tableStyle th,
+.conBox_2 .tableStyle th,
+.conBox_3 .tableStyle th
+{
+    border-right: 1px solid transparent;
+}
+.conBox_1 .tableStyle tr.firTr th,
+.conBox_2 .tableStyle tr.firTr th,
+.conBox_3 .tableStyle tr.firTr th
+{
+    border-bottom: 1px solid #8c8c8c;
+}
+.tab-btn-group {
+    height: 25px;
+    position: absolute;
+    bottom: 27px;
+    left: 0;
+    width: 100%;
+    background: #f6f6f6;
+    border-top: 1px #e7e7e7 solid;
+}
+
+.tab-btn-group div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.tab-btn-group div.one-btn {
+    margin-left: 10px;
+}
+
+.tab-btn-group div.one-btn input {
+    border-radius: 5px;
+}
+
+.tab-btn-group input {
+    border: 1px #d0d0d0 solid;
+    background-color: #ffffff;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.tab-btn-group .btns {
+    float: right;
+    margin-right: 370px;
+}
+
+.btns input {
+    width: 42px;
+}
+
+.tab-btn-group div.btns input:first-child {
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.tab-btn-group div.btns input:last-child {
+    margin-left: -5px;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.tab-btn-group div.btns input.selected {
+    background-color: #525252;
+    color: #fff;
+}
+
+/**
+right style
+*/
+.prop, .prop1 {
+    font-size: 0;
+}
+
+.module-prop {
+    position: absolute;
+    right: -1px;
+    width: 363px;
+    height: 888px;
+    z-index: 100;
+    margin-top: -28px;
+    border-left: 1px solid #B9B9B9;
+    margin-left: -1px;
+    background-color: #ededed;
+}
+
+.module-prop .prop {
+    height: 32px;
+    line-height: 32px;
+    padding-left: 27px;
+    font-size: 16px;
+    border-top: 1px #DCDCDC solid;
+    background-color: #ededed;
+}
+
+.module-prop .bbtm {
+    border-top: 1px #DCDCDC solid;
+    border-bottom: 1px #DCDCDC solid;
+}
+
+.new_column_name,.new_constant_value,.new_predict_value{
+	display:none;
+}
+
+.middleW {
+    display: inline-block;
+    width: 20px;
+}
+
+.module-prop .prop span:first-child {
+    /*margin-left: 3%;*/
+    font-family: Arial;
+    font-size: 14px;
+    display: inline-block;
+    /*width: 88px;*/
+    min-width: 88px;
+    max-width: 140px;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: -5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.module-prop .prop input {
+    width: 115px;
+    height: 20px;
+    max-width: 164px;
+    padding-left: 10px;
+    margin-left: 10px;
+    vertical-align: 1px;
+    border: 1px #e3e3e3 solid;
+}
+
+.module-prop .prop1 {
+    border-top: 1px #DCDCDC solid;
+}
+
+.module-prop .prop1 .title {
+    height: 30px;
+    line-height: 30px;
+    padding-top: 2px;
+    font-size: 14px;
+    text-align: left;
+    background-color: #F4F4F4;
+}
+
+.module-prop .prop1 i.fa-caret-right {
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 8px 0 12px;
+}
+
+.module-prop .prop1 i.fa-caret-down {
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 5px 0 12px;
+}
+
+.fa-plus {
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+.title span:first-child {
+    width: 325px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.join .panel {
+    background-color: #F4F4F4;
+    min-height: 330px;
+    max-height: 330px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.join_panel select {
+    font-size: 14px;
+}
+
+.joins, .filters, .groups, .orders, .targets {
+    padding-left: 26px;
+    margin-top: 4px;
+    height: 290px;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.joins select, .filters select, .targets select {
+    height: 22px;
+    border: 1px #ddd solid;
+}
+
+.joins select {
+    width: 72px;
+    height: 20px;
+}
+
+.joins .condition2 {
+    width: 72px;
+}
+
+.joins .template_operations {
+    margin-top: 10px;
+}
+
+.joins .condition5 {
+    width: 72px;
+    margin-left: 10px;
+}
+
+.join_ {
+    /*width: 100%;*/
+}
+
+.join .fa-trash {
+    margin-left: 10px;
+}
+
+.join_plus {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.join_plus i {
+    background-position: 2px 3px;
+}
+
+.condition1 {
+    width: 100px;
+    /*width: 32%;*/
+}
+
+.condition2 {
+    width: 72px;
+    margin: 0 10px;
+}
+
+.condition3 {
+    width: 100px;
+    height: 18px;
+    margin-right: 9px;
+    border: 1px #ddd solid;
+}
+
+.related_table {
+    margin-bottom: 15px;
+}
+
+.related_table .condition2 {
+    width: 72px;
+}
+
+.related_table .condition1, .related_table .condition3 {
+    width: 100px;
+}
+
+.trash {
+    cursor: pointer;
+    margin-left: -3%;
+}
+
+.trash2 {
+    cursor: pointer;
+}
+
+.operations {
+    margin-top: 5px;
+}
+
+.operations select {
+    width: 100px;
+}
+
+.operations select:last-child {
+    width: 72px;
+    margin: 0 10px;
+}
+
+.related_table .condition5 {
+
+}
+
+.group select, .order select {
+    height: 30px;
+    border: 1px #ddd solid;
+    /*border-radius: 5px;*/
+}
+
+.plus-right {
+    margin-left: -7px;
+    vertical-align: 1px;
+}
+
+.related_table .tables .tableA {
+    width: 100px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.related_table .tables .tableB {
+    width: 100px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.group select {
+    height: 22px;
+    width: 296px;
+    margin-right: 8px;
+}
+
+.order select {
+    width: 142px;
+    height: 22px;
+    margin-right: 10px;
+}
+
+.target label {
+    display: inline-block;
+    width: 252px;
+    height: 20px;
+    font-size: 14px;
+}
+
+.target label input {
+    width: 90%;
+    height: 15px;
+    /*border-radius: 1px;*/
+    border: 1px solid #c4c4c4;
+}
+
+.btn {
+    width: 330px;
+    height: 28px;
+    position: absolute;
+    margin-left: 10px;
+    bottom: 0;
+}
+
+.btn input {
+    /*width: 92%;*/
+    width: 331px;
+    height: 25px;
+    background-color: white;
+    border: 1px lightgray solid;
+    /*border-radius: 3px;*/
+    cursor: pointer;
+}
+
+.edit {
+    font-size: 15px;
+    margin-left: 18px;
+}
+
+/*bodyer end*/
+/*flow end*/
+
+/*manager-bodyer start */
+.manager-bodyer {
+    width: 100%;
+}
+
+.center-table1, .center-table2, .power-detail, .user, .users-manage {
+    height: 911px;
+    box-sizing: border-box;
+    border: 10px #F4F4F4 solid;
+    display: none;
+}
+
+/*user start*/
+.personalInfo{
+    width: 1136px;
+    height: 860px;
+    margin: 30px auto 0;
+}
+.personalInfo .menuList{
+    float: left;
+}
+.personalInfo .menuList li{
+    width: 322px;
+    height: 44px;
+    line-height: 44px;
+    border:1px solid #ccc;
+    cursor: pointer;
+}
+.personalInfo .menuList li span{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: #7c7d81;
+    padding-left:20px;
+    border-left:4px solid transparent;
+}
+.personalInfo .menuList li span.selected{
+    color: #58b0e0;
+    border-left:4px solid #58b0e0;
+}
+.personalInfo .menuList li.message{
+    border-bottom: none;
+}
+.personalInfo .personalEdit{
+    float: right;
+    width: 790px;
+    height: 823px;
+    border:1px solid #ccc;
+}
+.personalInfo .changeP {
+	display:none;
+}
+.personalEdit .changeP .upPwdTitle {
+	margin:30px auto 30px 30px;
+	height: 20px;
+}
+.personalEdit .changeP .upPwdTitle span{
+	margin-left:10px;
+}
+.personalEdit .changeP .upPwd{
+	margin:0 auto 30px 30px;
+	width:91%;
+	padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+.personalEdit .changeP .pwdGroup{
+	display:-moz-inline-box;
+	display:inline-block;
+	height:32px;
+    line-height: 32px;
+	width: 116px;
+    text-align: justify;
+    vertical-align: text-bottom;
+}
+.personalEdit .changeP .upPwd input{
+	padding-left:15px;
+	width: 580px;
+	 height:22px;
+	vertical-align: text-bottom;
+}
+
+.personalEdit .changeP .rePwd{
+	position: relative;
+    left: 668px;
+    bottom: 5px;
+    background-color: #5CACEE;
+    color: #fff;
+    border:1px solid #5CACEE;
+    font-size: 15px;
+    height: 32px;
+    width: 74px;
+    border:none;
+}
+
+.personalEdit .changeP .ssss { 
+	display: inline-block /* Opera */; 
+	padding-left: 100%; 
+}
+.personalEdit .showMessage .userTitle{
+	margin:30px auto 30px 30px;
+	height: 20px;
+}
+
+.personalEdit .userImage {
+	margin:0px 30px 30px 30px;
+	width:91%;
+	height:140px;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+}
+.personalEdit .userImage span {
+	display:inline-block;
+    height:102px;
+    width:102px;
+	margin: 15px 0 20px 10px;
+    border:1px solid #ddd;
+    cursor: pointer;
+}
+.personalEdit .userImage .userImg{
+	background: url(../../static-resources/images/headerIcon.png) no-repeat center center;
+	background-size:102px 102px;
+}
+
+.personalInfo .showMessage .updateMessage {
+	position: relative;
+    left: 620px;
+    top: -18px;
+    height: 34px;
+    width: 80px;
+    color: #5CACEE;
+    font-weight: 600;
+    margin-left: 10px;
+    background-color: #fff;
+    border: 1px solid #5CACEE;
+}
+
+.personalInfo .showMessage .userLook{
+	margin: 30px 30px 131px 30px;
+}
+
+.personalInfo .showMessage .userLook tr{
+	height:20px;
+}
+
+.personalInfo .showMessage .userLook th{
+	height: 40px;
+	width: 72px;
+    text-align: justify;
+    vertical-align: text-bottom;
+}
+
+.personalInfo .showMessage .userLook td{
+	padding-left:15px;
+	width:627px;
+	vertical-align: text-bottom;
+}
+
+.personalInfo .showMessage .userLook td input[type=text],
+.personalInfo .showMessage .userLook td input[type=date]{
+    height: 30px;
+    width: 610px;
+    padding-left: 15px;
+}
+.personalInfo .showMessage .userLook td input[type=radio]{
+    margin-left: 19px;
+    width: 30px;
+    cursor: pointer;
+}
+.personalInfo .showMessage .userLook th span{
+	display:inline-block;
+	padding-left:100%;
+}
+
+.personalInfo .showMessage .user-but {
+    display: inline-block;
+    background: #fff;
+    color: #5CACEE;
+    float: right;
+    border:1px solid #5CACEE;
+    font-size: 15px;
+    height: 34px;
+    line-height: 34px;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.personalInfo .showMessage .saveUser {
+    background-color: #5CACEE;
+    color: #fff;
+    margin:0 37px 0 20px;
+}
+
+/*user end*/
+
+
+
+
+
+
+.search {
+    background: #EAEAEA;
+    /*border: 1px #F0F0F0 solid;*/
+    padding: 13px;
+    position: relative;
+    /*width: 98.2%;*/
+    height: 34px;
+}
+
+.search .searchInfo {
+    display: none;
+    width: 448px;
+    /*height: 289px;*/
+    max-height: 289px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.search .searchInfo li {
+    height: 35px;
+    line-height: 35px;
+    padding-left: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search .searchInfo li:hover {
+    background: #e7e7e7;
+}
+
+.fa-search {
+    color: #888;
+    z-index: 100;
+    position: absolute;
+    top: 23px;
+    left: 21px;
+    font-size: 15px;
+}
+
+.sou1 {
+    width: 420px;
+    height: 32px;
+    font-size: 14px;
+    font-family: 'arial', 'MicrosoftYaHei';
+    border: 1px #C1CDCD solid;
+    padding-left: 28px;
+}
+
+.search-text {
+    height: 34px;
+    width: 80px;
+    color: #FFFFFF;
+    font-weight: 600;
+    margin-left: 10px;
+    background-color: #5CACEE;
+    border: 1px solid #5CACEE;
+}
+
+.table1, .table2, .table3 {
+    word-break: break-all;
+    width: 100%;
+    height: 709px;
+    color: #1E1E1E;
+    font-family: verdana, arial, sans-serif;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+.users_T {
+    word-break: break-all;
+    width: 100%;
+    height: 709px;
+    border: 1px #F0F0F0 solid;
+    color: #1E1E1E;
+    font-family: verdana, arial, sans-serif;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+.table2 tr th {
+    width: 286px;
+    height: 40px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 20px;
+    box-sizing: border-box;
+    color: #1E1E1E;
+    background-color: #fff;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.table3 tr th {
+    width: 288px;
+    height: 50px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 20px;
+    box-sizing: border-box;
+    color: #1E1E1E;
+    background-color: #fff;
+}
+
+.users_T tr th {
+    width: 96px;
+    height: 44px;
+    font-size: 14px;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 20px;
+    color: #1E1E1E;
+    background-color: #fff;
+}
+
+.table1 tr th {
+    height: 40px;
+    font-size: 14px;
+    color: #1E1E1E;
+    background-color: #fff;
+    border: 1px solid transparent;
+    font-family: 'arial', 'MicrosoftYaHei';
+    text-align: left;
+}
+
+.table1 tr td {
+    height: 40px;
+    font-size: 14px;
+    color: #1E1E1E;
+    border-bottom: 1px solid #D1D6D6;
+    border-left: 1px solid #D1D6D6;
+}
+
+.table1 tr td input {
+    width: 14px;
+    height: 14px;
+}
+
+.table2 tr td, .table3 tr td {
+    width: 286px;
+    height: 40px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #D1D6D6;
+    border-left: 1px solid #D1D6D6;
+}
+
+ .users_T tr td {
+    width: 96px;
+    height: 42px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #D1D6D6;
+    border-left: 1px solid #D1D6D6;
+    border-right: 1px solid #D1D6D6;
+}
+
+.table3 tr td {
+    width: 222px;
+}
+
+.table2 tr td.w100, .table2 tr th.w100 {
+    width: 117px;
+    position: relative;
+    cursor: pointer;
+}
+
+.users_T tr td.w100, .users_T tr th.w100 {
+    width: 186px;
+    position: relative;
+    cursor: pointer;
+}
+
+#table2 .w100 span {
+	display:inline-block;
+	margin-right:5px;
+	height:14px;
+	width:14px;
+	margin-top: 6px;
+}
+
+#table2 .look{
+	background: url(../../static-resources/images/look1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+#table2 .power{
+	background: url(../../static-resources/images/power1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+#table2 .delete{
+	background: url(../../static-resources/images/delete1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+
+#table2 .look:hover{
+	background: url(../../static-resources/images/look2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+#table2 .power:hover{
+	background: url(../../static-resources/images/power2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+#table2 .delete:hover{
+	background: url(../../static-resources/images/delete2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+
+.users_T .w100 span {
+	display:inline-block;
+	margin-right:5px;
+	height:14px;
+	width:14px;
+	margin-top: 6px;
+}
+
+.users_T .stop{
+	background: url(../../static-resources/images/stop1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+.users_T .editUser{
+	background: url(../../static-resources/images/edit1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+.users_T .resetPwd{
+	background: url(../../static-resources/images/repwd1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+.users_T .deleteUser{
+	background: url(../../static-resources/images/delete1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+
+
+.users_T .stop:hover{
+	background: url(../../static-resources/images/stop2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+.users_T .editUser:hover{
+	background: url(../../static-resources/images/edit2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+.users_T .resetPwd:hover{
+	background: url(../../static-resources/images/repwd2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+.users_T .deleteUser:hover{
+	background: url(../../static-resources/images/delete2.png) no-repeat center center;
+	background-size:14px 14px;
+}
+
+.table1 .firTr, .table2 .firTr {
+    display: inline-block;
+    border: 1px solid #D1D6D6;
+    border-bottom: 1px solid #A0A0A0
+}
+
+.borRight {
+    border-right: 1px solid #D1D6D6;
+}
+
+/*table1 width*/
+.w180 {
+    width: 195px;
+    padding-left: 20px;
+}
+
+/*增删改查width*/
+.w50 {
+    width: 58px;
+    padding:0 !important;
+    text-align: center !important;
+}
+
+.w50 input {
+    cursor: pointer;
+}
+
+.borderRight {
+    border-right: 1px solid #D1D6D6;
+}
+
+.add2, .addUser {
+    position: absolute;
+    right: 13px;
+    cursor: pointer;
+}
+
+.fa-tasks {
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+
+.add2-sel, .edit-sel, .add2-f table input, .look-detail table input,
+.edit-conn table input, .add-user table input, .edit-user table input {
+    width: 465px;
+    /*padding-left: 10px;*/
+    height: 34px;
+    border: 0px;
+}
+
+.add-user table input[type=radio], .edit-user table input[type=radio] {
+	width:13px;
+	height:13px;
+	margin-left: 20px;
+}
+
+.look-button {
+    height: 60px;
+    background: #f9f9f9;
+    border-top: 1px solid #e6e6e6;
+}
+
+.edit-button {
+    height: 60px;
+    display: none;
+    background: #f9f9f9;
+    border-top:1px solid #e6e6e6;
+}
+
+.table2-but {
+    position: relative;
+    left: 500px;
+    bottom: -15px;
+    background-color: #fff;
+    color: #5CACEE;
+    border:1px solid #5CACEE;
+    height: 27px;
+    width: 51px;
+}
+
+
+.table-user {
+    position: relative;
+    left: 540px;
+    bottom: -9px;
+    background-color: #fff;
+    color: #5CACEE;
+    border:1px solid #5CACEE;
+    height: 27px;
+    width: 66px;
+}
+
+.add2-f .h4, .look-detail .h4, .edit-conn .h4, .add-user .h4, .edit-user .h4 {
+    background-color: #f9f9f9;
+    height: 60px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.look-detail .h4 span,
+.add2-f .h4 span,
+.edit-conn .h4 span,
+.add-user .h4 span,
+.edit-user .h4 span {
+    margin-left: 28px;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+}
+
+.fts {
+    position: relative;
+    left: 501px;
+    bottom: 3px;
+    cursor: pointer;
+}
+
+.table1-save {
+    background-color: #5CACEE;
+    height: 70%;
+    width: 65%;
+    font-weight: 600;
+    color: #FFFFFF;
+    border: 1px solid #ccc;
+}
+
+.add2-f, .look-detail, .edit-conn, .add-user, .edit-user, .repwd-window{
+    width: 646px;
+    min-height: 300px;
+    height: 500px;
+    background-color: #FFF;
+    position: absolute;
+    z-index: 101;
+    top: 130px;
+    left:0;
+    right:0;
+    margin:auto;
+    display: none;
+    border: 1px #F0F0F0 solid;
+}
+
+.add2-f table, .look-detail table, .edit-conn table, .add-user table, .edit-user table {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border: 1px #DEDEDE solid;
+    border-collapse: collapse;
+    margin: 20px 0px 17px 27px;
+}
+
+.add2-f table th, .look-detail table th, .edit-conn table th, .add-user table th, .edit-user table th {
+    border: 1px #DEDEDE solid;
+    font-weight: 100;
+    width: 100px;
+    text-align: left;
+    padding-left: 8px;
+    height: 36px;
+}
+
+.add2-f table td, .look-detail table td, .edit-conn table td, .add-user table td, .edit-user table td {
+    border: 1px #DEDEDE solid;
+    width: 465px;
+    height: 36px;
+    padding-left:15px;
+    background-color: #ffffff;
+}
+.add2-f .tab-button{
+    height: 56px;
+    background: #f9f9f9;
+    border-top:1px solid #e6e6e6;
+}
+.add2-table2{
+    height: 305px;
+}
+.addUser-table {
+    height: 365px;
+}
+.editUser-table .userEdit{
+    max-height: 305px;
+    overflow-y: scroll;
+}
+.edit-user .table-user {
+    position: relative;
+    left: 540px;
+    bottom: -90px;
+}
+.fenye {
+    width: 100%
+}
+
+.barcon {
+    text-align: center;
+    width: 100%;
+    margin: 7px 0;
+}
+
+.barcon button {
+    background-color: #fff;
+    border: none;
+    border: 1px solid #ccc;
+    padding: 0 8px;
+    line-height: 25px;
+    margin: 0 5px;
+}
+
+.barcon input {
+    width: 50px;
+}
+
+.barcon button.active, .barcon button:active {
+    background-color: #5CACEE;
+    border:1px solid #5CACEE;
+    color: #fff;
+}
+
+.barcon button.disabled {
+    background-color: #EBEBEB !important;
+    color: #999;
+}
+
+.barcon button.disabled:active {
+    background-color: #EBEBEB !important;
+    border:1px solid #ccc;
+    color: #999;
+}
+
+.table1 tr:nth-child(even),
+.table2 tr:nth-child(even),
+.users_T tr:nth-child(even){
+    background: #FAFAFA;
+}
+
+.barcon button .btn-ok {
+    background-color: #e6e4e4;
+}
+
+/*manager-bodyer end */
+
+/*module-manager start*/
+
+.module-manager {
+    width: 87%;
+}
+
+.module-manager-right {
+    width: 100%;
+}
+
+/*module-manager end*/
+
+/*full renderer*/
+/*dataManager start*/
+
+.dataManager {
+    height: 100%;
+}
+
+/*dataManager end*/
+
+/*data source layer*/
+.add4 {
+    cursor: pointer;
+}
+
+/*add4 数据源弹出框*/
+.add4-con {
+    display: none;
+    position: absolute;
+    z-index: 102;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 746px;
+    height: 674px;
+    background: #fff;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.add4-con .closeA {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    display: inline-block;
+    width: 25px;
+
+    height: 25px;
+}
+
+.add4-con .add4Nav {
+    width: 100%;
+    background: #F9F9F9;
+    overflow: hidden;
+}
+
+.add4-con .add4Nav li {
+    /*width: 140px;*/
+    height: 56px;
+    line-height: 56px;
+    padding: 0 50px;
+    float: left;
+    background: #F9F9F9;
+    cursor: pointer;
+}
+
+.add4-con .add4Nav li.bg {
+    width: 140px;
+    text-align: center;
+    padding: 0;
+    background: #fff;
+    border-top: 4px solid #58afe4;
+    border-bottom: none;
+}
+
+.add4-con .optionA {
+    width: 100%;
+    height: 618px;
+    display: none;
+}
+
+.add4-con div.showCon {
+    display: block;
+}
+
+.add4-con .dataContainerA .connection {
+    position: relative;
+    width: 680px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 15px;
+    border: 1px solid #b4b4b4;
+    margin: 30px 30px 20px;
+}
+
+.dataContainerA .connection option {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.dataContainerA .mainList {
+    height: 469px;
+    max-height: 469px;
+    margin: 0 40px;
+    overflow-y: scroll;
+}
+.mainList .liStyle{
+    height: 25px;
+    line-height: 25px;
+}
+.mainList .liStyle span{
+    margin-left:15px;
+}
+
+.dataContainerB {
+    height: 496px;;
+    max-height: 496px;
+    margin: 30px;
+}
+
+.dataContainerB .partN {
+    font-size: 0;
+    margin-bottom: 30px;
+}
+
+.dataContainerB .partN span {
+    display: inline-block;
+    width: 84px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.dataContainerB .partN input {
+    width: 585px;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.dataContainerB .paramL {
+    width: 686px;
+    height: 430px;
+    position: relative;
+}
+
+.dataContainerB .paramL .paramLl {
+    width: 84px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+}
+
+.dataContainerB .paramL .paramMain {
+    float: right;
+    border: 1px solid #dcdcdc;
+    margin-bottom: 10px;
+    max-height: 367px;
+    overflow: auto;
+    border-bottom: none;
+}
+
+.paramL .paramMain li:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.paramL .paramMain li {
+    position: relative;
+}
+
+.paramL .paramMain li:hover i.closeL {
+    display: block;
+}
+
+.paramL .paramMain li i.closeL {
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 12px;
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background: url(../images/closeIcon.png) no-repeat center center;
+    background-size: 15px 15px;
+}
+
+.paramL .paramMain li span {
+    display: inline-block;
+    width: 274px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 25px;
+}
+
+.paramL .paramMain li span {
+    border-right: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+.paramL .paramMain li select{
+    width: 300px;
+    height: 40px;
+    border: none;
+    padding-left: 22px;
+    outline: none;
+    border-bottom: 1px solid #dcdcdc;
+}
+.paramL .addBtn {
+    float: right;
+    width: 35px;
+    height: 20px;
+    line-height: 20px;
+    color: #fbffff;
+    text-align: center;
+    cursor: pointer;
+    background: #55b1e2;
+}
+
+/*data source layer end*/
+
+/*confirm Layer start*/
+.confirmLayer{
+    width: 360px;
+    height: 120px;
+    background: #fff;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    margin: auto;
+    border-radius: 5px;
+}
+.popup_content .popup_message{
+    height: 80px;
+    line-height: 80px;
+    padding-left: 63px;
+}
+.popup_message .confirmIcon{
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    margin-right:10px;
+    background: url("../images/importantIcon.png")no-repeat center center;
+}
+.popup_panel {
+    padding-left:207px;
+}
+.popup_panel input{
+    width: 58px;
+    height: 24px;
+    line-height: 19px;
+    text-align: center;
+    margin-right: 10px;
+    padding: 0 4px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    background: #fff;
+}
+.popup_panel .popup_cancel{
+    color: #767676;
+    border: 1px solid #767676;
+}
+.popup_panel .popup_ok{
+    color: #55afe1;
+    border: 1px solid #55afe1;
+}
+/*confirm Layer end*/
+
+
+
+/*ICONS*/
+.fa-times {
+    color: #B9B9B9;
+    font-weight: 100;
+}
+
+.fa-close-m {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(./../images/closeIcon.png);
+    background-repeat: no-repeat;
+    background-position: left 3px;
+    background-size: 20px 20px;
+    margin-top: 5px
+}
+
+.fa-folder-open_ {
+    width: 14px;
+    height: 17px;
+    background-image: url(./../images/open-folder.png);
+    background-repeat: no-repeat;
+    background-position: left 5px;
+}
+
+.fa-folder-close_ {
+    width: 20px;
+    height: 25px;
+    background-image: url('./../images/close-folder.png');
+    background-repeat: no-repeat;
+    background-position: left 13px;
+}
+
+.biIcon {
+    width: 14px;
+    height: 15px;
+    vertical-align: -3px;
+    background-image: url('./../images/BI.png');
+    background-repeat: no-repeat;
+    background-position: 0 1px;
+    background-size: 14px 14px;
+}
+
+.controllerIcon {
+    width: 14px;
+    height: 15px;
+    vertical-align: -3px;
+    background-image: url('./../images/Controller.png');
+    background-repeat: no-repeat;
+    background-position: 0 1px;
+    background-size: 14px 14px;
+}
+
+.DataMicon {
+    width: 14px;
+    height: 15px;
+    vertical-align: -3px;
+    background-image: url('./../images/DataMining.png');
+    background-repeat: no-repeat;
+    background-position: 0 1px;
+    background-size: 14px 14px;
+}
+
+.flowIcon {
+    width: 14px;
+    height: 15px;
+    vertical-align: -3px;
+    background-image: url('./../images/flow.png');
+    background-repeat: no-repeat;
+    background-position: 0 1px;
+    background-size: 14px 14px;
+}
+
+.plus_icon {
+    width: 20px;
+    height: 25px;
+    background-image: url('./../images/plus.png');
+    background-repeat: no-repeat;
+    background-position: left 8px;
+}
+.fa-trash2 {
+    width: 25px;
+    height: 22px;
+    background-image: url('./../images/plus.png');
+    background-repeat: no-repeat;
+    background-position: 13px 8px;
+    transform: rotate(45deg);
+}
+
+.look-detail .fa-trash2,
+.add2-f .fa-trash2,
+.edit-conn .fa-trash2,
+.add-user .fa-trash2,
+.edit-user .fa-trash2 {
+    margin-top: 17px;
+    margin-right: 18px;
+    float: right;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(./../images/closeIcon.png);
+    background-repeat: no-repeat;
+    background-position: left 3px;
+    background-size: 20px 20px;
+    transform: rotate(0deg);
+}
+
+button, input, select {
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+/*target_layer start*/
+
+.target_layer {
+    position: absolute;
+    left: 0;
+    right:0;
+    margin:auto;
+    z-index: 101;
+    width: 600px;
+    height: 500px;
+    top: 100px;
+    background-color: white;
+    border: 1px solid #a9a9a9;
+}
+
+.tl_header {
+    width: 100%;
+    height: 50px;
+    background-color: #f6f6f6;
+}
+
+.tl_header .title2 {
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 20px;
+    float: left;
+}
+
+.tl_header .close {
+    float: right;
+    margin-right: 10px;
+    font-size: 22px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.tl_bodyer {
+    clear: both;
+}
+
+.tl_bodyer .name_list, .tl_bodyer .name_conf {
+    width: 250px;
+    height: 360px;
+    margin-top: 20px;
+}
+
+.tl_bodyer .name_list {
+    border: 1px #bcbbbb solid;
+    background-color: #f3f3f3;
+    margin-left: 30px;
+}
+
+.tl_bodyer .name_list ul {
+    list-style: none;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.tl_bodyer .name_list ul li {
+    height: 30px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.tl_bodyer .name_list ul li.selected {
+    background-color: #CCEBF8;
+    padding-top: 6px;
+}
+
+.tl_bodyer .name_list ul li:hover {
+    background-color: #CCEBF8;
+}
+
+.tl_bodyer .name_list ul li a {
+    text-decoration: none;
+}
+
+.tl_bodyer .name_conf {
+    float: right;
+    margin-top: -360px;
+    margin-right: 30px;
+}
+
+.tl_bodyer .name_conf table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tl_bodyer .name_conf table .title3 {
+    width: 60px;
+    height: 50px;
+}
+
+.tl_bodyer .name_conf table input, .tl_bodyer .name_conf table select {
+}
+
+.tl_bodyer .name_conf table input {
+    height: 25px;
+    width: 160px;
+}
+
+.tl_bodyer .name_conf table select {
+    height: 30px;
+    width: 164px;
+}
+
+.tl_bodyer .name_conf .setting_col {
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    border: 1px deepskyblue solid;
+    color: deepskyblue;
+    cursor: pointer;
+    margin-left: 145px;
+    margin-top: 10px;
+}
+
+.tl_footer {
+    width: 100%;
+    height: 60px;
+}
+
+.tl_footer .btn_group {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    margin-left: 400px;
+}
+
+.tl_footer .btn_group input {
+    width: 80px;
+    height: 30px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.tl_footer .btn_group input:first-child {
+    border: 1px gray solid;
+    color: gray;
+}
+
+.tl_footer .btn_group input:last-child {
+    border: 1px deepskyblue solid;
+    color: deepskyblue;
+    margin-left: 10px;
+}
+
+/*target_layer end*/
+
+/*listSet start*/
+
+.columnSet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 107;
+    width: 86%;
+    height: 90%;
+    background: #fff;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+}
+
+.columnSet_T {
+    height: 55px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.columnSet_T .columnTleft {
+    float: left;
+    height: 55px;
+    line-height: 55px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.columnSet_T .columnTclose {
+    float: right;
+    width: 25px;
+    height: 55px;
+    line-height: 55px;
+    margin-right: 20px;
+}
+
+.columnSet_T .columnTclose i {
+    display: inline-block;
+}
+
+.tableContainer {
+    box-sizing: border-box;
+}
+
+.tableContainer tr th, .tableContainer tr td {
+    height: 36px;
+}
+
+.tableContainer tr td,
+.tableContainer tr th {
+    padding: 0 20px;
+    text-align: left;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.tableContainer tr td.colSelect {
+    padding: 0;
+}
+
+.tableContainer tr td.colSelect select {
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    border: none;
+}
+
+.columnSet_C {
+    height: 698px;
+    overflow: auto;
+    margin-right: 20px;
+}
+
+.columnSet_C .tableContainer {
+    width: 97.5%;
+    max-height: 650px;
+    margin: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+.tableContainer tr td {
+    border: 1px solid #ddd;
+}
+.columnSet_C .tableContainer .contentTitle th,
+.jobContainer .tableContainer .contentTitle th
+{
+    border-bottom: 1px solid #8c8c8c;
+}
+.columnSet_C .tableContainer .contentTitle,
+.tableContainer tr:nth-child(odd){
+    background: #FAFAFA;
+}
+.columnSet_B {
+    height: 55px;
+    border-top: 1px solid #e6e6e6;
+}
+
+.columnSet_B span {
+    float: right;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 11px;
+    cursor: pointer;
+}
+
+.columnSet_B span.closeC {
+    color: #767676;
+    margin-right:20px;
+    border: 2px solid #767676;
+}
+
+.columnSet_B span.sureC {
+    color: #55afe1;;
+    border: 2px solid #55afe1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/*listSet end*/
+
+/*bi数据源选择 start*/
+.biDataStyle {
+    z-index: 120;
+}
+
+/*bi数据源选择 end*/
+
+/*bi charTemp start*/
+.biCharTemp {
+    position: absolute;
+    bottom: 8px;
+    left: 75px;
+    z-index: 160;
+    width: 252px;
+    height: 743px;
+    border: 1px solid #c8c8c8;
+    background: #f9f9f9;
+}
+
+.biCharTemp .bicharT {
+    height: 49px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.bicharT span {
+    float: left;
+    display: inline-block;
+    height: 49px;
+    width: 58px;
+    line-height: 49px;
+    margin-left: 14px;
+}
+
+.bicharT i {
+    float: right;
+    display: inline-block;
+    width: 25px;
+    height: 49px;
+    line-height: 49px;
+    margin-right: 14px;
+}
+
+.biCharTemp .biCharList {
+    margin-top: 13px;
+}
+
+.biCharTemp .biCharList li {
+    padding-left: 10px;
+}
+
+.biCharTemp .biCharList li h2 {
+    font-weight: normal;
+    font-size: 14px;
+    height: 38px;
+    line-height: 38px;
+    cursor: pointer;
+}
+
+.biCharList li h2 i {
+    display: inline-block;
+    width: 15px;
+}
+
+.biCharList .themeContainer {
+    padding-left: 8px;
+}
+
+.biCharList .themeContainer li {
+    width: 209px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 6px;
+    border: 1px solid #f1edea;
+    padding: 5px 0 5px 7px;
+    cursor: pointer;
+}
+
+.biCharList .themeContainer li {
+    border: 1px solid #f1eee9;
+}
+
+.biCharList .themeContainer li.checked {
+    border: 1px solid #77a7bd;
+}
+
+.themeContainer li span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.themeContainer .themeOne {
+    background: url("../images/theme1.png") no-repeat;
+}
+
+.themeContainer .themeTwo {
+    background: url("../images/theme2.png") no-repeat;
+}
+
+.themeContainer .themeThree {
+    background: url("../images/theme3.png") no-repeat;
+}
+
+.themeContainer .themeFour {
+    background: url("../images/theme4.png") no-repeat;
+}
+
+.themeContainer .themeFive {
+    background: url("../images/theme5.png") no-repeat;
+}
+
+.themeContainer .themeSix {
+    background: url("../images/theme6.png") no-repeat;
+}
+
+.themeContainer .themeSeven {
+    background: url("../images/theme7.png") no-repeat;
+}
+
+.themeContainer .themeEight {
+    background: url("../images/theme8.png") no-repeat;
+}
+
+.themeContainer .themeNine {
+    background: url("../images/theme9.png") no-repeat;
+}
+
+.themeContainer .themeTen {
+    background: url("../images/theme10.png") no-repeat;
+}
+
+.themeContainer .themeEleven {
+    background: url("../images/theme11.png") no-repeat;
+}
+
+.themeContainer .themeTwelve {
+    background: url("../images/theme12.png") no-repeat;
+}
+
+.themeContainer .themeThirteen {
+    background: url("../images/theme13.png") no-repeat;
+}
+
+/* JQUERY UI RE-SIZE*/
+.ui-resizable-helper {
+    border: 1px dotted #2C78C4;
+}
+
+/*bi charTemp end*/
+
+/*checkTemplate start*/
+
+.checkTemplate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index:160;
+    background: #f9f9f9;
+    width: 1390px;
+    height: 805px;
+}
+
+.checkTemplate_T {
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    border-bottom: 1px solid #dedede;
+}
+
+.checkTemplate_T span {
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.checkTemplate_T i {
+    height: 45px;
+    line-height: 45px;
+    float: right;
+    margin-right: 38px;
+}
+
+.checkTemplate_C ul li {
+    width: 201px;
+    height: 145px;
+    float: left;
+    margin:0 16px 16px 0;
+    border:1px solid #e7e7e7;
+    cursor: pointer;
+    background: url("../images/bitemplate.png") no-repeat;
+    background-size: 1311px 480px;
+}
+.checkTemplate_C{
+    padding-top: 32px;
+    padding-left:37px;
+}
+
+.checkTemplate_C ul li.checked{
+    border:1px solid #5cb5d3;
+}
+
+.checkTemplate_C ul li.styleOne {
+    background-position: 0 0;
+}
+
+.checkTemplate_C ul li.styleTwo {
+    background-position: -222px 0;
+}
+
+.checkTemplate_C ul li.styleThree {
+    background-position: -444px 0;
+}
+
+.checkTemplate_C ul li.styleFour {
+    background-position: -666px 0;
+}
+
+.checkTemplate_C ul li.styleFive {
+    background-position: -888px 0;
+}
+
+.checkTemplate_C ul li.styleSix {
+    background-position: -1110px 0;
+}
+
+.checkTemplate_C ul li.styleSeven {
+    background-position: 0 -166px;
+}
+
+.checkTemplate_C ul li.styleEight {
+    background-position: -222px -166px;
+}
+
+.checkTemplate_C ul li.styleNine {
+    background-position: -444px -166px;
+}
+
+.checkTemplate_C ul li.styleTen {
+    background-position: -666px -166px;
+}
+
+.checkTemplate_C ul li.styleEleven {
+    background-position: -888px -166px;
+}
+
+.checkTemplate_C ul li.styleTwelve {
+    background-position: -1110px -166px;
+}
+
+.checkTemplate_C ul li.styleThirteen {
+    background-position: 0 -332px;
+}
+
+.checkTemplate_C ul li.styleFourteen {
+    background-position: -222px -332px;
+}
+
+/*checkTemplate end*/
+
+/*mask layer*/
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0.7;
+    z-index: 100;
+}
+.mask_W {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 101;
+}
+.ui-highlight, .biData .CmainList .ui-highlight {
+    background: rgba(36, 159, 216, 0.08);
+    color: #777620;
+
+    /* border: 1px solid #dad55e;
+	background: #fffa90;
+	color: #777620; */
+}
+.CmainList .listContainer li.ui-highlight2{
+	background: rgba(36, 159, 216, 0.08);
+    width: 80px;
+}
+
+/*@media*/
+/*
+@media (min-height: 1920px) {
+    body {
+        height: 900px;
+    }
+}
+
+@media (max-height: 1366px) {
+    body {
+        height: 900px;
+    }
+}
+*/
+
+
