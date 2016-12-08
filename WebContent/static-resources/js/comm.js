@@ -42,6 +42,28 @@
 		$('.codePart').css('width',($('.module-data-all').width()-351));//flow-code
 		console.log($winW)
 	};
+	var $slideStyle=function(ele){
+		var $menu = $(ele),
+			$h2 = $menu.find(".title"),
+			$detail = $menu.find(".detail");
+		$h2.on("click", function () {
+			var $curIndex = $(this).parent().index();
+			var $this = $(this);
+			var icon = $this.find('i');
+			if(icon.hasClass('fa-caret-down')){
+				icon.removeClass('fa-caret-down').addClass('fa-caret-up');
+			}else{
+				icon.removeClass('fa-caret-up').addClass('fa-caret-down');
+			}
+			$detail.each(function (index, item) {
+				if ($curIndex === index) {
+					$(this).stop().slideToggle(200);
+					return;
+				}
+			});
+		});
+	};
+	$slideStyle('.box .menu');
 	$.isEmpty = function(obj){
 		if(!obj){//'', null, undefined
 			return true;

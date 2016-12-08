@@ -2865,20 +2865,9 @@ right style
 
 .module-prop .bbtm {
     border-top: 1px #DCDCDC solid;
-    /*border-bottom: 1px #DCDCDC solid;*/
+    border-bottom: 1px #DCDCDC solid;
 }
-.module-prop .bbtm p{
-    font-size: 14px;
-}
-.module-prop .bbtm select{
-    width: 301px;
-    height: 22px;
-    border: 1px solid #ddd;
-}
-.module-prop .bbtm input{
-    width: 251px !important;
-    max-width: none !important;
-}
+
 .new_column_name,.new_constant_value,.new_predict_value{
 	display:none;
 }

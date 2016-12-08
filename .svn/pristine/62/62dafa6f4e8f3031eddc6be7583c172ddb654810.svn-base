@@ -599,9 +599,10 @@
 								<input type="text" placeholder="new constant value" class="col">
 							</div>
 							<div class="prop bbtm new_predict_value">
-								<p><select></select></p>
-								<p><label>路径</label><input type="text" placeholder="new model path" class="col"></p>
-								<p><label>类型</label><input type="text" placeholder="new model type" class="col"></p>
+								<select>
+								</select>
+								<input type="text" placeholder="new model path" class="col">
+								<input type="text" placeholder="new model type" class="col">
 							</div>
 							
 							<div class="btn">

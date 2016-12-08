@@ -528,7 +528,7 @@ $(function(){
         	getFlowIdByMenuId($idName);
             $('.flow-template').show();
             //设置属性input宽度
-            $('.module-prop .new_table_name input,.module-prop .new_column_name input').css('width',250-$('.module-prop .prop span:first-child').width());
+            $('.module-prop .prop input').css('width',250-$('.module-prop .prop span:first-child').width());
         }else if($dataType == 4){
             //TODO Loading datamining data and mask
         	dataMiningInit($idName);
