@@ -1368,8 +1368,8 @@ function goDatasource(userId,content){
 								jsonObj.connectionName =$($(".lookTable tr td input")[0]).val();
 								jsonObj.id =conId ;
 								jsonObj.enumArray=powerArray;
-								var oldPwd = $('.lookTable input[type="password"').attr("value");
-								var newPwd = $('.lookTable input[type="password"').val();
+								var oldPwd = $('.lookTable input[type="password"]').attr("value");
+								var newPwd = $('.lookTable input[type="password"]').val();
 								if(oldPwd == newPwd){
 									jsonObj.isUpdate = 0;
 								}else{
@@ -1418,8 +1418,8 @@ function goDatasource(userId,content){
 								jsonObj.powerArray=powerArray;
 								jsonObj.dbtype = conType;
 								
-								var oldPwd = $('.lookTable input[type="password"').attr("value");
-								var newPwd = $('.lookTable input[type="password"').val();
+								var oldPwd = $('.lookTable input[type="password"]').attr("value");
+								var newPwd = $('.lookTable input[type="password"]').val();
 								if(oldPwd == newPwd){
 									jsonObj.isAdd = 0;
 								}else{
