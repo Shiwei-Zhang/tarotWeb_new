@@ -150,8 +150,8 @@
 				'	<div class="dialog2" >' +
 				'		<div class="d-content">' + tip + '</div>' +
 				'		<div>' +
-				'		 	<input type="button" class="dialog-ok" value="确定"/>' +
 				'		 	<input type="button" class="dialog-cancel" value="取消" />' +
+				'		 	<input type="button" class="dialog-ok" value="确定"/>' +
 				'		</div>' +
 				'	</div>' +
 				'	<div class="mask"></div>' +

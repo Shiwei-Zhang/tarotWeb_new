@@ -111,48 +111,13 @@
 								<ul class="tab_conbox">
 									<li class="tab1_1 tab_con1">
 										<div class="dt_d">
-											<div class="dt_fun selectData">
+											<div class="dt_fun">
 												<p class="dtt">数据源</p>
 												<p class="dts add4">+ 选择数据源</p>
 												<input type="text" placeholder="搜索" />
-												<span class="bigIcon"></span>
 											</div>
 											<div id="_source_add" class="dt_con dt_conL">
-												<ul class="menuStyle">
-													<li>
-														<div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
-														<ul class="detail show">
-															<li><i class="branchIcon"></i><span>null</span></li>
-															<li><i class="directoryIcon"></i><span>null</span></li>
-															<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-															<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-															<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-															<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-														</ul>
-													</li>
-													<li>
-														<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
-														<ul class="detail">
-															<li><i class="branchIcon"></i><span>null</span></li>
-															<li><i class="directoryIcon"></i><span>null</span></li>
-															<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-															<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-															<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-															<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-														</ul>
-													</li>
-													<li>
-														<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
-														<ul class="detail">
-															<li><i class="branchIcon"></i><span>null</span></li>
-															<li><i class="directoryIcon"></i><span>null</span></li>
-															<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-															<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-															<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-															<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-														</ul>
-													</li>
-												</ul>
+
 											</div>
 										</div>
 
@@ -185,83 +150,24 @@
 														<span data-cls="col_con" class="active_t">字段</span> <span
 															data-cls="syb_con" >函数</span>
 													</p>
-													<input type="text" placeholder="搜索" id="words">
+													<input type="text" id="words" style="display: block">
+													<select id="Scontainer" onchange="selectChange()" style="display: none">
+														<option value="value1">value1</option>
+														<option value="value2">value2</option>
+														<option value="value3">value3</option>
+														<option value="value4">value4</option>
+														<option value="value5">value5</option>
+														<option value="other">other</option>
+													</select>
+													<input type="text" id="showVal" class="showVal" style="display: none;">
 													<span class="bigIcon"></span>
 												</div>
 												<div id="_column_trans" class="dt_con">
 													<div class="col_con" style="display: block;">
-														<ul class="menuStyle">
-															<li>
-																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
-																<ul class="detail show">
-																	<li><i class="branchIcon"></i><span>null</span></li>
-																	<li><i class="directoryIcon"></i><span>null</span></li>
-																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-																</ul>
-															</li>
-															<li>
-																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
-																<ul class="detail">
-																	<li><i class="branchIcon"></i><span>null</span></li>
-																	<li><i class="directoryIcon"></i><span>null</span></li>
-																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-																</ul>
-															</li>
-															<li>
-																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
-																<ul class="detail">
-																	<li><i class="branchIcon"></i><span>null</span></li>
-																	<li><i class="directoryIcon"></i><span>null</span></li>
-																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-																</ul>
-															</li>
-														</ul>
+
 													</div>
 													<div class="syb_con"style="display: none">
-														<ul class="menuStyle">
-															<li>
-																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
-																<ul class="detail show">
-																	<li><i class="branchIcon"></i><span>null</span></li>
-																	<li><i class="directoryIcon"></i><span>null</span></li>
-																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-																</ul>
-															</li>
-															<li>
-																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
-																<ul class="detail">
-																	<li><i class="branchIcon"></i><span>null</span></li>
-																	<li><i class="directoryIcon"></i><span>null</span></li>
-																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-																</ul>
-															</li>
-															<li>
-																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
-																<ul class="detail">
-																	<li><i class="branchIcon"></i><span>null</span></li>
-																	<li><i class="directoryIcon"></i><span>null</span></li>
-																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
-																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
-																</ul>
-															</li>
-														</ul>
+
 													</div>
 												</div>
 											</div>
@@ -672,7 +578,7 @@
 								</div>
 							</div>
 
-							<div class="prop1" style="border-bottom: 1px solid #ddd">
+							<div class="prop1">
 								<div class="title">
 									<span class="target_"><i class="fa fa-caret-right"></i>
 										存储</span> <span><i class="fa plus_icon target_plus"></i></span>
@@ -693,9 +599,10 @@
 								<input type="text" placeholder="new constant value" class="col">
 							</div>
 							<div class="prop bbtm new_predict_value">
-								<p><select></select></p>
-								<p><label>路径</label><input type="text" placeholder="new model path" class="col"></p>
-								<p><label>类型</label><input type="text" placeholder="new model type" class="col"></p>
+								<select>
+								</select>
+								<input type="text" placeholder="new model path" class="col">
+								<input type="text" placeholder="new model type" class="col">
 							</div>
 							
 							<div class="btn">
