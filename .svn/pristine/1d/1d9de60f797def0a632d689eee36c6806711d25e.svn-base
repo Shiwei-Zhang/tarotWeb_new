@@ -281,24 +281,19 @@ $(function(){
     window.resetFolder = function(){
         var parentDom = $('.folder input');
         if(parentDom && parentDom.length > 0){
-            var name = parentDom.val();
-            var pid = parentDom.parent().parent().parent().prev().attr("id");
-            var menuId= parentDom.parent().attr("id");
-            var type=parentDom.parent().attr("menuType");
-            nameIsExist(name,menuId,pid,userId,type);
-            if(/['"#$%&\^*]/.test(name)){
+            var text = $('.folder input').val();
+            if(/['"#$%&\^*]/.test(text)){
                 $.dialog("不能包含特殊字符！");
                 return;
-            }else if(name == ""){
+            }else if(text == ""){
                 $.dialog("不能为空！");
                 return;
-            }else if(flag){
-            	$.dialog("该目录下已包含"+name+"的文件（夹）！");
-            	return;
             }
-            
-            updateMenu(menuId,name,type);
-            parentDom.parent().append($('<span>' + name + '</span>'));
+            var id=parentDom.parent().attr("id");
+            var name=parentDom.val();
+            var type=parentDom.parent().attr("menuType");
+            updateMenu(id,name,type);
+            parentDom.parent().append($('<span>' + text + '</span>'));
             parentDom.remove();
         }
     };

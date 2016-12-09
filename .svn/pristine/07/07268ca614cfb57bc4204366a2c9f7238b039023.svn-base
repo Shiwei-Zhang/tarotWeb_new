@@ -150,8 +150,8 @@
 				'	<div class="dialog2" >' +
 				'		<div class="d-content">' + tip + '</div>' +
 				'		<div>' +
-				'		 	<input type="button" class="dialog-ok" value="确定"/>' +
 				'		 	<input type="button" class="dialog-cancel" value="取消" />' +
+				'		 	<input type="button" class="dialog-ok" value="确定"/>' +
 				'		</div>' +
 				'	</div>' +
 				'	<div class="mask"></div>' +
@@ -164,9 +164,9 @@
 					   'border':'1px #DCDCDC solid', 'border-radius': '10px',
 					   'background-color': '#fff'});
 		dialogDom.find('div.d-content').css({'width':'430px', 'height': '50px', 'padding':'50px 20px 0px 20px', 'word-break':'break-all'});
-		dialogDom.find('input').css( {'width': '65px', 'height': '25px', 'background-color': '#ffffff', 'cursor':'pointer'} );
+		dialogDom.find('input').css( {'width': '100px', 'height': '30px', 'background-color': '#ffffff', 'cursor':'pointer'} );
 		if(showCancel){
-			dialogDom.find('input.dialog-cancel,input.dialog-no').css( {'border': '1px gray solid', 'color': 'gray', 'margin-right': '10px', 'float': 'right'} );
+			dialogDom.find('input.dialog-cancel').css( {'border': '1px gray solid', 'color': 'gray', 'margin-right': '10px', 'float': 'right'} );
 		}else{
 			dialogDom.find('input.dialog-cancel').hide();
 		}

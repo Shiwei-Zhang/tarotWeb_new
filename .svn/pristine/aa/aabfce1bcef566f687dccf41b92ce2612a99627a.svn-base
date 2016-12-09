@@ -1905,35 +1905,35 @@
 							
 							<table class="userLook">
 								<tr>
-									<th>姓 名 ：<span></span></th>
+									<th>姓 名：<span></span></th>
 									<td class="name"></td>
 								</tr>
 								<tr>
-									<th>登 录 名 ：<span></span></th>
+									<th>登 录 名：<span></span></th>
 									<td class="loginId"></td>
 								</tr>
 								<tr>
-									<th>注册日期 ：<span></span></th>
+									<th>注册日期：<span></span></th>
 									<td class="createTime"></td>
 								</tr>
 								<tr>
-									<th>性 别 ：<span></span></th>
+									<th>性 别：<span></span></th>
 									<td class="gender"></td>
 								</tr>
 								<tr>
-									<th>生 日 ：<span></span></th>
+									<th>生 日：<span></span></th>
 									<td class="birth"></td>
 								</tr>
 								<tr>
-									<th>电 话 ：<span></span></th>
+									<th>电 话：<span></span></th>
 									<td class="phone"></td>
 								</tr>
 								<tr>
-									<th>邮 箱 ：<span></span></th>
+									<th>邮 箱：<span></span></th>
 									<td class="email"></td>
 								</tr>
 								<tr>
-									<th>类 型 ：<span></span></th>
+									<th>类 型：<span></span></th>
 									<td class="isAdmin"></td>
 								</tr>
 							</table>

@@ -418,9 +418,8 @@ $(function(){
     		var isExist = false;
     		$('.tabsEvent li').each(function(index, item){
     			var $item = $(item);
-                var dataType=$item.attr('data_type');
     			var idName = $item.attr('idName');
-    			if($idName == idName&&$dataType==dataType){
+    			if($idName == idName){
     				isExist = true;
     			}
     		});
@@ -456,7 +455,7 @@ $(function(){
     					e.cancelBubble = true; //IE阻止冒泡方法
     				}
     				var $liObj = $(this).parent().parent();
-    				$.confirm('要在关闭之前存储对“'+$fileName+'”的更改吗？', function(){
+    				$.confirm('确定要离开此页面吗？', function(){
     					closeTab($liObj);
     				});
     			});
@@ -554,7 +553,7 @@ $(function(){
             biInit($idName);
             $('.bi-template').show();
         }else if($dataType == 6){
-            setConIdAttr($idName);
+            setConIdAttr($('li.thistab').attr('idname'));
             getJobPlanIds();
             $('.controllDeployEvent').show();
         }
@@ -622,8 +621,8 @@ $(function(){
 		}else{
 			$('.dataManager, .user').show();
 			$('.personalInfo').show();
-			//$('.btnEvent li span').removeClass('selected');
-			//$('.btnEvent li span').first().addClass('selected');
+			$('.btnEvent li span').removeClass('selected');
+			$('.btnEvent li span').first().addClass('selected');
 			refreshUser();
 		}
 	});
@@ -1700,7 +1699,6 @@ function selectSaveTargetBynodeId(nodeId){
 }
 
 var fileName = '';
-var flag = false;
 function generateFun(power, domCls,menutype){
 	var id = '123456';
 	$('#dropdown-' + id).remove();
@@ -1799,7 +1797,22 @@ function generateFun(power, domCls,menutype){
 
                 $('.folder input').unbind('keydown').keydown(function(e){
                     if (e.keyCode == "13") {//keyCode=13是回车键
-                    	resetFolder();
+                        var val = $currentRightDom.children().last().val();
+                        if(/['"#$%&\^*]/.test(val)){
+                            $.dialog("不能包含特殊字符！");
+                            return;
+                        }else if(val == ""){
+                            $.dialog("不能为空！");
+                            return;
+                        }
+                        var menuId=$currentRightDom.attr("id");
+                        var name=$currentRightDom.children().last().val();
+                        var type=$currentRightDom.attr("menuType");
+                        updateMenu(menuId,name,type);
+                        $currentRightDom.children().last().remove();
+                        $currentRightDom.append($('<span>' + val + '</span>'));
+
+                        $currentRightDom = null;
                     }
                 });
             }
@@ -1835,29 +1848,6 @@ function returnFileName(name,id,userid){
 		success:function(data){
 			fileName = data;
 			return fileName;
-		},
-		error : function() {   
-			$.dialog("异常！");
-			return null;
-		} 
-	})
-}
-function nameIsExist(name,mid,id,userid,type){	
-	$.ajax({
-		type:"POST",
-		url:urlId+"/nameIsExist",
-		dataType:"json",
-		async:false,
-		data:{
-			name:name,
-			mid:mid,
-			pid:id,
-			userid:userid,
-			menuType:type
-			},
-		success:function(data){
-			flag = data;
-			return flag;
 		},
 		error : function() {   
 			$.dialog("异常！");
@@ -2193,17 +2183,17 @@ function refreshUsersList(str){
 					var isActivation="可用"
 				}
 				tablestr+='<tr name="userData">'
-				+'<td style="width:96px;">'+data[i].name+'</td>'
-				+'<td style="width:96px;">'+data[i].loginId+'</td>'
+				+'<td>'+data[i].name+'</td>'
+				+'<td>'+data[i].loginId+'</td>'
 				+'<td style="width:55px;">'+gender+'</td>'
 				+'<td style="width:130px;">'+birth+'</td>'
 				+'<td style="width:156px;">'+data[i].phone+'</td>'
-				+'<td class="widthLong">'+data[i].eMail+'</td>'
-				+'<td style="width:96px;">'+data[i].createUser+'</td>'
-				+'<td class="widthLong">'+createTime+'</td>'
-				+'<td class="widthLong">'+updateTime+'</td>'
-				+'<td style="width:96px;" class="status">'+isActivation+'</td>'
-				+'<td style="width:96px;">'+isSystemuser+'</td>'
+				+'<td style="width:252px;">'+data[i].eMail+'</td>'
+				+'<td>'+data[i].createUser+'</td>'
+				+'<td style="width:186px;">'+createTime+'</td>'
+				+'<td style="width:186px;">'+updateTime+'</td>'
+				+'<td class="status">'+isActivation+'</td>'
+				+'<td>'+isSystemuser+'</td>'
 				+'<td class="w100" style="width:115px;">'
 				+'<span class="stop" title="停用" data-index="'+i+'" data-id='+data[i].id+' data-status='+data[i].isActivation+'>'
 				+'</span>' 
@@ -2217,7 +2207,6 @@ function refreshUsersList(str){
 			$("#users_T tr[name='userData']").remove();
 			$('#users_T').append($(tablestr));
 			goPage(1,pageSize,'users_T','barconUsers');
-			$('.widthLong').css("width",($('#users_T').width()-936)/3);
 			$('.stop').unbind('click').click(function (e) {
 				var uId = $(this).attr('data-id');
 				var isAct = $(this).attr('data-status');

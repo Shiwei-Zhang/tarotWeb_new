@@ -1905,35 +1905,35 @@
 							
 							<table class="userLook">
 								<tr>
-									<th>姓 名 ：<span></span></th>
+									<th>姓 名：<span></span></th>
 									<td class="name"></td>
 								</tr>
 								<tr>
-									<th>登 录 名 ：<span></span></th>
+									<th>登 录 名：<span></span></th>
 									<td class="loginId"></td>
 								</tr>
 								<tr>
-									<th>注册日期 ：<span></span></th>
+									<th>注册日期：<span></span></th>
 									<td class="createTime"></td>
 								</tr>
 								<tr>
-									<th>性 别 ：<span></span></th>
+									<th>性 别：<span></span></th>
 									<td class="gender"></td>
 								</tr>
 								<tr>
-									<th>生 日 ：<span></span></th>
+									<th>生 日：<span></span></th>
 									<td class="birth"></td>
 								</tr>
 								<tr>
-									<th>电 话 ：<span></span></th>
+									<th>电 话：<span></span></th>
 									<td class="phone"></td>
 								</tr>
 								<tr>
-									<th>邮 箱 ：<span></span></th>
+									<th>邮 箱：<span></span></th>
 									<td class="email"></td>
 								</tr>
 								<tr>
-									<th>类 型 ：<span></span></th>
+									<th>类 型：<span></span></th>
 									<td class="isAdmin"></td>
 								</tr>
 							</table>
@@ -1967,17 +1967,17 @@
 					</div>
 					<table id="users_T" class="users_T table1Event">
 						<tr style="display: block;border: 1px solid #a1a1a1;">
-							<th style="width:96px;">用户姓名</th>
-							<th style="width:96px;">登录名</th>
+							<th>用户姓名</th>
+							<th>登录名</th>
 							<th style="width:55px;padding-left: 10px;">性别</th>
 							<th style="width:130px;">生日</th>
 							<th style="width:156px;">电话</th>
-							<th class="widthLong">邮箱</th>
-							<th style="width:96px;">创建人</th>
-							<th class="widthLong">创建时间</th>
-							<th class="widthLong">修改时间</th>
-							<th style="width:96px;">状态</th>
-							<th style="padding-left: 10px;width:96px;">是否管理员</th>
+							<th style="width:252px;">邮箱</th>
+							<th>创建人</th>
+							<th style="width:186px;">创建时间</th>
+							<th style="width:186px;">修改时间</th>
+							<th>状态</th>
+							<th style="padding-left: 10px;">是否管理员</th>
 							<th class="w100" style="width:115px;">更多操作</th>
 						</tr>
 					</table>
@@ -3193,7 +3193,7 @@
         });
     }
     
-	function renameMenuForHome(){
+function renameMenuForHome(){
     	var text = $('.root_tree').children().last().children().first().children().last().text();
     	$('.root_tree').children().last().children().first().children().last().remove();
     	$('.root_tree').children().last().children().first().append($('<input type="text" value="'+ text + '" />'));
@@ -3201,9 +3201,25 @@
         
         $('.folder input').unbind('keydown').keydown(function(e){
             if (e.keyCode == "13") {//keyCode=13是回车键
-            	resetFolder();
+            	var val = $(this).val();
+            	renameOk(val);
             }
         });
+    }
+    function renameOk(val){
+        if(/['"#$%&\^*]/.test(val)){
+            $.dialog("不能包含特殊字符！");
+            return;
+        }else if(val == ""){
+            $.dialog("不能为空！");
+            return;
+        }
+        var menuId=$('.root_tree').children().last().children().attr('id');
+        var name=val;
+        var type=$('.root_tree').children().last().children().attr("menuType");
+        updateMenu(menuId,name,type);
+        $('.root_tree').children().last().children().first().children().last().remove();
+        $('.root_tree').children().last().children().first().append($('<span>' + val + '</span>'));
     }
     
     function renameMenu(){
@@ -3214,7 +3230,21 @@
         
         $('.folder input').unbind('keydown').keydown(function(e){
             if (e.keyCode == "13") {//keyCode=13是回车键
-            	resetFolder();
+                var val = $(this).val();
+                if(/['"#$%&\^*]/.test(val)){
+                    $.dialog("不能包含特殊字符！");
+                    return;
+                }else if(val == ""){
+                    $.dialog("不能为空！");
+                    return;
+                }
+                var menuId=$currentRightDom.next().children().last().children().attr('id');
+                var name=val;
+                var type=$currentRightDom.next().children().last().children().attr("menuType");
+                updateMenu(menuId,name,type);
+                $currentRightDom.next().children().last().children().children().last().remove();
+                $currentRightDom.next().children().last().children().first().append($('<span>' + val + '</span>'));
+                $currentRightDom = null;
             }
         });
     }
