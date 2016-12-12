@@ -4655,12 +4655,6 @@ button, input, select {
 
 /*listSet end*/
 
-.btn-ok{
-	width: 48px;
-    background-color: #fff;
-    height: 24px;
-}
-    
 /*bi数据源选择 start*/
 .biDataStyle {
     z-index: 120;

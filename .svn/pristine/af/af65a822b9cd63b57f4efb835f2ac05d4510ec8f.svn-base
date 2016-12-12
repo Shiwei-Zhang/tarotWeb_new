@@ -1090,18 +1090,14 @@ function addConnection(){
 	for(var i=1;i<tableAdd.length+1;i++){
 		var Obj = new Object();
 		var str = $('.add2-f .conAdd').find(':hidden')[i];
-		if(dbtype!='hdfs'){
-			if($(str).val().indexOf("pwd")>=0){
-				Obj.name = thAdd.eq(i).val();
-				Obj.value = password.val();
-			}else{
-				Obj.name = thAdd.eq(i).val();
-				Obj.value = tableAdd.eq(i).val();
-			}
+		if($(str).val().indexOf("pwd")>=0){
+			Obj.name = thAdd.eq(i).val();
+			Obj.value = password.val();
 		}else{
 			Obj.name = thAdd.eq(i).val();
 			Obj.value = tableAdd.eq(i).val();
 		}
+		//console.log(Obj);
 		powerArray.push(Obj);
 		console.log(powerArray);
 	}
@@ -1138,27 +1134,17 @@ function testConnection(){
 	var tableTest=$('.add2-f .conAdd').find(':text');
 	var password=$('.conAdd').find(':password');
 	var thTest=$('.add2-f .conAdd').find('input:hidden');
-	if(dbtype!='hdfs' && dbtype!='hbase'){
-		for(var i=1;i<tableTest.length+1;i++){
-			var Obj = new Object();
-			var str = $('.add2-f .conAdd').find(':hidden')[i];
-			if($(str).val().indexOf("pwd")>=0){
-				Obj.name = thTest.eq(i).val();
-				Obj.value = password.val();
-			}else{
-				Obj.name = thTest.eq(i).val();
-				Obj.value = tableTest.eq(i).val();
-			}
-			testArray.push(Obj);
-		}
-	}else{
-		for(var i=1;i<tableTest.length;i++){
-			var Obj = new Object();
-			var str = $('.add2-f .conAdd').find(':hidden')[i];
+	for(var i=1;i<tableTest.length+1;i++){
+		var Obj = new Object();
+		var str = $('.add2-f .conAdd').find(':hidden')[i];
+		if($(str).val().indexOf("pwd")>=0){
+			Obj.name = thTest.eq(i).val();
+			Obj.value = password.val();
+		}else{
 			Obj.name = thTest.eq(i).val();
 			Obj.value = tableTest.eq(i).val();
-			testArray.push(Obj);
 		}
+		testArray.push(Obj);
 	}
 	var jsonObj = new Object();
 	jsonObj.powerArray=testArray;
@@ -1193,26 +1179,12 @@ function testConnection(){
 	})
 }
 function addConValidation(){
-	var conTy = $('.add2-sel').val();
-	if(conTy != 'hdfs' && conTy!=0){
-		var ipVal = $($('.conAdd input:text')[1]).val();
-		var str = ipVal.match(/(\d+)\.(\d+)\.(\d+)\.(\d+)/g);
-		var portVal = $($('.conAdd input:text')[2]).val();
-		var regPort = /^(\d)+$/g; 
-	}
-	
-	if(conTy==0){
+	if($('.add2-sel').val()==0){
 		$.dialog("请选择数据连接类型");
 		return null;
-	}else if(conTy != 'hdfs' && (ipVal!= '' && str==null) || RegExp.$1>255 || RegExp.$2>255 || RegExp.$3>255 || RegExp.$4>255){
-		$.dialog("IP格式不正确！");
-		return null;
-	}else if(conTy != 'hdfs' && !regPort.test(portVal) || parseInt(portVal)>65535 || parseInt(portVal)<0){
-		$.dialog("端口号格式不正确！");
-		return null;
 	}else if($('.conAdd input:password').val()==''){
-		$.dialog("您有内容没有填写，请认真检查！");
-		return null;
+			$.dialog("您有内容没有填写，请认真检查！");
+			return null;
 	}
 	for(var i=0;i<$('.conAdd input:text').length;i++){
 		if($($('.conAdd input:text').get(i)).val()==''){
@@ -1220,7 +1192,6 @@ function addConValidation(){
 			return null;
 		}
 	}
-	return true;
 }
 //数据连接回车搜索--完成BUG-34
 $('#itemValue2').keydown(function(e){

@@ -445,9 +445,21 @@
 								<span class="middleW">as</span>
 								<input type="text" placeholder="new column name" class="col">
 							</div>
+							<div class="prop new_type_value">
+								<span>类型：</span>
+								<select onchange='constant_checknode();'><option value="Integer">Integer</option>
+								<option value="Long">Long</option>
+								<option value="Boolean">Boolean</option>
+								<option value="BigDecimal">BigDecimal</option>
+								<option value="Double">Double</option>
+								<option value="Timestamp">Timestamp</option>
+								<option value="Time">Time</option>
+								<option value="String">String</option>
+								<option value="Byte">Byte</option></select>
+							</div>
 							<div class="prop new_constant_value">
-								<span>Constant</span>
-								<span class="middleW">is</span>
+								<span>值：</span>
+								<!-- <span class="middleW">is</span> -->
 								<input type="text" placeholder="new constant value" class="col">
 							</div>
 							<div class="prop bbtm new_predict_value">
