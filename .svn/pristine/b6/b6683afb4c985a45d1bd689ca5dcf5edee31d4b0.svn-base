@@ -422,9 +422,8 @@ $(function(){
     		var isExist = false;
     		$('.tabsEvent li').each(function(index, item){
     			var $item = $(item);
-                var dataType=$item.attr('data_type');
     			var idName = $item.attr('idName');
-    			if($idName == idName&&$dataType==dataType){
+    			if($idName == idName){
     				isExist = true;
     			}
     		});
@@ -460,7 +459,7 @@ $(function(){
     					e.cancelBubble = true; //IE阻止冒泡方法
     				}
     				var $liObj = $(this).parent().parent();
-    				$.confirm('要在关闭之前存储对“'+$fileName+'”的更改吗？', function(){
+    				$.confirm('确定要离开此页面吗？', function(){
     					closeTab($liObj);
     				});
     			});
@@ -558,7 +557,7 @@ $(function(){
             biInit($idName);
             $('.bi-template').show();
         }else if($dataType == 6){
-            setConIdAttr($idName);
+            setConIdAttr($('li.thistab').attr('idname'));
             getJobPlanIds();
             $('.controllDeployEvent').show();
         }
@@ -626,8 +625,8 @@ $(function(){
 		}else{
 			$('.dataManager, .user').show();
 			$('.personalInfo').show();
-			//$('.btnEvent li span').removeClass('selected');
-			//$('.btnEvent li span').first().addClass('selected');
+			$('.btnEvent li span').removeClass('selected');
+			$('.btnEvent li span').first().addClass('selected');
 			refreshUser();
 		}
 	});

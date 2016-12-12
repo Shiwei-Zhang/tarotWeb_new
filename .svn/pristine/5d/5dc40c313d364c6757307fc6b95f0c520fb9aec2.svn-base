@@ -102,7 +102,7 @@
 				var header2 = tableHeaders[1];
 				tableStr += '<thead><tr><th data-axis="'+asix+'" data-index="0" class="table-first-cell_">'+ header1 +'\\'+ header2 + '</th>';
 			}else{
-				tableStr += '<thead><tr><th data-axis="'+asix+'" data-index="0" class="table-first-cell_"><span class="rowWords">列</span><span class="columnWords">行</span></th>';
+				tableStr += '<thead><tr><th data-axis="'+asix+'" data-index="0" class="table-first-cell_">行\列</th>';
 			}
 			for(var i = 1; i < columns.length; i ++){
 				var col = columns[i];
@@ -191,10 +191,7 @@
 			//表头
 			var $header = $('.table-first-cell_');
 			var ps = $header.position();
-			//Table.drawLine($header, ps.left, ps.top, (ps.left + $header.width()), (ps.top + $header.height()));
-			Table.drawLine($header, 0, 0, $header.width(),$header.height(),'#dcd7d7');
-			$header.find('.rowWords').css({'width':$header.width()/2,'height':$header.height()/2,'position':'absolute',left:0,top:$header.height()/2});
-			$header.find('.columnWords').css({'width':$header.width()/2,'height':$header.height()/2,'position':'absolute',left:$header.width()/2,top:5});
+			Table.drawLine($header, ps.left, ps.top, (ps.left + $header.width()), (ps.top + $header.height())); 
 		},
 		change: function($domObj, start, size, tableData){
 			//global
@@ -280,7 +277,7 @@
 		    return uuid;
 		},
 		drawLine: function($header, startX, startY, endX, endY, lineColor){
-			lineColr = lineColor || '#efefef';
+			lineColr = lineColor || 'black';
 	        var canvas = document.createElement("canvas");
 	        if(canvas.getContext){
 	            var ctx = canvas.getContext('2d');
@@ -295,7 +292,7 @@
 	            ctx.stroke();
 	            ctx.closePath();
 	            $(canvas).css({'position':'absolute', 'z-index':'999'});
-	            $header.css({'background-image':'url("' + ctx.canvas.toDataURL() + '")'});
+	            $header.css({'background-image':'url("' + ctx.canvas.toDataURL() + '")', 'background-attachment':'fixed'});
 	        }
 	    }
 	};

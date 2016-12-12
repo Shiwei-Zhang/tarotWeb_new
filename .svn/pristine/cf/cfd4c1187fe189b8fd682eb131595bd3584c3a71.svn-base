@@ -1,8 +1,6 @@
 $(function(){
 	var removeSocketSession = function(){
 		$('.module-prop .save').removeAttr('disabled');
-		$('.new_table_name input').removeAttr('disabled');
-		$('.new_column_name input').removeAttr('disabled');
 		_jm1.enable_edit();
 		_jm2.enable_edit();
 		$('.debug,.runing').removeClass('selected');
@@ -88,8 +86,6 @@ $(function(){
             	var result_code = dataJson.result_code;
             	if(result_code==201){
             		$('.module-prop .save').attr('disabled','disabled');
-            		$('.new_table_name input').attr('disabled','disabled');
-            		$('.new_column_name input').attr('disabled','disabled');
             		$('.debug,.runing').addClass('selected');
             		_jm1.disable_edit();
             		_jm2.disable_edit();
@@ -140,7 +136,7 @@ $(function(){
 	
 	window.checkData = function(){
 		var uuid = flowInfosMap.get(flowId_global).uuid;
-		var tableName="t1_"+flowId_global;
+		var tableName="trans_"+flowId_global;
 		$.ajax({
             url: urlId + '/release/checkdata',
             type:'POST',
@@ -726,74 +722,10 @@ $(function(){
             $(this).addClass("thistab");
             $(tabcon).hide();
             var activeTab = $(this).find("a").attr("tab");
-            //数据监控需要重新初始化
-            if(activeTab=='tab2_4'){
-            	var nodes = _jm1.mind.nodes;
-            	var node = null;
-            	var num = 1;
-            	var liStr = "";
-            	for(var nodeid in nodes){
-            		node = nodes[nodeid];
-            		if(node.data.isCheck==1){
-            			liStr += "<li pk='"+node.data.pk+"' class='navBar_"+num+"'><span>"+node.topic+"</span></li>";
-            			num++;
-            		}
-            	}
-            	$('.tab2_4 .navBar').html(liStr);
-            	$('.navBar li').unbind('click').click(function () {
-                    $(this).addClass('bg').siblings('li').removeClass('bg');
-                    $('.tableStyle').html('');
-                    var flowInfo = flowInfosMap.get(flowId_global);
-                    if(flowInfo&&!flowInfo.editable){
-                    	var uuid = flowInfo.uuid;
-                		var tableName=$(this).text()+"_"+flowId_global;
-                		$.ajax({
-                            url: urlId + '/release/checkdata',
-                            type:'POST',
-                            dataType:"json",
-                            data:{uuid:uuid,tableName:tableName},
-                            success:function(data) {
-                            	var dataJson = JSON.parse(data);
-                            	var result = dataJson.result;
-                            	if(result){
-                            		var resultJson = JSON.parse(result);
-                            		var tableStr = "";
-                                	$.each(resultJson,function(index,item){
-                                		var array = item.split(",");
-                                		if(index==0){
-                                			var trStr="<tr class='firTr'>"; 
-                                			var length = array.length;
-                                			$.each(array,function(i,element){
-                                				if(i!=length-1){
-                                					trStr+="<th>"+element+"</th>";
-                                				}else{
-                                					trStr+="<th style='border-right: 1px solid #ddd'>"+element+"</th>";
-                                				}
-                                			});
-                                			trStr+="</tr>";
-                                		}else{
-                                    		var trStr="<tr"; 
-                                			$.each(array,function(i,element){
-                            					trStr+="<td>"+element+"</td>";
-                                			});
-                                			trStr+="</tr>";
-                                		}
-                                		tableStr+=trStr;
-                                	});
-                                	$('.tableStyle').html(tableStr);
-                            	}
-                            },
-                            error : function() {
-                                $.dialog("查看数据异常！");
-                            }
-                        })
-                    }
-                });
-            	$('.navBar li').eq(0).click();
-            }
             $(" ."+activeTab).fadeIn();
             return false;
         });
+
     };
     $.jqtab(".tabs1",".tab_con1");
     $.jqtab(".tabs2",".tab_con2");
@@ -810,6 +742,12 @@ $(function(){
         $('#tabbox2 .dt_con div').hide();
         $('.' + cls).show();
     });
+
+    $('.navBar li').unbind('click').click(function () {
+        $(this).addClass('bg').siblings('li').removeClass('bg');
+        $('.nav_conbox').children('li').eq($(this).index()).show().siblings('li').hide();
+    });
+
 
 });
 

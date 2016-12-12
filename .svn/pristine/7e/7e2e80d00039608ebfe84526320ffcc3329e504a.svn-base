@@ -840,7 +840,7 @@ ul.root_tree li div {
 }
 
 .biDataL .biList li {
-    /*height: 22px;*/
+    height: 22px;
     line-height: 22px;
     padding-left: 10px;
     font-size: 12px;
@@ -2397,8 +2397,7 @@ ul.root_tree li div {
 
 .ipContainer li span {
     display: inline-block;
-    /*width: 285px;*/
-    width:45%;
+    width: 285px;
     padding-left: 20px;
 }
 
@@ -2690,6 +2689,7 @@ ul.root_tree li div {
     height: 21px;
     padding-left: 2px;
     border: 1px solid #d8d8d8;
+    border-bottom: none;
 }
 
 .dt_serch{
@@ -2782,13 +2782,13 @@ ul.root_tree li div {
 }
 
 #tabbox1 .dt_d .dt_con {
-    height: 355px;
+    height: 356px;
     overflow-y: auto;
     background: #f4f4f4;
 }
 
 #tabbox2 .dt_d .dt_con {
-    height: 354px;
+    height: 355px;
     overflow-y: auto;
     background: #f4f4f4;
 }
@@ -3020,7 +3020,7 @@ right style
     width: 251px !important;
     max-width: none !important;
 }
-.new_column_name,.new_constant_value,.new_predict_value,.new_type_value{
+.new_column_name,.new_constant_value,.new_predict_value{
 	display:none;
 }
 
@@ -4665,8 +4665,8 @@ button, input, select {
 /*bi charTemp start*/
 .biCharTemp {
     position: absolute;
-    bottom: 81px;
-    left: 76px;
+    bottom: 8px;
+    left: 75px;
     z-index: 160;
     width: 252px;
     height: 743px;
