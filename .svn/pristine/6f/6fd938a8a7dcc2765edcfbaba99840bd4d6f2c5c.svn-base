@@ -2880,13 +2880,13 @@
 						var model = item.saveTargetParams[1].value;
 						var dom = $('<div class="target" data-id="'+item.num+'"><label>'+tableName+'</label><span class="trash2"><i class="fa fa-trash2"></i></span></div>');
 			    		$('.targets').append(dom);
-						$('.targets .edit').unbind('click').on('click', function(){
+						/*$('.targets .edit').unbind('click').on('click', function(){
 				    	    $('#sjlj').val(item.conId);
 				    	    $('.table_name').val(tableName);
 				    	    $('#ms').val(model);
 				    	    $('.target_layer').show();
 				    	    $('.mask').show();
-				    	});
+				    	});*/
 			    		$('.targets .fa-trash2').unbind('click').on('click', function(e){
 			                try{
 			                	var num = $(e.target.parentElement.parentElement).attr('data-id');

@@ -27,8 +27,6 @@
 		}
 		return null;
 	};
-	//禁用数据源数据接口回车事件
-	$('.paramL .paramMain li span').keypress(function(){if(event.keyCode==13||event.which==13){return false;}});
 	$(window).on('resize', $.resizeW);
 	$.resizeW = function() {
 		var $winW = $(document).width();

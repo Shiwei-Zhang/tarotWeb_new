@@ -685,7 +685,7 @@ $(function(){
         $(this).children().children('i').show();
     });
 
-/*    $('.line_fun').on('click', function(){
+    $('.line_fun').on('click', function(){
         if( $(this).css("left") =='0px'){
             var obj = $(this).prev();
             obj.show();
@@ -701,7 +701,7 @@ $(function(){
             });
             $(this).animate({"left":"0px"}, 300).removeClass('line_active').addClass('line_disabled');
         }
-    });*/
+    });
 
     //change tab
     //start--

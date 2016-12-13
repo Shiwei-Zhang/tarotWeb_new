@@ -1885,7 +1885,7 @@ function generateFun(power, domCls,menutype){
             {text:'添加挖掘模型',auth: addAuth, action:function(e){
                 e.preventDefault();
                 console.log('添加DataMining');
-                var folderName = '新建挖掘模型';
+                var folderName = '新建DataMining';
                 returnFileName(folderName,$currentRightDom.attr("id"),userId);
                 folderName = fileName;
                 addMenu($currentRightDom.attr("id"),menuTypeEnum[3],folderName);

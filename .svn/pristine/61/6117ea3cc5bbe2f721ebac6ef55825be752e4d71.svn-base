@@ -24,14 +24,12 @@
 #jsmind_container {
 	height: 100%;
 	overflow-y: hidden;
-	margin-left: 193px;
 }
 
 #jsmind_container2 {
 	height: 404px;
-	/*width: 99.7%;*/
+	width: 99.7%;
 	overflow-y: hidden;
-	margin-left: 193px;
 }
 .tab2_2{
 	font-size:14px;
@@ -120,8 +118,8 @@
 												<span class="bigIcon"></span>
 											</div>
 											<div id="_source_add" class="dt_con dt_conL">
-												<ul class="menuStyle" >
-													<!-- <li>
+												<ul class="menuStyle" style="display:none;">
+													<li>
 														<div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
 														<ul class="detail show">
 															<li><i class="branchIcon"></i><span>null</span></li>
@@ -153,7 +151,7 @@
 															<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
 															<li><i class="wordIcon"></i><span>R7_TEST</span></li>
 														</ul>
-													</li> -->
+													</li>
 												</ul>
 											</div>
 										</div>
@@ -192,7 +190,7 @@
 												</div>
 												<div id="_column_trans" class="dt_con">
 													<div class="col_con" style="display: block;">
-														<ul class="menuStyle"  style="display: none;">
+														<ul class="menuStyle">
 															<li>
 																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
 																<ul class="detail show">
@@ -331,13 +329,10 @@
 												<option value="name">table1.NAME</option>
 											</select> <select class="condition2">
 												<option value="=">=</option>
-												<option value="!=">!=</option>
 												<option value=">">&gt;</option>
 												<option value="<">&lt;</option>
 												<option value=">=">&gt;=</option>
 												<option value="<=">&lt;=</option>
-												<option value="like">like</option>
-												<option value="in">in</option>
 											</select> <select class="condition3">
 												<option value="id">table2.ID</option>
 												<option value="name">table2.NAME</option>
@@ -372,13 +367,10 @@
 												<option value="">ID</option>
 											</select> <select class="condition2">
 												<option value="=">=</option>
-												<option value="!=">!=</option>
 												<option value=">">&gt;</option>
 												<option value="<">&lt;</option>
 												<option value=">=">&gt;=</option>
 												<option value="<=">&lt;=</option>
-												<option value="like">like</option>
-												<option value="in">in</option>
 											</select> <input type="text" class="condition3" /> <span class="trash"><i
 												class="fa fa-trash2"></i></span>
 											<div class="operations">
@@ -453,21 +445,9 @@
 								<span class="middleW">as</span>
 								<input type="text" placeholder="new column name" class="col">
 							</div>
-							<div class="prop new_type_value">
-								<span>类型：</span>
-								<select onchange='constant_checknode();'><option value="Integer">Integer</option>
-								<option value="Long">Long</option>
-								<option value="Boolean">Boolean</option>
-								<option value="BigDecimal">BigDecimal</option>
-								<option value="Double">Double</option>
-								<option value="Timestamp">Timestamp</option>
-								<option value="Time">Time</option>
-								<option value="String">String</option>
-								<option value="Byte">Byte</option></select>
-							</div>
 							<div class="prop new_constant_value">
-								<span>值：</span>
-								<!-- <span class="middleW">is</span> -->
+								<span>Constant</span>
+								<span class="middleW">is</span>
 								<input type="text" placeholder="new constant value" class="col">
 							</div>
 							<div class="prop bbtm new_predict_value">
@@ -2810,7 +2790,7 @@
 	});
 
 	//TODO deleting
-    //urlId = 'http://localhost:800/';
+    urlId = 'http://localhost:800/';
     //初始化目录
     $(function(){
         $.ajax({
@@ -2895,7 +2875,7 @@
 				}
 			}
 			fixed=item.fixed;
-			sysdom = '<li fk = "0" textValue = "'+functionName+'" level="3" functionType="'+functionType+'" functionName="'+functionCode+'" columnType="'+columnType+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable"><i class="functionIcon"></i><span>'+functionName+'</span></li>';
+			sysdom = '<li><i class="functionIcon"></i><span fk = "0" textValue = "'+functionName+'" level="3" functionType="'+functionType+'" functionName="'+functionCode+'" columnType="'+columnType+'" paramNumber="'+number+'" fixed="'+fixed+'" class="draggable">'+functionName+'</span></li>';
 			
 			/**************************************
 			|* tip document-- http://www.dowebok.com/147.html
@@ -3270,7 +3250,7 @@
 
 
     function getDataAdd4(usersId){
-        /* var usersId=userId;
+        var usersId=userId;
         var str='';
         $.ajax({
             url:urlId+'/selectDataConnectionAndPowerByUserId'+'?userId='+usersId,
@@ -3287,7 +3267,7 @@
             error : function() {
                 $.dialog("异常！");
             }
-        }) */
+        })
     }
 
     function getFlowIdByMenuId(menuId){
@@ -3384,33 +3364,7 @@
 				var is_interface;
 				var data_obj;
 				var line_color = _jm1.options.view.line_color;
-				var liStr="";
 				$(sourceDatas).each(function(index,item){
-					var sdList = item.sdList;
-					liStr+="<li conId='"+item.conId+"'><div class='titleT clearFix'><span>"+item.conName+"</span><i class='arrowUp'></i></div><ul class='detail show'>";
-					var liStr_min="";
-					$.each(sdList,function(i,element){
-						fileName=element.fileName;
-						is_interface=element.isInterface;
-						if(( element.sourceDataType == 'ftp'  || element.sourceDataType == 'hdfs' ) && fileName){
-							fileName = fileName.substr(fileName.lastIndexOf('/')+1);
-						}
-						sourceDataId=element.id;
-						tableColumnsMap.put(sourceDataId,element.columnList);
-						liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
-					});
-					liStr+=liStr_min+"</ul></li>";
-				});
-				$('#_source_add .menuStyle').html(liStr);
-				$.slideStyle('#_source_add .menuStyle');
-				$('#_source_add .draggable').unbind('mousedown').mousedown(function(e, a){
-	        	    if(e.which == 3 || a == 'right'){
-	        	        $currentRightDom = $(this);
-	        	        generateFun(null,"#_source_add .draggable",0);
-	        	    }
-	        	});
-				initDragable();
-				/* $(sourceDatas).each(function(index,item){
 					fileName=item.fileName;
 					is_interface=item.isInterface;
 					if(( item.sourceDataType == 'ftp'  || item.sourceDataType == 'hdfs' ) && fileName){
@@ -3429,7 +3383,7 @@
 	        	        generateFun(null,"#_source_add p",0);
 	        	    }
 	        	});
-				initDragable(); */
+				initDragable();
 			},
 			error : function() {
 				$.dialog("异常！");
@@ -3468,7 +3422,7 @@
 	}
 	function clear_panel_(){
 		hide_column_constant_predict();
-		$('.dt_conL .menuStyle').empty();
+		$('.dt_conL').empty();
 		$('.col_con').empty();
 		$('.tab2_2').empty();
 		_jm1.show();

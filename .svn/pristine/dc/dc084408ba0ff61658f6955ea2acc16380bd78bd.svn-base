@@ -541,12 +541,17 @@ $(function(){
     			showType($idName, $dataType);
     		}
     	}
-    }
+    };
 
     window.closeTab=function($liObj){
     	var objDataType = $liObj.attr('data_type');
         var objIdName = $liObj.attr('idName');
         if(objDataType==2){
+            if(isChange()) {
+                $.confirm("controller面板数据有改动,是否保存?", function () {
+                    saveControllerInfo();
+                })
+            }
             $('.controller-' + objIdName).hide();
         }else if(objDataType==3){
             $('.flow-' + objIdName).hide();
@@ -1885,7 +1890,7 @@ function generateFun(power, domCls,menutype){
             {text:'添加挖掘模型',auth: addAuth, action:function(e){
                 e.preventDefault();
                 console.log('添加DataMining');
-                var folderName = '新建挖掘模型';
+                var folderName = '新建DataMining';
                 returnFileName(folderName,$currentRightDom.attr("id"),userId);
                 folderName = fileName;
                 addMenu($currentRightDom.attr("id"),menuTypeEnum[3],folderName);
