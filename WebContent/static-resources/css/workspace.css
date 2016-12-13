@@ -231,11 +231,20 @@ p {
 .menuStyle .detail li i{
     margin-right: 8px;
 }
+.menuStyle .detail li span{
+    display: inline-block;
+    width: 141px;
+    max-width: 141px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 .menuStyle .detail li i.branchIcon{
     display: inline-block;
     width: 20px;
     height: 20px;
-    vertical-align: -5px;
+    /*vertical-align: -5px;*/
+    vertical-align: 5px;
     background: url(../images/branchIcon.png)no-repeat center center;
     background-size: 14px 12px;
 }
@@ -2744,19 +2753,17 @@ ul.root_tree li div {
     left: 193px;
 }
 
-/*
-.line_active {
+/*.line_active {
     background-image: url('./../images/lineActive.png');
     background-size: 20px 21px;
 }
-*/
 
-/*.line_disabled {
+.line_disabled {
     background-image: url('./../images/lineDisable.png');
     background-size: 20px 21px;
 }*/
 
-/*.BI-bodyer .line_fun {
+.BI-bodyer .line_fun {
     position: relative;
     top: 5px;
     left: 129px;
@@ -2767,9 +2774,9 @@ ul.root_tree li div {
     background-repeat: no-repeat;
     background-position: left 0;
     background-size: 23px 27px;
-}*/
+}
 
-/*.BI-bodyer .line_active {
+.BI-bodyer .line_active {
     background-image: url('./../images/lineActive.png');
     background-size: 20px 21px;
 }
@@ -2777,7 +2784,7 @@ ul.root_tree li div {
 .BI-bodyer .line_disabled {
     background-image: url('./../images/lineDisable.png');
     background-size: 20px 21px;
-}*/
+}
 
 .tab_con1 {
     position: relative;

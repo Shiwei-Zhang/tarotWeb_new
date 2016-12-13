@@ -685,14 +685,14 @@ $(function(){
         $(this).children().children('i').show();
     });
 
-/*    $('.line_fun').on('click', function(){
+    $('.module-bi .line_fun').on('click', function(){
         if( $(this).css("left") =='0px'){
             var obj = $(this).prev();
             obj.show();
-            obj.animate({"width":"192px"}, 300, function(){
+            obj.animate({"width":"129px"}, 300, function(){
                 obj.children().fadeIn();
             });
-            $(this).animate({"left":"192px"}, 300).removeClass('line_disabled').addClass('line_active');
+            $(this).animate({"left":"129px"}, 300).removeClass('line_disabled').addClass('line_active');
         }else{
             var obj = $(this).prev();
             $(this).prev().children().hide();
@@ -701,7 +701,7 @@ $(function(){
             });
             $(this).animate({"left":"0px"}, 300).removeClass('line_active').addClass('line_disabled');
         }
-    });*/
+    });
 
     //change tab
     //start--
