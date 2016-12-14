@@ -132,14 +132,14 @@ $('.datamining-train .source-type select').unbind('change').change(function(){
 //类型切换
 var changeType = function(type){
 	if(type == 'interface'){
-		$('.interface').css({'color': 'black'});
+		//$('.interface').css({'color': 'black'});
 		$('.interface input').removeAttr('disabled');
-		$('.datasource').css({'color': '#A0A0A0'});
+		//$('.datasource').css({'color': '#A0A0A0'});
 		$('.datasource select').attr('disabled', 'disabled');
 	}else if(type == 'datasource'){
-		$('.datasource').css({'color': 'black'});
+		//$('.datasource').css({'color': 'black'});
 		$('.datasource select').removeAttr('disabled');
-		$('.interface').css({'color': '#A0A0A0'});
+		//$('.interface').css({'color': '#A0A0A0'});
 		$('.interface input').attr('disabled', 'disabled');
 		$('.interfaceName').val('');
 	}

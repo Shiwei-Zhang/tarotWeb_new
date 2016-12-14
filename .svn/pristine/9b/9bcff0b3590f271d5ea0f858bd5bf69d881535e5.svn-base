@@ -2567,7 +2567,7 @@
 								<option value="overwrite">overwrite</option>
 						</select></td>
 					</tr>
-					<tr style="display:none;">
+					<tr>
 						<td colspan="2"><input value="列设置" type="button"
 							class="setting_col"></td>
 					</tr>

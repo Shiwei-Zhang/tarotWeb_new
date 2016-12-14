@@ -408,7 +408,6 @@ $(function(){
             $('.target_panel').show();
         }
         
-        
         var str='';
         $.ajax({
             url:urlId+'/selectDataConnectionAndPowerByUserId'+'?userId='+$.getCookie('userId').id,
@@ -416,19 +415,12 @@ $(function(){
             dataType:"json",
             contentType: "application/json",
             success:function(data) {
-				str+='<option value="">请选择数据连接</option>';
+				str+='<option selected>请选择数据连接</option>';
                 $(data).each(function(index,item){
                     str+='<option value='+item["ID"]+'>'+item["NAME"]+'</option>';
                 });
                 $('#sjlj').html(str);
-        	    $('.table_name').val('');
-        	    $('#ms').val('');
                 
-        	    var node = _jm1.get_selected_node();
-        	    if(node){
-        	    	$bindEditClickEvent(targetsMap, node.data.pk);
-        	    }
-        	    
                 $('.target_layer').show();
                 $('.mask').show();
             },
@@ -437,6 +429,10 @@ $(function(){
             }
         });
     });
+
+
+
+
 
     //target layer --start
     $('.table_name').on("keyup", function(){
@@ -487,16 +483,8 @@ $(function(){
 		$('.target_layer').hide();
         $('.mask').hide();
         var node = _jm1.get_selected_node();
-        
-        //是否在修改已有的target
-        var $li = $('.name_list ul li.visitedBg');
-        if($li && $li.length > 0){
-        	updateTargetRecord(node);
-        }else{
-        	addTargetRecord(node);
-        }
+        addTargetRecord(node);
     });
-    
     //target layer --end
     //property end.
 
@@ -533,11 +521,13 @@ $(function(){
         	targetsMap.get(pk).push(target);
         	node.data.isSave = 1;
         	//追加.targets页面元素
-        	var dom = $('<div class="target" data-id="'+targetId+'"><label>'+tableName+'</label><span class="edit"><i class="fa fa-pencil-square-o"></i></span><span class="trash2"><i class="fa fa-trash2"></i></span></div>');
+        	var dom = $('<div class="target" data-id="'+targetId+'"><label>'+tableName+'</label><span class="trash2"><i class="fa fa-trash2"></i></span></div>');
     		$('.targets').append(dom);
     	}
     	$('.targets .edit').unbind('click').on('click', function(){
-    		$bindEditClickEvent(targetsMap, pk, $(this).parent().attr('data-id'));
+    	    $('#sjlj').val(conId);
+    	    $('.table_name').val(tableName);
+    	    $('#ms').val(model);
     	    $('.target_layer').show();
     	    $('.mask').show();
     	});
@@ -559,78 +549,6 @@ $(function(){
                 console.log(e)
             }
         });
-    };
-    window.updateTargetRecord = function(node){
-    	if(!node){
-    		return;
-    	}
-    	var pk = node.data.pk;
-    	var targets = targetsMap.get(pk);
-    	
-    	var newTargets = $('.name_list ul li');
-    	var pageTargets = $('.targets .target');
-    	 $.each(targets, function(index, target){
-    		 var $newTarget = $(newTargets[index]);
-    		 
-    		 var conId = $newTarget.attr('data-conid');
-    		 var tableName = $newTarget.attr('data-tablename');
-    		 var model = $newTarget.attr('data-model');
-    		 
-    		 target['conId'] = conId;
-    		 var enumList = new Array();
-         	 var SaveTargetParam = new Object();
-         	 SaveTargetParam.enumCode = "savetable";
-         	 SaveTargetParam.value = tableName;
-         	 enumList.push(SaveTargetParam);
-         	 
-         	 var SaveTargetParam2 = new Object();
-         	 SaveTargetParam2.enumCode = "model";
-         	 SaveTargetParam2.value = model;
-         	 enumList.push(SaveTargetParam2);
-         	 //参数枚举
-         	 target['saveTargetParams'] = enumList;
-         	 
-         	 //页面信息修改
-         	 $(pageTargets[index]).find('label').text(tableName);
-    	 });
-    };
-    window.$bindEditClickEvent = function($targetsMap, $pk, $targetId){
-    	$('.name_list ul').empty();
-	    $.each($targetsMap.get($pk), function(index, target){
-	    	var targetParam = target['saveTargetParams'];
-	    	var targetTableName = targetParam[0].value;
-	    	var model = targetParam[1].value;
-	    	if( target.num == $targetId){
-	    		$('.name_list ul').append( $('<li data-conid="'+target.conId+'" data-tablename="'+targetTableName+'" data-targetnum="'+target.num+'" data-model="'+model+'" class="visitedBg">'+targetTableName+'</li>') );
-	    		
-	    		 $('#sjlj').val(target.conId);
-	    		 $('.table_name').val(targetTableName);
-	    		 $('#ms').val(model);
-	    	}else{
-	    		$('.name_list ul').append( $('<li data-conid="'+target.conId+'" data-tablename="'+targetTableName+'" data-targetnum="'+target.num+'" data-model="'+model+'">'+targetTableName+'</li>') );
-	    	}
-	    });
-	    $('.name_list ul li').unbind().click(function(){
-	    	var $this = $(this);
-	    	if($this.hasClass('visitedBg')){
-	    		 $this.removeClass('visitedBg');
-	    		 $('#sjlj').val('');
-		     	 $('.table_name').val('');
-		     	 $('#ms').val('');
-	    		return ;
-	    	}else{
-	    		var $oldLi = $('.name_list ul li.visitedBg');
-	    		$oldLi.attr( 'data-conid', $('#sjlj').val() ).attr( 'data-tablename',  $('.table_name').val() ).attr( 'data-model',  $('#ms').val() ).text( $('.table_name').val() ).removeClass('visitedBg');
-	    		
-	    		 $this.addClass('visitedBg');
-	    		 var conId = $this.attr('data-conid');
-	    		 var tableName = $this.attr('data-tablename');
-	    		 var model = $this.attr('data-model');
-	    		 $('#sjlj').val(conId);
-	     	    $('.table_name').val(tableName);
-	     	    $('#ms').val(model);
-	    	}
-	    });
     };
     window.addFilterRecord = function(){
         var dom = $('<div class="filter">' +  $('.filter')[0].innerHTML + '</div>');
