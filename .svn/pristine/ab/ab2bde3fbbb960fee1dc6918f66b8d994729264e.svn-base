@@ -6,7 +6,6 @@ var _conId = null,
 	_tableName = null,
 	_menuId = null;
 var _connInfo = {
-		trainType: '',
 		con: '',
 		tableName: '',
 		column: ''
@@ -18,7 +17,6 @@ var con_;
 var tableName_;
 var column_;
 var faceName_;
-var __changed = false;
 //DATA MINING entrance
 var dataMiningInit = function($dataMiningId){
 	_menuId = $dataMiningId;
@@ -52,7 +50,9 @@ var dataMiningInit = function($dataMiningId){
 //渲染已经有dataming信息的页面
 var renderPage = function(dataMining, dataMiningTrainInfo, targetInfo, connectionInfo, sourceData){
 	//训练模型 和属性信息
-	//_tableName = sourceData.fileName;
+	//trainType_ = dataMining.type;
+	//con_ = connectionInfo.id;
+	tableName = sourceData.fileName;
 	var  trainType = dataMining.type;
 	var trainColumn = '';
 	for(var i = 0; i < dataMiningTrainInfo.length; i ++){
@@ -73,7 +73,6 @@ var renderPage = function(dataMining, dataMiningTrainInfo, targetInfo, connectio
 	}else{
 		_sourceType = 'datasource';
 		_connInfo = {
-				trainType: trainType,
 				con: connectionInfo.id,
 				tableName: sourceData.fileName,
 				column: trainColumn
@@ -92,7 +91,6 @@ var renderPage = function(dataMining, dataMiningTrainInfo, targetInfo, connectio
 var resetPage = function(){
 	_trainType = 'naivebayes', _sourceType = 'interface', _conId = null, _tableName = null,
 	_connInfo = {
-			trainType: '',
 			con: '',
 			tableName: '',
 			column: ''
@@ -181,7 +179,6 @@ var renderDataSourceConnection = function(){
 //表信息渲染
 var bindConnectionInfoChangeEvent = function( $connSelect ){
 	$connSelect.unbind('change').change(function(){
-		
 		_conId = $connSelect.val();
 		var conTables = $('.datamining-train .datasource-tables select');
 		var str = '<option value="">请选择表</option>';
@@ -227,7 +224,6 @@ var bindConnectionInfoChangeEvent = function( $connSelect ){
 //字段信息渲染
 var bindConTablesChangeEvent = function($conTables, $conId){
 	$conTables.unbind('change').change(function(){
-		
 		_tableName = $conTables.val();
 		var columns = $('.datamining-train .datasource-columns select');
 		var columnDom = '<option value="">请选择或者填写字段</option>';
@@ -305,6 +301,9 @@ $('.datamining-save').unbind('click').click(function(){
 		sourceTypeParams['interfaceName'] = interfaceName;
 	}else if(_sourceType == 'datasource'){
 		var trainColumn = $('.datasource-columns select').val();
+		/*if(!_conId || !_tableName || !trainColumn){
+			return ;
+		}*/
 		if(!_conId){
 			$.dialog("请选择数据连接");
 			return ;
@@ -323,6 +322,23 @@ $('.datamining-save').unbind('click').click(function(){
 	}
 	dataMining[_sourceType] = JSON.stringify( sourceTypeParams );
 	
+	//trainType_ = _trainType;
+	//interfaceName_ = _interfaceName;
+	//con_ = _conId;
+	//tableName_ = _tableName;
+	//column_ = trainColumn;
+	//c. target
+	//TODO ... 待定
+	//var target = {};
+	/*var targetConId = $('.datamining-target .datasource-connection select').val();
+	var targetTableName = $('.datamining-target .tableName').val();
+	if(!targetConId || !targetTableName){
+		return ;
+	}*/
+	//target['url'] = targetConId + '/' + targetTableName;
+	//TODO will be deleted
+	//target['url'] = 'hdfs://tarot1:9000/testML/alsModel';
+	//dataMining['target'] = JSON.stringify( target );
 	var $saveBtn = $('.datamining-save');
 	dataMining['userId'] = $.getCookie('userId').id;
 	dataMining['userName'] = $.getCookie('userId').name;
@@ -377,46 +393,34 @@ $('.datamining-test').unbind().click(function(){
 		return;
 	}
 	var interfaceName = $('.datamining-train .interfaceName').val();
-	var $trainType = $('.train-type select').val();
-	var $sourceType = $('.source-type select').val();
-	var $con = $('.datasource-connection select').val();
-	var $tableName = $('.datasource-tables select').val();
-	var $column = $('.datasource-columns select').val();
+	_trainType = $('.train-type select').val();
+	_sourceType = $('.source-type select').val();
+	_con = $('.datasource-connection select').val();
+	_tableName = $('.datasource-tables select').val();
+	_column = $('.datasource-columns select').val();
+	/*if(trainType_ != _trainType || sourceType_ != _sourceType || con_ != _con || tableName_ != _tableName || column_ != _column || interfaceName_ != _interfaceName){
+		$.dialog('请确认信息是否保存成功');
+		return;
+	}*/
 	
-	
-	var sendEngine = function(){
-		$.ajax({
-			url:urlId+'/sendEngineByTest',
-			type:'POST',
-			data:{
-				flowId: flowId,
-				type: type
-			},
-			success:function(data) {
-				if(data){
-					data = JSON.parse(data);
-					if(data.flag){
-						$.dialog('信息发送成功。');
-						startSchedule(data.uuid);
-					}
+	$.ajax({
+		url:urlId+'/sendEngineByTest',
+		type:'POST',
+		data:{
+			flowId: flowId,
+			type: type
+		},
+		success:function(data) {
+			if(data){
+				data = JSON.parse(data);
+				if(data.flag){
+					$.dialog('信息发送成功。');
+					startSchedule(data.uuid);
 				}
-				$.hideLoading();
 			}
-		});
-	};
-	//TODO ... 
-	if(__changed || ($trainType != _connInfo.trainType) || ( $con != _connInfo.con) || ($tableName != _connInfo.tableName) || ($column != _connInfo.column)  ){
-		console.log('数据改变。。。');
-		$.confirm('页面信息发生改变， 确认后将放弃更改， 是否放弃更改？', function(){
-			$('.train-type select').val(_connInfo.trainType);
-			document.getElementById("datamining-from").reset();
-			$('.datasource-connection select').val(_connInfo.con).trigger('change');	
-			sendEngine();
-		});
-	}else{
-		sendEngine();
-	}
-	
+			$.hideLoading();
+		}
+	});
 });
 
 var startSchedule = function( uuid ){
@@ -476,36 +480,47 @@ var showAttr = function(trainType){
 	$('.datamining-attr ul').hide();
 	switch(trainType){
 	case 'naivebayes':
+		//TODO 朴素贝叶斯类型...
 		$('.datamining-attr ul.naivebayes-attr').show();
 		break;
 	case 'linearregression':
+		//TODO 线性回归类型...
 		$('.datamining-attr ul.linearRegression-attr').show();
 		break;
 	case 'logisticregression':
+		//TODO 逻辑回归类型...
 		$('.datamining-attr ul.logisticRegression-attr').show();
 		break;
 	case 'ridgeregression':
+		//TODO 岭回归类型...
 		$('.datamining-attr ul.ridgeregression-attr').show();
 		break;
 	case 'svm':
+		//TODO 支持向量机SVM类型...
 		$('.datamining-attr ul.svm-attr').show();
 		break;
 	case 'kmeans':
+		//TODO K-means聚类类型...
 		$('.datamining-attr ul.kmeans-attr').show();
 		break;
 	case 'decisiontreesclassifier':
+		//TODO 分类树类型...
 		$('.datamining-attr ul.decisiontreesclassifier-attr').show();
 		break;
 	case 'decisiontreesregression':
+		//TODO 回归树类型...
 		$('.datamining-attr ul.decisiontreesregression-attr').show();
 		break;
 	case 'als':
+		//TODO ALS推荐类型...
 		$('.datamining-attr ul.als-attr').show();
 		break;
 	case 'discrete':
+		//TODO 离散化...
 		$('.datamining-attr ul.discrete-attr').show();
 		break;
 	case 'quantify':
+		//TODO 量化...
 		$('.datamining-attr ul.quantify-attr').show();
 		break;
 	}
@@ -976,9 +991,3 @@ var quantifyAttrs = function(){
 	
 	return quantify;
 }
-
-
-//监听属性变化
-$('.datamining-attr input, .datamining-attr select').unbind().change(function(){
-	__changed = true;
-});

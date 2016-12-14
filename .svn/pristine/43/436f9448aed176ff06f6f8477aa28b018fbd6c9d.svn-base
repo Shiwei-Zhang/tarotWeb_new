@@ -585,7 +585,7 @@ ul.root_tree li div {
 
 .bicharlistStyle {
     height: 360px;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -848,7 +848,7 @@ ul.root_tree li div {
 .biDataL .biList {
     height: 220px;
     max-height: 220px;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -3126,7 +3126,7 @@ right style
     margin-top: 4px;
     height: 290px;
     max-height: 300px;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     background: #e7e8ea;
 }
@@ -3941,7 +3941,7 @@ right style
 }
 .editUser-table .userEdit{
     max-height: 305px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 .edit-user .table-user {
     position: relative;
@@ -4114,7 +4114,7 @@ right style
     height: 469px;
     max-height: 469px;
     margin: 0 40px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 .mainList .liStyle{
     height: 25px;

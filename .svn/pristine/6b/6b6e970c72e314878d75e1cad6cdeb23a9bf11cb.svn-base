@@ -145,7 +145,7 @@ p {
 .right-header > div > div:last-child {
     width: 44px;
     height: 20px;
-    font-size: 12px;
+    font-size: 8px;
     text-align: center;
     margin-top: -8px;
 }
@@ -233,8 +233,8 @@ p {
 }
 .menuStyle .detail li span{
     display: inline-block;
-    width: 134px;
-    max-width: 134px;
+    width: 141px;
+    max-width: 141px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -322,7 +322,6 @@ p {
     height: 30px;
     line-height: 30px;
     font-weight: normal;
-    font-size: 12px;
     text-align: left;
     padding-left: 10px;
     cursor: pointer;
@@ -585,7 +584,7 @@ ul.root_tree li div {
 
 .bicharlistStyle {
     height: 360px;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -848,7 +847,7 @@ ul.root_tree li div {
 .biDataL .biList {
     height: 220px;
     max-height: 220px;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -3126,7 +3125,7 @@ right style
     margin-top: 4px;
     height: 290px;
     max-height: 300px;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     background: #e7e8ea;
 }
@@ -3941,7 +3940,7 @@ right style
 }
 .editUser-table .userEdit{
     max-height: 305px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 .edit-user .table-user {
     position: relative;
@@ -3969,8 +3968,6 @@ right style
 
 .barcon input {
     width: 50px;
-    outline: none;
-    border:1px solid #000;
 }
 
 .barcon button.active, .barcon button:active {
@@ -4114,7 +4111,7 @@ right style
     height: 469px;
     max-height: 469px;
     margin: 0 40px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 .mainList .liStyle{
     height: 25px;
@@ -4359,7 +4356,7 @@ right style
 }
 
 .plus_icon {
-    width: 18px;
+    width: 20px;
     height: 25px;
     background-image: url('./../images/plus.png');
     background-repeat: no-repeat;

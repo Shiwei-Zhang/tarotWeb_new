@@ -565,14 +565,17 @@
 											<li class="source-type">
 												<span>类型</span>
 												<select>
-													<!-- <option value="interface">接口</option> -->
+													<option value="interface">接口</option>
 													<option value="datasource">数据源</option>
 												</select>
 											</li>
-											<!-- <li class="interface">
+											<li class="interface">
 												<span>接口名称</span>
+												<!-- <select>
+													<option value="">AGP、PCI-E 16X</option>
+												</select> -->
 												<input class="interfaceName" maxlength="50" type="text" placeholder="请输入接口名称"/>
-											</li> -->
+											</li>
 											<li class="datasource datasource-connection">
 												<span>数据连接</span>
 												<select>
@@ -643,7 +646,6 @@
 							<div class="dataMinRtop">
 								属性
 							</div>
-							<form id="datamining-from">
 							<div class="dataMinR-prop">
 								<ul class="propContainer naivebayes-attr"><!-- 朴素贝叶斯 -->
 									<li>
@@ -937,7 +939,6 @@
 									</li>
 								</ul>
 							</div>
-							</form>
 						</div>
 					</div>
 					<!--dataMining end-->

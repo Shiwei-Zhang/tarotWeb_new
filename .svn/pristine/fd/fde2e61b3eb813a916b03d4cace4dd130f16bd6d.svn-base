@@ -456,14 +456,13 @@ $(function(){
 
     			$('.close_m').unbind('click').click(function(e){
     				e = e || window.event;
-					var $showName=$(this).prev().html();
     				if(e.stopPropagation) { //W3C阻止冒泡方法
     					e.stopPropagation();
     				} else {
     					e.cancelBubble = true; //IE阻止冒泡方法
     				}
     				var $liObj = $(this).parent().parent();
-    				$.confirm('要在关闭之前存储对“'+$showName+'”的更改吗？', function(){
+    				$.confirm('要在关闭之前存储对“'+$fileName+'”的更改吗？', function(){
     					closeTab($liObj);
     				});
     			});
