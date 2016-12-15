@@ -2040,7 +2040,7 @@ ul.root_tree li div {
     bottom: 0;
     margin:auto;
     z-index: 161;
-    width:898px;
+    width: 1015px;
     height: 731px;
     background: #fff;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
@@ -3268,7 +3268,8 @@ right style
 
 .target label {
     display: inline-block;
-    width: 252px;
+    /*width: 252px;*/
+    width: 293px;
     height: 20px;
     font-size: 14px;
 }

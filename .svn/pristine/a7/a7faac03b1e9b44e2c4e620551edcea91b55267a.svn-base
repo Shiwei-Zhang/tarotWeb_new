@@ -1276,11 +1276,11 @@ function addConValidation(jsonObj){
 		return false;
 	}
 
-	var nameReg = /^[\w-=]{1,60}$/ig;
-	var ipReg = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/ig;
+	var nameReg = /^.{1,60}$/ig;
+	var ipReg = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/ig;
 	var portReg = /^\d{1,6}$/ig;
 	var connectionName = jsonObj.connectionName;
-	if(!connectionName.match(nameReg)){
+	if(!connectionName){
 		$.dialog("请填写正确的连接名。");
 		return false;
 	}
@@ -1302,11 +1302,11 @@ function addConValidation(jsonObj){
 			flag = false;
 			$.dialog("请填写正确的端口号。");
 			break;
-		}else if(name.indexOf('db') > -1 && !value.match(nameReg) ){
+		}else if(name.indexOf('db') > -1 && !value ){
 			flag = false;
 			$.dialog("请填写正确的数据库名。");
 			break;
-		}else if(name.indexOf('username') > -1 && !value.match(nameReg) ){
+		}else if(name.indexOf('username') > -1 && !value ){
 			flag = false;
 			$.dialog("请填写正确的用户名。");
 			break;

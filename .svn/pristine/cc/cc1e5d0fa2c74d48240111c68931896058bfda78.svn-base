@@ -1173,20 +1173,19 @@ $(function () {
     function ipBlur(isBlack) {
         var tag;
         if(isBlack) {
-            tag = '.ipContainerB li span';
+            tag = '.ipContainerB li span:eq(1)';
         } else {
-            tag = '.ipContainerA li span';
+            tag = '.ipContainerA li span:eq(1)';
         }
         $(tag).blur(function(){
-            var $this=$(this);
             var blackItem = {};
-            blackItem.endIp=$this.html().trim();
-            blackItem.beginIp=$this.prev().html().trim();
-            checkBlackList(blackItem,$this);
+            blackItem.endIp=$(this).html().trim();
+            blackItem.beginIp=$(this).prev().html().trim();
+            checkBlackList(blackItem);
         })
     }
     //黑名单校验
-    function checkBlackList(blackItem,$this) {
+    function checkBlackList(blackItem) {
         //白名单
         var blackList=[];
         var $ipContainerA = $('.ipContainerA li');
@@ -1225,13 +1224,7 @@ $(function () {
                 if(data.length == 0) {
                     alert('正确');
                 } else {
-                    //alert(data.toString());
-                    $this.attr('data-tipso',data.toString()).tipso({
-                        position: 'bottom',
-                        background: '#d9f4fe',
-                        color:'#202020',
-                        useTitle: false
-                    }).css('color','red');
+                    alert(data.toString());
                 }
                 //TODO
                 //前台提示信息展示

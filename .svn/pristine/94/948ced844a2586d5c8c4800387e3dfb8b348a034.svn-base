@@ -997,13 +997,6 @@ var user_ = $.getCookie('userId');
 	});
 	$('.bi-visualmap input[name="dimension"]').change(function(){
 		var dimension = $(this).val();
-		var maxDimension = $('.bi-sort select[name="fields"] option').length - 1;
-		if(dimension < 0){
-			dimension = 0;
-		}else if(dimension > maxDimension){
-			dimension = maxDimension;
-		}
-		$(this).val(dimension);
 		if(visualmapShow == 1 && dimension && chartJson){
 			visualMap.dimension = dimension;
 			chartJson.visualMap = [];
@@ -2513,9 +2506,9 @@ var user_ = $.getCookie('userId');
 		$('#' + $divId + '-parent').resizable({
 			ghost: true,
 	    	minHeight: 150,
-	    	/*maxHeight: 600,*/
+	    	maxHeight: 600,
 	    	minWidth: 150,
-	    	/*maxWidth: 800,*/
+	    	maxWidth: 800,
 	    	start: function( event, ui ){
 	    		$('.bi-chart-group').hide();
 	    		$('.bi-template-container div.ui-draggable-handle').css({'border':'0px solid #2C78C4'});
@@ -2954,7 +2947,7 @@ var user_ = $.getCookie('userId');
 			filterO = chart.filter.split('^')[0];
 		}
 		$('.bi-chart-list').append( 
-				$('<div class="bi-edit" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '" data-charttype="'+chart.classType+'" data-filter="'+filterO+'" title="'+name+'">'+name+'</div>') );
+				$('<div class="bi-edit" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '" data-charttype="'+chart.classType+'" data-filter="'+filterO+'">'+name+'</div>') );
 		//绑定点击和拖拽事件
 		biEditBindEvent();
 	};
