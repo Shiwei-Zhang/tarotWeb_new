@@ -47,20 +47,6 @@ input[type="button"] {
     cursor: pointer;
 }
 
-/*scroll*/
-.scrollContainerTree {
-    position: relative;
-    height: 886px;
-    overflow: hidden;
-}
-/*.scrollcontainerData{
-    position: relative;
-    height: 355px;
-    overflow: hidden;
-}*/
-/*scroll*/
-
-
 .header_active {
     background-color: #d2d2d2;
     border:1px solid #A0A0A0;
@@ -247,7 +233,7 @@ p {
 }
 .menuStyle .detail li span{
     display: inline-block;
-    width: 121px;
+    width: 134px;
     max-width: 134px;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -351,7 +337,7 @@ p {
 /*scrollbar style*/
 ::-webkit-scrollbar/*整体部分*/
 {
-    width: 2px;
+    width: 5px;
     height:5px;
 }
 
@@ -441,9 +427,8 @@ p {
 }
 
 .folder {
-    /*height: 886px;*/
-    /*overflow: scroll;*/
-    /*overflow: hidden;*/
+    height: 886px;
+    overflow: scroll;
     font-size: 12px;
 }
 
@@ -2824,17 +2809,11 @@ ul.root_tree li div {
     overflow-y: auto;
     overflow-x: hidden;
     background: #f4f4f4;
-
-/*    position: relative;
-    height: 355px;
-    overflow: hidden;
-    background: #f4f4f4;*/
 }
 
 #tabbox2 .dt_d .dt_con {
     height: 354px;
     overflow-y: auto;
-    overflow-x: hidden;
     background: #f4f4f4;
 }
 
