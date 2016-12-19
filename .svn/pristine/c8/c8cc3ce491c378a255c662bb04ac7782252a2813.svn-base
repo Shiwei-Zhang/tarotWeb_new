@@ -355,7 +355,7 @@ $(function(){
             dataType:"json",
             contentType: "application/json",
             success:function(data) {
-				str+='<option value="" selected>请选择数据连接</option>';
+				str+='<option selected>请选择数据连接</option>';
                 $(data).each(function(index,item){
                     str+='<option value='+item["ID"]+'>'+item["NAME"]+'</option>';
                 });
@@ -613,16 +613,9 @@ $(function(){
 					}
 					sourceDataId=element.id;
 					tableColumnsMap.put(sourceDataId,element.columnList);
-					liStr_min="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
-					var $liStr_min = $(liStr_min);
-					liElement.find('ul').append($liStr_min);
-					$liStr_min.unbind('mousedown').mousedown(function(e, a){
-			    	    if(e.which == 3 || a == 'right'){
-			    	        $currentRightDom = $(this);
-			    	        generateFun(null,"#_source_add .draggable",0);
-			    	    }
-			    	});
+					liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
 				});
+				liElement.find('ul').append(liStr_min);
 			}else{
 				sourceDatas.push(item);
 				liStr+="<li conId='"+item.conId+"'><div class='titleT clearFix'><span>"+item.conName+"</span><i class='arrowUp'></i></div><ul class='detail show'>";
@@ -637,17 +630,17 @@ $(function(){
 					liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
 				});
 				liStr+=liStr_min+"</ul></li>";
-				var $liStr = $(liStr);
-				$('#_source_add .menuStyle').append($liStr);
-				$liStr.find('li').mousedown(function(e, a){
-		    	    if(e.which == 3 || a == 'right'){
-		    	        $currentRightDom = $(this);
-		    	        generateFun(null,"#_source_add .draggable",0);
-		    	    }
-		    	});
-				$.slideStyle($liStr);
 			}
 		});
+		var $liStr = $(liStr);
+		$('#_source_add .menuStyle').append($liStr);
+		$.slideStyle($liStr);
+		$('#_source_add .draggable').unbind('mousedown').mousedown(function(e, a){
+    	    if(e.which == 3 || a == 'right'){
+    	        $currentRightDom = $(this);
+    	        generateFun(null,"#_source_add .draggable",0);
+    	    }
+    	});
 		initDragable();
     };
     //数据源、数据接口弹出框

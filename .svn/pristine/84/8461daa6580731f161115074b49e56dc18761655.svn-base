@@ -319,18 +319,19 @@
 
 							<div class="prop1">
 								<div class="title">
-									<span class="join_"><i class="fa fa-caret-right"></i>连接</span>
+									<span class="join_"><i class="fa fa-caret-right"></i>
+										连接</span>
+
 								</div>
+
 								<div class="panel join_panel" style="display: none">
 									<div class="joins">
-										 <!--as template-->
+										<!-- as template-->
 										<div class="template_join" style="display: none;">
-											<select class="condition1 changeEvent">
+											<select class="condition1">
 												<option value="id">table1.ID</option>
 												<option value="name">table1.NAME</option>
-											</select>
-											<input class="showVal showVal1">
-											<select class="condition2">
+											</select> <select class="condition2">
 												<option value="=">=</option>
 												<option value="!=">!=</option>
 												<option value=">">&gt;</option>
@@ -339,13 +340,10 @@
 												<option value="<=">&lt;=</option>
 												<option value="like">like</option>
 												<option value="in">in</option>
-											</select>
-											<select class="condition3 changeEvent">
+											</select> <select class="condition3">
 												<option value="id">table2.ID</option>
 												<option value="name">table2.NAME</option>
-											</select>
-											<input class="showVal showVal2">
-											<span class="plus-right"><i class="fa fa-trash2"></i></span>
+											</select> <span class="plus-right"><i class="fa fa-trash2"></i></span>
 										</div>
 										<div class="template_operations" style="display: none;">
 											<select class="condition4">
@@ -357,9 +355,12 @@
 												<option value="-1">降</option>
 											</select>
 										</div>
+
 									</div>
 								</div>
 							</div>
+
+
 							<div class="prop1">
 								<div class="title">
 									<span class="filter_"><i class="fa fa-caret-right"></i>
@@ -548,7 +549,7 @@
 									<div class="dataMinC dataMinCl datamining-train">
 										<ul class="paramList">
 											<li class="train-type">
-												<span>训练类型</span>
+												<span>模型类型</span>
 												<select>
 													<option value="naivebayes">朴素贝叶斯类型</option>
 													<option value="linearregression">线性回归类型</option>
@@ -575,9 +576,9 @@
 												<input class="interfaceName" maxlength="50" type="text" placeholder="请输入接口名称"/>
 											</li> -->
 											<li class="datasource datasource-connection">
-												<!-- <div class="hider"></div> -->
+												<div class="hider"></div>
 												<span>数据连接</span>
-												<select id="connInfo">
+												<select>
 													<option value="">请选择数据连接</option>
 												</select>
 											</li>
@@ -650,15 +651,15 @@
 								<ul class="propContainer naivebayes-attr"><!-- 朴素贝叶斯 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark" maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>平滑参数</span>
-										<input type="text" class="smoothing" value="1.0"  maxlength="20">
+										<input type="text" class="smoothing" value="1.0">
 									</li>
 									<li>
 										<span>阈值</span>
-										<input type="text" class="thresholds" value="1.0,2.0"  maxlength="20">
+										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 									<li>
 										<span>模型类型</span>
@@ -672,11 +673,11 @@
 								<ul class="propContainer linearRegression-attr" style="display:none"><!-- 线性回归 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>弹性网参数</span>
-										<input type="text" class="elasticNetParam" value="0.0"   maxlength="20">
+										<input type="text" class="elasticNetParam" value="0.0">
 									</li>
 									<li>
 										<span>适合截距</span>
@@ -687,11 +688,11 @@
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter" value="100"  maxlength="20">
+										<input type="text" class="maxIter" value="100">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParam" value="0.0"  maxlength="20">
+										<input type="text" class="regParam" value="0.0">
 									</li>
 									<li>
 										<span>求解</span>
@@ -708,17 +709,17 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol" value="1.0E-6"  maxlength="30">
+										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
 								<ul class="propContainer logisticRegression-attr" style="display:none"><!-- 逻辑回归 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>弹性网参数</span>
-										<input type="text" class="elasticNetParam" value="0.0"  maxlength="20">
+										<input type="text" class="elasticNetParam" value="0.0">
 									</li>
 									<li>
 										<span>适合截距</span>
@@ -729,11 +730,11 @@
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter" value="100"  maxlength="20">
+										<input type="text" class="maxIter" value="100">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParam" value="0.0"  maxlength="20">
+										<input type="text" class="regParam" value="0.0">
 									</li>
 									<li>
 										<span>标准化</span>
@@ -744,15 +745,15 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol" value="1.0E-6"  maxlength="30">
+										<input type="text" class="tol" value="1.0E-6">
 									</li>
 									<li>
 										<span>阈值</span>
-										<input type="text" class="thresholds" value="1.0,2.0"  maxlength="30">
+										<input type="text" class="thresholds" value="1.0,2.0">
 									</li>
 									<li>
 										<span>阈值</span>
-										<input type="text" class="threshold" value="0.5"  maxlength="20">
+										<input type="text" class="threshold" value="0.5">
 									</li>
 								</ul>
 								<ul class="propContainer ridgeregression-attr" style="display:none"><!-- 岭回归 -->
@@ -762,7 +763,7 @@
 									</li>
 									<li>
 										<span>弹性网参数</span>
-										<input type="text" class="elasticNetParam" value="0.0"  maxlength="20">
+										<input type="text" class="elasticNetParam" value="0.0">
 									</li>
 									<li>
 										<span>适合截距</span>
@@ -773,11 +774,11 @@
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter" value="100"  maxlength="20">
+										<input type="text" class="maxIter" value="100">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParam" value="0.0"  maxlength="20">
+										<input type="text" class="regParam" value="0.0">
 									</li>
 									<li>
 										<span>求解</span>
@@ -794,7 +795,7 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol" value="1.0E-6"  maxlength="30">
+										<input type="text" class="tol" value="1.0E-6">
 									</li>
 								</ul>
 								<ul class="propContainer svm-attr" style="display:none"><!-- 支持向量机SVM类型 -->
@@ -804,37 +805,37 @@
 									</li>
 									<li>
 										<span>迭代步长</span>
-										<input type="text" class="stepSize" value="1.0"  maxlength="20">
+										<input type="text" class="stepSize" value="1.0">
 									</li>
 									<li>
 										<span>迭代次数</span>
-										<input type="text" class="numIterations" value="100"  maxlength="20">
+										<input type="text" class="numIterations" value="100">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParm" value="0.01"  maxlength="20">
+										<input type="text" class="regParm" value="0.01">
 									</li>
 									<li>
 										<span>每次迭代参与计算的样本比例</span>
-										<input type="text" class="miniBatchFraction" value="1.0"  maxlength="20">
+										<input type="text" class="miniBatchFraction" value="1.0">
 									</li>
 								</ul>
 								<ul class="propContainer kmeans-attr" style="display:none"><!-- K-means聚类类型 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>初始步长</span>
-										<input type="text" class="initSteps" value="5"  maxlength="10">
+										<input type="text" class="initSteps" value="5">
 									</li>
 									<li>
 										<span>聚类个数</span>
-										<input type="text" class="k" value="2"  maxlength="10">
+										<input type="text" class="k" value="2">
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter" value="20"  maxlength="10">
+										<input type="text" class="maxIter" value="20">
 									</li>
 									<li>
 										<span>随机种子</span>
@@ -842,13 +843,13 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol" value="1.0E-4"  maxlength="20">
+										<input type="text" class="tol" value="1.0E-4">
 									</li>
 								</ul>
 								<ul class="propContainer decisiontreesregression-attr" style="display:none"><!-- 回归树类型 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>信息增益的计算方法</span>
@@ -858,21 +859,21 @@
 									</li>
 									<li>
 										<span>最大划分数</span>
-										<input type="text" class="maxBins" value="32"  maxlength="10">
+										<input type="text" class="maxBins" value="32">
 									</li>
 									<li>
 										<span>决策树的最大深度</span>
-										<input type="text" class="maxDepth" value="5"  maxlength="10">
+										<input type="text" class="maxDepth" value="5">
 									</li>
 								</ul>
 								<ul class="propContainer decisiontreesclassifier-attr" style="display:none"><!-- 分类树类型 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>分类的数量</span>
-										<input type="text" class="numClasses" value="2"  maxlength="10">
+										<input type="text" class="numClasses" value="2">
 									</li>
 									<li>
 										<span>信息增益的计算方法</span>
@@ -882,33 +883,33 @@
 									</li>
 									<li>
 										<span>最大划分数</span>
-										<input type="text" class="maxBins" value="32"  maxlength="10">
+										<input type="text" class="maxBins" value="32">
 									</li>
 									<li>
 										<span>决策树的最大深度</span>
-										<input type="text" class="maxDepth" value="5"  maxlength="10">
+										<input type="text" class="maxDepth" value="5">
 									</li>
 								</ul>
 								<ul class="propContainer als-attr" style="display:none"><!-- ALS推荐类型 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>块数</span>
-										<input type="text" class="numBlocks" value="-1"  maxlength="10">
+										<input type="text" class="numBlocks" value="-1">
 									</li>
 									<li>
 										<span>隐语义因子的个数</span>
-										<input type="text" class="rank" value="10"  maxlength="10">
+										<input type="text" class="rank" value="10">
 									</li>
 									<li>
 										<span>迭代次数</span>
-										<input type="text" class="iterations" value="10"  maxlength="10">
+										<input type="text" class="iterations" value="10">
 									</li>
 									<li>
 										<span>惩罚函数的因数</span>
-										<input type="text" class="lambda" value="0.01"  maxlength="10">
+										<input type="text" class="lambda" value="0.01">
 									</li>
 									<li>
 										<span>是否使用隐式偏好</span>
@@ -919,23 +920,23 @@
 									</li>
 									<li>
 										<span>alpha</span>
-										<input type="text" class="alpha" value="1.0"  maxlength="10">
+										<input type="text" class="alpha" value="1.0">
 									</li>
 								</ul>
 								<ul class="propContainer discrete-attr" style="display:none"><!-- 离散化 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>种类</span>
-										<input type="text" class="category" value="5"  maxlength="10">
+										<input type="text" class="category" value="5">
 									</li>
 								</ul>
 								<ul class="propContainer quantify-attr" style="display:none"><!-- 量化 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark"  maxlength="50">
+										<input type="text" class="remark">
 									</li>
 								</ul>
 							</div>
@@ -1674,8 +1675,8 @@
 				<div class="personalInfo clearFix">
 					<div class="menuList">
 						<ul class="btnEvent">
-							<li class="message"><span class="selected">个人信息</span></li>
-							<li class="changePassword"><span>更改密码</span></li>
+							<li class="message"><span>个人信息</span></li>
+							<li class="changePassword"><span class="selected">更改密码</span></li>
 						</ul>
 					</div>
 					<div class="personalEdit">
@@ -1687,7 +1688,7 @@
 							<div class="userImage">
 								<span class="userImg"></span>
 							</div>
-
+							
 							<table class="userLook">
 								<tr>
 									<th>姓 名：<span></span></th>
@@ -1722,7 +1723,7 @@
 									<td class="isAdmin"></td>
 								</tr>
 							</table>
-
+							
 							<div class="editUserBtn" style="display:none;">
 								<span class="user-but saveUser">保存</span><span class="user-but cancelUser">取消</span>
 							</div>
@@ -1744,7 +1745,7 @@
 			<div class="users-manage" style="display: none;">
 				<div class="users-table">
 					<div class="search">
-						<i class="fa fa-search"></i>
+						<i class="fa fa-search"></i> 
 						<input id="itemValueUsers" class="sou1" type="text" placeholder="用户姓名、登录名、电话、邮箱" />
 						<input type="button" onclick="searchItemUsers();" class="search-text" value="搜索" />
 						<input type="button" class="search-text addUser" value="添加" />
@@ -2846,7 +2847,7 @@
 		console.log('serch~~~')
 	});
 	//TODO deleting
-   //urlId = 'http://localhost:800/';
+    //urlId = 'http://localhost:800/';
     //初始化目录
     $(function(){
         $.ajax({

@@ -1674,8 +1674,8 @@
 				<div class="personalInfo clearFix">
 					<div class="menuList">
 						<ul class="btnEvent">
-							<li class="message"><span class="selected">个人信息</span></li>
-							<li class="changePassword"><span>更改密码</span></li>
+							<li class="message"><span>个人信息</span></li>
+							<li class="changePassword"><span class="selected">更改密码</span></li>
 						</ul>
 					</div>
 					<div class="personalEdit">

@@ -183,14 +183,11 @@ $(function () {
     //controller界面打开时数据初始化
     window.initController=function (node) {
         //如果node没有数值的话,默认选中第一项
-        if(node==undefined || node.length==0) {
+        if(node == undefined) {
             node = $('.partStream li').eq(0);
         }
         //挖掘组件信息在树的信息得到后,从树迭代中获取
         flowTree();
-
-        controllerSave = getControllerData();
-
         //选中一个挖掘组件
         flowComponentClick(node);
     }
@@ -249,12 +246,6 @@ $(function () {
         //若有选中的流组件标签加入到要保存的项
         pushControllerInfo();
 
-        //先移除,再添加
-        $('.dependList').children().remove();
-        $('.alertDependList').children().remove();
-        $('.iNodeList').children().remove();
-        $('.columList').children().remove();
-
         //选中依赖项一个标签
         var flowId=flowNode.id;
         if(flowId==undefined) {
@@ -278,34 +269,35 @@ $(function () {
     //初始化依赖的Flow信息, flowId表示查的是哪个flow的依赖, flowIds流组件中的flowIds
     function initDependency(flowId) {
         //流组件所有的ID
-        var flowIds = getFlowIds();
-        var htmlStr = '';
-        //获取flow的依赖信息
-        var data = getFlowData(flowId);
-        var depList;
-        if(data!=undefined && (depList=data.dependenedInfoList)!=undefined && depList.length>0) {
-            for(var i=0; i<depList.length; i++) {
-                var array = depList[i];
-                var fId = array.flowId;
-                var selected = array.isSelect;
-                htmlStr += '<li fId='+fId+' refid='+getFlowRefId(fId)+'><i class="single';
-                if(selected) {
-                    htmlStr += ' singleChecked';
-                }
-                htmlStr += '"></i><span>'+getStreamText(fId)+'</span></li>';
-            }
-            $('.alertDependList').html(htmlStr);
-            $('.alertDependList').attr('fId', flowId);
-        }
-    }
-    function getFlowIds() {
-        //流组件所有的ID
         var $partStream = $('.partStream li');
         var flowIds = [];
         for(var i=0; i<$partStream.length; i++) {
             flowIds.push($partStream.eq(i).attr('id'));
         }
-        return flowIds;
+
+        var htmlStr = '';
+        $.ajax({
+            url: urlId + '/controller/queryFlowDependency',
+            type: 'POST',
+            async: false,
+            dataType: "json",
+            data: {conId: conId, flowId: flowId, flowIds: flowIds.toString()},
+            success: function (data){
+                var jsonArray = JSON.parse(data);
+                for(var i=0; i<jsonArray.length; i++) {
+                    var array = jsonArray[i];
+                    var fId = array.flowId;
+                    var selected = array.isSelect;
+                    htmlStr += '<li fId='+fId+' refid='+getFlowRefId(fId)+'><i class="single';
+                    if(selected) {
+                        htmlStr += ' singleChecked';
+                    }
+                    htmlStr += '"></i><span>'+getStreamText(fId)+'</span></li>';
+                }
+                $('.alertDependList').html(htmlStr);
+                $('.alertDependList').attr('fId', flowId);
+            }
+        });
     }
     //根据flowId获取Flow的目录层级
     function getStreamText(id) {
@@ -375,29 +367,6 @@ $(function () {
             });
         });
     }
-    //当依赖组件改变(增加/删除)时,依赖信息也要做相应的改变
-    function updateDependency() {
-        var flowIds = getFlowIds();
-        for(var i=0; i<flowIds.length; i++) {
-            var flowId = flowIds[i];
-            $.ajax({
-                url: urlId + '/controller/queryFlowDependency',
-                type: 'POST',
-                async: false,
-                dataType: "json",
-                data: {conId: conId, flowId: flowId, flowIds: flowIds.toString()},
-                success: function (data){
-                    for(var i=0; i<controllerSave.length; i++) {
-                        var tempSave = controllerSave[i];
-                        if(tempSave.flowId == flowId) {
-                            tempSave.dependenedInfoList=data;
-                            break;
-                        }
-                    }
-                }
-            })
-        }
-    }
 
     //依赖取消事件
     $('.add3EventTwo .closeA,.add3EventTwo .cancel').unbind('click').click(function () {
@@ -406,37 +375,6 @@ $(function () {
     //依赖确定事件
     $('.add3EventTwo .sure').unbind('click').click(function () {
         console.log("add3EventTwo sure");
-        var flowId = $('.partStream li.conVisitedBg').attr('id')
-
-        //++++++++++ 保存依赖关系 ++++++++++++
-        var dependenedInfoList=[];
-        var $dependList = $('.alertDependList li');
-        for(var i=0; i<$dependList.length; i++) {
-            var tempDepend = {};
-            tempDepend.flowId=$dependList.eq(i).attr('fid');
-            if($dependList.eq(i).find('i').hasClass('singleChecked')) {
-                tempDepend.isSelect=1;
-            } else {
-                tempDepend.isSelect=0;
-            }
-            dependenedInfoList.push(tempDepend);
-        }
-
-        //保存依赖
-        $.ajax({
-            url: urlId + '/controller/insertDependency',
-            type: 'POST',
-            async: false,
-            dataType: "json",
-            data: {conId: conId, flowId: flowId, dependenedInfoList: JSON.stringify(dependenedInfoList)},
-            success: function (data) {
-                console.log('insertDependency');
-            },
-            error: function () {
-                alert("insertDependency异常！");
-            }
-        })
-
         dependencyList();
         //选中第一个依赖组件
         var $dependList = $('.dependList li:eq(0)');
@@ -452,30 +390,35 @@ $(function () {
     }
 
     window.interfaceQuery=function (flowId) {
-        var flowData = getFlowData(flowId);
-        if(flowData != undefined) {
-            var parse = flowData.interfaceInfoList;
-            var interfaceHtml='';
-            var sourceColumHtml='';
+        console.log('query interface')
+        $.ajax({
+            url: urlId + '/controller/queryInterface',
+            type: 'POST',
+            async: false,
+            dataType: "json",
+            data: {flowId: flowId, conId: conId},
+            success: function (data) {
+                var interfaceHtml='';
+                var parse = JSON.parse(data);
+                var sourceColumHtml='';
 
-            for(var i=0; i< parse.length; i++) {
-                var interfaceItem = parse[i];
-                interfaceHtml+='<li sourceData='+interfaceItem.sourceDataId+'><span class="nameL">'+interfaceItem.sourceDataName+'</span><span logicNodeId='+interfaceItem.logicNodeId+' fid='+interfaceItem.flowId+' class="nameR">';
-                if(interfaceItem.logicNodeName=='') {
-                    interfaceHtml+='---bunding nodes---';
-                } else {
-                    var text = $('.dependList li[fid='+interfaceItem.flowId+']').text();
-                    var split = text.split('/');
-                    interfaceHtml+=split[split.length-1]+'.'+interfaceItem.logicNodeName;
-                }
-                interfaceHtml+='</span><ul class="nodeList nodeListEvent nodeItems" style="display: none;"></ul><i class="iconDown iconDownEvent"></i></li>';
+                for(var i=0; i< parse.length; i++) {
+                    var interfaceItem = parse[i];
+                    interfaceHtml+='<li sourceData='+interfaceItem.sourceDataId+'><span class="nameL">'+interfaceItem.sourceDataName+'</span><span logicNodeId='+interfaceItem.logicNodeId+' class="nameR">';
+                    if(interfaceItem.logicNodeName==undefined) {
+                        interfaceHtml+='---bunding nodes---';
+                    } else {
+                        var text = $('.dependList li[fid='+interfaceItem.flowId+']').text();
+                        var split = text.split('/');
+                        interfaceHtml+=split[split.length-1]+'.'+interfaceItem.logicNodeName;
+                    }
+                    interfaceHtml+='</span><ul class="nodeList nodeListEvent nodeItems" style="display: none;"></ul><i class="iconDown iconDownEvent"></i></li>';
 
-                var exportInterfaceColumnList = interfaceItem.exportInterfaceColumnList;
-                if(exportInterfaceColumnList!=undefined) {
-                    for(var k=0; k<exportInterfaceColumnList.length; k++) {
-                        var columnItem = exportInterfaceColumnList[k];
+                    var exportInterfaceColumn = interfaceItem.exportInterfaceColumn;
+                    for(var k=0; k<exportInterfaceColumn.length; k++) {
+                        var columnItem = exportInterfaceColumn[k];
                         sourceColumHtml+='<li sourceColumnId='+columnItem.sourceColumnId+'><span class="nameL iColum">'+columnItem.sourceColumnName+'</span><span columnId='+columnItem.columnId+' class="nameR">';
-                        if(columnItem.columnName=='') {
+                        if(columnItem.columnName==undefined) {
                             sourceColumHtml+='---node colums---'
                         } else {
                             sourceColumHtml+=interfaceItem.logicNodeName+'.'+columnItem.columnName;
@@ -483,11 +426,43 @@ $(function () {
                         sourceColumHtml+='</span><ul class="nodeList nodeListEvent nodeColums" style="display: none;"></ul><i class="iconDown iconDownEvent"></i></li></li>';
                     }
                 }
-            }
 
-            $('.iNodeList').append(interfaceHtml);
-            $('.columList').append(sourceColumHtml);//选中是flowId的标签
-        }
+                //先移除,再添加
+                var iNodeListChildren = $('.iNodeList').children();
+                if(iNodeListChildren.length>0) {
+                    iNodeListChildren.remove();
+                }
+                $('.iNodeList').append(interfaceHtml);
+
+                var columListChildren = $('.columList').children();
+                if(columListChildren.length>0) {
+                    columListChildren.remove();
+                }
+                $('.columList').append(sourceColumHtml);//选中是flowId的标签
+                console.log('interface');
+            },
+            error: function () {
+                alert("interface异常！");
+            }
+        });
+    }
+    //查询出已经绑定的信息
+    function queryExportNodeColumn(sourceDataId) {
+        var parse;
+        $.ajax({
+            url: urlId + '/controller/queryExportNodeColumn',
+            type: 'POST',
+            async: false,
+            dataType: "json",
+            data: {sourceDataId: sourceDataId},
+            success: function (data) {
+                parse = JSON.parse(data);
+            },
+            error: function () {
+                alert("queryExportNodeColumn 异常");
+            }
+        })
+        return parse;
     }
 
     //获取refId用于依赖项的插入
@@ -579,16 +554,6 @@ $(function () {
                     break;
                 }
             }
-            //从要保存的全局信息中移除
-            for(var i=0; i<controllerSave.length; i++) {
-                var tempSave = controllerSave[i];
-                if(tempSave.flowId == id) {
-                    controllerSave.splice(i, 1)
-                    break;
-                }
-            }
-            //更新依赖信息
-            updateDependency();
             //设置全局变量:被选中的项
             selectedFlows = getSelected('.addRoot01>div');
             //如果没有元素设置内容为空
@@ -598,6 +563,14 @@ $(function () {
             } else {
                 //选中邻近一个选项
                 flowComponentClick(seleEle);
+            }
+            //从要保存的全局信息中移除
+            for(var i=0; i<controllerSave.length; i++) {
+                var tempSave = controllerSave[i];
+                if(tempSave.theId == refid) {
+                    controllerSave.splice(i, 1)
+                    break;
+                }
             }
             //从数据库中删除
             $.ajax({
@@ -609,8 +582,7 @@ $(function () {
                 success: function (data){
                     console.log('delete dependency!');
                 }
-            })
-
+            });
         });
     }
     //根据menuId获取,并设置conId的相关信息
@@ -708,15 +680,11 @@ $(function () {
                     $('.partStream').children().remove();
                     //再重新进行添加
                     flowTree()
-                    //controllerSave重新赋值
-                    controllerSave = getControllerData();
                 },
                 error: function () {
-                    alert("insertFlowControllerRef异常");
+                    alert("插入映射异常");
                 }
             })
-            //更新依赖信息
-            updateDependency();
         }
 
         $('.add3EventOne,.mask').hide();
@@ -736,64 +704,83 @@ $(function () {
     //获取第一个选中的依赖,并展示节点和列的相关信息
     function queryLogicNodes(flowId) {
         if(!(flowId==null)) {
-            var data = getFlowData(flowId);
-
-            var nodeList = data.logicNodeInfoList;
-            if(nodeList!=undefined) {
-                var nodeStr='';
-                for(var i=0; i<nodeList.length; i++) {
-                    //得到是哪个flow的名字
-                    var text = $('.dependList li[fid='+flowId+']').text();
-                    var split = text.split('/');
-                    nodeStr+='<li class="nodeClick" logicnodeid='+nodeList[i].id+'>'+split[split.length-1]+'.'+nodeList[i].alias+'</li>';
-                }
-                var $iNodeList = $('.iNodeList>li');
-                for(var i=0; i<$iNodeList.length; i++) {
-                    var nodeName = $iNodeList.eq(i).children('span:eq(1)');
-                    var ulChild = $iNodeList.eq(i).children('ul');
-                    var lis = ulChild.children('li');
-                    if(lis.length>0) {
-                        lis.remove();
+            $.ajax({
+                url: urlId + '/controller/queryLogicNodes',
+                type: 'POST',
+                async: false,
+                dataType: "json",
+                data: {flowId: flowId},
+                success: function (data) {
+                    //拼接node的html
+                    var nodeStr='';
+                    for(var i=0; i<data.length; i++) {
+                        //得到是哪个flow的名字
+                        var text = $('.dependList li[fid='+flowId+']').text();
+                        var split = text.split('/');
+                        nodeStr+='<li class="nodeClick" logicnodeid='+data[i].id+'>'+split[split.length-1]+'.'+data[i].alias+'</li>';
                     }
-                    ulChild.append(nodeStr);
+                    var $iNodeList = $('.iNodeList>li');
+                    for(var i=0; i<$iNodeList.length; i++) {
+                        var nodeName = $iNodeList.eq(i).children('span:eq(1)');
+                        var ulChild = $iNodeList.eq(i).children('ul');
+                        var lis = ulChild.children('li');
+                        if(lis.length>0) {
+                            lis.remove();
+                        }
+                        ulChild.append(nodeStr);
+                    }
+                    console.log('queryNodes');
+                },
+                error: function () {
+                    alert("queryNodes 异常！");
                 }
-            }
-
-            nodeClick(flowId);
+            })
+            nodeClick();
         }
     }
-    window.nodeClick = function (flowId) {
+    window.nodeClick = function () {
         //node列表,重新绑定事件
         $('.nodeClick').on('click', function () {
             var sourceDataId = $(this).parent().parent().attr('sourcedata');
-            $(this).parent().prev().attr('fid', flowId);
             //查找node的colums, 将node的列和接口的列进行绑定
             visitedTag($(this).parent().parent())
-            queryNodeFields(flowId, $(this));
+            queryNodeFields($(this));
             console.log('nodeClick');
         });
     }
 
+
     //获取第一个选中的依赖,并展示节点和列的相关信息
-    function queryNodeFields(flowId, node) {
+    function queryNodeFields(node) {
         var nodeId = node.attr('logicnodeid');
         var text = node.text();
         text = text.split('.')[1];
-
-        var data = getNodeData(flowId, nodeId);
-        //拼接colum的html
-        var columStr='';
-        for(var i=0; i<data.length; i++) {
-            if(text == '---bunding nodes---') {
-                text = 'null';
+        $.ajax({
+            url: urlId + '/controller/queryNodeFields',
+            type: 'POST',
+            async: false,
+            dataType: "json",
+            data: {nodeId: nodeId},
+            success: function (data) {
+                //拼接colum的html
+                var columStr='';
+                for(var i=0; i<data.length; i++) {
+                    if(text == '---bunding nodes---') {
+                        text = 'null';
+                    }
+                    columStr+='<li columnid='+data[i].id+'>'+text+'.'+data[i].name+'</li>';
+                }
+                var nodeColumsChildren = $('.nodeColums').children();
+                if(nodeColumsChildren.length>0) {
+                    nodeColumsChildren.remove();
+                }
+                $('.nodeColums').append(columStr);
+                console.log('queryNodeFields');
+            },
+            error: function () {
+                alert("queryNodes 异常！");
             }
-            columStr+='<li columnid='+data[i].id+'>'+text+'.'+data[i].name+'</li>';
-        }
-        var nodeColumsChildren = $('.nodeColums').children();
-        if(nodeColumsChildren.length>0) {
-            nodeColumsChildren.remove();
-        }
-        $('.nodeColums').append(columStr);
+        })
     }
 
      $('.add3Stream').unbind('click').click(function () {
@@ -816,7 +803,7 @@ $(function () {
             url: urlId + '/controller/insertControllerInfo',
             type: 'POST',
             dataType: "json",
-            data: {conId: conId, controllerInfo: JSON.stringify(controllerSave)},
+            data: {controllerInfo: JSON.stringify(controllerSave)},
             success: function (data) {
                 if(data == true) {
                     $.dialog('保存成功!');
@@ -829,145 +816,78 @@ $(function () {
             }
         });
     });
-    //从页面上获取controller相关的信息
-    window.getControllerInfo = function (flowId) {
+    window.getControllerInfo = function () {
         console.log('save controller');
         var saveResult = {};
-        saveResult.flowId=flowId;
 
         //++++++++++ 保存依赖关系 ++++++++++++
-        var dependenedInfoList=[];
-        var $dependList = $('.alertDependList li');
-        for(var i=0; i<$dependList.length; i++) {
-            var tempDepend = {};
-            tempDepend.flowId=$dependList.eq(i).attr('fid');
-            if($dependList.eq(i).find('i').hasClass('singleChecked')) {
-                tempDepend.isSelect=1;
-            } else {
-                tempDepend.isSelect=0;
+        var fid=$('.alertDependList').attr('fid');
+        if(fid != undefined) {
+            var $alertDependList = $('.alertDependList li');
+            var depIds=[];
+            for(var i=0; i<$alertDependList.length; i++) {
+                if($alertDependList.eq(i).find('i').hasClass('singleChecked')) {
+                    var refid = $alertDependList.eq(i).attr('refid');
+                    depIds.push(refid);
+                }
             }
-            dependenedInfoList.push(tempDepend);
-        }
-        saveResult.dependenedInfoList=dependenedInfoList;
 
-        //************* 保存依赖关联关系 **************
-        var interfaceInfoList = [];
-        var findINodeList = $('.iNodeList>li');
-        for(var i=0; i<findINodeList.length; i++) {
-            var tempInterfaceInfo = {};
-            var findINodeItem = findINodeList.eq(i);
-            var sourceDataId = findINodeItem.attr('sourcedata');
-            tempInterfaceInfo.sourceDataId = sourceDataId;
-            var sourceDataName = findINodeItem.find('span.nameL').text();
+            var theId = getFlowRefId(fid);
+            saveResult.theId = theId;
+            saveResult.depIds = depIds.toString();
 
-            tempInterfaceInfo.sourceDataName=sourceDataName;
-            var iNodeItem = findINodeItem.find('span.nameR');
-            var logicNodeId = iNodeItem.attr('logicnodeid');
-            tempInterfaceInfo.logicNodeId = logicNodeId;
-            var logicNodeName = iNodeItem.text().split('.')[1];
-            tempInterfaceInfo.logicNodeName=logicNodeName;
-            tempInterfaceInfo.flowId=iNodeItem.attr('fid');
+            //************* 保存依赖关联关系 **************
+            var result = {};
 
-            var columItems = $('.columList').children('li');
-            var exportInterfaceColumnList = [];
-            for(var i=0; i<columItems.length; i++) {
-                var tempObj = {};
-                var columItem = columItems.eq(i);
-                var sourceColumnId = columItem.attr('sourcecolumnid');
-                tempObj.sourceColumnId=sourceColumnId;
-                var sourceColumnName = columItem.find('.nameL').text();
-                tempObj.sourceColumnName = sourceColumnName;
-                var tempItem = columItem.find('.nameR');
-                var columnId = tempItem.attr('columnid');
-                tempObj.columnId=columnId;
-                var columnName = tempItem.text().split('.')[1];
-                tempObj.columnName=columnName;
-                exportInterfaceColumnList.push(tempObj);
+            var dependSelect = $('.partStream').find('li.conVisitedBg');
+            var refid = dependSelect.attr('refid');
+
+            var interfaceList = [];
+            var findINodeList = $('.iNodeList>li');
+            for(var i=0; i<findINodeList.length; i++) {
+                var interfaceInfo = {};
+                var findINodeItem = findINodeList.eq(i);
+                var interfaceId = findINodeItem.attr('sourcedata');
+                interfaceInfo.interfaceId = interfaceId;
+                var exportId = findINodeItem.find('span.nameR').attr('logicnodeid');
+                interfaceInfo.exportId = exportId;
+                interfaceInfo.refId = refid;
+
+                var columItems = $('.columList').children('li');
+                var colums = [];
+                for(var i=0; i<columItems.length; i++) {
+                    var tempObj = {};
+                    var columItem = columItems.eq(i);
+                    var interfaceColumnId = columItem.attr('sourcecolumnid');
+                    tempObj.interfaceColumnId=interfaceColumnId
+                    var exportColumnId =columItem.find('.nameR').attr('columnid');
+                    tempObj.exportColumnId=exportColumnId;
+                    colums.push(tempObj);
+                }
+                interfaceInfo.columns = colums;
+                interfaceList.push(interfaceInfo);
             }
-            tempInterfaceInfo.exportInterfaceColumnList = exportInterfaceColumnList;
-            interfaceInfoList.push(tempInterfaceInfo);
+            saveResult.interfaceList = interfaceList;
+
+            return saveResult;
         }
-        saveResult.interfaceInfoList = interfaceInfoList;
-        return saveResult;
     }
     //当前选中Flow信息,加入到要保存的项
     function pushControllerInfo() {
-        var $partStream = $('.partStream .conVisitedBg');
-        if($partStream.length>0) {
-            var flowId = $partStream.attr('id');
-            var saveInfo = getControllerInfo(flowId);
+        if($('.partStream .conVisitedBg').length>0) {
+            var saveInfo = getControllerInfo();
             var isExit=false;
-            if(saveInfo != undefined) {
-                for(var i=0; i<controllerSave.length; i++) {
-                    var tempSave = controllerSave[i];
-                    if(tempSave.flowId == saveInfo.flowId) {
-                        var logicNodeInfoList = tempSave.logicNodeInfoList;
-                        if(logicNodeInfoList!=undefined && logicNodeInfoList.length > 0) {
-                            saveInfo.logicNodeInfoList = logicNodeInfoList;
-                        }
-                        controllerSave.splice(i, 1);
-                        controllerSave.push(saveInfo);
-                        isExit = true;
-                        break;
-                    }
-                }
-                if(!isExit) {
+            for(var i=0; i<controllerSave.length; i++) {
+                var tempSave = controllerSave[i];
+                if(tempSave.theId == saveInfo.theId) {
+                    controllerSave.splice(i, 1)
                     controllerSave.push(saveInfo);
+                    isExit = true;
+                    break;
                 }
             }
-        }
-    }
-
-    //获取controller所需要的数据
-    window.getControllerData=function () {
-        //流组件所有的ID
-        var flowIds = getFlowIds();
-        var returnData;
-        if(flowIds.length>0) {
-            $.ajax({
-                url: urlId + '/controller/getControllerData',
-                type: 'POST',
-                async: false,
-                dataType: "json",
-                data: {conId: conId, flowIds: flowIds.toString()},
-                success: function (data) {
-                    returnData = JSON.parse(data);
-                    console.log('getControllerData');
-                },
-                error: function () {
-                    alert("getControllerData 异常！");
-                }
-            });
-        }
-        return returnData;
-    }
-
-    //获取某一个flow的信息
-    function getFlowData(flowId) {
-        if(controllerSave.length>0) {
-            for(var i=0; i<controllerSave.length; i++) {
-                var save = controllerSave[i];
-                if(save.flowId == flowId) {
-                    return save;
-                }
-            }
-        }
-    }
-
-    //获取某一个flow, 某node的column信息
-    function getNodeData(flowId, nodeId) {
-        if(controllerSave.length>0) {
-            for(var i=0; i<controllerSave.length; i++) {
-                var save = controllerSave[i];
-                if(save.flowId == flowId) {
-                    var logicNodeInfoList = save.logicNodeInfoList;
-                    for(var j=0; j<logicNodeInfoList.length; j++) {
-                        var nodeInfo = logicNodeInfoList[j];
-                        if(nodeInfo.id == nodeId) {
-                            return nodeInfo.columnList;
-                        }
-                    }
-                }
+            if(!isExit && saveInfo!=undefined) {
+                controllerSave.push(saveInfo);
             }
         }
     }

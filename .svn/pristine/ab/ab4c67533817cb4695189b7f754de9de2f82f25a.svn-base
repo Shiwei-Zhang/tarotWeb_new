@@ -319,18 +319,19 @@
 
 							<div class="prop1">
 								<div class="title">
-									<span class="join_"><i class="fa fa-caret-right"></i>连接</span>
+									<span class="join_"><i class="fa fa-caret-right"></i>
+										连接</span>
+
 								</div>
+
 								<div class="panel join_panel" style="display: none">
 									<div class="joins">
-										 <!--as template-->
+										<!-- as template-->
 										<div class="template_join" style="display: none;">
-											<select class="condition1 changeEvent">
+											<select class="condition1">
 												<option value="id">table1.ID</option>
 												<option value="name">table1.NAME</option>
-											</select>
-											<input class="showVal showVal1">
-											<select class="condition2">
+											</select> <select class="condition2">
 												<option value="=">=</option>
 												<option value="!=">!=</option>
 												<option value=">">&gt;</option>
@@ -339,13 +340,10 @@
 												<option value="<=">&lt;=</option>
 												<option value="like">like</option>
 												<option value="in">in</option>
-											</select>
-											<select class="condition3 changeEvent">
+											</select> <select class="condition3">
 												<option value="id">table2.ID</option>
 												<option value="name">table2.NAME</option>
-											</select>
-											<input class="showVal showVal2">
-											<span class="plus-right"><i class="fa fa-trash2"></i></span>
+											</select> <span class="plus-right"><i class="fa fa-trash2"></i></span>
 										</div>
 										<div class="template_operations" style="display: none;">
 											<select class="condition4">
@@ -357,9 +355,12 @@
 												<option value="-1">降</option>
 											</select>
 										</div>
+
 									</div>
 								</div>
 							</div>
+
+
 							<div class="prop1">
 								<div class="title">
 									<span class="filter_"><i class="fa fa-caret-right"></i>
@@ -1674,8 +1675,8 @@
 				<div class="personalInfo clearFix">
 					<div class="menuList">
 						<ul class="btnEvent">
-							<li class="message"><span class="selected">个人信息</span></li>
-							<li class="changePassword"><span>更改密码</span></li>
+							<li class="message"><span>个人信息</span></li>
+							<li class="changePassword"><span class="selected">更改密码</span></li>
 						</ul>
 					</div>
 					<div class="personalEdit">
@@ -1687,7 +1688,7 @@
 							<div class="userImage">
 								<span class="userImg"></span>
 							</div>
-
+							
 							<table class="userLook">
 								<tr>
 									<th>姓 名：<span></span></th>
@@ -1722,7 +1723,7 @@
 									<td class="isAdmin"></td>
 								</tr>
 							</table>
-
+							
 							<div class="editUserBtn" style="display:none;">
 								<span class="user-but saveUser">保存</span><span class="user-but cancelUser">取消</span>
 							</div>
@@ -1744,7 +1745,7 @@
 			<div class="users-manage" style="display: none;">
 				<div class="users-table">
 					<div class="search">
-						<i class="fa fa-search"></i>
+						<i class="fa fa-search"></i> 
 						<input id="itemValueUsers" class="sou1" type="text" placeholder="用户姓名、登录名、电话、邮箱" />
 						<input type="button" onclick="searchItemUsers();" class="search-text" value="搜索" />
 						<input type="button" class="search-text addUser" value="添加" />

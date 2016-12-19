@@ -1538,7 +1538,7 @@ ul.root_tree li div {
 }
 
 .dataMinL-top .dataMinC {
-    padding: 20px 0 0 31px;
+    padding: 20px 0 0 20px;
 }
 
 .dataMinL-top .dataMinC .paramList {
@@ -1572,7 +1572,7 @@ ul.root_tree li div {
 }
 .dataMinC .paramList li select {
     height: 38px;
-    width: 78%;
+    width: 84%;
     line-height: 38px;
     font-size: 12px;
     border: 1px solid #dcdcdc;
@@ -3176,29 +3176,6 @@ right style
     padding-top:10px;
 }
 
-.joins .join{/*add new input+select*/
-    position: relative;
-}
-
-.joins .join .showVal1{/*add new*/
-    position: absolute;
-    top: 10px;
-    left: 2px;
-    width: 80px;
-    height: 16px;
-    outline: none;
-    border: none;
-}
-.joins .join .showVal2{/*add new*/
-    position: absolute;
-    right: 63px;
-    top: 10px;
-    width: 79px;
-    height: 16px;
-    outline: none;
-    border: none;
-}
-
 .joins select, .filters select, .targets select {
     height: 22px;
     border: 1px #ddd solid;
@@ -3947,10 +3924,9 @@ right style
 
 .table1-save {
     background-color: #5CACEE;
-    height: 26px;
-    width: 50px;
+    height: 70%;
+    width: 65%;
     font-weight: 600;
-    text-align: center;
     color: #FFFFFF;
     border: 1px solid #ccc;
 }

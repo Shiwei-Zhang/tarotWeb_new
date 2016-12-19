@@ -355,7 +355,7 @@ $(function(){
             dataType:"json",
             contentType: "application/json",
             success:function(data) {
-				str+='<option value="" selected>请选择数据连接</option>';
+				str+='<option selected>请选择数据连接</option>';
                 $(data).each(function(index,item){
                     str+='<option value='+item["ID"]+'>'+item["NAME"]+'</option>';
                 });

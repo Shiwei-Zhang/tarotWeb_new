@@ -1674,8 +1674,8 @@
 				<div class="personalInfo clearFix">
 					<div class="menuList">
 						<ul class="btnEvent">
-							<li class="message"><span class="selected">个人信息</span></li>
-							<li class="changePassword"><span>更改密码</span></li>
+							<li class="message"><span>个人信息</span></li>
+							<li class="changePassword"><span class="selected">更改密码</span></li>
 						</ul>
 					</div>
 					<div class="personalEdit">
@@ -1687,7 +1687,7 @@
 							<div class="userImage">
 								<span class="userImg"></span>
 							</div>
-
+							
 							<table class="userLook">
 								<tr>
 									<th>姓 名：<span></span></th>
@@ -1722,7 +1722,7 @@
 									<td class="isAdmin"></td>
 								</tr>
 							</table>
-
+							
 							<div class="editUserBtn" style="display:none;">
 								<span class="user-but saveUser">保存</span><span class="user-but cancelUser">取消</span>
 							</div>
@@ -1744,7 +1744,7 @@
 			<div class="users-manage" style="display: none;">
 				<div class="users-table">
 					<div class="search">
-						<i class="fa fa-search"></i>
+						<i class="fa fa-search"></i> 
 						<input id="itemValueUsers" class="sou1" type="text" placeholder="用户姓名、登录名、电话、邮箱" />
 						<input type="button" onclick="searchItemUsers();" class="search-text" value="搜索" />
 						<input type="button" class="search-text addUser" value="添加" />
