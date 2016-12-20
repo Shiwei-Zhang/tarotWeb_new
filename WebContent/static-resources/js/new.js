@@ -480,9 +480,10 @@ $(function(){
     					e.cancelBubble = true; //IE阻止冒泡方法
     				}
     				var $liObj = $(this).parent().parent();
-    				$.confirm('要在关闭之前存储对“'+$showName+'”的更改吗？', function(){
+					closeTab($liObj);
+    				/*$.confirm('要在关闭之前存储对“'+$showName+'”的更改吗？', function(){
     					closeTab($liObj);
-    				});
+    				});*/
     			});
     		}else{
     			$('.module-manager').hide();
