@@ -2259,8 +2259,7 @@ ul.root_tree li div {
 }
 
 .deployStateD {
-    height: 86px;
-    margin-top: 44px;
+    height: 121px;
 }
 
 .deployStateD i,
@@ -3335,7 +3334,7 @@ right style
 .target label {
     display: inline-block;
     /*width: 252px;*/
-    width: 261px;
+    width: 293px;
     height: 20px;
     font-size: 14px;
 }

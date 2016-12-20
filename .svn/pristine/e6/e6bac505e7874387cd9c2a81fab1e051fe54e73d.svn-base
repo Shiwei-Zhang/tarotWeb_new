@@ -654,7 +654,7 @@
 									</li>
 									<li>
 										<span>平滑参数</span>
-										<input type="text" class="smoothing cls-num" value="1.0"  maxlength="10">
+										<input type="text" class="smoothing" value="1.0"  maxlength="20">
 									</li>
 									<li>
 										<span>阈值</span>
@@ -676,7 +676,7 @@
 									</li>
 									<li>
 										<span>弹性网参数</span>
-										<input type="text" class="elasticNetParam  cls-num" value="0.0"   maxlength="20">
+										<input type="text" class="elasticNetParam" value="0.0"   maxlength="20">
 									</li>
 									<li>
 										<span>适合截距</span>
@@ -687,11 +687,11 @@
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter cls-num" value="100"  maxlength="10">
+										<input type="text" class="maxIter" value="100"  maxlength="20">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParam cls-num" value="0.0"  maxlength="20">
+										<input type="text" class="regParam" value="0.0"  maxlength="20">
 									</li>
 									<li>
 										<span>求解</span>
@@ -708,7 +708,7 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol cls-num" value="1.0E-6"  maxlength="10">
+										<input type="text" class="tol" value="1.0E-6"  maxlength="30">
 									</li>
 								</ul>
 								<ul class="propContainer logisticRegression-attr" style="display:none"><!-- 逻辑回归 -->
@@ -718,7 +718,7 @@
 									</li>
 									<li>
 										<span>弹性网参数</span>
-										<input type="text" class="elasticNetParam cls-num" value="0.0"  maxlength="10">
+										<input type="text" class="elasticNetParam" value="0.0"  maxlength="20">
 									</li>
 									<li>
 										<span>适合截距</span>
@@ -729,11 +729,11 @@
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter cls-num" value="100" min="1" maxlength="5">
+										<input type="text" class="maxIter" value="100"  maxlength="20">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParam cls-num" value="0.0"  maxlength="10">
+										<input type="text" class="regParam" value="0.0"  maxlength="20">
 									</li>
 									<li>
 										<span>标准化</span>
@@ -744,25 +744,25 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol cls-num" value="1.0E-6"  maxlength="10">
+										<input type="text" class="tol" value="1.0E-6"  maxlength="30">
 									</li>
 									<li>
 										<span>阈值</span>
-										<input type="text" class="thresholds cls-num" value="0.5"  maxlength="10">
+										<input type="text" class="thresholds" value="1.0,2.0"  maxlength="30">
 									</li>
-									<!-- <li>
+									<li>
 										<span>阈值</span>
-										<input type="text" class="threshold cls-num" value="0.5"  maxlength="10">
-									</li> -->
+										<input type="text" class="threshold" value="0.5"  maxlength="20">
+									</li>
 								</ul>
 								<ul class="propContainer ridgeregression-attr" style="display:none"><!-- 岭回归 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark" maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>弹性网参数</span>
-										<input type="text" class="elasticNetParam cls-num" value="0.0"  maxlength="10">
+										<input type="text" class="elasticNetParam" value="0.0"  maxlength="20">
 									</li>
 									<li>
 										<span>适合截距</span>
@@ -773,11 +773,11 @@
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter cls-num" value="100" min="1" maxlength="10">
+										<input type="text" class="maxIter" value="100"  maxlength="20">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParam cls-num" value="0.0"  maxlength="20">
+										<input type="text" class="regParam" value="0.0"  maxlength="20">
 									</li>
 									<li>
 										<span>求解</span>
@@ -794,29 +794,29 @@
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol cls-num" value="1.0E-6"  maxlength="10">
+										<input type="text" class="tol" value="1.0E-6"  maxlength="30">
 									</li>
 								</ul>
 								<ul class="propContainer svm-attr" style="display:none"><!-- 支持向量机SVM类型 -->
 									<li>
 										<span>备注</span>
-										<input type="text" class="remark" maxlength="50">
+										<input type="text" class="remark">
 									</li>
 									<li>
 										<span>迭代步长</span>
-										<input type="text" class="stepSize cls-num" value="1.0"  maxlength="5">
+										<input type="text" class="stepSize" value="1.0"  maxlength="20">
 									</li>
 									<li>
 										<span>迭代次数</span>
-										<input type="text" class="numIterations cls-num" value="100" min="0" maxlength="5">
+										<input type="text" class="numIterations" value="100"  maxlength="20">
 									</li>
 									<li>
 										<span>正则化参数</span>
-										<input type="text" class="regParm cls-num" value="0.01"  maxlength="10">
+										<input type="text" class="regParm" value="0.01"  maxlength="20">
 									</li>
 									<li>
 										<span>每次迭代参与计算的样本比例</span>
-										<input type="text" class="miniBatchFraction cls-num" value="1.0"  maxlength="10">
+										<input type="text" class="miniBatchFraction" value="1.0"  maxlength="20">
 									</li>
 								</ul>
 								<ul class="propContainer kmeans-attr" style="display:none"><!-- K-means聚类类型 -->
@@ -826,23 +826,23 @@
 									</li>
 									<li>
 										<span>初始步长</span>
-										<input type="text" class="initSteps cls-num" value="5"  maxlength="10">
+										<input type="text" class="initSteps" value="5"  maxlength="10">
 									</li>
 									<li>
 										<span>聚类个数</span>
-										<input type="text" class="k cls-num" value="2"  maxlength="10">
+										<input type="text" class="k" value="2"  maxlength="10">
 									</li>
 									<li>
 										<span>最大迭代次数</span>
-										<input type="text" class="maxIter cls-num" value="20" min="0" maxlength="5">
+										<input type="text" class="maxIter" value="20"  maxlength="10">
 									</li>
 									<li>
 										<span>随机种子</span>
-										<input type="text" class="seed cls-num" value="-1689246527" max="0">
+										<input type="text" class="seed" value="-1689246527">
 									</li>
 									<li>
 										<span>容忍度</span>
-										<input type="text" class="tol cls-num" value="1.0E-4"  maxlength="10">
+										<input type="text" class="tol" value="1.0E-4"  maxlength="20">
 									</li>
 								</ul>
 								<ul class="propContainer decisiontreesregression-attr" style="display:none"><!-- 回归树类型 -->
@@ -858,11 +858,11 @@
 									</li>
 									<li>
 										<span>最大划分数</span>
-										<input type="text" class="maxBins cls-num" value="32" min="1" maxlength="5">
+										<input type="text" class="maxBins" value="32"  maxlength="10">
 									</li>
 									<li>
 										<span>决策树的最大深度</span>
-										<input type="text" class="maxDepth cls-num" value="5"  min="0" maxlength="2">
+										<input type="text" class="maxDepth" value="5"  maxlength="10">
 									</li>
 								</ul>
 								<ul class="propContainer decisiontreesclassifier-attr" style="display:none"><!-- 分类树类型 -->
@@ -872,7 +872,7 @@
 									</li>
 									<li>
 										<span>分类的数量</span>
-										<input type="text" class="numClasses cls-num" value="2"  maxlength="10">
+										<input type="text" class="numClasses" value="2"  maxlength="10">
 									</li>
 									<li>
 										<span>信息增益的计算方法</span>
@@ -882,11 +882,11 @@
 									</li>
 									<li>
 										<span>最大划分数</span>
-										<input type="text" class="maxBins cls-num" value="32"  min="0" maxlength="5">
+										<input type="text" class="maxBins" value="32"  maxlength="10">
 									</li>
 									<li>
 										<span>决策树的最大深度</span>
-										<input type="text" class="maxDepth cls-num" value="5" min="0" maxlength="2">
+										<input type="text" class="maxDepth" value="5"  maxlength="10">
 									</li>
 								</ul>
 								<ul class="propContainer als-attr" style="display:none"><!-- ALS推荐类型 -->
@@ -896,19 +896,19 @@
 									</li>
 									<li>
 										<span>块数</span>
-										<input type="text" class="numBlocks cls-num" value="-1" max="0"  maxlength="10">
+										<input type="text" class="numBlocks" value="-1"  maxlength="10">
 									</li>
 									<li>
 										<span>隐语义因子的个数</span>
-										<input type="text" class="rank cls-num" value="10"  maxlength="5">
+										<input type="text" class="rank" value="10"  maxlength="10">
 									</li>
 									<li>
 										<span>迭代次数</span>
-										<input type="text" class="iterations cls-num" value="10"  maxlength="5">
+										<input type="text" class="iterations" value="10"  maxlength="10">
 									</li>
 									<li>
 										<span>惩罚函数的因数</span>
-										<input type="text" class="lambda cls-num" value="0.01"  maxlength="10">
+										<input type="text" class="lambda" value="0.01"  maxlength="10">
 									</li>
 									<li>
 										<span>是否使用隐式偏好</span>
@@ -919,7 +919,7 @@
 									</li>
 									<li>
 										<span>alpha</span>
-										<input type="text" class="alpha cls-num" value="1.0"  maxlength="10">
+										<input type="text" class="alpha" value="1.0"  maxlength="10">
 									</li>
 								</ul>
 								<ul class="propContainer discrete-attr" style="display:none"><!-- 离散化 -->
@@ -929,7 +929,7 @@
 									</li>
 									<li>
 										<span>种类</span>
-										<input type="text" class="category cls-num" value="5"  maxlength="10">
+										<input type="text" class="category" value="5"  maxlength="10">
 									</li>
 								</ul>
 								<ul class="propContainer quantify-attr" style="display:none"><!-- 量化 -->
