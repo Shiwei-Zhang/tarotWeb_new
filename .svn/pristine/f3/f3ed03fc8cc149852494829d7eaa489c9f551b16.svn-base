@@ -1799,8 +1799,8 @@ ul.root_tree li div {
     outline: none;
     border: none;
     height: 40px;
-    width: 197px;
-    max-width: 197px;
+    width: 215px;
+    max-width: 215px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

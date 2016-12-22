@@ -107,14 +107,8 @@ $(function(){
     });
 
   //点击确定
-    var clickedSureBtn_ = false;
     function sureBtn() {
         $('.add4Event .sureEvent').unbind('click').click(function () {
-        	//----------新增, @date: 2016-12-21 TAROT-3875
-        	if(clickedSureBtn_){
-        		return ;
-        	}
-        	clickedSureBtn_  = true;
         	//----------------------- 新增 , @date: 2016-11-29 18:12 ZHANG HAIJUN
         	if(__ftp){
         		var files = [];
@@ -125,14 +119,11 @@ $(function(){
         		var conName = $('.connectionEvent').find("option:selected").text();
         		closeAdd4();
         		ftpConfig(files,cid,conName);
-        		
-        		clickedSureBtn_ = false;
         		return;
         	}
 
         	//-----------------------
 
-        	clickedSureBtn_ = false;
         	var conText = $('.add4NavEvent').find('.bg').text();
         	//----------------------------数据源、接口验证  --es
         	if(conText=="数据源"){
@@ -259,7 +250,7 @@ $(function(){
     	            $.dialog("异常！");
     	            closeAdd4();
     	        }
-        	});
+        	})
         })
     }
 
@@ -380,7 +371,7 @@ $(function(){
         //增加参数列表的每一列
         $('.addInterface .addBtn').off('click').click(function () {
         	var columnName = "column"+column_num;
-            $('.addInterface .paramMain').append('<li class="addInterfaceColumn"><input type="text" spellcheck="false" value="'+columnName+'" maxlength="35"><select>'+
+            $('.addInterface .paramMain').append('<li class="addInterfaceColumn"><input type="text" spellcheck="false" value="'+columnName+'"><select>'+
             		'<option value="Integer">Integer</option>'+
     				'<option value="Long">Long</option>'+
     				'<option value="Boolean">Boolean</option>'+
@@ -408,7 +399,7 @@ $(function(){
     });
     var bindSourceDataChangeEvent  = function(){
     	//input下拉菜单
-        $('.connectionEvent').unbind('change').change(function(){
+        $('.connectionEvent').change(function(){
             var detailId = $(this).children('option:selected').val();
             if(detailId){
             	var str='';
@@ -558,8 +549,8 @@ $(function(){
         if($dataType == 2){
             //TODO Loading controller data and mask
             setConIdAttr($('li.thistab').attr('idname'));
-            $('.controller-template').show();
             initController();
+            $('.controller-template').show();
         }else if($dataType == 3){
             //TODO Loading flow data and mask
         	getFlowIdByMenuId($idName);
@@ -2194,7 +2185,7 @@ function editInterface(interfaceId,interfaceName){
 	// tyd test.js tableColumnsMap.get(1882)
 	var columns = tableColumnsMap.get(interfaceId);
 	$.each(columns, function( index, value ) {
-		$('.editInterface .paramMain').append('<li class="editInterfaceColumn"><input type="text" spellcheck="false" columnid="'+value.id+'" columnlength="'+value.length+'" columnprecision="'+value.precision+'" columnscale="'+value.scale+'"  value="'+value.name+'" maxlength="35">'+
+		$('.editInterface .paramMain').append('<li class="editInterfaceColumn"><input type="text" spellcheck="false" columnid="'+value.id+'" columnlength="'+value.length+'" columnprecision="'+value.precision+'" columnscale="'+value.scale+'"  value="'+value.name+'">'+
 				'<select>'+
         		'<option value="Integer" '+(value.type=='Integer'?'selected="true"':'')+'>Integer</option>'+
 				'<option value="Long" '+(value.type=='Long'?'selected="true"':'')+'>Long</option>'+
@@ -2219,7 +2210,7 @@ function editInterface(interfaceId,interfaceName){
 	//增加参数列表的一行
     $('.editInterface .addBtn').off('click').click(function () {
     	var columnName = "column"+column_num;
-        $('.editInterface .paramMain').append('<li class="editInterfaceColumn"><input type="text" spellcheck="false" value="'+columnName+'" maxlength="35"><select>'+
+        $('.editInterface .paramMain').append('<li class="editInterfaceColumn"><input type="text" spellcheck="false" value="'+columnName+'"><select>'+
         		'<option value="Integer">Integer</option>'+
 				'<option value="Long">Long</option>'+
 				'<option value="Boolean">Boolean</option>'+
@@ -2246,14 +2237,9 @@ function saveEditInterface(){
 	var interfaceName = $(".editInterface_name").val();
 	
 	var columns = new Array();
-	var colError = false;
 	$('.editInterfaceColumn').each(function(index,element){
 		var column = new Object();
 		var span = $(this).find('input');
-		if( !span.val() || !span.val().trim() ){
-			colError = true;
-			return false;
-		}
 		column.id=span.attr('columnid');
 		column.name=span.val();
 		column.length=span.attr('columnlength');
@@ -2285,11 +2271,6 @@ function saveEditInterface(){
 			$.dialog("接口名称不能重复");
     		return;
 		}
-	}
-	
-	if(colError){
-		$.dialog("字段名称不能为空");
-		return;
 	}
 	
 	var parameter = $('.editInterfaceColumn');

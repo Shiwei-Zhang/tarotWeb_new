@@ -277,7 +277,9 @@
 									</li>
 
 									<li class="tab2_2 tab_con2">
-										<div class="logClass"></div>
+										<div>
+
+										</div>
 									</li>
 
 									<li class="tab2_4 tab_con2">
@@ -323,7 +325,7 @@
 									<div class="joins">
 										 <!--as template-->
 										<div class="template_join" style="display: none;">
-											<select class="condition1 changeEvent" onchange="property_onchange(this);">
+											<select class="condition1 changeEvent">
 												<option value="id">table1.ID</option>
 												<option value="name">table1.NAME</option>
 											</select>
@@ -338,7 +340,7 @@
 												<option value="like">like</option>
 												<option value="in">in</option>
 											</select>
-											<select class="condition3 changeEvent" onchange="property_onchange(this);">
+											<select class="condition3 changeEvent">
 												<option value="id">table2.ID</option>
 												<option value="name">table2.NAME</option>
 											</select>
@@ -2021,7 +2023,7 @@
 		<div class="optionA optionAevnet addInterface">
 			<div class="dataContainerB">
 				<div class="partN">
-					<span>接口名称</span> <input type="text" class="addInterface_name"  maxlength="80">
+					<span>接口名称</span> <input type="text" class="addInterface_name">
 				</div>
 				<div class="paramL clearFix">
 					<span class="paramLl">参数列表</span>
@@ -2029,7 +2031,7 @@
 					<ul class="paramMain">
 						<li><span class="">参数名称</span><span class="noBorderR">类型</span></li>
 						<li class="addInterfaceColumn">
-							<input type="text" spellcheck="false" value="column1" maxlength="35">
+							<input type="text" spellcheck="false" value="column1">
 							<select>
 								<option value="Integer">Integer</option>
 								<option value="Long">Long</option>
@@ -2060,7 +2062,7 @@
 		<div class="optionA optionAevnet showCon">
 			<div class="dataContainerB">
 				<div class="partN">
-					<span>接口名称</span> <input type="text" interfaceId='' class="editInterface_name" maxlength="80">
+					<span>接口名称</span> <input type="text" interfaceId='' class="editInterface_name">
 				</div>
 				<div class="paramL clearFix">
 					<span class="paramLl">参数列表</span>
@@ -2795,7 +2797,7 @@
 	<script src="../../static-resources/js/jsmind.draggable.js"></script>
 	<script src="../../static-resources/js/jsMind.draggable.tyd.js"></script>
 	<script src="../../static-resources/js/logicNode.js"></script>
-	<script src="../../static-resources/js/flow.js"></script>
+	<script src="../../static-resources/js/test.js"></script>
 	<script src="../../static-resources/js/config.js"></script>
 	<!--cron-->
 	<script type="text/javascript" src="../../static-resources/js/jquery.easyui.min.js"></script>
@@ -2828,20 +2830,23 @@
 	var chineseValidation = new RegExp("[\u2E80-\u9FFF]");
 	$.resizeW();
 	$(window).on('resize', $.resizeW);
+	//函数选择框change事件
+	function selectChange(){
+		$('#showVal').val(checkText=$("#Scontainer").find("option:selected").text());
+		var selected = $("#Scontainer").val();
+		if(selected=='all'){
+			$('#_column_trans .syb_con p').show();
+		}else{
+			$('#_column_trans .syb_con p').hide();
+			$('#_column_trans .syb_con p[functionType="'+selected+'"]').show();
+		}
+	}
 	$('.dt_serch .bigIcon').unbind('click').click(function () {
 		//TODO
 		console.log('serch~~~')
 	});
 	//TODO deleting
-   //urlId = 'http://localhost:800/';
-	function property_onchange(obj){
-            var $this=$(obj);
-            if($this.val()){
-            	$this.next().val($this.find("option:selected").text());
-            }else{
-            	$this.next().val('');
-            }
-	}
+   //urlId = 'http://172.16.1.248:800/';
     //初始化目录
     $(function(){
         $.ajax({
@@ -3350,9 +3355,6 @@
 				//赋值全局变量flowId_global
 				flowId_global = data;
 				var flowInfo = flowInfosMap.get(flowId_global);
-				if(flowInfo){
-					$('.tab2_2 div').html(flowInfo.log);
-				}
 				if(flowInfo&&!flowInfo.editable){
 					$('.module-prop .save').attr('disabled','disabled');
             		$('.debug,.runing').addClass('selected');
@@ -3494,8 +3496,7 @@
 		hide_column_constant_predict();
 		$('.dt_conL .menuStyle').empty();
 		$('.col_con').empty();
-		$('.tab2_2 div').empty();
-		//$('.tab2_4').empty();
+		$('.tab2_2').empty();
 		_jm1.show();
 		clear_panel_node();
 		subtreeMap.clear();
@@ -3514,8 +3515,6 @@
     	$('.groups .group:gt(0)').remove();
     	$('.orders .order:gt(0)').remove();
     	$('.targets').empty();
-    	var $sourceFields = $('.sourceFieldEvent .tableContainer tr[class!="contentTitle"]');
-		$sourceFields.remove();
 	}
     //工具类方法：循环遍历树，生成菜单目录
     function loop(htmlstr,data){

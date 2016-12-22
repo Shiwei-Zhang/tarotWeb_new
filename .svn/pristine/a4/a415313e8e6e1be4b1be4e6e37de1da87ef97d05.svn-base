@@ -50,7 +50,7 @@ function initDragable(){
 				line_color = _jm2.options.view.line_color;
 			}
 			if(!_jm1.get_editable()){
-				return $( "<jmnode id='jmnodeModel' style='display:none;border-color:"+line_color+"' functionName='"+functionName+"' functionType='"+functionType+"' columnType='"+columnType+"' paramNumber='"+paramNumber+"' fixed='"+fixed+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
+				return $( "<jmnode id='jmnodeModel' style='display:none;' ></jmnode>" );
 			}else{
 				return $( "<jmnode id='jmnodeModel' style='border-color:"+line_color+"' functionName='"+functionName+"' functionType='"+functionType+"' columnType='"+columnType+"' paramNumber='"+paramNumber+"' fixed='"+fixed+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
 			}
@@ -124,27 +124,15 @@ function save_jsmind(type){
  			 	});
         	});
         	//子树恢复
-        	var selected_node = _jm1.get_selected_node();
-        	if(selected_node){
-        		var currentpk = selected_node.data.pk;
-        		open_detail(currentpk);
-        	}else{
-        		_jm2.show();
-        	}
+        	recoverySubtree();
         	if(!type){
              	alert("修改成功！");  
         	}
         },  
         error : function() {   
         	//子树恢复
-        	var selected_node = _jm1.get_selected_node();
-        	if(selected_node){
-        		var currentpk = selected_node.data.pk;
-        		open_detail(currentpk);
-        	}else{
-        		_jm2.show();
-        	}
-             alert("异常！");  
+        	recoverySubtree();
+            alert("异常！");  
         } 
     });
 }
@@ -202,12 +190,25 @@ function loop_node(node){
 				var condition3_text = element.condition3_text;
 				var condition4 = element.condition4;
 				var condition5 = element.condition5;
-				//i==onlength-1表示最后一个
-				if(i==onlength-1){
-					sql+=condition1_text+" "+condition2+" "+condition3_text;
+				var exp="";
+				if(!element.condition1){
+					exp+="'"+condition1_text+"'";
 				}else{
-					sql+=condition1_text+" "+condition2+" "+condition3_text+" "+condition4+" ";
+					exp+=condition1_text;
 				}
+				exp+=" "+condition2+" ";
+				if(element.condition3){
+					exp+=condition3_text;
+				}else if(condition2=='in'&&!element.condition3){
+					exp+="("+condition3_text+")";
+				}else if(condition2!='in'&&!element.condition3){
+					exp+="'"+condition3_text+"'";
+				}
+				//i==onlength-1表示最后一个
+				if(i!=onlength-1){
+					exp+=" "+condition4+" ";
+				}
+				sql+=exp;
 			});
 		});
 	}else{
@@ -226,12 +227,20 @@ function loop_node(node){
 		var condition3 = item.condition3;
 		var condition4 = item.condition4;
 		var condition5 = item.condition5;
+		var exp = "";
 		//index==filterlength-1表示最后一个
 		if(index==filterlength-1){
-			sql+=condition1_text+" "+condition2+" '"+condition3+"'";
+			exp = condition1_text+" "+condition2+" '"+condition3+"'";
+			if(condition2=='in'){
+				exp = condition1_text+" "+condition2+" ("+condition3+")";
+			}
 		}else{
-			sql+=condition1_text+" "+condition2+" '"+condition3+"' "+condition4+" ";
+			exp =condition1_text+" "+condition2+" '"+condition3+"' "+condition4+" ";
+			if(condition2=='in'){
+				exp = condition1_text+" "+condition2+" ("+condition3+") "+condition4+" ";
+			}
 		}
+		sql+=exp;
 	});
 	var group = paramsMap.get(pk).group;
 	var grouplength = group.length;
@@ -357,10 +366,12 @@ function save_current(selected_node){
 			$(item).find('.join').each(function(i,element){
 				var option_mini = new Object();
 				option_mini.condition1 = $(element).find('.condition1').val();
-				option_mini.condition1_text = $(element).find('.condition1').find("option:selected").text();
+				//option_mini.condition1_text = $(element).find('.condition1').find("option:selected").text();
+				option_mini.condition1_text = $(element).find('input').eq(0).val();
 				option_mini.condition2 = $(element).find('.condition2').val();
 				option_mini.condition3 = $(element).find('.condition3').val();
-				option_mini.condition3_text = $(element).find('.condition3').find("option:selected").text();
+				//option_mini.condition3_text = $(element).find('.condition3').find("option:selected").text();
+				option_mini.condition3_text = $(element).find('input').eq(1).val();
 				option_mini.condition4 = $($(item).find('.operations')[i]).find('.condition4').val();
 				option_mini.condition5 = $($(item).find('.operations')[i]).find('.condition5').val();
 				subList.push(option_mini);

@@ -1,32 +1,4 @@
 $(function(){
-	var construct_tableStr = function(result,flowInfo,tableName){
-		var resultJson = JSON.parse(result);
-		var tableStr = "";
-    	$.each(resultJson,function(index,item){
-    		var array = item.split(",");
-    		if(index==0){
-    			var trStr="<tr class='firTr'>"; 
-    			var length = array.length;
-    			$.each(array,function(i,element){
-    				if(i!=length-1){
-    					trStr+="<th>"+element+"</th>";
-    				}else{
-    					trStr+="<th style='border-right: 1px solid #ddd'>"+element+"</th>";
-    				}
-    			});
-    			trStr+="</tr>";
-    		}else{
-        		var trStr="<tr>"; 
-    			$.each(array,function(i,element){
-					trStr+="<td>"+element+"</td>";
-    			});
-    			trStr+="</tr>";
-    		}
-    		tableStr+=trStr;
-    	});
-    	flowInfo.dataMap.put(tableName,tableStr);
-    	return tableStr;
-	};
 	var removeSocketSession = function(){
 		$('.module-prop .save').removeAttr('disabled');
 		$('.new_table_name input').removeAttr('disabled');
@@ -46,19 +18,6 @@ $(function(){
             dataType:"json",
             data:{uuid:uuid},
             success:function(data) {
-            	if(data){
-            		var dataStr = null;
-                	var sqlStr = "";
-                	for(var tableName in data){
-                		dataStr = data[tableName];
-                		var dataJson = JSON.parse(dataStr);
-                    	var result = dataJson.result;
-                    	if(result){
-                    		construct_tableStr(result,flowInfo,tableName);
-                    	}
-                	}
-            	}
-            	
             },
             error : function() {
                 $.dialog("移除SocketSession出现异常！");
@@ -93,15 +52,13 @@ $(function(){
                 dataType:"json",
                 data:{jobId:uuid},
                 success:function(data) {
-                	var flowInfo = flowInfosMap.get(flowId_global);
                 	var length = data.length;
                 	if(length>0){
                 		var itemStr="";
                     	$.each(data,function(index,item){
                     		itemStr+=item+'<br>';
                     	});
-                    	flowInfo.log+=itemStr;
-                    	$('.tab2_2 div').append(itemStr);
+                    	$('#tabbox2 .tab_con2').eq(1).append(itemStr);
                     	var lastJson = JSON.parse(data[length-1]);
                     	if(lastJson.result_code==999||lastJson.result_code==998){
                     		removeSocketSession();
@@ -119,7 +76,7 @@ $(function(){
     	},1000);
 	};
 	var firetestdebugflow = function(runType){
-		$('.tab2_2 div').html('');
+		$('#tabbox2 .tab_con2').eq(1).html('');
 		$('#tabbox2 ul').eq(0).find('li').eq(1).click();
 		$.ajax({
             url: urlId + '/release/firetestdebugflow',
@@ -141,8 +98,6 @@ $(function(){
                 	flowInfo.uuid = uuid;
                 	flowInfo.editable = false;
                 	flowInfo.runType = runType;
-                	flowInfo.log = "";
-                	flowInfo.dataMap = new Map();
                 	flowInfosMap.put(flowId_global,flowInfo);
             		if(runType==3){
             			checkaccept_timer(flowInfo,uuid);
@@ -153,7 +108,7 @@ $(function(){
             	}else{
             		$.dialog("引擎任务忙，请稍后！");
             	}
-            	$('.tab2_2 div').append(data+'<br>');
+            	$('#tabbox2 .tab_con2').eq(1).append(data+'<br>');
             },
             error : function() {
                 $.dialog("发送任务异常！");
@@ -175,7 +130,7 @@ $(function(){
             	}else{
             		$.dialog("引擎任务忙，请稍后！");
             	}
-            	$('.tab2_2 div').append(data+'<br>');
+            	$('#tabbox2 .tab_con2').eq(1).append(data+'<br>');
             },
             error : function() {
             	removeSocketSession();
@@ -183,38 +138,24 @@ $(function(){
             }
         })
 	};
-	var isHaveInterface = function(){
-		var flag = true;
-		var dataArray = _jm1.data.get_data('node_array').data;
-		var sourceDatas = sourceDatasMap.get(flowId_global);
-		var sdList;
-		$.each(sourceDatas,function(index,item){
-			if(item.conId==0){
-				sdList = item.sdList;
-				return false;
-			}
-		});
-		$.each(sdList,function(index,item){
-			$.each(dataArray,function(i,element){
-				if(element.sourceid==item.id){
-					flag = false;
-					return false;
-				}
-			});
-		});
-		return flag;
+	
+	window.checkData = function(){
+		var uuid = flowInfosMap.get(flowId_global).uuid;
+		var tableName="t1_"+flowId_global;
+		$.ajax({
+            url: urlId + '/release/checkdata',
+            type:'POST',
+            dataType:"json",
+            data:{uuid:uuid,tableName:tableName},
+            success:function(data) {
+            	console.log(data);
+            },
+            error : function() {
+                $.dialog("查看数据异常！");
+            }
+        })
 	};
-	//子树恢复
-	window.recoverySubtree = function(){
-    	var selected_node = _jm1.get_selected_node();
-    	if(selected_node){
-    		var currentpk = selected_node.data.pk;
-    		open_detail(currentpk);
-    	}else{
-    		_jm2.show();
-    	}
-	};
-	//改变状态按钮
+	  //改变状态按钮
     $('.change_Btn').unbind('click').click(function(){
         $('.thistab a').append('<em class="changeTip">*</em>');
         $('.thistab .changeTip').css({
@@ -230,26 +171,16 @@ $(function(){
 
     $('.debug').on('click', function(event){
     	if(!$('.debug').hasClass('selected')){
-    		var flag = isHaveInterface();
-    		if(flag){
-	    		save_jsmind('debug');
-	        	firetestdebugflow(3);
-    		}else{
-    			$.dialog('该工作流含有数据接口，不可以进行debug调试！');
-    		}
+    		save_jsmind('debug');
+        	firetestdebugflow(3);
         }
     });
     
     
     $('.runing').on('click', function(event){
     	if(!$('.running').hasClass('selected')){
-    		var flag = isHaveInterface();
-    		if(flag){
-    			save_jsmind('runing');
-            	firetestdebugflow(2);
-    		}else{
-    			$.dialog('该工作流含有数据接口，不可以测试运行！');
-    		}
+    		save_jsmind('runing');
+        	firetestdebugflow(2);
     	}
     });
     
@@ -342,7 +273,13 @@ $(function(){
             $('.codePartEvent').show();
         }
         //子树恢复
-        recoverySubtree();
+    	var selected_node = _jm1.get_selected_node();
+    	if(selected_node){
+    		var currentpk = selected_node.data.pk;
+    		open_detail(currentpk);
+    	}else{
+    		_jm2.show();
+    	}
     });
 
     //folder change
@@ -836,6 +773,52 @@ $(function(){
         });
     };
 
+    // global variable
+    var targetObjs = [];
+    window.addjointyd = function(table1){
+        $('.join_').trigger('click');
+
+        var id = $('.related_table').length;
+        var dom =
+            $(
+                '<div class="related_table t_' + id + '"> <div class="tables">' +
+                '<span><select class="tableA"><option>'+table1.tableA+'</option></option></select></span>' +
+                '<span><select class="joinType"><option>left join</option> <option>right join</option><option>full join</option><option>inner join</option></select></span>' +
+                '<span><select class="tableB"><option>'+table1.tableB+'</option></option></select></span>' +
+                '<span class="join_plus"><i class="fa plus_icon"></i></span>' +
+                '</div></div>');
+        $('.joins').append(dom);
+
+        $('.join_plus').unbind('click').click(function(event){
+            var currentTable = $(this).parent().parent();
+
+            var className = currentTable.attr('class').split(' ')[1];
+
+            if($('.' + className + ' .join').length < 1){
+                var dom = $('<div class="join">' +  $('.template_join')[0].innerHTML + '</div>');
+                currentTable.append(dom);
+            }else{
+                var dom = $('<div class="operations">' +  $('.template_operations')[0].innerHTML + '</div>');
+                currentTable.append(dom);
+                var dom2 =  $('<div class="join">' +  $('.template_join')[0].innerHTML + '</div>');
+                currentTable.append(dom2);
+            }
+
+            $('.fa-trash2').unbind('click').on('click', function(e){
+                try{
+                    if($(this).parent().parent().prev().prev().hasClass('join')){
+                        $(this).parent().parent().prev().remove();
+                    }else{
+                        $(this).parent().parent().next().remove();
+                    }
+                    $(this).parent().parent().remove();
+                }catch(e){
+                    console.log(e)
+                }
+            });
+        });
+    };
+
     window.addJoinRecord_mini = function(currentTable){
     	currentTable.find('.operations').show();
         var dom2 =  $('<div class="join">' +  currentTable.find('.template_join_r')[0].innerHTML + '</div>');
@@ -959,39 +942,54 @@ $(function(){
                     $(this).addClass('bg').siblings('li').removeClass('bg');
                     $('.tableStyle').html('');
                     var flowInfo = flowInfosMap.get(flowId_global);
-                    if(flowInfo){
-                    	var tableName=$(this).text()+"_"+flowId_global;
-                    	var tableStr = flowInfo.dataMap.get(tableName);
-                    	if(!tableStr&&!flowInfo.editable){
-                    		var uuid = flowInfo.uuid;
-                    		$.ajax({
-                                url: urlId + '/release/checkdata',
-                                type:'POST',
-                                dataType:"json",
-                                async:false,
-                                data:{uuid:uuid,tableName:tableName},
-                                success:function(data) {
-                                	var dataJson = JSON.parse(data);
-                                	var result = dataJson.result;
-                                	if(result){
-                                		tableStr = construct_tableStr(result,flowInfo,tableName);
-                            		}
-                                },
-                                error : function() {
-                                    $.dialog("查看数据异常！");
-                                }
-                            })
-                    	}
-                    	$('.tableStyle').html(tableStr);
+                    if(flowInfo&&!flowInfo.editable){
+                    	var uuid = flowInfo.uuid;
+                		var tableName=$(this).text()+"_"+flowId_global;
+                		$.ajax({
+                            url: urlId + '/release/checkdata',
+                            type:'POST',
+                            dataType:"json",
+                            data:{uuid:uuid,tableName:tableName},
+                            success:function(data) {
+                            	var dataJson = JSON.parse(data);
+                            	var result = dataJson.result;
+                            	if(result){
+                            		var resultJson = JSON.parse(result);
+                            		var tableStr = "";
+                                	$.each(resultJson,function(index,item){
+                                		var array = item.split(",");
+                                		if(index==0){
+                                			var trStr="<tr class='firTr'>"; 
+                                			var length = array.length;
+                                			$.each(array,function(i,element){
+                                				if(i!=length-1){
+                                					trStr+="<th>"+element+"</th>";
+                                				}else{
+                                					trStr+="<th style='border-right: 1px solid #ddd'>"+element+"</th>";
+                                				}
+                                			});
+                                			trStr+="</tr>";
+                                		}else{
+                                    		var trStr="<tr"; 
+                                			$.each(array,function(i,element){
+                            					trStr+="<td>"+element+"</td>";
+                                			});
+                                			trStr+="</tr>";
+                                		}
+                                		tableStr+=trStr;
+                                	});
+                                	$('.tableStyle').html(tableStr);
+                            	}
+                            },
+                            error : function() {
+                                $.dialog("查看数据异常！");
+                            }
+                        })
                     }
                 });
             	$('.navBar li').eq(0).click();
             }
             $(" ."+activeTab).fadeIn();
-            //转化需要子树恢复
-            if(activeTab=='tab2_1'){
-            	recoverySubtree();
-            }
             return false;
         });
     };

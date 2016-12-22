@@ -1121,7 +1121,6 @@
             	if(e.button=="0"){
                     this.select_node(nodeid);
             	}else if(e.button=="2"){
-            		if(!this.get_editable()){return;}
         			var jd = this;
         			var jqueryDom;
         			var container = this.options.container;
@@ -1259,7 +1258,8 @@
         add_node_p:function(nodeid,element){
         	var jm = this;
         	var selected_node = this.get_node(nodeid); 
-        	if(!this.get_editable()){return;}
+            //添加父节点，sourceid为"".
+            
         	if(this.options.container=="jsmind_container"){
         		var newnodeid = jsMind.util.uuid.newid();
                 var topic = 'logic_node'+logic_node_num;
@@ -1703,7 +1703,7 @@
 
         /*add by tyd start*/
         check_node_alias:function(){
-        	var dataArray = this.data.get_data('node_array').data;
+        	var dataArray = this.data.get_data('node_array');
         	var nodes = this.mind.nodes;
         	var node = null;
         	var jd = this;
@@ -2974,8 +2974,7 @@
 						var dataArray2 = _jm1.data.get_data('node_array').data;
 						var sourceids = node.data.sourceids;
 						$.each(sourceids,function(index, item){
-							//var columndoms="<option value=''>请选择</option>";
-							var columndoms="<option value=''>请选择</option>";
+							var columndoms="";
 							var columnsTemp = new Array();
 							var dataArray = subtreeMap.get(item).data;
 							var alias;
@@ -3061,10 +3060,8 @@
 						$.each(item.onList,function(i,element){
 							addJoinRecord_mini(currenttable);
 							$(currenttable.find('.join')[i]).find('.condition1').val(element.condition1);
-							$(currenttable.find('.join')[i]).find('input').eq(0).val(element.condition1_text);
 							$(currenttable.find('.join')[i]).find('.condition2').val(element.condition2);
 							$(currenttable.find('.join')[i]).find('.condition3').val(element.condition3);
-							$(currenttable.find('.join')[i]).find('input').eq(1).val(element.condition3_text);
 							$(currenttable.find('.operations')[i]).find('.condition4').val(element.condition4);
 							$(currenttable.find('.operations')[i]).find('.condition5').val(element.condition5);
 						});

@@ -2021,7 +2021,7 @@
 		<div class="optionA optionAevnet addInterface">
 			<div class="dataContainerB">
 				<div class="partN">
-					<span>接口名称</span> <input type="text" class="addInterface_name"  maxlength="80">
+					<span>接口名称</span> <input type="text" class="addInterface_name">
 				</div>
 				<div class="paramL clearFix">
 					<span class="paramLl">参数列表</span>
@@ -2029,7 +2029,7 @@
 					<ul class="paramMain">
 						<li><span class="">参数名称</span><span class="noBorderR">类型</span></li>
 						<li class="addInterfaceColumn">
-							<input type="text" spellcheck="false" value="column1" maxlength="35">
+							<input type="text" spellcheck="false" value="column1">
 							<select>
 								<option value="Integer">Integer</option>
 								<option value="Long">Long</option>
@@ -2060,7 +2060,7 @@
 		<div class="optionA optionAevnet showCon">
 			<div class="dataContainerB">
 				<div class="partN">
-					<span>接口名称</span> <input type="text" interfaceId='' class="editInterface_name" maxlength="80">
+					<span>接口名称</span> <input type="text" interfaceId='' class="editInterface_name">
 				</div>
 				<div class="paramL clearFix">
 					<span class="paramLl">参数列表</span>

@@ -158,8 +158,7 @@ var bindConfigBtnsEvent = function(files,conId,conName){
 		enumValues.push(enumValue4);
 		var enumValue5 = new Object();
 		enumValue5.enumCode = "alias";
-		var fileName = files[0].substr(files[0].lastIndexOf('%252F')+5);
-		enumValue5.value = fileName.substring(0, fileName.lastIndexOf('.'));
+		enumValue5.value = files[0].substr(files[0].lastIndexOf('%252F')+5);;
 		enumValues.push(enumValue5);
 		source_data.fileName = files[0];
 		var enumValue6 = new Object();
