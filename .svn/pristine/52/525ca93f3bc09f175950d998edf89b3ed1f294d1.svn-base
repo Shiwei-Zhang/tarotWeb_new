@@ -170,7 +170,7 @@ $(function () {
                     if(jsonStr !=undefined) {
                         var lastJson = JSON.parse(jsonStr);
                         if(lastJson.result_code==999){
-                            window.clearInterval(controllerTimer);
+                            window.clearInterval(log_timer);
                         }
                     }
                 }
@@ -1243,11 +1243,11 @@ $(function () {
                         $part.parent().find('.isRepeat i').addClass('singleChecked');
                     }
                     //当前状态
-                    $('.deployState').attr('isRun', jobPlan.isRun);
+                    $('.deployStateD').attr('isRun', jobPlan.isRun);
                     if(jobPlan.isRun==1) {
                         controllerStatusTimer = window.setInterval(function(){
                             setDeployStatus();
-                        },1500);
+                        },1000);
                     }
 
                     //通知人内容信息设置
@@ -1351,7 +1351,7 @@ $(function () {
 
         //当前状态
         dict.isRun=0;
-        var isRun = $('.deployState').attr('isrun');
+        var isRun = $('.deployStateD').attr('isrun');
         if(isRun!=undefined) {
             dict.isRun = isRun;
         }
@@ -1447,7 +1447,7 @@ $(function () {
         $('.downline').css('display', 'none');
         $('.deployReplica').css('display', 'block');
         //设置状态中运行属性isRun=0
-        $('.deployState').attr('isRun', 0);
+        $('.deployStateD').attr('isRun', 0);
     });
 
     //黑白名单失去焦点触发验证
@@ -1795,38 +1795,12 @@ $(function () {
         }
     }
 
-    //是否可以布署任务(控制器没有添加组件信息时,不可发布)
-    function canDeploy(conId) {
-        var canDeploy;
-        $.ajax({
-            url: urlId + '/release/canDeploy',
-            type: 'POST',
-            async: false,
-            dataType: "json",
-            data: {conId: conId},
-            success: function (data) {
-                canDeploy = data;
-            },
-            error: function () {
-                alert("canDeploy 异常！");
-            }
-        })
-        return canDeploy;
-    }
-
     //任务布署
     function deployReplica() {
         var jobParams={};
         jobParams.controllerId=conId;
         jobParams.imagerSourceId=$('#idNameE option:selected').attr('imagerid');
         jobParams.planId=$('#idNameE option:selected').attr('value');
-
-        var canD = canDeploy(conId);
-        if(!canD) {
-            alert('挖掘组件为空,不可发布!');
-            return;
-        }
-
         if(jobParams.planId != 'none') {
             $.ajax({
                 url: urlId + '/release/deployJob',
@@ -1837,7 +1811,7 @@ $(function () {
                     console.log("deploy job.");
                     controllerStatusTimer = window.setInterval(function(){
                         setDeployStatus();
-                    },1500);
+                    },1000);
                     if(data!='') {
                         //设置Job的ID
                         $('.downline').attr('jobid', data);
@@ -1845,7 +1819,7 @@ $(function () {
                         $('.downline').css('display', 'block');
                         $('.deployReplica').css('display', 'none');
                         //设置状态中运行属性isRun=0
-                        $('.deployState').attr('isRun', 1);
+                        $('.deployStateD').attr('isRun', 1);
                         $.dialog('发布成功!')
                     }
                 },
@@ -1862,7 +1836,6 @@ $(function () {
         $.ajax({
             url: urlId + '/release/getDeployStatus',
             type: 'POST',
-            async: false,
             dataType: "json",
             data: {jobPlanId: planId},
             success: function (data) {
@@ -1870,7 +1843,7 @@ $(function () {
                 var status = parse.status;
                 var jobId = parse.jobId;
 
-                $('.deployState i').html(status);
+                $('.deployStateD i').html(status);
 
                 if(status=='下线'){
                     //将job列表清空
@@ -1879,7 +1852,7 @@ $(function () {
                     $('.downline').css('display', 'none');
                     $('.deployReplica').css('display', 'block');
                     //设置状态中运行属性isRun=0
-                    $('.deployState').attr('isRun', 0);
+                    $('.deployStateD').attr('isRun', 0);
                     window.clearInterval(controllerStatusTimer);
                 }
                 var regExp = new RegExp("正在运行");
@@ -1896,12 +1869,11 @@ $(function () {
                     $('.downline').css('display', 'block');
                     $('.deployReplica').css('display', 'none');
                     //设置状态中运行属性isRun=0
-                    $('.deployState').attr('isRun', 1);
+                    $('.deployStateD').attr('isRun', 1);
                 }
             },
             error: function () {
                 alert("deploy status 异常！");
-                window.clearInterval(controllerStatusTimer);
             }
         })
     }

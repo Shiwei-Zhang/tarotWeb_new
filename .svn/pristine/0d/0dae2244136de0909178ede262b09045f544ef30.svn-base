@@ -1174,7 +1174,7 @@
             				$.each(children_ids,function(index,item){
             					jd.move_node(item, nodeid, parentid, "-1");
             				});
-            				//jd.select_node(nodeid);
+            				jd.select_node(nodeid);
             				jd.remove_node(node);
             			}else if(actionType==5){
             				var node = jd.get_node(nodeid);
@@ -1467,7 +1467,7 @@
             }
         },
 
-        remove_node:function(node,flag){
+        remove_node:function(node){
             if(typeof node === 'string'){
                 return this.remove_node(this.get_node(node));
             }
@@ -1503,9 +1503,9 @@
                     this.view.remove_node(node);
                     this.mind.remove_node(node);
                     //add by tyd
-                    if(container=="jsmind_container"&&!flag){
+                    if(container=="jsmind_container"){
                     	clear_panel_node();
-                    }else if(container=="jsmind_container2"){
+                    }else{
                     	hide_column_constant_predict();
                     	this.check_subnode(sparent);
                     	if(sparent.isroot){
@@ -1777,21 +1777,17 @@
         				}else{
         					node.data.content = node.data.content.substring(0,1)+"0"+node.data.content.substring(2);
         				}
-        				//重名:如果此时出参只有一个，那么一定不会重名
-        				if(exports.length==1){
-        					node.data.content = node.data.content.substring(0,2)+"0"+node.data.content.substring(3);
-        				}else{
-        					$.each(exports,function(i,element){
-            					if(node.id!=element.id){
-            						if(node.topic==element.topic){
-            							node.data.content = node.data.content.substring(0,2)+"1"+node.data.content.substring(3);
-                						return false;
-                					}else{
-                						node.data.content = node.data.content.substring(0,2)+"0"+node.data.content.substring(3);
-                					}
+        				//重名
+        				$.each(exports,function(i,element){
+        					if(node.id!=element.id){
+        						if(node.topic==element.topic){
+        							node.data.content = node.data.content.substring(0,2)+"1"+node.data.content.substring(3);
+            						return false;
+            					}else{
+            						node.data.content = node.data.content.substring(0,2)+"0"+node.data.content.substring(3);
             					}
-            				});
-        				}
+        					}
+        				});
         			}else{
         				node.data.content = "000"+node.data.content.substring(3);
         			}
@@ -1910,10 +1906,10 @@
     		});
         },
         //创建data
-        construct_data:function(functionName,functionType,columnType,paramNumber,fixed,fk,level,source_name,line_color,sourceids,pk,flowid,source_id,source_type,source_data_type){
+        construct_data:function(functionName,functionType,columnType,paramNumber,fixed,fk,level,source_name,line_color,sourceids,pk,flowid,source_id,source_type){
         	var data;
         	if(this.options.container=='jsmind_container'){
-        		data = {"content":"","genid":0,"sourceids":sourceids,"level":level,"pk":pk,"line_color":line_color,"running_color":running_color,"border_color":line_color,"source_name":source_name,"flowid":flowid,"sourceid":source_id,"sourceType":source_type,"source_data_type":source_data_type,"isSave":0,"isInterface":0,"isDebug":0,"isCheck":0,"sql":"","subMind":"","params":"","joins":"","saveTargets":"","exportColumns":""};
+        		data = {"content":"","genid":0,"sourceids":sourceids,"level":level,"pk":pk,"line_color":line_color,"running_color":running_color,"border_color":line_color,"source_name":source_name,"flowid":flowid,"sourceid":source_id,"sourceType":source_type,"isSave":0,"isInterface":0,"isDebug":0,"isCheck":0,"sql":"","subMind":"","params":"","joins":"","saveTargets":"","exportColumns":""};
         	}else{
         		data = {"content":"0000000","genid":0,"fk":fk,"level":level,"source_name":source_name,"line_color":line_color,"border_color":line_color,"constantValue":"","functionName":functionName,"functionType":functionType,"columnType":columnType,"paramNumber":paramNumber,"fixed":fixed};
         	}
@@ -2137,7 +2133,6 @@
     			var grand = parentNode.parent;
     			var pk = parentNode.data.pk;
     			var dataArray = subtreeMap.get(pk).data;
-    			var line_color = this.options.view.line_color;
     			$.grep( dataArray, function(n,i){
     				if(n.fk==subNode.id){
     					var data = subNode.data||subNode;
@@ -2145,37 +2140,11 @@
     					if(n.parentid==pk){
         					//循环
     						jd.modify_constant_type_ref(n,grand);
-        				}else{
-        					$.each(dataArray,function(index,item){
-        						if(item.id == n.parentid){
-        							var functionName = item.functionName;
-            						var index = n.index;
-                	                var parameters = functionsMap.get(functionName);
-                	                var columnType = n.columnType;
-                	                var paramDataType = parameters[index-1].paramDataType;
-            	            		if(columnType!=paramDataType){
-            	                		var newArray = $.grep( conversionRules_global, function(element,i){
-            	                    		return element.theType==columnType&&element.depType==paramDataType&&element.type==1;
-            	             			});
-            	                    	if(newArray.length==0){
-            	                    		n.line_color = error_color;
-            	                    		item.content = item.content.substring(0,6)+"1";
-            	                    	}else{
-            	                    		n.line_color = line_color;
-            	                    		item.content = item.content.substring(0,6)+"0";
-            	                    	}
-            	                	}else{
-            	                		n.line_color = line_color;
-            	                		item.content = item.content.substring(0,6)+"0";
-            	                	}
-            	            		jd.change_color(item);
-            	            		return false;
-        						}
-        					});
         				}
     				}
-    			    return null;
+    			    return 1==1;
     			});
+    			subtreeMap.get(pk).data = dataArray;
     		}
         }
         /*add by tyd end*/
@@ -3025,6 +2994,7 @@
 						var dataArray2 = _jm1.data.get_data('node_array').data;
 						var sourceids = node.data.sourceids;
 						$.each(sourceids,function(index, item){
+							//var columndoms="<option value=''>请选择</option>";
 							var columndoms="<option value=''>请选择</option>";
 							var columnsTemp = new Array();
 							var dataArray = subtreeMap.get(item).data;
@@ -3040,7 +3010,6 @@
 								//element.parentid==item表示该transentity是出参
 								if(element.parentid==item){
 									var obj = new Object();
-									obj.sourceId = item;
 									obj.fk = element.id;
 									obj.name = alias+"."+element.topic;
 									obj.type = element.columnType;
@@ -3054,19 +3023,13 @@
 							});
 							tabledoms+='<option value="'+item+'">'+alias+'</option>';
 							tableMap.put(item,columndoms);
-							var columnDomStr = '<li parentId="'+item+'"><div class="titleT clearFix"><span>'+alias+'</span><i class="arrowUp"></i></div><ul class="detail show"></ul></li>';
-							var $columnDom = $(columnDomStr);
-							$('.col-category').append( $columnDom );
-							$.slideStyle( $columnDom );
 							columnArray = columnArray.concat(columnsTemp);
 						});
 					}else if(node.data.level==2){
-						var columnDomStr = '<li parentId="'+node.data.sourceid+'"><div class="titleT clearFix"><span>'+node.data.source_name+'</span><i class="arrowUp"></i></div><ul class="detail show"></ul></li>';
-						var $columnDom = $(columnDomStr);
-						$('.col-category').append( $columnDom );
-						$.slideStyle( $columnDom );
 						columnArray = tableColumnsMap.get(node.data.sourceid);
 					}
+					//初始化 col_con
+					$('.dt_d .col_con').html("");
 					//初始化源字段
 					var $sourceFields = $('.sourceFieldEvent .tableContainer tr[class!="contentTitle"]');
 					$sourceFields.remove();
@@ -3074,22 +3037,15 @@
 					var columndoms2="";
 					var line_color = _jm2.options.view.line_color;
 					$.each(columnArray, function(index, item){
-						var fk = item.fk||item.id;
-						var columnName = item.name.substring(item.name.indexOf('.')+1);
-						var dom = '<li fk = "'+fk+'" textValue = "'+item.name+'" level="4" columnType="'+item.type+'" class="draggable"><i class="wordIcon"></i><span>'+columnName+'</span></li>';
-						if(item.sourceId){
-							$('.col-category li[parentId="'+item.sourceId+'"] .detail').append(dom);
-						}else{
-							$('.col-category .detail').append(dom);
-						}
+						var dom = "<p fk = '"+item.fk+"' textValue = '"+item.name+"' columnType='"+item.type+"' level='4' line_color='"+line_color+"' class='draggable'>"+item.name+"</p>";							
+						col_con_doms+=dom;
 						var optionvalue = item.fk||item.name;
 						var dom2 = '<option value="'+optionvalue+'">'+item.name+'</option>'; 
 						columndoms2+=dom2;
-						var length = item.length||"";
-						var precision = item.precision||"";
-						var scale = item.scale||"";
-						$('.sourceFieldEvent .tableContainer').append( $('<tr><td>'+item.name+'</td><td>'+item.type+'</td><td>'+length+'</td><td>'+precision+'</td><td>'+scale+'</td><td><i class="single"></i></td><td></td></tr>') );
+						
+						$('.sourceFieldEvent .tableContainer').append( $('<tr><td>'+item.name+'</td><td>'+item.type+'</td><td></td><td></td><td></td><td><i class="single"></i></td><td></td></tr>') );
 					});
+					$('.dt_d .col_con').append($(col_con_doms));
 					initDragable();
 					//选择事件
 					$('.sourceFieldEvent .single').unbind('click').click(function () {
@@ -3177,6 +3133,12 @@
 								$('.target_layer').show();
 						    	$('.mask').show();
 							});
+							
+				    	    /*$('#sjlj').val(item.conId);
+				    	    $('.table_name').val(tableName);
+				    	    $('#ms').val(model);
+				    	    $('.target_layer').show();
+				    	    $('.mask').show();*/
 				    	});
 			    		$('.targets .fa-trash2').unbind('click').on('click', function(e){
 			                try{
@@ -3201,6 +3163,7 @@
 					hide_column_constant_predict();
 					//初始化子树
 					$('#tabbox2 ul').eq(0).find('li').eq(0).click();
+					open_detail(nodepk);
 				}else{
 					_jm1.deleteflag=false;
 					_jm2.deleteflag=true;
@@ -3231,7 +3194,7 @@
 					}
 					if(node.data.functionType==9){
 						$.ajax({
-				            url: urlId + '/selectDataMiningByUserid',
+				            url: urlId + '/selectByUserid',
 				            type:'POST',
 				            async:false,
 				            data:{user_id:userId},
@@ -3329,8 +3292,9 @@
                 }else{
                 	this.jm.update_node(node.id,topic);
                 }*/
-                node.topic = topic;
-        		this.jm.view.update_node(node);
+                var selected_node = this.jm.get_selected_node();
+        		selected_node.topic = topic;
+        		this.jm.view.update_node(selected_node);
         		this.jm.layout.layout();
         		this.jm.view.show(false);
                 if(this.jm.options.container=="jsmind_container"){
@@ -3615,7 +3579,7 @@
     				$.each(children_ids,function(index,item){
     					_jm.move_node(item, nodeid, parentid, "-1");
     				});
-    				//_jm.select_node(nodeid);
+    				_jm.select_node(nodeid);
     				_jm.remove_node(selected_node);
                 }
         	}

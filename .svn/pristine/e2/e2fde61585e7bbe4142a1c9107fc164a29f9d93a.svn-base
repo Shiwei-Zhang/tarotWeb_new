@@ -19,10 +19,10 @@ body {
     position: relative;
     font: 14px 'arial', 'MicrosoftYaHei';
     color: #1E1E1E;
-   -webkit-user-select: none;
+   /*  -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none; */
 }
 
 ul li {
@@ -467,9 +467,6 @@ p {
 }
 
 .folder ul li span {
-    display: inline-block;
-    height: 28px;
-    line-height: 28px;
     margin-left: 5px;
 }
 
@@ -4405,11 +4402,11 @@ right style
 }
 
 .fa-folder-close_ {
-    width: 14px;
-    height: 21px;
-    background-image: url(./../images/close-folder.png);
+    width: 20px;
+    height: 25px;
+    background-image: url('./../images/close-folder.png');
     background-repeat: no-repeat;
-    background-position: left 8px;
+    background-position: left 13px;
 }
 
 .biIcon {

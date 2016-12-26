@@ -1206,9 +1206,9 @@ var user_ = $.getCookie('userId');
 	    	  $('.border-center').hide();
 	    	  //处置被拖动的元素放置时
 	    	  var $item = ui.draggable;
-	    	  var chartId = $item.attr('data-chartid');
-	    	  var templateId = $item.attr('data-templateid');
-	    	  var $chartType = $item.attr('data-charttype');
+	    	  var chartId = $item.data('chartid');
+	    	  var templateId = $item.data('templateid');
+	    	  var $chartType = $item.data('charttype');
 	    	  if(!chartId || !templateId){
 	    		  return ;
 	    	  }
@@ -1461,7 +1461,7 @@ var user_ = $.getCookie('userId');
 							$('.bi-template-layout .bi-layout').each(function(index, item){
 								var $item = $(item);
 								if( $item.data('layoutid') == layoutId ){
-									$item.attr('data-chartframegroupid', chartFrameId).attr('data-theme', templateObjMap['theme']);//.attr('data-height', ).attr().attr();
+									$item.attr('data-chartframegroupid', chartFrameId).attr('theme', templateObjMap['theme']);//.attr('data-height', ).attr().attr();
 									$item.text(folderValue);
 									return false;
 								}
@@ -1494,11 +1494,11 @@ var user_ = $.getCookie('userId');
 			};
 			templateChartJsons = {};
 			var $this = $(this);
-			var templateId = $this.attr('data-templateid');
-			layoutId = $this.attr('data-layoutid');
+			var templateId = $this.data('templateid');
+			layoutId = $this.data('layoutid');
 			layoutName = $this.text();
-			chartFrameId = $this.attr('data-chartframegroupid');
-			var $theme = $this.attr('data-theme') || '';
+			chartFrameId = $this.data('chartframegroupid');
+			var $theme = $this.data('theme') || '';
 			templateObjMap['theme'] = $theme;
 			if($theme){
 	    		$('.bi-theme-container li').removeClass('checked');
@@ -1560,8 +1560,8 @@ var user_ = $.getCookie('userId');
 	
 	//删除当前template已编辑好的chart
 	$('.bi-template-delete').unbind('click').click(function(e){
-		var chartId = $(this).attr('data-chartid');
-		var templateId = $(this).attr('data-templateid');
+		var chartId = $(this).data('chartid');
+		var templateId = $(this).data('templateid');
 		if(!chartId || !templateId || !templateContainer['temp-' + chartId + '-' + templateId]){
 			console.log('data is error.');
 			return;
@@ -1940,7 +1940,7 @@ var user_ = $.getCookie('userId');
 		$('.bi-toolbox select[name="tborient"]').val('horizontal');
 		//6.visualmap
 		$('.bi-visualmap .vmshow').removeClass('singleChecked');
-		$('.bi-visualmap input[name="dimension"]').val('0');
+		$('.bi-visualmap input[name="dimension"]').val('');
 		$('.bi-visualmap-text').val('');
 		$('.bi-visualmap-inrange').val('');
 		//7.tooltip
@@ -2491,7 +2491,7 @@ var user_ = $.getCookie('userId');
 							if(chartType_ == 'input'){
 								$('#' + divId + '-parent').hide();
 							}else{
-								variableValue = '';
+								variableValue = chartJson_.value[0];
 							}
 							
 							variableMap[variableName] = variableValue + '';
@@ -2781,17 +2781,6 @@ var user_ = $.getCookie('userId');
 				positionAttr['height'] = 0;
 				dataParams[$divId] = JSON.stringify(positionAttr);
 				
-				//布局删除
-				if(layoutId){
-					$('#' + parentId).hide('fade', function(){
-						$('#' + parentId).remove();
-					});
-					//删除当前对象数据边线
-					delete borderMap4Chart[parentId + '-left'];
-					delete borderMap4Chart[parentId + '-center'];
-					delete borderMap4Chart[parentId + '-right'];
-					return ;
-				}
 				$.showLoading();
 				$.ajax({
 					url:baseUrl+'/updateTemplateAndCharts',
@@ -3106,8 +3095,8 @@ var user_ = $.getCookie('userId');
 			$('.bi-chart-list div').each(function(index, item){
 				var filter = $(item).attr('data-filter');
 				if(filter && filter.indexOf(varName) > -1 ){
-					var $chartId =  $(item).attr('data-chartid');
-					var templateId =  $(item).attr('data-templateid');
+					var $chartId =  $(item).data('chartid');
+					var templateId =  $(item).data('templateid');
 					var divId = 'tmp-' + $chartId + '-' + templateId;
 					if(!templateContainer[divId]){
 						return;
@@ -3328,7 +3317,7 @@ var user_ = $.getCookie('userId');
         
         $this.addClass('checked');
         $('.mask,.checkTemplate').hide();
-        chartFrameId = $this.attr('data-id');
+        chartFrameId = $this.data('id');
         if( chartFrameId == 1 ){
         	biInit( $('.showbiData').attr('data-templateid') );
         	return ;

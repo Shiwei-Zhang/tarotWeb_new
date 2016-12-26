@@ -5,10 +5,6 @@ $(function(){
 	    document.oncontextmenu = function(e){
 	        e.preventDefault();
 	    };
-	    $('input').click(function(){
-	    	_jm1.deleteflag=false;
-			_jm2.deleteflag=false;
-	    });
 	});
 //logic_node的序列号
 var logic_node_num = 1;
@@ -24,8 +20,7 @@ function initDragable_updown(){
 		resize: function( event, ui ) {
 			var newheight = ui.element.parent().height()-ui.element.height();
 			$('#tabbox2').height(newheight);
-			$('#jsmind_container2').height(newheight-80);
-			$('.logClass').height(newheight-80);
+			$('#jsmind_container2').height(newheight);
 			$('#_column_trans').height(newheight-125);
 		}
   	});
@@ -48,7 +43,6 @@ function initDragable(){
 			var paramNumber = event.target.getAttribute('paramNumber')||element.parentNode.getAttribute('paramNumber');
 			var columnType = event.target.getAttribute('columnType')||element.parentNode.getAttribute('columnType');
 			var fixed = event.target.getAttribute('fixed')||element.parentNode.getAttribute('fixed');
-			var sourcedatatype = event.target.getAttribute('sourcedatatype')||element.parentNode.getAttribute('sourcedatatype');
 			var line_color;
 			if(level=='1'||level=='2'){
 				line_color = _jm1.options.view.line_color;
@@ -58,7 +52,7 @@ function initDragable(){
 			if(!_jm1.get_editable()){
 				return $( "<jmnode id='jmnodeModel' style='display:none;' ></jmnode>" );
 			}else{
-				return $( "<jmnode id='jmnodeModel' style='border-color:"+line_color+"' functionName='"+functionName+"' functionType='"+functionType+"' columnType='"+columnType+"' paramNumber='"+paramNumber+"' fixed='"+fixed+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourcedatatype='"+sourcedatatype+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
+				return $( "<jmnode id='jmnodeModel' style='border-color:"+line_color+"' functionName='"+functionName+"' functionType='"+functionType+"' columnType='"+columnType+"' paramNumber='"+paramNumber+"' fixed='"+fixed+"' fk='"+fk+"' level='"+level+"' flowid='"+flowid+"' sourceid='"+sourceid+"' line_color='"+line_color+"'>"+textValue+"</jmnode>" );
 			}
 		}
 	});
@@ -218,14 +212,8 @@ function loop_node(node){
 			});
 		});
 	}else{
-		//sqlserver和csv过滤topic
-		var sourcedatatype = node.data.source_data_type;
 		var source_name = node.data.source_name;
-		if(sourcedatatype=='csv'){
-			source_name = source_name.substring(0,source_name.lastIndexOf("."));
-		}else{
-			source_name = source_name.substring(source_name.indexOf(".")+1);
-		}
+		source_name = source_name.substring(source_name.indexOf(".")+1)
 		sql+="["+source_name+"] "+""+source_name+"";
 	}
 	var filter = paramsMap.get(pk).filter;
@@ -334,7 +322,7 @@ function loop_sql(children){
 			//表示函数
 			if(level==3){
 				//如果是类似于concat(...),可以直接是concat()
-				if((item.data.fixed==0&&item.data.paramNumber==1)||(item.data.fixed==1&&item.data.paramNumber==0)){
+				if(item.data.fixed==0&&item.data.paramNumber==1){
 					spice = item.data.functionName+"()";
 				}else if(functionType==2){
 					spice = item.data.constantValue;
@@ -355,11 +343,6 @@ function loop_sql(children){
 	return array;
 }
 function save_current(selected_node){
-	//保证了udfinfo保存的是最新的信息
-	var sub_selected_node = _jm2.get_selected_node();
-	if(sub_selected_node&&sub_selected_node.data.functionType==9){
-		$load_predict_detail();
-	}
 	if(selected_node){
 		var pk = selected_node.data.pk;
 		//要先保存子树状态再执行modify_alias_ref

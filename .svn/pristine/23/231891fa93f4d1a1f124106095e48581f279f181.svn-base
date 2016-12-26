@@ -3,10 +3,11 @@ $(function(){
 		var resultJson = JSON.parse(result);
 		var tableStr = "";
     	$.each(resultJson,function(index,item){
+    		var array = item.split(",");
     		if(index==0){
     			var trStr="<tr class='firTr'>"; 
-    			var length = item.length;
-    			$.each(item,function(i,element){
+    			var length = array.length;
+    			$.each(array,function(i,element){
     				if(i!=length-1){
     					trStr+="<th>"+element+"</th>";
     				}else{
@@ -16,7 +17,7 @@ $(function(){
     			trStr+="</tr>";
     		}else{
         		var trStr="<tr>"; 
-    			$.each(item,function(i,element){
+    			$.each(array,function(i,element){
 					trStr+="<td>"+element+"</td>";
     			});
     			trStr+="</tr>";
@@ -26,44 +27,43 @@ $(function(){
     	flowInfo.dataMap.put(tableName,tableStr);
     	return tableStr;
 	};
-	window.removeSocketSession = function(){
+	var removeSocketSession = function(){
+		$('.module-prop .save').removeAttr('disabled');
+		$('.new_table_name input').removeAttr('disabled');
+		$('.new_column_name input').removeAttr('disabled');
+		_jm1.enable_edit();
+		_jm2.enable_edit();
+		$('.debug,.runing').removeClass('selected');
+		$('.stop,.wait,.next').addClass('selected');
 		var flowInfo = flowInfosMap.get(flowId_global);
-		if(!flowInfo.editable){
-			$('.module-prop .save').removeAttr('disabled');
-			$('.new_table_name input').removeAttr('disabled');
-			$('.new_column_name input').removeAttr('disabled');
-			_jm1.enable_edit();
-			_jm2.enable_edit();
-			$('.debug,.runing').removeClass('selected');
-			$('.stop,.wait,.next').addClass('selected');
-			flowInfo.editable = true;
-			window.clearInterval(flowInfo.log_timer);
-	    	window.clearInterval(flowInfo.checkaccept_timer);
-	    	var uuid = flowInfo.uuid;
-			$.ajax({
-				url: urlId + '/release/removeSocketSession',
-	            type:'POST',
-	            dataType:"json",
-	            data:{uuid:uuid},
-	            success:function(data) {
-	            	if(data){
-	            		var dataStr = null;
-	                	var sqlStr = "";
-	                	for(var tableName in data){
-	                		dataStr = data[tableName];
-	                		var dataJson = JSON.parse(dataStr);
-	                    	var result = dataJson.result;
-	                    	if(result){
-	                    		construct_tableStr(result,flowInfo,tableName);
-	                    	}
-	                	}
-	            	}
-	            },
-	            error : function() {
-	                $.dialog("移除SocketSession出现异常！");
-	            }
-			});
-		}
+		flowInfo.editable = true;
+		window.clearInterval(flowInfo.log_timer);
+    	window.clearInterval(flowInfo.checkaccept_timer);
+    	var uuid = flowInfo.uuid;
+		$.ajax({
+			url: urlId + '/release/removeSocketSession',
+            type:'POST',
+            dataType:"json",
+            data:{uuid:uuid},
+            success:function(data) {
+            	if(data){
+            		var dataStr = null;
+                	var sqlStr = "";
+                	for(var tableName in data){
+                		dataStr = data[tableName];
+                		var dataJson = JSON.parse(dataStr);
+                    	var result = dataJson.result;
+                    	if(result){
+                    		construct_tableStr(result,flowInfo,tableName);
+                    	}
+                	}
+            	}
+            	
+            },
+            error : function() {
+                $.dialog("移除SocketSession出现异常！");
+            }
+		});
 	};
 	window.checkaccept_timer = function(flowInfo,uuid){
 		flowInfo.checkaccept_timer = window.setInterval(function(){
@@ -139,12 +139,15 @@ $(function(){
     	},1000);
 	};
 	var firetestdebugflow = function(runType){
+		$('.tab2_2 div').html('');
+		$('#tabbox2 ul').eq(0).find('li').eq(1).click();
 		$.ajax({
             url: urlId + '/release/firetestdebugflow',
             type:'POST',
             dataType:"json",
             data:{flowId:flowId_global,type:runType},
             success:function(data) {
+            	$('.tab2_2 div').append(data+'<br>');
             	var dataJson = JSON.parse(data);
             	var uuid = dataJson.uuid;
             	var result_code = dataJson.result_code;
@@ -168,15 +171,13 @@ $(function(){
             		$('.debug,.runing').addClass('selected');
             		_jm1.disable_edit();
             		_jm2.disable_edit();
-                	var flowInfo = flowInfosMap.get(flowId_global);
+                	var flowInfo = new Object();
                 	flowInfo.uuid = uuid;
                 	flowInfo.editable = false;
                 	flowInfo.runType = runType;
-                	flowInfo.log = '';
-                	flowInfo.dataMap.clear();
-                	$('.tab2_2 div').html('');
-            		$('#tabbox2 ul').eq(0).find('li').eq(1).click();
-                	$('.tab2_2 div').append(data+'<br>');
+                	flowInfo.log = "";
+                	flowInfo.dataMap = new Map();
+                	flowInfosMap.put(flowId_global,flowInfo);
             		if(runType==3){
             			checkaccept_timer(flowInfo,uuid);
             		}else{
@@ -194,12 +195,11 @@ $(function(){
 	};
 	var sendAction = function(actionType){
 		var uuid = flowInfosMap.get(flowId_global).uuid;
-		var runType = flowInfosMap.get(flowId_global).runType;
 		$.ajax({
             url: urlId + '/release/sendactions',
             type:'POST',
             dataType:"json",
-            data:{uuid:uuid,runType:runType,action:actionType,tableName:null,lines:20},
+            data:{uuid:uuid,action:actionType,tableName:null,lines:20},
             success:function(data) {
             	var dataJson = JSON.parse(data);
             	var result_code = dataJson.result_code;
@@ -447,43 +447,37 @@ $(function(){
     $('.new_type_value select').change(function(){
     	var node = _jm2.get_selected_node();
 		node.data.columnType = $('.new_type_value select').val();
-		var parentNode = node.parent;
-		_jm2.check_subnode(parentNode);
 		//需要处理父节点受到的影响
 		if(node.parent.isroot){
 			var parentNode = _jm1.get_selected_node().parent;
 			_jm2.modify_constant_type_ref(node,parentNode);
 		}
+		var parentNode = node.parent;
+		_jm2.check_subnode(parentNode);
     });
     //数据挖掘选择
     $('.new_predict_value select').change(function(){
-    	$load_predict_detail();
+		var selected_value = $(this).val();
+		$.ajax({
+            url: urlId + '/selectByMiningId',
+            type:'POST',
+            async:false,
+            data:{mining_id:selected_value},
+            dataType:"json",
+            success:function(data) {
+            	$('.new_predict_value input').eq(0).val(data.url);
+            	$('.new_predict_value input').eq(1).val(data.type);
+            },
+            error : function() {
+                $.dialog("加载数据挖掘的属性时异常！");
+            }
+        });
+		$save_predict();
 	});
     //数据挖掘自定义
     $('.new_predict_value input').bind('input propertychange', function() {
     	$save_predict();
     });
-    //加载某个数据挖掘信息
-    window.$load_predict_detail = function(){
-    	var selected_value = $('.new_predict_value select').val();
-    	if(selected_value){
-    		$.ajax({
-                url: urlId + '/selectByMiningId',
-                type:'POST',
-                async:false,
-                data:{mining_id:selected_value},
-                dataType:"json",
-                success:function(data) {
-                	$('.new_predict_value input').eq(0).val(data.url);
-                	$('.new_predict_value input').eq(1).val(data.type);
-                	$save_predict();
-                },
-                error : function() {
-                    $.dialog("加载数据挖掘的属性时异常！");
-                }
-            });
-    	}
-    };
     //数据挖掘保存
     window.$save_predict = function(){
     	var node = _jm2.get_selected_node();
@@ -847,10 +841,6 @@ $(function(){
                 console.log(e)
             }
         });
-        $('.filter input').unbind('click').on('click',function(e){
-        	_jm1.deleteflag=false;
-			_jm2.deleteflag=false;
-        });
     };
 
     window.addGroupRecord = function(){
@@ -897,10 +887,6 @@ $(function(){
             }catch(e){
                 console.log(e)
             }
-        });
-        $('.join input').unbind('click').on('click',function(e){
-        	_jm1.deleteflag=false;
-			_jm2.deleteflag=false;
         });
         return currentTable;
     };
@@ -975,9 +961,9 @@ $(function(){
         $(tabcon+":first").show();
 
         $(tabtit+" li").click(function() {
-            /*if( $(this).hasClass("thistab")){
+            if( $(this).hasClass("thistab")){
                 return;
-            }*/
+            }
 
             //
             if($(this).hasClass("nochangetab")){
@@ -988,11 +974,6 @@ $(function(){
             $(this).addClass("thistab");
             $(tabcon).hide();
             var activeTab = $(this).find("a").attr("tab");
-            var flowInfo = flowInfosMap.get(flowId_global);
-            //加载日志
-            if(activeTab=='tab2_2'){
-            	$('.tab2_2 div').html(flowInfo.log);
-            }
             //数据监控需要重新初始化
             if(activeTab=='tab2_4'){
             	var nodes = _jm1.mind.nodes;
@@ -1006,41 +987,41 @@ $(function(){
             			num++;
             		}
             	}
-            	if(!liStr){
-            		$('.tableStyle').html('');
-            	}
             	$('.tab2_4 .navBar').html(liStr);
             	$('.navBar li').unbind('click').click(function () {
                     $(this).addClass('bg').siblings('li').removeClass('bg');
                     $('.tableStyle').html('');
-                	var tableName=$(this).text()+"_"+flowId_global;
-                	var tableStr = flowInfo.dataMap.get(tableName);
-                	if(!tableStr&&!flowInfo.editable){
-                		var uuid = flowInfo.uuid;
-                		$.ajax({
-                            url: urlId + '/release/checkdata',
-                            type:'POST',
-                            dataType:"json",
-                            async:false,
-                            data:{uuid:uuid,tableName:tableName},
-                            success:function(data) {
-                            	var dataJson = JSON.parse(data);
-                            	var result = dataJson.result;
-                            	if(result){
-                            		tableStr = construct_tableStr(result,flowInfo,tableName);
-                        		}
-                            },
-                            error : function() {
-                                $.dialog("查看数据异常！");
-                            }
-                        })
-                	}
-                	$('.tableStyle').html(tableStr);
+                    var flowInfo = flowInfosMap.get(flowId_global);
+                    if(flowInfo){
+                    	var tableName=$(this).text()+"_"+flowId_global;
+                    	var tableStr = flowInfo.dataMap.get(tableName);
+                    	if(!tableStr&&!flowInfo.editable){
+                    		var uuid = flowInfo.uuid;
+                    		$.ajax({
+                                url: urlId + '/release/checkdata',
+                                type:'POST',
+                                dataType:"json",
+                                async:false,
+                                data:{uuid:uuid,tableName:tableName},
+                                success:function(data) {
+                                	var dataJson = JSON.parse(data);
+                                	var result = dataJson.result;
+                                	if(result){
+                                		tableStr = construct_tableStr(result,flowInfo,tableName);
+                            		}
+                                },
+                                error : function() {
+                                    $.dialog("查看数据异常！");
+                                }
+                            })
+                    	}
+                    	$('.tableStyle').html(tableStr);
+                    }
                 });
             	$('.navBar li').eq(0).click();
             }
-            $(" ."+activeTab).show();
-            //切换到转换模块需要子树恢复
+            $(" ."+activeTab).fadeIn();
+            //转化需要子树恢复
             if(activeTab=='tab2_1'){
             	recoverySubtree();
             }
@@ -1061,11 +1042,6 @@ $(function(){
         var cls =  $(this).data('cls');
         $('#tabbox2 .dt_con>div').hide();
         $('.' + cls).show();
-        
-        $('#words').val('');
-        $('#_column_trans>.col_con>p').show();
-        $('.fx-category>li>div').show();
-        $('.fx-category>li>ul>li').show();
     });
     
 });

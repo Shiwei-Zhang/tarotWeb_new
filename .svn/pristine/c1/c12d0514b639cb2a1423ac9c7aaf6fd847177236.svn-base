@@ -19,7 +19,7 @@ body {
     position: relative;
     font: 14px 'arial', 'MicrosoftYaHei';
     color: #1E1E1E;
-   -webkit-user-select: none;
+    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -443,7 +443,7 @@ p {
 .folder {
     height: 886px;
     overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-x: hidden;
     font-size: 12px;
 }
 
@@ -467,9 +467,6 @@ p {
 }
 
 .folder ul li span {
-    display: inline-block;
-    height: 28px;
-    line-height: 28px;
     margin-left: 5px;
 }
 
@@ -487,10 +484,9 @@ p {
 }
 
 ul.root_tree li div {
-    height: 28px;
+    /*height: 28px;*/
     line-height: 26px;
     padding-left: 10px;
-    white-space: nowrap;
 }
 
 .folder_self span {
@@ -1787,9 +1783,6 @@ ul.root_tree li div {
 .conVisitedBg{
     background: #CCEBF8;
 }
-.conVisitedBg2{
-    background: #FFFFFF;
-}
 
 .listConment .nameL {
     float: left;
@@ -2200,7 +2193,6 @@ ul.root_tree li div {
 
 .dispatchPart .timeControl{
     max-height: 342px;
-    margin-bottom: 86px;
 }
 
 .deployLeft, .deployRight {
@@ -2267,7 +2259,8 @@ ul.root_tree li div {
 }
 
 .deployStateD {
-    height: 30px;
+    height: 86px;
+    margin-top: 44px;
 }
 
 .deployStateD i,
@@ -2676,6 +2669,7 @@ ul.root_tree li div {
 /*日志*/
 .module-core .logClass{
     height: 403px;
+    max-height: 403px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -4405,11 +4399,11 @@ right style
 }
 
 .fa-folder-close_ {
-    width: 14px;
-    height: 21px;
-    background-image: url(./../images/close-folder.png);
+    width: 20px;
+    height: 25px;
+    background-image: url('./../images/close-folder.png');
     background-repeat: no-repeat;
-    background-position: left 8px;
+    background-position: left 13px;
 }
 
 .biIcon {

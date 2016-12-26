@@ -183,9 +183,9 @@ $(function(){
         		var columnset = new Set();  //test duplication name
         		for(var i = 0;i<parameter.length;i++){
         			var column = $(parameter[i]).find('input').val();
-        			if(!column || !column.trim() || specialSymbols.test(column)){
+        			if(specialSymbols.test(column)){
         				clickedSureBtn_ = false;
-        				$.dialog("字段名称不能为空和包含特殊字符");
+        				$.dialog("字段名称不能包含特殊字符");
                 		return;
         			}
         			columnset.add(column);
@@ -233,7 +233,7 @@ $(function(){
         		source_data.conId = 0;
         		source_data.flowId = flowId_global;
     			source_data.isInterface = 1;
-    			//source_data.sourceDataType = '';
+    			source_data.sourceDataType = 'JDBC';
     			var enumValues = new Array();
     			var enumValue = new Object();
     			var sourcetable = $('.addInterface_name').val();
@@ -269,7 +269,7 @@ $(function(){
     				closeAdd4();
     	        },
     	        error : function() {
-    	            $.dialog("服务器出现异常，请稍后重试");
+    	            $.dialog("异常！");
     	            closeAdd4();
     	        },
     	        complete: function(){
@@ -385,10 +385,11 @@ $(function(){
                     str+='<option value='+item["ID"]+'>'+item["NAME"]+'</option>';
                 });
                 $('.connectionEvent').html(str);
+
                 bindSourceDataChangeEvent();
             },
             error : function() {
-                $.dialog("服务器出现异常，请稍后重试");
+                $.dialog("异常！");
             }
         });
 
@@ -425,9 +426,7 @@ $(function(){
     	//input下拉菜单
         $('.connectionEvent').unbind('change').change(function(){
             var detailId = $(this).children('option:selected').val();
-            $('.mainEvent').empty();
             if(detailId){
-            	$.showLoading();
             	var str='';
                 $.ajax({
                     url:urlId+'/selectValueAndTableByConIds'+'?conId='+detailId+'&flowId='+flowId_global,
@@ -451,11 +450,8 @@ $(function(){
                         });
 
                     },
-                    complete: function(){
-                    	$.hideLoading();
-                    },
-                    error: function() {
-                    	$.dialog("连接失败，请稍后重试");
+                    error : function() {
+                        $.dialog("异常！");
                     }
                 })
             }else {
@@ -531,19 +527,6 @@ $(function(){
         if(objDataType==2){
             $('.controller-' + objIdName).hide();
         }else if(objDataType==3){
-        	$.ajax({
-    			url:urlId+'/getFlowIdByMenuId?menuId='+objIdName,
-    			type:'POST',
-    			dataType:"json",
-    			async:false,
-    			contentType: "application/json",
-    			success:function(data) {
-    				delete_panel_flow(data);
-				},
-				error : function() {
-					$.dialog("获取工作流信息异常！");
-				}
-			});
             $('.flow-' + objIdName).hide();
         }else if(objDataType==4){
             $('.datamining-' + objIdName).hide();
@@ -597,7 +580,6 @@ $(function(){
             //TODO Loading flow data and mask
         	getFlowIdByMenuId($idName);
             $('.flow-template').show();
-            $('.module-coreEvent').show();
             //设置属性input宽度
             $('.module-prop .new_table_name input,.module-prop .new_column_name input').css('width',250-$('.module-prop .prop span:first-child').width());
         }else if($dataType == 4){
@@ -637,7 +619,6 @@ $(function(){
 		var sourceDataId;
 		var is_interface;
 		var data_obj;
-		var sourceDataType;
 		var line_color = _jm1.options.view.line_color;
 		var liStr="";
 		$(data).each(function(index,item){
@@ -654,13 +635,12 @@ $(function(){
 				$.each(sdList,function(i,element){
 					fileName=element.fileName;
 					is_interface=element.isInterface;
-					sourceDataType=element.sourceDataType;
-					if(( sourceDataType == 'csv' || sourceDataType == 'ftp'  || sourceDataType == 'hdfs' ) && fileName){//ftp and hdfs are older
+					if(( element.sourceDataType == 'csv' || element.sourceDataType == 'ftp'  || element.sourceDataType == 'hdfs' ) && fileName){//ftp and hdfs are older
 						fileName = fileName.substr(fileName.lastIndexOf('%252F')+5);
 					}
 					sourceDataId=element.id;
 					tableColumnsMap.put(sourceDataId,element.columnList);
-					liStr_min="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceDataType='"+sourceDataType+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
+					liStr_min="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
 					var $liStr_min = $(liStr_min);
 					liElement.find('ul').append($liStr_min);
 					$liStr_min.unbind('mousedown').mousedown(function(e, a){
@@ -676,13 +656,12 @@ $(function(){
 				$.each(sdList,function(i,element){
 					fileName=element.fileName;
 					is_interface=element.isInterface;
-					sourceDataType=element.sourceDataType;
-					if(( sourceDataType == 'csv' || sourceDataType == 'ftp'  || sourceDataType == 'hdfs' ) && fileName){//ftp and hdfs are older
+					if(( element.sourceDataType == 'csv' || element.sourceDataType == 'ftp'  || element.sourceDataType == 'hdfs' ) && fileName){//ftp and hdfs are older
 						fileName = fileName.substr(fileName.lastIndexOf('%252F')+5);
 					}
 					sourceDataId=element.id;
 					tableColumnsMap.put(sourceDataId,element.columnList);
-					liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceDataType='"+sourceDataType+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
+					liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span>"+fileName+"</span></li>";
 				});
 				liStr+=liStr_min+"</ul></li>";
 				var $liStr = $(liStr);
@@ -1350,7 +1329,7 @@ function testConnection(){
 		},
 		error:function(){
 			$('#result').html('');
-			$.dialog("连接失败，请稍后重试");
+			$.dialog("连接异常");
 			$.hideLoading();
 		}, 
 		complate: function(XMLHttpRequest,status){
@@ -1567,7 +1546,7 @@ function goDatasource(userId,content){
 								},
 								error:function(){
 									$('#result1').html('');
-									$.dialog("连接失败，请稍后重试");
+									$.dialog("连接异常");
 									$.hideLoading();
 								}
 							})
@@ -1717,7 +1696,7 @@ function goDatasource(userId,content){
 									},
 									error:function(){
 										$('#result2').html('');
-										$.dialog("连接失败，请稍后重试");
+										$.dialog("连接异常");
 										$.hideLoading();
 									}
 								})
@@ -1826,12 +1805,12 @@ function goDatasource(userId,content){
 						);
 						//清空signArray
 						signArray2 = [];
-						$.dialog("修改成功");
+						$.dialog("修改成功！");
 					},
 					error : function() {
 						//清空signArray
 						signArray2 = [];
-						$.dialog("修改失败，请稍后重试");
+						$.dialog("异常！");
 					}
 				})
 
@@ -1937,7 +1916,7 @@ function powerList(conId,content){
 			goPage(1,pageSize,'table3','barcon3');
 		},
 		error : function() {
-			$.dialog("服务器异常，请稍后重试");
+			$.dialog("异常！");
 		}
 	});
 }
@@ -2059,10 +2038,7 @@ function generateFun(power, domCls,menutype){
             //modified by tyd
             var menuId = $currentRightDom.attr("id");
             var menuType = $currentRightDom.attr("menuType");
-            
-            $.confirm('确定要删除吗？', function(){
-            	deleteMenu(menuId,menuType);
-            });
+            deleteMenu(menuId,menuType);
         }},
         {text: '重命名', auth: modifyAuth, action:function(e){
             e.preventDefault();
@@ -2120,7 +2096,7 @@ function returnFileName(name,id,userid){
 			return fileName;
 		},
 		error : function() {
-			$.dialog("服务器异常，请稍后重试");
+			$.dialog("异常！");
 			return null;
 		}
 	})
@@ -2143,7 +2119,7 @@ function nameIsExist(name,mid,id,userid,type){
 			return flag;
 		},
 		error : function() {
-			$.dialog("服务器异常，请稍后重试");
+			$.dialog("异常！");
 			return null;
 		}
 	})
@@ -2162,7 +2138,9 @@ function deleteSourceData(sourceId){
 	if(nodes_array.length>0){
 		$.confirm('数据源已被引用，确定要继续删除吗？', function(){
 			deleteSourceData_(sourceId,nodes_array);
-			save_jsmind('delete');
+			//TODO
+			//save_jsmind('delete');
+			//recoverySubtree();
 		});
 	}else{
 		deleteSourceData_(sourceId);
@@ -2201,16 +2179,11 @@ function deleteSourceData_(sourceId,nodes_array){
 				});
 			}
 			$.each(nodes_array,function(index,item){
-				var selected_node = _jm1.get_selected_node();
-				if(selected_node==item){
-					_jm1.remove_node(item);
-				}else{
-					_jm1.remove_node(item,1);
-				}
+				_jm1.remove_node(item);
 			});
 		},
 		error : function() { 
-			$.dialog("删除数据源失败，请稍后重试"); 
+			$.dialog("删除数据源异常！"); 
 		}  
 	});
 }
@@ -2262,7 +2235,7 @@ function lookSouceData(sourceId,is_interface){
 		},
 		error : function() {
 			$('.tableSd').empty();
-			$.dialog("读取数据失败，请稍后重试");
+			$.dialog("读取数据异常！");
 			$.hideLoading();
 		}
 	})
@@ -2415,7 +2388,7 @@ function saveEditInterface(){
         	$('.mask').hide();
         },
         error : function() {
-            $.dialog("编辑接口失败");
+            $.dialog("异常！");
             $('.editInterface').hide();
         	$('.mask').hide();
         }
@@ -2730,7 +2703,7 @@ function refreshUsersList(str){
 			})
 		},  
 		error : function() {   
-			$.dialog("服务器异常，请稍后重试");  
+			$.dialog("异常！");  
 		} 
 	})
 }
@@ -2921,146 +2894,3 @@ function interfaceEditNameValidation(tableName,interfaceId,flowId){
 	});
 	return nameIsOk;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**********************************
- * Flow 搜索功能
-***********************************/
-//数据表搜索
-$('#source-search').unbind('keyup').keyup(function(e){
-	var sources = $('#_source_add>ul>li>div');
-	var sourceT = $('#_source_add>ul>li>ul>li');
-	var sourceLen = sourceT.length || 0;
-	//无表时
-	if(sourceLen < 1){
-		return ;
-	}
-	
-	var $this = $(this);
-	var val = $this.val() || '';
-	val = val.trim();
-	//为空时, 显示全部
-	if(!val){
-		sources.show();
-		sourceT.show();
-		
-		var arrowUp = sources.length || 0;
-		for(var i = 0; i < arrowUp; i++){
-			var $oneSCate = $( sources[i] );
-			var icon = $oneSCate.find('i');
-			if( icon.hasClass('arrowDown') ){
-				$oneSCate.next().hide();
-			}
-		}
-		return ;
-	}
-	
-	//非空时,遍历所有表, 显示匹配表
-	sources.hide();
-	sourceT.hide();
-	sourceT.parent().hide();
-	for(var i = 0; i < sourceLen; i++){
-		var $li = $( sourceT[i] );
-		
-		var tbName = $li.find('span').text() || '';
-		tbName = tbName.trim().toUpperCase();
-		if(tbName.indexOf( val.toUpperCase() ) > -1){
-			$li.show();
-			$li.parent().show();
-		}
-	}
-});
-
-//字段和函数搜索
-$('#words').unbind('keyup').keyup(function(e){
-	var $this = $(this);
-	var val = $this.val() || '';
-	val = val.trim();
-	
-	var cont = $('#words').prev().find('.active_t').text();
-	if(cont == '字段'){
-		var colCate = $('#_column_trans>.col_con>.col-category>li>div');
-		var cols = $('#_column_trans>.col_con>.col-category>li>ul>li');
-		var pLen = cols.length || 0;
-		if(pLen < 1){
-			return;
-		}
-		
-		if(!val){
-			colCate.show();
-			cols.show();
-			
-			var arrowUp = colCate.length || 0;
-			for(var i = 0; i < arrowUp; i++){
-				var $oneColCate = $( colCate[i] );
-				var icon = $oneColCate.find('i');
-				if( icon.hasClass('arrowDown') ){
-					$oneColCate.next().hide();
-				}
-			}
-			return ;
-		}
-		
-		colCate.hide();
-		cols.hide();
-		cols.parent().hide();
-		for(var i = 0; i < pLen; i++){
-			var $col = $( cols[i] );
-			var colName = $col.find('span').text() || '';
-			colName = colName.trim().toUpperCase();
-			if(colName.indexOf( val.toUpperCase() ) > -1){
-				$col.show();
-				$col.parent().show();
-			}
-		}
-		
-	}else if(cont == '函数'){
-		var fxCate = $('.fx-category>li>div');
-		var fxs = $('.fx-category>li>ul>li');
-		var fxsLen = fxs.length || 0;
-		if(fxsLen < 1){
-			return ;
-		}
-		
-		if(!val){
-			fxCate.show();
-			fxs.show();
-			
-			var arrowUp = fxCate.length || 0;
-			for(var i = 0; i < arrowUp; i++){
-				var $oneFxCate = $( fxCate[i] );
-				var icon = $oneFxCate.find('i');
-				if( icon.hasClass('arrowDown') ){
-					$oneFxCate.next().hide();
-				}
-			}
-			return ;
-		}
-		
-		fxCate.hide();
-		fxs.hide();
-		fxs.parent().hide();
-		for(var i = 0; i < fxsLen; i++){
-			var $fx = $( fxs[i] );
-			var fxName = $fx.find('span').text() || '';
-			fxName = fxName.trim().toUpperCase();
-			if(fxName.indexOf(val.toUpperCase()) > -1 ){
-				$fx.show();
-				$fx.parent().show();
-			}
-		}
-		
-	}
-});

@@ -20,12 +20,11 @@ var column_;
 var faceName_;
 var __changed = false;
 //DATA MINING entrance
-var logMap = {};
 var dataMiningInit = function($dataMiningId){
 	_menuId = $dataMiningId;
 	console.log(_menuId);
 	
-	$('.data-mining-log').empty();
+	//$('.data-mining-log').empty();
 	$.showLoading();
 	$.ajax({
 		url:urlId+'/getDataMining',
@@ -91,15 +90,6 @@ var renderPage = function(dataMining, dataMiningTrainInfo, targetInfo, connectio
 	//按钮
 	$('.datamining-save').attr('data-flowid', dataMining.logicFlowId).attr('data-nodeid', dataMining.logicNodeId).attr('data-id', dataMining.id);
 	$('.datamining-test').attr('data-flowid', dataMining.logicFlowId).attr('data-type', 2);
-	
-	//日志
-	if(logMap[dataMining.logicFlowId]){
-		var logArrs = logMap[dataMining.logicFlowId];
-		var logs = $('.data-mining-log').empty();
-		for(var i = 0; i < logArrs.length; i++){
-			logs.append( $('<p>' + logArrs[i] + '</p>') ); 
-		}
-	}
 };
 
 //初始化无dataming信息的页面
@@ -128,9 +118,6 @@ var resetPage = function(){
 	
 	//属性清空
 	$('.btnPart p').removeAttr('data-flowid').removeAttr('data-type').removeAttr('data-nodeid').removeAttr('data-id');
-	document.getElementById('datamining-from').reset();
-	$('.dataMinR-prop ul').hide().first().show();
-	
 };
 
 //类型选择
@@ -186,7 +173,7 @@ var renderDataSourceConnection = function(){
             	}
             });
             var $connSelect = $('.datamining-train .datasource-connection select');
-           // $('.datasource-connection select').empty().append($(str));//target
+            $('.datasource-connection select').empty().append($(str));//target
             $connSelect.empty().append($(str));
             bindConnectionInfoChangeEvent( $connSelect );
             if(_connInfo.con){
@@ -201,6 +188,7 @@ var renderDataSourceConnection = function(){
 //表信息渲染
 var bindConnectionInfoChangeEvent = function( $connSelect ){
 	$connSelect.unbind('change').change(function(){
+		
 		_conId = $connSelect.val();
 		var conTables = $('.datamining-train .datasource-tables select');
 		var str = '<option value="">请选择表</option>';
@@ -248,51 +236,15 @@ var bindConnectionInfoChangeEvent = function( $connSelect ){
                 $.hideLoading();
             },
             error: function(){
-            	$.dialog('连接失败， 请稍后重试~');
+            	$.dialog('此连接失败， 请稍后重试~');
             }
         });
 	});
-	
-	/*$connSelect.unbind('click').click(function(e){
-		window.event? window.event.cancelBubble = true : e.stopPropagation();
-		$.showLoading();
-		var $connSelect = $('.datamining-train .datasource-connection select');
-	    var str='<option value="">请选择数据连接</option>';
-	    var option = document.createElement('option');
-	    option.value = '';
-	    option.innerHTML = '请选择数据连接';
-	    
-	    $.ajax({
-	        url:urlId+'/selectDataConnectionAndPowerByUserId?userId=' + user_.id,
-	        type:'POST',
-	        success:function(data) {
-				if(!data){
-					$.hideLoading();
-					return ;
-				}
-				var select = document.getElementById('connInfo');
-				select.options.length = 0;
-				select.appendChild(option);
-				
-	            $( JSON.parse(data) ).each(function(index,item){
-	            	var sourceType = item['SOURCE_TYPE']; 
-	            	if(sourceType != 'csv' || sourceType != 'hdfs' && sourceType != 'ftp' ){
-	            		option = document.createElement('option');
-	            		option.value = item["ID"];
-	            		option.innerHTML = item["NAME"];
-	            		
-	            		select.appendChild(option);
-	            	}
-	            });
-	            //bindConnectionInfoChangeEvent( $('#connInfo') );
-	    		$.hideLoading();
-	        }
-	    });
-	});*/
 };
 //字段信息渲染
 var bindConTablesChangeEvent = function($conTables, $conId){
 	$conTables.unbind('change').change(function(){
+		
 		_tableName = $conTables.val();
 		var columns = $('.datamining-train .datasource-columns select');
 		var columnDom = '<option value="">请选择或者填写字段</option>';
@@ -486,7 +438,7 @@ $('.datamining-test').unbind().click(function(){
 					data = JSON.parse(data);
 					if(data.flag){
 						$.dialog('信息发送成功。');
-						startSchedule(data.uuid, flowId);
+						startSchedule(data.uuid);
 					}
 				}
 				$.hideLoading();
@@ -511,10 +463,9 @@ $('.datamining-test').unbind().click(function(){
 	
 });
 
-var startSchedule = function( uuid, flowId ){
+var startSchedule = function( uuid ){
 	var logs = $('.data-mining-log');
 	logs.empty();
-	var logArrs = [];
 	var isStop = false;
 	var plan = window.setInterval(
 			function(){
@@ -538,28 +489,18 @@ var startSchedule = function( uuid, flowId ){
 								if(log.result == 'byebye' || log.result_code == '999'){
 									console.log('stop it...');
 									isStop = true;
-									
-									logMap[flowId] = logArrs;
 									break;
 								}
 								if(log.result_code == '402'){
 									console.log('stop it when error.');
-									logArrs.push( log.result );
 									logs.append( $('<p>' + log.result + '</p>') );
 									isStop = true;
-									
-									logMap[flowId] = logArrs;
 									break;
 								}
-								logArrs.push( log.result );
 								logs.append( $('<p>' + log.result + '</p>') );
 								logs.append( $('<p> ... </p>') );
 							}
 						}
-					},
-					error: function(){
-						console.log('Ooop, error! stop it...');
-						isStop = true;
 					}
 		})}, 1000);
 };

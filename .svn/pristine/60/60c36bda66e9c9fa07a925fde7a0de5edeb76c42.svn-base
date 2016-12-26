@@ -37,7 +37,7 @@
 		}
 		//$('.module-data').css('width', $winW - 208);
 		$('.module-data,.module-manager,.module-data-all').css('width', $winW - 207);
-		$('.dataMinL').css('width',($winW-201-346));
+		$('.dataMinL').css('width',($winW-201-350));
 		$('.module-core').css('width',($winW-201-367));
 		$('.business_logic .wStyle').css('width',($winW-80)/3);
 		$('.codePart').css('width',($('.module-data-all').width()-351));//flow-code*/

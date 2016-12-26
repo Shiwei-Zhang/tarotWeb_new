@@ -116,12 +116,45 @@
 											<div class="dt_fun selectData">
 												<p class="dtt">数据源</p>
 												<p class="dts add4">+ 选择数据源</p>
-												<input type="text" placeholder="搜索" id="source-search"  maxlength="40"/>
+												<input type="text" placeholder="搜索" />
 												<span class="bigIcon"></span>
 											</div>
 											<div class="scrollcontainerData">
 												<div id="_source_add" class="dt_con dt_conL">
 													<ul class="menuStyle" >
+														<!-- <li>
+                                                            <div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
+                                                            <ul class="detail show">
+                                                                <li><i class="branchIcon"></i><span>null</span></li>
+                                                                <li><i class="directoryIcon"></i><span>null</span></li>
+                                                                <li><i class="frameIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="functionIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="isframeIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="wordIcon"></i><span>R7_TEST</span></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
+                                                            <ul class="detail">
+                                                                <li><i class="branchIcon"></i><span>null</span></li>
+                                                                <li><i class="directoryIcon"></i><span>null</span></li>
+                                                                <li><i class="frameIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="functionIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="isframeIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="wordIcon"></i><span>R7_TEST</span></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
+                                                            <ul class="detail">
+                                                                <li><i class="branchIcon"></i><span>null</span></li>
+                                                                <li><i class="directoryIcon"></i><span>null</span></li>
+                                                                <li><i class="frameIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="functionIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="isframeIcon"></i><span>R7_TEST</span></li>
+                                                                <li><i class="wordIcon"></i><span>R7_TEST</span></li>
+                                                            </ul>
+                                                        </li> -->
 													</ul>
 												</div>
 											</div>
@@ -156,13 +189,45 @@
 														<span data-cls="col_con" class="active_t">字段</span> <span
 															data-cls="syb_con" >函数</span>
 													</p>
-													<input type="text" placeholder="搜索" id="words" maxlength="40">
+													<input type="text" placeholder="搜索" id="words">
 													<span class="bigIcon"></span>
 												</div>
 												<div id="_column_trans" class="dt_con">
 													<div class="col_con" style="display: block;">
-														<ul class="menuStyle col-category">
-															
+														<ul class="menuStyle"  style="display: none;">
+															<li>
+																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowUp"></i></div>
+																<ul class="detail show">
+																	<li><i class="branchIcon"></i><span>null</span></li>
+																	<li><i class="directoryIcon"></i><span>null</span></li>
+																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
+																</ul>
+															</li>
+															<li>
+																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
+																<ul class="detail">
+																	<li><i class="branchIcon"></i><span>null</span></li>
+																	<li><i class="directoryIcon"></i><span>null</span></li>
+																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
+																</ul>
+															</li>
+															<li>
+																<div class="titleT clearFix"><span>SqlServer</span><i class="arrowDown"></i></div>
+																<ul class="detail">
+																	<li><i class="branchIcon"></i><span>null</span></li>
+																	<li><i class="directoryIcon"></i><span>null</span></li>
+																	<li><i class="frameIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="functionIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="isframeIcon"></i><span>R7_TEST</span></li>
+																	<li><i class="wordIcon"></i><span>R7_TEST</span></li>
+																</ul>
+															</li>
 														</ul>
 													</div>
 													<div class="syb_con"style="display: none">
@@ -528,7 +593,7 @@
 											</li>
 										</ul>
 										<div class="btnPart">
-											<p class="datamining-test">训练</p>
+											<p class="datamining-test">Test</p>
 											<p class="datamining-save">保存</p>
 										</div>
 									</div>
@@ -918,6 +983,12 @@
 									</div>
 									<div class="con-list">
 										<ul class="listPart listConment ConmentEvent iNodeList">
+<!--											<li sourcedata="1425">
+												<span class="nameL">interface_1</span>
+												<select class="nameR">
+												<option value="">tyd-flow26.logic_node22</option>
+												</select>
+											</li>-->
 										</ul>
 									</div>
 								</div>
@@ -938,7 +1009,7 @@
 									<span>字段</span>
 								</div>
 								<div class="conList">
-									<ul class="part listConment ConmentEvent columList">
+									<ul class="part listConment columList">
 									</ul>
 									<p class="saveEvent">保存</p>
 								</div>
@@ -967,7 +1038,7 @@
 										<select id="idNameE" onchange="initReplica(this)"></select>
 									</li>
 									<li>
-										<span class="Tname">调度名称</span>
+										<span class="Tname">副本名称</span>
 										<input type="text">
 									</li>
 									<li>
@@ -985,7 +1056,7 @@
 									</li>
 									<li class="deployStateD deployState">
 										<span class="Tname">当前状态</span>
-										<i>下线</i>
+										<i></i>
 									</li>
 									<li class="timeControl">
 										<span class="Tname">时间控件</span>
@@ -1283,7 +1354,7 @@
 																表达式字段:
 															</td>
 															<td  >
-																<input type="text" name="v_second" class="col" value="0" readonly="readonly"/>
+																<input type="text" name="v_second" class="col" value="*" readonly="readonly"/>
 															</td>
 															<td  >
 																<input type="text" name="v_min" class="col" value="*" readonly="readonly"/>
@@ -1335,7 +1406,7 @@
 									</li>
 									<li class="deployStateW deployState">
 										<span class="Tname">当前状态</span>
-										<i>下线</i>
+										<i>未发布</i>
 									</li>
 									<li class="ipPart">
 										<div class="clearFix ipPower">
@@ -1361,7 +1432,6 @@
 								</ul>
 								<div class="btnPart">
 									<p class="deployReplica" style="margin-right: 10px;">发布</p>
-									<p class="downline" style="margin-right: 10px; display: none;">下线</p>
                                     <p class="settings createReplica" style="display: block">创建</p>
                                     <p class="saving" style="display: none">保存</p>
                                     <p class="jobBtn jobReplica">JOB</p>
@@ -1383,7 +1453,7 @@
 										<span class="Tname">类型</span>
 										<select>
 											<option value="email">邮件</option>
-											<!--<option value="message">短信</option>-->
+											<option value="message">短信</option>
 										</select>
 									</li>
 									<li>
@@ -2426,7 +2496,7 @@
 						<h2 class="tabT"><i class="fa fa-caret-right"></i>视觉映射</h2>
 						<ul class="detail">
 							<li class="titlePartT"><i class="single vmshow"></i><span>显示视觉映射</span></li>
-							<li><input class="w240" type="number" name="dimension" placeholder="映射哪组数据" value="0"/></li>
+							<li><input class="w240" type="number" name="dimension" placeholder="映射哪组数据"/></li>
 							<!-- <li class="visualTextStyle">高：<input class='bi-visualmap-text' placeholder="高"/>低：<input  class='bi-visualmap-text' placeholder="低"/></li>
 							<li><input placeholder="色系:#50a3ba,#eac736,#d94e5d" class="bi-visualmap-inrange w240" /></li> -->
 						</ul>
@@ -2763,7 +2833,7 @@
 		//TODO
 		console.log('serch~~~')
 	});
-	//TODO deleting it 
+	//TODO deleting
    //urlId = 'http://localhost:800/';
 	function property_onchange(obj){
             var $this=$(obj);
@@ -2814,12 +2884,23 @@
 		//函数分类
 		$.each(transformationTypes,function(index,item){
 			optiondom = '<option value="'+item.id+'">'+item.name+'</option>';
+			optiondoms+=optiondom;
+			
 			var clsName = 'fx-' + item.id;
 			var fxDomStr = '<li class="'+clsName+'"><div class="titleT clearFix"><span>'+item.name+'</span><i class="arrowUp"></i></div><ul class="detail show"></ul></li>';
 			var $fxDom = $(fxDomStr);
 			$('.fx-category').append( $fxDom );
+			
 			$.slideStyle( $fxDom );
 		});
+		
+		//初始化.connectionEvent和#sjlj
+		/* var str='<option value="" >请选择数据连接</option>';
+        $(dataConns).each(function(index,item){
+            str+='<option value='+item.ID+'>'+item.NAME+'</option>';
+        });
+        $('.connectionEvent').html(str);
+        $('#sjlj').html(str); */
       	//初始化.syb_con和#showTip_jsmind_container2
 		var functionName = null;
 		var formula = null;
@@ -2833,6 +2914,7 @@
 		var columnType;
 		var functionType;
 		var sysdoms2 = '';
+		var optiondoms = '<option value="all">全部</option>';
 		var sysdom;
 		var sysdom2;
 		var optiondom;
@@ -2890,6 +2972,7 @@
 		});
 		
 		$('#showTip_jsmind_container2').html($(sysdoms2));
+		//$('#Scontainer').html($(optiondoms));
 		$('.fx-category').find('.titleT').trigger('click');
 	}
     function addMenu(menuId,menuType,name){
@@ -2981,12 +3064,15 @@
             success:function(data) {
                 if($("#"+menuIdString)){
                     var $liObj = $('.tabs-'+menuId);
-                    if($liObj.length>0){
-                    	closeTab($liObj);
-                    	$("#"+menuIdString).parent().remove();
-                    }else{
-                    	$("#"+menuIdString).parent().remove();
-                    }
+                    $.confirm('确定要删除该菜单吗？', function(){
+                    	if($liObj.length>0){
+                        	closeTab($liObj);
+                        	$("#"+menuIdString).parent().remove();
+                        }else{
+                        	$("#"+menuIdString).parent().remove();
+                        }
+        			});
+                    
                 }
             },
             error : function() {
@@ -3221,6 +3307,28 @@
     	}
     }
 
+
+    function getDataAdd4(usersId){
+        /* var usersId=userId;
+        var str='';
+        $.ajax({
+            url:urlId+'/selectDataConnectionAndPowerByUserId'+'?userId='+usersId,
+            type:'POST',
+            dataType:"json",
+            contentType: "application/json",
+            success:function(data) {
+				str+='<option selected>请选择数据连接</option>';
+                $(data).each(function(index,item){
+                    str+='<option id='+item["ID"]+'>'+item["NAME"]+'</option>';
+                });
+                $('.connectionEvent').html(str);
+            },
+            error : function() {
+                $.dialog("异常！");
+            }
+        }) */
+    }
+
     function getFlowIdByMenuId(menuId){
     	$.ajax({
 			url:urlId+'/getFlowIdByMenuId?menuId='+menuId,
@@ -3230,9 +3338,7 @@
 			success:function(data) {
 				if(flowId_global){
 					var flowInfo = flowInfosMap.get(flowId_global);
-					flowInfo.clickTab = $('#tabbox2 li[class="thistab"]').find('a').attr('tab');
-					flowInfo.codeOrChart = $('.btns .selected').val();
-					if(!flowInfo.editable){
+					if(flowInfo&&!flowInfo.editable){
 						window.clearInterval(flowInfo.log_timer);
 				    	window.clearInterval(flowInfo.checkaccept_timer);
 					}else{
@@ -3244,6 +3350,26 @@
 				/********************以上是保存上一个flow并清空，以下是展现下一个flow**********************/
 				//赋值全局变量flowId_global
 				flowId_global = data;
+				var flowInfo = flowInfosMap.get(flowId_global);
+				if(flowInfo){
+					$('.tab2_2 div').html(flowInfo.log);
+				}
+				if(flowInfo&&!flowInfo.editable){
+					$('.module-prop .save').attr('disabled','disabled');
+            		$('.debug,.runing').addClass('selected');
+            		_jm1.disable_edit();
+            		_jm2.disable_edit();
+            		if(flowInfo.runType==3){
+            			checkaccept_timer(flowInfo,flowInfo.uuid);
+            		}
+            		log_timer(flowInfo,flowInfo.uuid);
+				}else{
+					$('.module-prop .save').removeAttr('disabled');
+					_jm1.enable_edit();
+					_jm2.enable_edit();
+					$('.debug,.runing').removeClass('selected');
+					$('.stop,.wait,.next').addClass('selected');
+				}
 				var jsmindStr_new = jsmindStrsMap.get(flowId_global);
 				var sourceDatas = sourceDatasMap.get(flowId_global);
 				var udfInfosMap_min = udfInfosMap.get(flowId_global);
@@ -3294,45 +3420,11 @@
 						}
 					}
 				}
-				//初始化运行态
-				var flowInfo = flowInfosMap.get(flowId_global);
-				if(!flowInfo){
-					var newflowInfo = new Object();
-					newflowInfo.dataMap = new Map();
-					newflowInfo.log = "";
-					newflowInfo.editable = true;
-	            	flowInfosMap.put(flowId_global,newflowInfo);
-	            	$('#tabbox2 a[tab="tab2_1"]').parent().click();
-	            	$('.btns input[class="chart"]').click();
-	            	open_new_flow();
-				}else{
-					if(flowInfo.clickTab){
-						$('#tabbox2 a[tab="'+flowInfo.clickTab+'"]').parent().click();
-					}
-					if(flowInfo.codeOrChart){
-						$('.btns input[value="'+flowInfo.codeOrChart+'"]').click();
-					}
-					if(!flowInfo.editable){
-						$('.module-prop .save').attr('disabled','disabled');
-	            		$('.debug,.runing').addClass('selected');
-	            		$('.new_table_name input').attr('disabled','disabled');
-	            		$('.new_column_name input').attr('disabled','disabled');
-	            		_jm1.disable_edit();
-	            		_jm2.disable_edit();
-	            		if(flowInfo.runType==3){
-	            			checkaccept_timer(flowInfo,flowInfo.uuid);
-	            		}
-	            		log_timer(flowInfo,flowInfo.uuid);
-					}else{
-						open_new_flow();
-					}
-				}
 				//初始化.dt_conL
 				var fileName;
 				var sourceDataId;
 				var is_interface;
 				var data_obj;
-				var sourceDataType;
 				var line_color = _jm1.options.view.line_color;
 				$(sourceDatas).each(function(index,item){
 					var sdList = item.sdList;
@@ -3341,13 +3433,12 @@
 					$.each(sdList,function(i,element){
 						fileName=element.fileName;
 						is_interface=element.isInterface;
-						sourceDataType=element.sourceDataType;
-						if(( sourceDataType == 'csv' ||  sourceDataType == 'ftp'  || sourceDataType == 'hdfs' ) && fileName){
+						if(( element.sourceDataType == 'csv' ||  element.sourceDataType == 'ftp'  || element.sourceDataType == 'hdfs' ) && fileName){
 							fileName = fileName.substr(fileName.lastIndexOf('%252F')+5);
 						}
 						sourceDataId=element.id;
 						tableColumnsMap.put(sourceDataId,element.columnList);
-						liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceDataType='"+sourceDataType+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span title="+fileName+">"+fileName+"</span></li>";
+						liStr_min+="<li textValue = '"+fileName+"' level='2' flowId='"+flowId_global+"' sourceId='"+sourceDataId+"' is_interface='"+is_interface+"' line_color='"+line_color+"' class='draggable'><i class='branchIcon'></i><span title="+fileName+">"+fileName+"</span></li>";
 					});
 					liStr+=liStr_min+"</ul></li>";
 					var $liStr = $(liStr);
@@ -3360,23 +3451,21 @@
 	        	        generateFun(null,"#_source_add .draggable",0);
 	        	    }
 	        	});
+/*				var myScrollData = new IScroll('.dt_conL', {
+					scrollbars: true,
+					fadeScrollbars: true,
+					mouseWheel: true,
+					bounce: false,
+					click: true
+				});*/
 				initDragable();
 				//初始化上下拖拽
 				initDragable_updown();
 			},
 			error : function() {
-				$.dialog("获取工作流信息异常！");
+				$.dialog("异常！");
 			}
 		})
-    }
-    function open_new_flow(){
-    	$('.module-prop .save').removeAttr('disabled');
-		$('.new_table_name input').removeAttr('disabled');
-		$('.new_column_name input').removeAttr('disabled');
-		$('.debug,.runing').removeClass('selected');
-		$('.stop,.wait,.next').addClass('selected');
-		_jm1.enable_edit();
-		_jm2.enable_edit();
     }
 	function getSelectAllFlowId(flowId){
 		var result;
@@ -3401,22 +3490,13 @@
 		$('.new_constant_value').hide();
 		$('.new_type_value').hide();
 		$('.new_predict_value').hide();
-		$('#showTip_jsmind_container2_3').tipso('hide');
-	}
-	function delete_panel_flow(flowid){
-		if(flowid==flowId_global){
-			clear_panel_flow();
-			removeSocketSession();
-			flowId_global=null;
-		}
-		flowInfosMap.remove(flowid);
-		jsmindStrsMap.remove(flowid);
-		sourceDatasMap.remove(flowid);
-		udfInfosMap.remove(flowid);
 	}
 	function clear_panel_flow(){
 		hide_column_constant_predict();
-		$('#_source_add .menuStyle').empty();
+		$('.dt_conL .menuStyle').empty();
+		$('.col_con').empty();
+		$('.tab2_2 div').empty();
+		//$('.tab2_4').empty();
 		_jm1.show();
 		clear_panel_node();
 		subtreeMap.clear();
@@ -3429,7 +3509,7 @@
 		_jm2.show();
 		$('.new_table_name input').val('');
 		$('.new_table_name span').first().html('Tablename');
-    	$('.col-category').empty();
+    	$('#_column_trans .col_con').empty();
     	$('.joins .related_table').remove();
     	$('.filters .filter:gt(0)').remove();
     	$('.groups .group:gt(0)').remove();

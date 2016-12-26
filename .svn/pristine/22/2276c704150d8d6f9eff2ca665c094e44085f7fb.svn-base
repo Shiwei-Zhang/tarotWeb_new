@@ -316,7 +316,20 @@ var user_ = $.getCookie('userId');
 	
 	//生成图表
 	$('.bi-generator').unbind().click(function(){
-		chartMainAttr();
+		var dimensionality = $('.bi-dimensionality li');
+		var measure = $('.bi-measure li');
+		var legend = $('.bi-menu .selected');
+		
+		xaxis = [];
+		dimensionality.each(function(index, item){
+			xaxis.push($(item).text());
+		});
+		yaxis = [];
+		measure.each(function(index, item){
+			yaxis.push($(item).text());
+		});
+		chartType = legend.data('type');
+		
 		if( !chartRule(chartType, xaxis.length, yaxis.length, conId, tableName) ){
 			$('.error-tip').empty().text(errMsg);
 			return ;
@@ -359,22 +372,6 @@ var user_ = $.getCookie('userId');
         });
 	});
 	
-	var chartMainAttr = function(){
-		var dimensionality = $('.bi-dimensionality li');
-		var measure = $('.bi-measure li');
-		var legend = $('.bi-menu .selected');
-		
-		xaxis = [];
-		dimensionality.each(function(index, item){
-			xaxis.push($(item).text());
-		});
-		yaxis = [];
-		measure.each(function(index, item){
-			yaxis.push($(item).text());
-		});
-		chartType = legend.data('type');
-	}
-	
 	//保存当前编辑chart
 	$('.bi-save').unbind().click(function(e){
 		//当前是否存在chart
@@ -382,13 +379,9 @@ var user_ = $.getCookie('userId');
 			if( chartType == 'input'  || chartType == 'droplist' || chartType == 'table' ){
 				console.log('current chart is: ' + chartType );
 			}else{
-				console.log('no chart json object...');
 				return ;
 			}
 		}
-		
-		//获得chart的主要属性
-		chartMainAttr();
 		
 		var dataParams = {};
 		//1.维度
@@ -399,7 +392,7 @@ var user_ = $.getCookie('userId');
 		dataParams.chartType = chartType;
 		//4.属性配置
 		//4.1过滤
-		dataParams.filter = getFilter() || '';
+		dataParams.filter = filter;
 		dataParams.filterMap = JSON.stringify(filterMap);
 		//4.2排序
 		dataParams.orderBy = orderBy
@@ -474,8 +467,8 @@ var user_ = $.getCookie('userId');
 			type:'POST',
 			success:function(data){
 				
-				/*$('.mask').hide();
-				$('.biData').hide( 'size' );*/
+				$('.mask').hide();
+				$('.biData').hide( 'size' );
 				if(data){
 					data = JSON.parse(data);//chart
 					renderChart(data);
@@ -483,7 +476,7 @@ var user_ = $.getCookie('userId');
 			},
 			complete: function(){
 				//初始化浮层数据
-				//rest4bi();
+				rest4bi();
 				$.hideLoading();
 			}
 		});
@@ -582,9 +575,9 @@ var user_ = $.getCookie('userId');
 	
 	//过滤
 	$('.bi-filter-close').unbind().click(function(){
-		var filterC = $('.bi-filter');
-		if(filterC.length == 1){
-			filterC.find('div.bi-filter-related').hide( 'fade' );
+		var filter = $('.bi-filter');
+		if(filter.length == 1){
+			filter.find('div.bi-filter-related').hide( 'fade' );
 		}else{
 			var grandParent = $(this).parent().parent();
 			grandParent.hide('fade' , function(){
@@ -631,18 +624,6 @@ var user_ = $.getCookie('userId');
 		filter_.find('div.bi-filter-related').hide();
 	});
 	$('.bi-filter-execute').unbind().click(function(){
-		filter = getFilter() || '';
-		if(!filter){
-			return ;
-		}
-    	if( filter.indexOf('@') > -1){
-    		//filter有变量数据
-    		console.log('过滤条件中含有变量, 无法执行过滤条件。');
-    		return ;
-    	}
-    	$('.bi-generator').trigger('click');
-	});
-	var getFilter = function(){
 		var cols = $('.bi-filter-fields');
 		var operates = $('.bi-filter-operate');
 		var contents = $('.bi-filter-operate-content');
@@ -747,9 +728,15 @@ var user_ = $.getCookie('userId');
         	}
     	}
     	console.log('SQL: ' + statement);
-    	var filterStat = "( " + statement + " )";
-    	return filterStat;
-	};
+    	filter = "( " + statement + " )";
+    	
+    	if( filter.indexOf('@') > -1){
+    		//filter有变量数据
+    		console.log('过滤条件中含有变量, 无法执行过滤条件。');
+    		return ;
+    	}
+    	$('.bi-generator').trigger('click');
+	});
 	
 	
 	//echart 属性配置
@@ -1206,9 +1193,9 @@ var user_ = $.getCookie('userId');
 	    	  $('.border-center').hide();
 	    	  //处置被拖动的元素放置时
 	    	  var $item = ui.draggable;
-	    	  var chartId = $item.attr('data-chartid');
-	    	  var templateId = $item.attr('data-templateid');
-	    	  var $chartType = $item.attr('data-charttype');
+	    	  var chartId = $item.data('chartid');
+	    	  var templateId = $item.data('templateid');
+	    	  var $chartType = $item.data('charttype');
 	    	  if(!chartId || !templateId){
 	    		  return ;
 	    	  }
@@ -1376,10 +1363,10 @@ var user_ = $.getCookie('userId');
 	
 	//保存当前编辑的template
 	$('.bi-template-save').unbind('click').click(function(e){
-		/*if($.isEmpty(templateContainer)){
+		if($.isEmpty(templateContainer)){
 			console.log('template container is emtpy, cannot save it.');
 			return ;
-		}*/
+		}
 		
 		if(!chartFrameId || chartFrameId == 1){
 			//默认布局
@@ -1455,13 +1442,13 @@ var user_ = $.getCookie('userId');
 			success:function(data) {
 				if(data){
 					data = JSON.parse( data );
-					//$.dialog('恭喜您~, 布局保存成功。');
+					$.dialog('恭喜您~, 布局保存成功。');
 					if(chartFrameId && chartFrameId != 1){
 						if(layoutId){
 							$('.bi-template-layout .bi-layout').each(function(index, item){
 								var $item = $(item);
 								if( $item.data('layoutid') == layoutId ){
-									$item.attr('data-chartframegroupid', chartFrameId).attr('data-theme', templateObjMap['theme']);//.attr('data-height', ).attr().attr();
+									$item.attr('data-chartframegroupid', chartFrameId).attr('theme', templateObjMap['theme']);//.attr('data-height', ).attr().attr();
 									$item.text(folderValue);
 									return false;
 								}
@@ -1494,11 +1481,11 @@ var user_ = $.getCookie('userId');
 			};
 			templateChartJsons = {};
 			var $this = $(this);
-			var templateId = $this.attr('data-templateid');
-			layoutId = $this.attr('data-layoutid');
+			var templateId = $this.data('templateid');
+			layoutId = $this.data('layoutid');
 			layoutName = $this.text();
-			chartFrameId = $this.attr('data-chartframegroupid');
-			var $theme = $this.attr('data-theme') || '';
+			chartFrameId = $this.data('chartframegroupid');
+			var $theme = $this.data('theme') || '';
 			templateObjMap['theme'] = $theme;
 			if($theme){
 	    		$('.bi-theme-container li').removeClass('checked');
@@ -1526,11 +1513,6 @@ var user_ = $.getCookie('userId');
 						renderLayout(chartFrameGroup, $('.bi-template-container'));
 						
 						//step2: 渲染 charts
-						//empty layout
-						if(!charts || charts.length < 1){
-							$.hideLoading();
-							return;
-						}
 						var varCharts = [];
 						var instCharts = [];
 						for(var i = 0; i < charts.length; i ++){
@@ -1560,8 +1542,8 @@ var user_ = $.getCookie('userId');
 	
 	//删除当前template已编辑好的chart
 	$('.bi-template-delete').unbind('click').click(function(e){
-		var chartId = $(this).attr('data-chartid');
-		var templateId = $(this).attr('data-templateid');
+		var chartId = $(this).data('chartid');
+		var templateId = $(this).data('templateid');
 		if(!chartId || !templateId || !templateContainer['temp-' + chartId + '-' + templateId]){
 			console.log('data is error.');
 			return;
@@ -1572,6 +1554,7 @@ var user_ = $.getCookie('userId');
 		positionAttr['width'] = 0;
 		positionAttr['height'] = 0;
 		dataParams['temp-' + chartId + '-' + templateId] = JSON.stringify(positionAttr);
+		
 		$.showLoading();
 		$.ajax({
 			url:baseUrl+'/updateTemplateAndCharts',
@@ -1691,7 +1674,6 @@ var user_ = $.getCookie('userId');
 	    	  showLine($curObj);//根据距离显示最近的边框线
 	      },
 	      stop: function( event, ui ){
-	    	  $('.border-center').hide();//隐藏中心区域
 	    	  $('.border-layout').css({'z-index':'0'});
 	    	  isDraggable = false;
 	      }
@@ -1836,19 +1818,17 @@ var user_ = $.getCookie('userId');
 	
 	//更新chart
 	var updateChartData = function(dataParams){
-		$.showLoading();
 		$.ajax({
 			url: baseUrl +'/updateChartData',
 			data: dataParams,
 			type:'POST',
 			success:function(data){
 				//初始化浮层数据
-				/*rest4bi();
+				rest4bi();
 				$('.mask').hide();
-				$('.biData').hide( 'size' );*/
+				$('.biData').hide( 'size' );
 				if(data){
 					var chart = JSON.parse(data);//chart
-					chartId = chart.id;
 					
 					//父页面更新chart列表数据
 					$('.bi-chart-list div').each(function(index, item){
@@ -1858,9 +1838,9 @@ var user_ = $.getCookie('userId');
 							$(item).attr('title', chart.name);//title修改
 							$(item).text(chart.name);
 							//是否重新渲染到template
-							var $chartId = chart.id;
+							var chartId = chart.id;
 							var templateId = chart.templateId;
-							var divId = 'tmp-' + $chartId + '-' + templateId;
+							var divId = 'tmp-' + chartId + '-' + templateId;
 							if(templateContainer[divId]){
 								//获得当前chart宽高位置信息
 								var currentChartInCon = $('#' + divId + '-parent');
@@ -1882,7 +1862,6 @@ var user_ = $.getCookie('userId');
 						}
 					});
 				}
-				$.hideLoading();
 			}
 		});
 	}
@@ -1940,7 +1919,7 @@ var user_ = $.getCookie('userId');
 		$('.bi-toolbox select[name="tborient"]').val('horizontal');
 		//6.visualmap
 		$('.bi-visualmap .vmshow').removeClass('singleChecked');
-		$('.bi-visualmap input[name="dimension"]').val('0');
+		$('.bi-visualmap input[name="dimension"]').val('');
 		$('.bi-visualmap-text').val('');
 		$('.bi-visualmap-inrange').val('');
 		//7.tooltip
@@ -2435,13 +2414,13 @@ var user_ = $.getCookie('userId');
 	 * template related
 	 */
 	//渲染 template
-	var renderTemplate = function($chartId, templateId, position, $chartType, width, height){
+	var renderTemplate = function(chartId, templateId, position, $chartType, width, height){
 		//容器是否有此chart, input不考虑在内
 		if( $chartType == 'input' ){
-			delete templateContainer['tmp-' + $chartId + '-' + templateId];
-			delete templateContainer['tmp-' + $chartId + '-' + templateId + '-theme'];
+			delete templateContainer['tmp-' + chartId + '-' + templateId];
+			delete templateContainer['tmp-' + chartId + '-' + templateId + '-theme'];
 			$('#tmp-' + chartId + '-' + templateId + '-parent').remove();
-		}else if(templateContainer['tmp-' + $chartId + '-' + templateId]){
+		}else if(templateContainer['tmp-' + chartId + '-' + templateId]){
 			$.dialog('此图已经放置在布局中, 请确认。');
 			return ;
 		}
@@ -2452,14 +2431,14 @@ var user_ = $.getCookie('userId');
 			url:baseUrl+'/getEchartJSONByIds',
 			type:'POST',
 			data:{
-				chartId: $chartId,
+				chartId: chartId,
 				templateId: templateId,
 				variableMap: JSON.stringify(variableMap)
 			},
 			success:function(data) {
 				if(data){
 					//template面板追加一个默认的容器
-					var divId = 'tmp-' + $chartId + '-' + templateId;
+					var divId = 'tmp-' + chartId + '-' + templateId;
 					if( $chartType == 'input' || $chartType == 'droplist'){
 						$('.bi-template-container').append( $( '<div id="' + divId + '-parent" style="height:35px;  width:260px; position: absolute;"><div class="tmp-chart" id="' + divId  + '" style="height:35px; width:260px;"></div></div>' ) );	
 					}else if( $chartType == 'table' ){
@@ -2491,7 +2470,7 @@ var user_ = $.getCookie('userId');
 							if(chartType_ == 'input'){
 								$('#' + divId + '-parent').hide();
 							}else{
-								variableValue = '';
+								variableValue = chartJson_.value[0];
 							}
 							
 							variableMap[variableName] = variableValue + '';
@@ -2577,7 +2556,6 @@ var user_ = $.getCookie('userId');
 			},
 			stop: function( event, ui ){
 				 $('.border-layout').css({'z-index':'0'});
-				 $('.border-center').hide();//隐藏中心区域
 				isDraggable = false;
 
 				//是否放置中心位置
@@ -2746,7 +2724,7 @@ var user_ = $.getCookie('userId');
 			var position = $this.position();
 			
 			var ids = $divId.split('-');
-			var $chartId = ids[1];
+			var chartId = ids[1];
 			var templateId = ids[2];
 			if( $('.bi-chart-delete').attr('data-ids') == $divId && $('.bi-chart-delete').css('display') != 'none' ){
 				return ;
@@ -2781,17 +2759,6 @@ var user_ = $.getCookie('userId');
 				positionAttr['height'] = 0;
 				dataParams[$divId] = JSON.stringify(positionAttr);
 				
-				//布局删除
-				if(layoutId){
-					$('#' + parentId).hide('fade', function(){
-						$('#' + parentId).remove();
-					});
-					//删除当前对象数据边线
-					delete borderMap4Chart[parentId + '-left'];
-					delete borderMap4Chart[parentId + '-center'];
-					delete borderMap4Chart[parentId + '-right'];
-					return ;
-				}
 				$.showLoading();
 				$.ajax({
 					url:baseUrl+'/updateTemplateAndCharts',
@@ -2817,8 +2784,8 @@ var user_ = $.getCookie('userId');
 			$('.bi-chart-edit').css(editPosition).show( 'scale' );
 			//绑定编辑事件
 			$('.bi-chart-edit').unbind('click').click(function(){
-				var $chartId = $divId.split('-')[1];
-				$('div[data-chartid="'+ $chartId + '"]').trigger('click');
+				var chartId = $divId.split('-')[1];
+				$('div[data-chartid="'+ chartId + '"]').trigger('click');
 				
 				$('.bi-chart-group').hide();
 				$('.bi-template-container div.ui-draggable-handle').css({'border':'0px solid #2C78C4'});
@@ -2981,7 +2948,7 @@ var user_ = $.getCookie('userId');
     };
     //chart渲染到页面
 	var renderChart = function(chart){
-		var $chartId = chart.id;
+		var chartId = chart.id;
 		var conId = chart.conId;
 		var name = chart.name;
 		var templateId = chart.templateId;
@@ -2990,9 +2957,7 @@ var user_ = $.getCookie('userId');
 			filterO = chart.filter.split('^')[0];
 		}
 		$('.bi-chart-list').append( 
-				$('<div class="bi-edit" data-chartid="'+ $chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '" data-charttype="'+chart.classType+'" data-filter="'+filterO+'" title="'+name+'">'+name+'</div>') );
-		
-		chartId = $chartId;
+				$('<div class="bi-edit" data-chartid="'+ chartId + '" data-templateid="' + templateId +'" data-conid="'+ conId + '" data-charttype="'+chart.classType+'" data-filter="'+filterO+'" title="'+name+'">'+name+'</div>') );
 		//绑定点击和拖拽事件
 		biEditBindEvent();
 	};
@@ -3018,12 +2983,12 @@ var user_ = $.getCookie('userId');
 		}
 		
 		var templateId = $chart.templateId;
-		var $chartId = $chart.id;
+		var chartId = $chart.id;
 		$.ajax({
 			url:baseUrl+'/getEchartJSONByIds',
 			type:'POST',
 			data:{
-				chartId: $chartId,
+				chartId: chartId,
 				templateId: templateId,
 				variableMap: JSON.stringify(variableMap)
 			},
@@ -3031,7 +2996,7 @@ var user_ = $.getCookie('userId');
 			success:function(data) {
 				if(data){
 					//template面板追加一个默认的容器
-					var divId = 'tmp-' + $chartId + '-' + templateId;
+					var divId = 'tmp-' + chartId + '-' + templateId;
 					templateContainerDom.append( $( '<div id="' + divId + '-parent" style="position: absolute;"><div class="tmp-chart" id="' + divId  + '" style=""></div></div>' ) );
 					
 					data = JSON.parse( data );
@@ -3106,9 +3071,9 @@ var user_ = $.getCookie('userId');
 			$('.bi-chart-list div').each(function(index, item){
 				var filter = $(item).attr('data-filter');
 				if(filter && filter.indexOf(varName) > -1 ){
-					var $chartId =  $(item).attr('data-chartid');
-					var templateId =  $(item).attr('data-templateid');
-					var divId = 'tmp-' + $chartId + '-' + templateId;
+					var chartId =  $(item).data('chartid');
+					var templateId =  $(item).data('templateid');
+					var divId = 'tmp-' + chartId + '-' + templateId;
 					if(!templateContainer[divId]){
 						return;
 					}
@@ -3117,7 +3082,7 @@ var user_ = $.getCookie('userId');
 						url:baseUrl+'/getChartByIds?time=' + new Date().getTime(),
 						type:'POST',
 						data:{
-							chartId: $chartId,
+							chartId: chartId,
 							templateId: templateId
 						},
 						success:function(data) {
@@ -3300,7 +3265,7 @@ var user_ = $.getCookie('userId');
     	if($.isEmpty(templateContainer)){
     		clearLayout($this);
     	}else{
-    		$.confirm('选择此布局将关闭当前布局， 是否关闭当前布局？', function(){
+    		$.confirm('选择此布局将清空当前布局， 是否清空当前布局？', function(){
         		clearLayout($this);
         	});
     	}
@@ -3328,7 +3293,7 @@ var user_ = $.getCookie('userId');
         
         $this.addClass('checked');
         $('.mask,.checkTemplate').hide();
-        chartFrameId = $this.attr('data-id');
+        chartFrameId = $this.data('id');
         if( chartFrameId == 1 ){
         	biInit( $('.showbiData').attr('data-templateid') );
         	return ;

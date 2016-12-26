@@ -69,9 +69,7 @@ $(function () {
 //******************************** controller start here ********************************************
     var bOk=true;
     var controllerTimer;
-    var controllerStatusTimer;
     var controllerSave = [];
-    window.saveLog = [];
 
     $('.contentEvent').unbind().click(function(e){
         e = e || window.event;
@@ -116,14 +114,6 @@ $(function () {
     });
     //执行任务
     function runJob(conId) {
-        //清空以前运行过job的日志信息
-        for(var i=0; i<saveLog.length; i++) {
-            var log = saveLog[i];
-            if(log.conId=conId){
-                log.content = '';
-                break;
-            }
-        }
         $.ajax({
             url: urlId + '/controller/testFlows',
             type:'POST',
@@ -153,24 +143,15 @@ $(function () {
             success:function(data) {
                 if(data.length>0){
                     var itemStr="";
-                    var logData = getLogData(conId);
-                    if(logData == undefined) {
-                        var logInfo={};
-                        logInfo.conId = conId;
-                        logInfo.content = '';
-                        saveLog.push(logInfo);
-                        logData = getLogData(conId);
-                    }
                     $.each(data,function(index,item){
                         itemStr+='<li>'+item+'</li>';
                     });
                     $('.content2 ul.diary').append(itemStr);
-                    logData.content=logData.content+itemStr;
                     var jsonStr = data[length-1];
                     if(jsonStr !=undefined) {
                         var lastJson = JSON.parse(jsonStr);
                         if(lastJson.result_code==999){
-                            window.clearInterval(controllerTimer);
+                            window.clearInterval(log_timer);
                         }
                     }
                 }
@@ -205,12 +186,8 @@ $(function () {
 
     //controller界面打开时数据初始化
     window.initController=function (node) {
-        //日志信息展示
+        //清空日志信息
         $('.content2 ul.diary').html('');
-        /*var logInfo = getLogData(conId);
-        if(logInfo!=undefined) {
-            $('.content2 ul.diary').html(logInfo.content);
-        }*/
 
         //挖掘组件信息在树的信息得到后,从树迭代中获取
         flowTree();
@@ -285,11 +262,9 @@ $(function () {
     //点击流事件
     window.flowComponentClick=function (flowNode) {
         //保存后会把数据清空
-        if(controllerSave!=undefined && controllerSave.length == 0) {
+        if(controllerSave.length == 0) {
             controllerSave = getControllerData();
         }
-        //依赖项选中信息有改变,要重新更新依赖项信息
-        updateDependency();
 
         //先移除,再添加
         $('.dependList').children().remove();
@@ -500,7 +475,7 @@ $(function () {
             var interfaceHtml='';
             for(var i=0; i< parse.length; i++) {
                 var interfaceItem = parse[i];
-                interfaceHtml+='<li sourceData='+interfaceItem.sourceDataId+'><span class="nameL">'+interfaceItem.sourceDataName+'</span><select logicNodeId='+interfaceItem.logicNodeId+' fid='+interfaceItem.flowId+' class="nameR conVisitedBg">';
+                interfaceHtml+='<li sourceData='+interfaceItem.sourceDataId+'><span class="nameL">'+interfaceItem.sourceDataName+'</span><select logicNodeId='+interfaceItem.logicNodeId+' fid='+interfaceItem.flowId+' class="nameR">';
                 if(interfaceItem.logicNodeName=='' || interfaceItem.logicNodeName==undefined) {
                     interfaceHtml+='<option value="none" selected="selected">---bunding nodes---</option>';
                 } else {
@@ -537,7 +512,7 @@ $(function () {
             if(columnData != undefined) {
                 for(var k=0; k<columnData.length; k++) {
                     var columnItem = columnData[k];
-                    sourceColumHtml+='<li sourceColumnId='+columnItem.sourceColumnId+'><span class="nameL iColum">'+columnItem.sourceColumnName+'</span><select columnId='+columnItem.columnId+' class="nameR conVisitedBg2">';
+                    sourceColumHtml+='<li sourceColumnId='+columnItem.sourceColumnId+'><span class="nameL iColum">'+columnItem.sourceColumnName+'</span><select columnId='+columnItem.columnId+' class="nameR">';
                     if(columnItem.columnName=='' || columnItem.columnName==undefined) {
                         sourceColumHtml+='<option value="none" selected="selected">---node colums---</option>'
                     } else {
@@ -575,7 +550,7 @@ $(function () {
     //生成Flow的树结构
     function flowTree() {
         console.log("controller ok");
-        // 生成新的组件信息是要先将老的信息删除掉
+        // 生成新的组件信息是要先将老的信息删除掉)
         $('.partStream').children().remove();
         conId = $('li.thistab').attr('conId');
         $.ajax({
@@ -781,10 +756,6 @@ $(function () {
             })
             //更新依赖信息
             updateDependency();
-            var $partStream = $('.partStream li');
-            if($partStream.length > 0) {
-                flowComponentClick($partStream.eq(0));
-            }
             //test按钮可用
             $('.streamTest').removeAttr('style');
         }
@@ -913,6 +884,8 @@ $(function () {
      $('.add3Provide').unbind('click').click(function () {
          console.log('add3');
          $('.add3EventTwo,.mask').show();
+
+     //TODO
      });
 
     //保存按钮
@@ -1071,16 +1044,6 @@ $(function () {
         }
     }
 
-    //获取某contorller在运行时的日志信息
-    function getLogData(conId) {
-        for(var i=0; i<saveLog.length; i++) {
-            var log = saveLog[i];
-            if(log.conId=conId){
-                return log;
-            }
-        }
-    }
-
 //************************ controller release start here ******************************
 
     window.getJobPlanIds=function () {
@@ -1128,7 +1091,7 @@ $(function () {
         }
 
         //信息展示前,将发布的所有信息和通知的信息置null (含选中的标签是none的情况)
-        var classArr=['.jobPlan', '.webservicePart', '.noticePerson', '.noticeEvent'];
+        var classArr=['.jobPlan', '.dispatchPart', '.webservicePart', '.noticePerson', '.noticeEvent'];
         for(var i=0; i<classArr.length; i++) {
             var iClass = classArr[i];
             var $liItem = $(iClass+ ' li');
@@ -1186,9 +1149,9 @@ $(function () {
 
                     //jobPlan的ID号
                     $('.deploy').attr('jobPlanId', jobPlan.id);
-                    //调度的名称
+                    //镜像的名称
                     var controller = data.controller;
-                    var $jobPlanLi = $('.jobPlan>li:eq(1)>input').val(jobPlan.name);
+                    var $jobPlanLi = $('.jobPlan>li:eq(1)>input').val(controller.name);
 
                     var $part;
                     if(jobPlan.isWebservice) {
@@ -1243,11 +1206,9 @@ $(function () {
                         $part.parent().find('.isRepeat i').addClass('singleChecked');
                     }
                     //当前状态
-                    $('.deployState').attr('isRun', jobPlan.isRun);
                     if(jobPlan.isRun==1) {
-                        controllerStatusTimer = window.setInterval(function(){
-                            setDeployStatus();
-                        },1500);
+                        var deployStatus = getDeployStatus();
+                        $part.parent().find('.deployState i').html(deployStatus);
                     }
 
                     //通知人内容信息设置
@@ -1294,24 +1255,21 @@ $(function () {
     }
 
     //插入副本相关的信息
-    function upsertReplicaInfo() {
+    function insertReplicaInfo() {
         var dict = {};
 
         dict.id=$('#idNameE option:selected').val();
         dict.runUser=userId;
 
-        //调度的名称
-        var jobPlanName = $('.jobPlan>li:eq(1)>input').val();
-        dict.name = jobPlanName;
+        //镜像的名称
+        var replicaName = $('.jobPlan>li:eq(1)>input').val();
 
         //controllerId
         dict.controllerId=conId;
         //imagerId
-        var imagerId = $('.jobPlan>li:eq(0)>select option:selected').attr('imagerid');
-        if(imagerId!=undefined && imagerId != 'none') {
+        var imagerId = $('.jobPlan>li:eq(0)>select option:selected').val();
+        if(imagerId != 'none') {
             dict.imagerId=imagerId;
-        } else {
-            dict.imagerId=conId;
         }
 
         var $part;
@@ -1348,13 +1306,8 @@ $(function () {
         } else {
             dict.isRepeat=0;
         }
-
         //当前状态
         dict.isRun=0;
-        var isRun = $('.deployState').attr('isrun');
-        if(isRun!=undefined) {
-            dict.isRun = isRun;
-        }
 
         //是否插入  1.插入    2.更新
         var isInsert;
@@ -1371,22 +1324,12 @@ $(function () {
             dataType: "json",
             data: {jsonStr: JSON.stringify(dict), isInsert: isInsert},
             success: function (data) {
-                if(data=="false") {
-                    alert("失败");
-                } else {
-                    var parse = JSON.parse(data);
-                    if(parse.isInsert == 1) {
-                        //设置jobPlan的ID号
-                        $('.deploy').attr('jobPlanId', parse.jobPlanId);
-                        var text = conId+'_'+$('.thistab span.name_m').text();
-                        //在选项中添加此副本项, 并设置为默认选中项
-                        $('.jobPlan>li:eq(0)>select').append('<option value="'+parse.jobPlanId+'" imagerid="'+parse.imagerId+'" selected="selected">'+text+'</option>');
-                        //显示保存按钮
-                        $('.saving').css('display', 'block');
-                        $('.createReplica').css('display', 'none');
-                    }
-                    alert("成功");
-                }
+                //设置jobPlan的ID号
+                $('.deploy').attr('jobPlanId', data);
+                var text = conId+'_'+$('.thistab span.name_m').text();
+                //在选项中添加此副本项, 并设置为默认选中项
+                $('.jobPlan>li:eq(0)>select').append('<option value="'+data+'" selected="selected">'+text+'</option>');
+                alert("创建成功");
             },
             error: function () {
                 alert("insertReplica 异常！");
@@ -1412,42 +1355,9 @@ $(function () {
         }
         return tempBlack;
     }
-    //创建调度计划
+    //创建副本信息
     $('.createReplica').unbind().click(function(){
-        upsertReplicaInfo();
-    });
-    //保存调度计划
-    $('.saving').unbind().click(function(){
-        upsertReplicaInfo();
-    });
-    //调度计划下线
-    $('.downline').unbind().click(function(){
-        var jobParams={};
-        jobParams.conId=conId;
-        jobParams.imagerSourceId=$('#idNameE option:selected').attr('imagerid');
-        jobParams.jobId=$('.downline').attr('jobid');;
-        //移除定时任务
-        $.ajax({
-            url: urlId + '/release/removeJob',
-            type: 'POST',
-            dataType: "json",
-            data: {jobParams: JSON.stringify(jobParams)},
-            success: function (data) {
-                console.log('remove job.')
-                if(data==true) {
-                    $.dialog('成功下线!')
-                }
-            },
-            error: function () {
-                alert("移除定时任务异常！");
-            }
-        });
-
-        //改变按钮状态
-        $('.downline').css('display', 'none');
-        $('.deployReplica').css('display', 'block');
-        //设置状态中运行属性isRun=0
-        $('.deployState').attr('isRun', 0);
+        insertReplicaInfo();
     });
 
     //黑白名单失去焦点触发验证
@@ -1522,12 +1432,12 @@ $(function () {
             }
         })
     }
-
+    
 
     //获取job任务执行相关信息
     window.getJobInfo=function () {
         var jobPlanId=$('.deploy').attr('jobPlanId');
-        var imagerId = $('.jobPlan>li:eq(0)>select').children('option:selected').attr('imagerid');
+        var imagerId = $('.jobPlan>li:eq(0)>select').children('option:selected').val();
         if(jobPlanId!=undefined && imagerId!='none') {
             $.ajax({
                 url: urlId + '/release/queryJob',
@@ -1676,6 +1586,7 @@ $(function () {
         //JoB List
         if (tar.tagName.toLowerCase() === 'p' && $(tar).hasClass('jobReplica')) {
             console.log('jobBtn~~~~');
+            getJobInfo();
             $('.jobList,.mask').show();
         }
 
@@ -1714,6 +1625,29 @@ $(function () {
                 //默认邮箱
                 if($notice.eq(2).children('i').hasClass('singleChecked')) {
                     notice.isDefaultSendEMail=1;
+                    //查询系统默认邮箱地址
+                    $.ajax({
+                        url: urlId + '/release/querySystemEmail',
+                        type: 'POST',
+                        async: false,
+                        dataType: "json",
+                        data: {},
+                        success: function (data) {
+                            console.info('querySystemEmail.');
+                            //发件地址
+                            notice.sendEMail=data.sendEMail;
+                            //密码
+                            notice.sendEMailPassword=data.sendEMailPassword;
+                            //发件服务器
+                            notice.sendEMailImapServerIp=data.sendEMailImapServerIp;
+                            //发件端口号
+                            notice.sendEMailPort=data.sendEMailPort;
+                            noticeInfo.notice=notice;
+                        },
+                        error: function () {
+                            alert("querySystemEmail 异常！");
+                        }
+                    });
                 } else {
                     notice.isDefaultSendEMail=0;
                     //发件地址
@@ -1724,8 +1658,8 @@ $(function () {
                     notice.sendEMailImapServerIp=$notice.eq(5).find('input').val()
                     //发件端口号
                     notice.sendEMailPort=$notice.eq(6).find('input').val()
+                    noticeInfo.notice=notice;
                 }
-                noticeInfo.notice=notice;
 
                 //通知事件
                 var $noticeEvent = $('.noticeEvent li');
@@ -1742,46 +1676,24 @@ $(function () {
                 noticeInfo.noticeContent=noticeContent;
 
                 //{"jobPlanId":29,"notice":{"id":1,"jobPlanId":1,"transmitMode":1,"phone":15001175999,"email":"674581874@qq.com;guojichang111@163.com","isDefaultSendEMail":1,"sendEMail":"349463119@qq.com","sendEMailPort":465,"sendEMailPassword":674581874,"sendEMailImapServerIp":"smtp.qq.com"},"noticeContent":[{"code":"2","jobPlanId":29,"noticeContentType":2},{"code":"3","jobPlanId":29,"noticeContentType":3}]}
-                //邮件校验
-                var returnStr = "";
-                var notice = noticeInfo.notice;
-                if(notice.email==''){
-                    returnStr = '邮箱设置信息不全,'
-                } else if(notice.isDefaultSendEMail==0 && (notice.sendEMail=='' || notice.sendEMailImapServerIp=='' || notice.sendEMailPassword=='' || notice.sendEMailPort=='')){
-                    returnStr = '邮箱设置信息不全,'
-                }
-                if(noticeContent.length == 0){
-                    returnStr += '没有定义通知事件信息,';
-                }
-                if(returnStr!='') {
-                    returnStr+='是否要插入?'
-                    $.confirm(returnStr, function () {
-                        insertNoticeInfo(noticeInfo);
-                    })
-                } else {
-                    insertNoticeInfo(noticeInfo);
-                }
+
+                $.ajax({
+                    url: urlId + '/release/insertNoticeInfo',
+                    type: 'POST',
+                    async: false,
+                    dataType: "json",
+                    data: {noticeInfo: JSON.stringify(noticeInfo)},
+                    success: function () {
+                        console.info('insertNotice.');
+                        $.dialog('保存成功!');
+                    },
+                    error: function () {
+                        alert("insertNotice 异常！");
+                    }
+                });
             }
         }
     });
-
-    //插入通知人和通知事件信息
-    function insertNoticeInfo(noticeInfo) {
-        $.ajax({
-            url: urlId + '/release/insertNoticeInfo',
-            type: 'POST',
-            async: false,
-            dataType: "json",
-            data: {noticeInfo: JSON.stringify(noticeInfo)},
-            success: function () {
-                console.info('insertNotice.');
-                $.dialog('保存成功!');
-            },
-            error: function () {
-                alert("insertNotice 异常！");
-            }
-        })
-    }
 
     //发布类型 change事件
     function changDeployType() {
@@ -1795,38 +1707,12 @@ $(function () {
         }
     }
 
-    //是否可以布署任务(控制器没有添加组件信息时,不可发布)
-    function canDeploy(conId) {
-        var canDeploy;
-        $.ajax({
-            url: urlId + '/release/canDeploy',
-            type: 'POST',
-            async: false,
-            dataType: "json",
-            data: {conId: conId},
-            success: function (data) {
-                canDeploy = data;
-            },
-            error: function () {
-                alert("canDeploy 异常！");
-            }
-        })
-        return canDeploy;
-    }
-
     //任务布署
     function deployReplica() {
         var jobParams={};
         jobParams.controllerId=conId;
-        jobParams.imagerSourceId=$('#idNameE option:selected').attr('imagerid');
+        jobParams.imagerSourceId=$('#idNameE option:selected').attr('imagerid');;
         jobParams.planId=$('#idNameE option:selected').attr('value');
-
-        var canD = canDeploy(conId);
-        if(!canD) {
-            alert('挖掘组件为空,不可发布!');
-            return;
-        }
-
         if(jobParams.planId != 'none') {
             $.ajax({
                 url: urlId + '/release/deployJob',
@@ -1835,19 +1721,7 @@ $(function () {
                 data: {jobStr: JSON.stringify(jobParams)},
                 success: function (data) {
                     console.log("deploy job.");
-                    controllerStatusTimer = window.setInterval(function(){
-                        setDeployStatus();
-                    },1500);
-                    if(data!='') {
-                        //设置Job的ID
-                        $('.downline').attr('jobid', data);
-                        //发布按钮变下线按钮
-                        $('.downline').css('display', 'block');
-                        $('.deployReplica').css('display', 'none');
-                        //设置状态中运行属性isRun=0
-                        $('.deployState').attr('isRun', 1);
-                        $.dialog('发布成功!')
-                    }
+                    $.dialog('发布成功!')
                 },
                 error: function () {
                     alert("deploy job 异常！");
@@ -1857,51 +1731,18 @@ $(function () {
     }
 
     //获取布署的状态信息
-    function setDeployStatus() {
+    function getDeployStatus() {
         var planId = $('.deploy').attr('jobplanid');
         $.ajax({
             url: urlId + '/release/getDeployStatus',
             type: 'POST',
-            async: false,
             dataType: "json",
             data: {jobPlanId: planId},
             success: function (data) {
-                var parse = JSON.parse(data);
-                var status = parse.status;
-                var jobId = parse.jobId;
-
-                $('.deployState i').html(status);
-
-                if(status=='下线'){
-                    //将job列表清空
-                    $('.jobTable').html('');
-                    //将按钮改为发布
-                    $('.downline').css('display', 'none');
-                    $('.deployReplica').css('display', 'block');
-                    //设置状态中运行属性isRun=0
-                    $('.deployState').attr('isRun', 0);
-                    window.clearInterval(controllerStatusTimer);
-                }
-                var regExp = new RegExp("正在运行");
-                if(regExp.test(status)) {
-                    getJobInfo();
-                } else {
-                    $('.jobTable').html('')
-                }
-                var regExp2 = new RegExp("发布");
-                if(regExp2.test(status) && jobId!=undefined) {
-                    //设置Job的ID
-                    $('.downline').attr('jobid', jobId);
-                    //将按钮改为发布
-                    $('.downline').css('display', 'block');
-                    $('.deployReplica').css('display', 'none');
-                    //设置状态中运行属性isRun=0
-                    $('.deployState').attr('isRun', 1);
-                }
+                console.log("deploy job.");
             },
             error: function () {
                 alert("deploy status 异常！");
-                window.clearInterval(controllerStatusTimer);
             }
         })
     }

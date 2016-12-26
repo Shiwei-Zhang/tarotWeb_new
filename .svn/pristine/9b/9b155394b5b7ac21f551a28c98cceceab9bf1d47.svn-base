@@ -186,7 +186,7 @@ var renderDataSourceConnection = function(){
             	}
             });
             var $connSelect = $('.datamining-train .datasource-connection select');
-           // $('.datasource-connection select').empty().append($(str));//target
+            $('.datasource-connection select').empty().append($(str));//target
             $connSelect.empty().append($(str));
             bindConnectionInfoChangeEvent( $connSelect );
             if(_connInfo.con){
@@ -201,6 +201,7 @@ var renderDataSourceConnection = function(){
 //表信息渲染
 var bindConnectionInfoChangeEvent = function( $connSelect ){
 	$connSelect.unbind('change').change(function(){
+		
 		_conId = $connSelect.val();
 		var conTables = $('.datamining-train .datasource-tables select');
 		var str = '<option value="">请选择表</option>';
@@ -248,51 +249,15 @@ var bindConnectionInfoChangeEvent = function( $connSelect ){
                 $.hideLoading();
             },
             error: function(){
-            	$.dialog('连接失败， 请稍后重试~');
+            	$.dialog('此连接失败， 请稍后重试~');
             }
         });
 	});
-	
-	/*$connSelect.unbind('click').click(function(e){
-		window.event? window.event.cancelBubble = true : e.stopPropagation();
-		$.showLoading();
-		var $connSelect = $('.datamining-train .datasource-connection select');
-	    var str='<option value="">请选择数据连接</option>';
-	    var option = document.createElement('option');
-	    option.value = '';
-	    option.innerHTML = '请选择数据连接';
-	    
-	    $.ajax({
-	        url:urlId+'/selectDataConnectionAndPowerByUserId?userId=' + user_.id,
-	        type:'POST',
-	        success:function(data) {
-				if(!data){
-					$.hideLoading();
-					return ;
-				}
-				var select = document.getElementById('connInfo');
-				select.options.length = 0;
-				select.appendChild(option);
-				
-	            $( JSON.parse(data) ).each(function(index,item){
-	            	var sourceType = item['SOURCE_TYPE']; 
-	            	if(sourceType != 'csv' || sourceType != 'hdfs' && sourceType != 'ftp' ){
-	            		option = document.createElement('option');
-	            		option.value = item["ID"];
-	            		option.innerHTML = item["NAME"];
-	            		
-	            		select.appendChild(option);
-	            	}
-	            });
-	            //bindConnectionInfoChangeEvent( $('#connInfo') );
-	    		$.hideLoading();
-	        }
-	    });
-	});*/
 };
 //字段信息渲染
 var bindConTablesChangeEvent = function($conTables, $conId){
 	$conTables.unbind('change').change(function(){
+		
 		_tableName = $conTables.val();
 		var columns = $('.datamining-train .datasource-columns select');
 		var columnDom = '<option value="">请选择或者填写字段</option>';
@@ -556,10 +521,6 @@ var startSchedule = function( uuid, flowId ){
 								logs.append( $('<p> ... </p>') );
 							}
 						}
-					},
-					error: function(){
-						console.log('Ooop, error! stop it...');
-						isStop = true;
 					}
 		})}, 1000);
 };
