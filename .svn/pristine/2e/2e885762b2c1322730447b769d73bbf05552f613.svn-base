@@ -410,7 +410,6 @@ $(function(){
             var pid = parentDom.parent().parent().parent().prev().attr("id");
             var menuId= parentDom.parent().attr("id");
             var type=parentDom.parent().attr("menuType");
-			name=name.replace(/(^ +)|( +$)/g,'');
             nameIsExist(name,menuId,pid,userId,type);
             if(specialSymbols.test(name)){
                 $.dialog("不能包含特殊字符！");

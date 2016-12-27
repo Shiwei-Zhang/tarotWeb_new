@@ -562,7 +562,7 @@
 							</div>
 							<div class="dataMinL-bottom">
 								<ul class="tabs tabs2">
-									<li class="thistab" style="pointer-events: none;"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
+									<li class="thistab"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
 								</ul>
 								<div class="dataMinFile data-mining-log">
 									<!-- <p>log1</p>
@@ -681,7 +681,7 @@
 									</li>
 									<li>
 										<span>阈值</span>
-										<input type="text" class="threshold cls-num" value="0.5"  maxlength="10">
+										<input type="text" class="thresholds cls-num" value="0.5"  maxlength="10">
 									</li>
 									<!-- <li>
 										<span>阈值</span>
@@ -2917,23 +2917,6 @@
                 power:maxPower
             },
             success:function(data) {
-            	//需要在flow面板追加predict选项
-            	if(menuType==4){
-            		 $.ajax({
-             			url:urlId+'/selectDataMiningIdByMenuid?menuId='+data,
-             			type:'POST',
-             			dataType:"json",
-             			async:false,
-             			contentType: "application/json",
-             			success:function(data) {
-             				var str = '<option value="'+data.id+'">'+data.name+'</option>';
-             				$('.new_predict_value select').eq(0).append(str);
-         				},
-         				error : function() {
-         					$.dialog("获取数据挖掘信息异常！");
-         				}
-         			});
-            	}
                 //console.log(data);
                 var isShow = showNum(maxPower);
                 if(menuId==0&&menuType==menuTypeEnum[0]){
@@ -3000,26 +2983,9 @@
                     var $liObj = $('.tabs-'+menuId);
                     if($liObj.length>0){
                     	closeTab($liObj);
-                    }
-                    $("#"+menuIdString).parent().remove();
-                    if(menuType==4){
-                    	//需要把flow面板里的predict选项删除
-                        $.ajax({
-                			url:urlId+'/selectDataMiningIdByMenuid?menuId='+menuId,
-                			type:'POST',
-                			dataType:"json",
-                			async:false,
-                			contentType: "application/json",
-                			success:function(data) {
-                				if($('.new_predict_value select').eq(0).val()==data.id){
-                					$('.new_predict_value input').val('');
-                				}
-                				$('.new_predict_value select').eq(0).find('option[value="'+data.id+'"]').remove();
-            				},
-            				error : function() {
-            					$.dialog("获取数据挖掘信息异常！");
-            				}
-            			});
+                    	$("#"+menuIdString).parent().remove();
+                    }else{
+                    	$("#"+menuIdString).parent().remove();
                     }
                 }
             },

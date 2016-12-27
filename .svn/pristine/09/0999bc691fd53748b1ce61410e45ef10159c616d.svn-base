@@ -229,17 +229,18 @@
                     sp = {x:sx+sw-options.line_width,y:sy+sh/2};
                 }
                 if(distance < min_distance){
-            		closest_node = node;
-                    closest_p = np;
-                    shadow_p = sp;
-                    min_distance = distance;
+                	if(direct==jsMind.direction.right&&(node.isroot||this.active_node.children.length!=0)){
+                		
+                	}else{
+                		closest_node = node;
+                        closest_p = np;
+                        shadow_p = sp;
+                        min_distance = distance;
+                	}
                 }
             }
             var result_node = null;
             if(!!closest_node){
-            	if(direct==jsMind.direction.right&&(closest_node.isroot||(!closest_node.isroot&&!closest_node.parent.isroot)||this.active_node.children.length!=0)){
-            		return null;
-            	}
                 result_node = {
                     node:closest_node,
                     direction:direct,

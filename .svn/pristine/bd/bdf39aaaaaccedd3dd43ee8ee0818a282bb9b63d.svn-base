@@ -70,18 +70,19 @@
     	                    sp = {x:sx+sw-this.line_width,y:sy+sh/2};
     	                }
     	                if(distance < min_distance){
-    	                    closest_node = node;
-    	                    closest_p = np;
-    	                    shadow_p = sp;
-    	                    min_distance = distance;
+    	                	if(direct==jsMind.direction.right&&node.isroot){
+                        		
+                        	}else{
+	    	                    closest_node = node;
+	    	                    closest_p = np;
+	    	                    shadow_p = sp;
+	    	                    min_distance = distance;
+                        	}
     	                }
     	            //}
     	        }
     	        var result_node = null;
     	        if(!!closest_node){
-    	        	if(direct==jsMind.direction.right&&(closest_node.isroot||(!closest_node.isroot&&!closest_node.parent.isroot))){
-        	        	return null;
-        	        }
     	            result_node = {
     	                node:closest_node,
     	                direction:direct,
@@ -470,24 +471,7 @@
 	  	                    		topic = topic.substring(topic.indexOf('.')+1);
 		  		      				if(target_direct == jsMind.direction.right){
 		  		      					if(target_node = jd.get_root()){
-		  		      						  //如果父节点没有子节点则用add_node，否则用insert_node_before
-			                    			  var new_node;
-				  		      				  if(node_before){
-				  		      					new_node = jd.insert_node_before(node_before, nodeid, topic, data);
-				  		      				  }else{
-				  		      					new_node = jd.add_node(target_node, nodeid, topic,data);
-				  		      				  }
-			  		      					  var parentNode = new_node.parent;
-			  		      					  if(new_node.data.level==3){
-			  		      						  jd.check_subnode(new_node);
-			  		      					  }
-			  		      					  if(!parentNode.isroot){
-			  		      						  jd.check_subnode(parentNode);
-			  		      					  }
-			  		      					  jd.check_subnode_(new_node);
-			  		      					  if(parentNode.isroot){
-			  		      						  jd.check_subnode_alias();
-			  		      					  }
+		  		      						return null;
 		  		      					}else{
 			  		      					var new_node = jd.add_node(target_node.parent, nodeid, topic,data,target_node.index);
 			                    			jd.move_node(target_node.id, "_last_", new_node.id, "-1");
@@ -497,12 +481,12 @@
 		  		      					}
 		                    		}else{
 			  		      				  //如果父节点没有子节点则用add_node，否则用insert_node_before
-		                    			  var new_node;
 			  		      				  if(node_before){
-			  		      					new_node = jd.insert_node_before(node_before, nodeid, topic, data);
+			  		      					jd.insert_node_before(node_before, nodeid, topic, data);
 			  		      				  }else{
-			  		      					new_node = jd.add_node(target_node, nodeid, topic,data);
+			  		      					jd.add_node(target_node, nodeid, topic,data);
 			  		      				  }
+			  		      				  var new_node = jd.get_node(nodeid);
 		  		      					  var parentNode = new_node.parent;
 		  		      					  if(new_node.data.level==3){
 		  		      						  jd.check_subnode(new_node);

@@ -68,9 +68,9 @@ $(function () {
 
 //******************************** controller start here ********************************************
     var bOk=true;
-    var controllerSave = [];
     var controllerTimer;
-    window.controllerStatusTimer=-1;
+    var controllerStatusTimer;
+    var controllerSave = [];
     window.saveLog = [];
 
     $('.contentEvent').unbind().click(function(e){
@@ -137,7 +137,7 @@ $(function () {
                 $.dialog("发送成功！");
             },
             error : function() {
-                $.dialog("流/挖掘组件全部测试成功后,再进行controller测试!");
+                $.dialog("异常！");
             }
         });
     }
@@ -851,8 +851,21 @@ $(function () {
                 columnQuery(flowId, sourcedata);
                 console.log('queryNodeFields');
             });
+
+            // nodeClick(flowId);
         }
     }
+    /*window.nodeClick = function (flowId) {
+        //node列表,重新绑定事件
+        $('.nodeClick').on('click', function () {
+            var sourceDataId = $(this).parent().parent().attr('sourcedata');
+            $(this).parent().prev().attr('fid', flowId);
+            //查找node的colums, 将node的列和接口的列进行绑定
+            visitedTag($(this).parent().parent())
+            queryNodeFields(flowId, $(this));
+            console.log('nodeClick');
+        });
+    }*/
 
     //获取第一个选中的依赖,并展示节点和列的相关信息
     function queryNodeFields(node) {
@@ -1098,9 +1111,6 @@ $(function () {
 
     //Controller发布初始化. 含发布信息查询和通知信息查询
     window.initReplica=function (selected) {
-        //切换发布标签,先清空前台间歇性请求
-        window.clearInterval(controllerStatusTimer);
-
         if(selected.length == 0)
             return;
 
@@ -1225,7 +1235,7 @@ $(function () {
 
                         $part = $('.dispatchPart>li');
                         //时间控件
-                        $('#cron').val(jobPlan.cron);
+                        $('#cron').html(jobPlan.cron);
                     }
 
                     //是否允许多线程
@@ -1238,8 +1248,6 @@ $(function () {
                         controllerStatusTimer = window.setInterval(function(){
                             setDeployStatus();
                         },1500);
-                    } else if(jobPlan.isRun==0) {
-                        $('.deployState i').text('下线');
                     }
 
                     //通知人内容信息设置
@@ -1282,12 +1290,6 @@ $(function () {
             //显示创建按钮
             $('.saving').css('display', 'none');
             $('.createReplica').css('display', 'block');
-            //改变按钮状态
-            $('.downline').css('display', 'none');
-            $('.deployReplica').css('display', 'block');
-            //设置状态中运行属性isRun=0
-            $('.deployState').attr('isRun', 0);
-            $('.deployState i').text('下线');
         }
     }
 
@@ -1300,10 +1302,6 @@ $(function () {
 
         //调度的名称
         var jobPlanName = $('.jobPlan>li:eq(1)>input').val();
-        if(jobPlanName.trim()=='') {
-            alert('调度名称不可为空!');
-            return;
-        }
         dict.name = jobPlanName;
 
         //controllerId
@@ -1386,10 +1384,8 @@ $(function () {
                         //显示保存按钮
                         $('.saving').css('display', 'block');
                         $('.createReplica').css('display', 'none');
-                        alert('创建成功!');
-                    } else {
-                        alert("保存成功!");
                     }
+                    alert("成功");
                 }
             },
             error: function () {
@@ -1685,7 +1681,7 @@ $(function () {
 
         //deploy job
         if (tar.tagName.toLowerCase() === 'p' && $(tar).hasClass('deployReplica')) {
-            console.log('deployReplica~~~~');
+            console.log('jobBtn~~~~');
             deployReplica();
         }
 
@@ -1827,7 +1823,7 @@ $(function () {
 
         var canD = canDeploy(conId);
         if(!canD) {
-            alert('流/挖掘组件为空,不可发布!');
+            alert('挖掘组件为空,不可发布!');
             return;
         }
 
@@ -1893,11 +1889,9 @@ $(function () {
                     $('.jobTable').html('')
                 }
                 var regExp2 = new RegExp("发布");
-                if(regExp2.test(status)) {
+                if(regExp2.test(status) && jobId!=undefined) {
                     //设置Job的ID
-                    if(jobId!=undefined) {
-                        $('.downline').attr('jobid', jobId);
-                    }
+                    $('.downline').attr('jobid', jobId);
                     //将按钮改为发布
                     $('.downline').css('display', 'block');
                     $('.deployReplica').css('display', 'none');
@@ -1912,30 +1906,9 @@ $(function () {
         })
     }
 
-/*    //输入信息校验
-    function checkInfo(info) {
-        //01.为空
-
-        //02.长度
-
-        //03.特殊字符
-
-        //04.必填
-
-        //05.端口(1~65535)
-
-    }*/
-
     //controller发布, 删除
     function deleteJobPlanInfo() {
         var jobPlanId = $('#idNameE option:selected').attr('value');
-
-        //如果调度信息已经发布,要先下线后,再进行删除
-        var isRun = $('.deployState').attr('isrun');
-        if(isRun==1) {
-            alert('请下线后,再删除调度信息');
-            return;
-        }
 
         if(jobPlanId != 'none') {
             $.ajax({

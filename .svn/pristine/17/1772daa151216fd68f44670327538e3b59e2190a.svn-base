@@ -562,7 +562,7 @@
 							</div>
 							<div class="dataMinL-bottom">
 								<ul class="tabs tabs2">
-									<li class="thistab" style="pointer-events: none;"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
+									<li class="thistab"><a tab="tab2_2"><span class="log"></span><p class="textArea">日志</p></a></li>
 								</ul>
 								<div class="dataMinFile data-mining-log">
 									<!-- <p>log1</p>

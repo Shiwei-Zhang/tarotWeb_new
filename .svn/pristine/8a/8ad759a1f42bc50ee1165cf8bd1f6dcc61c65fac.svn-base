@@ -3386,7 +3386,8 @@ right style
 
 .target label {
     display: inline-block;
-    width: 261px;
+    width: 252px;
+    /*width: 293px;*/
     height: 20px;
     font-size: 14px;
 }
@@ -3394,6 +3395,7 @@ right style
 .target label input {
     width: 90%;
     height: 15px;
+    /*border-radius: 1px;*/
     border: 1px solid #c4c4c4;
 }
 

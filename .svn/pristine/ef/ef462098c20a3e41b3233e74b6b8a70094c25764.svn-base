@@ -1617,16 +1617,7 @@ ul.root_tree li div {
 .dataMinL-bottom .tabs {
     background: #f6f6f6;
 }
-.dataMinL-bottom .dataMinFile{
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-    height: 270px;
-    max-height: 270px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+
 .dataMinL-bottom .dataMinFile p {
     height: 25px;
     line-height: 25px;
@@ -2687,10 +2678,6 @@ ul.root_tree li div {
 /*flow start*/
 .codePart{
     float: left !important;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
 }
 .module-flow {
     height: 100%;
@@ -2712,10 +2699,6 @@ ul.root_tree li div {
     height: 403px;
     overflow-y: scroll;
     overflow-x: hidden;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
 }
 
 #tabbox1, #tabbox2 {
@@ -3386,7 +3369,8 @@ right style
 
 .target label {
     display: inline-block;
-    width: 261px;
+    width: 252px;
+    /*width: 293px;*/
     height: 20px;
     font-size: 14px;
 }
@@ -3394,6 +3378,7 @@ right style
 .target label input {
     width: 90%;
     height: 15px;
+    /*border-radius: 1px;*/
     border: 1px solid #c4c4c4;
 }
 

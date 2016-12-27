@@ -344,7 +344,7 @@ $(function(){
         $('.one-btn input').unbind('click').click(function () {
         	var content = $('.sourceFieldEvent .tableContainer tr');
         	if(content.length <= 1){
-        		$.dialog('没有字段！');
+        		$.dialog('请先选择一个logic node.');
         		return;
         	}
             $('.sourceFieldEvent,.mask').show();
@@ -410,7 +410,6 @@ $(function(){
             var pid = parentDom.parent().parent().parent().prev().attr("id");
             var menuId= parentDom.parent().attr("id");
             var type=parentDom.parent().attr("menuType");
-			name=name.replace(/(^ +)|( +$)/g,'');
             nameIsExist(name,menuId,pid,userId,type);
             if(specialSymbols.test(name)){
                 $.dialog("不能包含特殊字符！");
